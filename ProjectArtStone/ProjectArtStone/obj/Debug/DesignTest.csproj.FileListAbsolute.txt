@@ -1,1 +1,2 @@
 C:\Users\Admin\Desktop\ArtStone\ProjectArtStone\ProjectArtStone\bin\Debug\ProjectArtStone.exe.config
+C:\Users\Admin\Desktop\Tavlor\ProjectArtStone\ProjectArtStone\bin\Debug\ProjectArtStone.exe.config

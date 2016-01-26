@@ -5,9 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectArtStone"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Logga In" Height="350" Width="525">
     <Grid>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="205,156,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="button" Content="Logga in" HorizontalAlignment="Left" Margin="195,228,0,0" VerticalAlignment="Top" Width="140" Height="33" FontSize="21.333" RenderTransformOrigin="0.495,1.495"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="24" Margin="146,145,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="235"/>
+        <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="24" Margin="146,184,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="235"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="121" Margin="146,19,0,0" VerticalAlignment="Top" Width="235" Source="Assets/logo.png"/>
 
     </Grid>
 </Window>
