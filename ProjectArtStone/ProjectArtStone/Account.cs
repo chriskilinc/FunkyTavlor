@@ -20,8 +20,5 @@ namespace ProjectArtStone
         }
     }
 
-    public Account()
-    {
-
-    }
+   
 }

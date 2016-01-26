@@ -12,7 +12,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
     <Grid>
-        <Button x:Name="button" Content="Logga in" HorizontalAlignment="Left" Margin="203,224,0,0" VerticalAlignment="Top" Width="117" Height="39" FontSize="21.333" RenderTransformOrigin="0.495,1.495" Background="#FFEE832B"/>
+        <Button x:Name="button" Content="Logga in" HorizontalAlignment="Left" Margin="203,224,0,0" VerticalAlignment="Top" Width="117" Height="39" FontSize="21.333" RenderTransformOrigin="0.495,1.495" Background="#FFEE832B" Click="button_Click"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="24" Margin="146,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235"/>
         <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="24" Margin="146,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235"/>
         <Label x:Name="label" Content="Användarnamn:" HorizontalAlignment="Left" Margin="50,143,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.342,-0.038"/>
