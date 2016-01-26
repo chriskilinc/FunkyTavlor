@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectArtStone"
         mc:Ignorable="d"
-        Title="Main" Height="720" Width="1280" MaxHeight="1080" MaxWidth="1920">
+        Title="Main" Height="720" Width="1280" MaxHeight="720" MaxWidth="1280" MinHeight="720" MinWidth="1280">
 
     <Grid Background="#FF2B2B2B">
         <Grid Margin="0,74,0,101">
-            <Image x:Name="image" HorizontalAlignment="Left" Height="360" Margin="325,50,0,0" VerticalAlignment="Top" Width="640" Source="Assets/640x360 placeholder.png" Stretch="Fill"/>
-            <Button x:Name="btnEdit" Content="Redigera" HorizontalAlignment="Left" Margin="325,415,0,0" VerticalAlignment="Top" Width="640" RenderTransformOrigin="0.5,0.422" Background="#FFEE832B"/>
+            <Image x:Name="image" HorizontalAlignment="Left" Height="360" Margin="325,50,0,0" VerticalAlignment="Top" Width="640" Source="Assets/640x360 placeholder.png" Stretch="Fill" MouseUp="image_MouseUp" />
+            <Button x:Name="btnEdit" Content="Redigera" HorizontalAlignment="Left" Margin="325,415,0,0" VerticalAlignment="Top" Width="640" RenderTransformOrigin="0.5,0.422" Background="#FFEE832B" Click="btnEdit_Click"/>
             <TextBox x:Name="tbxSearch" HorizontalAlignment="Left" Height="23" Margin="325,452,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="640" FontFamily="Robotico" Foreground="White" BorderBrush="#FFEE832B"/>
         </Grid>
         <Label x:Name="lblcomment1" Content="Coverflow goes here" HorizontalAlignment="Left" Margin="1022,263,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="236" Foreground="#DDFFFFFF" FontFamily="Comic Sans MS" FontSize="18.667">

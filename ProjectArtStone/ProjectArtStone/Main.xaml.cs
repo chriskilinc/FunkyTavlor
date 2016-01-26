@@ -23,5 +23,15 @@ namespace ProjectArtStone
         {
             InitializeComponent();
         }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Open edit page (Page 3)");
+        }
+
+        private void image_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Open preview page (Page 4)");
+        }
     }
 }
