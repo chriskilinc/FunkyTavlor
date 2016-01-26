@@ -88,6 +88,14 @@ namespace ProjectArtStone {
         #line default
         #line hidden
         
+        
+        #line 21 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button button1;
+        
+        #line default
+        #line hidden
+        
         private bool _contentLoaded;
         
         /// <summary>
@@ -141,6 +149,9 @@ namespace ProjectArtStone {
             return;
             case 6:
             this.image = ((System.Windows.Controls.Image)(target));
+            return;
+            case 7:
+            this.button1 = ((System.Windows.Controls.Button)(target));
             return;
             }
             this._contentLoaded = true;
