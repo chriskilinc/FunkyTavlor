@@ -7,24 +7,32 @@
         mc:Ignorable="d"
         Title="Main" Height="720" Width="1280" MaxHeight="1080" MaxWidth="1920">
 
-    <Grid>
-        <Grid Margin="0,100">
-            <Image x:Name="image" HorizontalAlignment="Left" Height="319" Margin="120,100,0,0" VerticalAlignment="Top" Width="1020" RenderTransformOrigin="0.5,0.5" Source="Assets/logo.png" Stretch="Fill">
-                <Image.OpacityMask>
-                    <ImageBrush ImageSource="Assets/logo.png"/>
-                </Image.OpacityMask>
-                <Image.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="0.021"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Image.RenderTransform>
-            </Image>
-            <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="474,447,0,0" VerticalAlignment="Top" Width="75"/>
-
+    <Grid Background="#FF2B2B2B">
+        <Grid Margin="0,74,0,101">
+            <Image x:Name="image" HorizontalAlignment="Left" Height="360" Margin="325,50,0,0" VerticalAlignment="Top" Width="640" Source="Assets/640x360 placeholder.png" Stretch="Fill"/>
+            <Button x:Name="btnEdit" Content="Redigera" HorizontalAlignment="Left" Margin="325,415,0,0" VerticalAlignment="Top" Width="640" RenderTransformOrigin="0.5,0.422" Background="#FFEE832B"/>
+            <TextBox x:Name="tbxSearch" HorizontalAlignment="Left" Height="23" Margin="325,452,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="640" FontFamily="Robotico" Foreground="White" BorderBrush="#FFEE832B"/>
         </Grid>
+        <Label x:Name="lblcomment1" Content="Coverflow goes here" HorizontalAlignment="Left" Margin="1022,263,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="236" Foreground="#DDFFFFFF" FontFamily="Comic Sans MS" FontSize="18.667">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="31.563"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="lblcomment1_Copy" Content="Coverflow goes here" HorizontalAlignment="Left" Margin="59,272,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="236" Foreground="#DDFFFFFF" FontFamily="Comic Sans MS" FontSize="18.667">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="31.563"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
 
     </Grid>
 </Window>
