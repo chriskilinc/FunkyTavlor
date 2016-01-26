@@ -30,7 +30,7 @@ namespace ProjectArtStone
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            var index = Userlist.FindIndex(User => User.Username.Equals(textBox.Text, StringComparison.Ordinal) && User.Password.Equals(textBox_Copy.Text, StringComparison.Ordinal));
+            var index = Userlist.FindIndex(User => User.Username.Equals(textBox.Text, StringComparison.Ordinal) && User.Password.Equals(passwordBox.Password, StringComparison.Ordinal));
             if (index < 0)
             {
                 MessageBox.Show("Uppgifterna du angav finns ej i systemet");
@@ -43,6 +43,16 @@ namespace ProjectArtStone
             }
         }
 
-        
+        private void button_KeyDown(object sender, KeyEventArgs e)
+        {
+           
+        }
+
+        private void textBox2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+        }
+
+
     }
 }
