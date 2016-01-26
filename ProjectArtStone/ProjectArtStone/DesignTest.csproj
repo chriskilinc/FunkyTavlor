@@ -120,6 +120,18 @@
   <ItemGroup>
     <Resource Include="Assets\640x360 placeholder.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\ic_search_black_24dp_1x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\ic_search_white_24dp_1x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\ic_supervisor_account_white_24dp_2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\ic_vpn_key_white_24dp_2x.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
