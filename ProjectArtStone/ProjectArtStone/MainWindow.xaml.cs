@@ -20,10 +20,14 @@ namespace ProjectArtStone
     /// </summary>
     public partial class MainWindow : Window
     {
+        string SweUsername = "Användarnamn";
+
         public MainWindow()
         {
             InitializeComponent();
             Userlist = DataManager.GetUsers();
+            
+            textBox.Text = SweUsername;
         }
 
         List<User> Userlist = new List<User>();
@@ -53,6 +57,14 @@ namespace ProjectArtStone
             
         }
 
+       
 
+        private void textBox_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (textBox.Text == SweUsername)
+            {
+                textBox.Text = "";
+            }
+        }
     }
 }
