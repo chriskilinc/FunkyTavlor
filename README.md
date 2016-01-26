@@ -1,6 +1,8 @@
-# FunkyTavlor
+## FunkyTavlor
 
 # Team:
-Christopher Kilinc
-Daniil Baykov
-Peter Heinum
+*Christopher Kilinc*
+
+*Daniil Baykov*
+
+*Peter Heinum*
