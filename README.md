@@ -1,6 +1,6 @@
-## FunkyTavlor
+# FunkyTavlor
 
-# Team:
+**Team:**
 *Christopher Kilinc*
 
 *Daniil Baykov*
