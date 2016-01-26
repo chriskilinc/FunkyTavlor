@@ -22,6 +22,7 @@ namespace ProjectArtStone
         public Main()
         {
             InitializeComponent();
+
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
@@ -32,6 +33,22 @@ namespace ProjectArtStone
         private void image_MouseUp(object sender, MouseButtonEventArgs e)
         {
             MessageBox.Show("Open preview page (Page 4)");
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+          
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            //MainWindow login = new MainWindow();
+            //login.Show();
+
+            //Main main = new Main();
+            //main.Close();
+
+            //DONT TRY THIS AT HOME
         }
     }
 }
