@@ -23,13 +23,24 @@ namespace ProjectArtStone
         public MainWindow()
         {
             InitializeComponent();
+            Userlist = DataManager.GetUsers();
         }
+
+        List<User> Userlist = new List<User>();
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-            Main m1 = new Main();
-            m1.Show();
+            var index = Userlist.FindIndex(User => User.Username.Equals(textBox.Text, StringComparison.Ordinal) && User.Password.Equals(textBox_Copy.Text, StringComparison.Ordinal));
+            if (index < 0)
+            {
+                MessageBox.Show("Uppgifterna du angav finns ej i systemet");
+            }
+            else
+            {
+                this.Hide();
+                Main m1 = new Main();
+                m1.Show();
+            }
         }
     }
 }
