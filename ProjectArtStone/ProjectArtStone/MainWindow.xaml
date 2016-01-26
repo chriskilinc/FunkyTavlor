@@ -5,12 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectArtStone"
         mc:Ignorable="d"
-        Title="Logga In" Height="350" Width="525">
+        Title="Logga In" Height="350" Width="525"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
     <Grid>
-        <Button x:Name="button" Content="Logga in" HorizontalAlignment="Left" Margin="195,228,0,0" VerticalAlignment="Top" Width="140" Height="33" FontSize="21.333" RenderTransformOrigin="0.495,1.495"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="24" Margin="146,145,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="235"/>
-        <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="24" Margin="146,184,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="235"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="121" Margin="146,19,0,0" VerticalAlignment="Top" Width="235" Source="Assets/logo.png"/>
+        <Button x:Name="button" Content="Logga in" HorizontalAlignment="Left" Margin="203,224,0,0" VerticalAlignment="Top" Width="117" Height="39" FontSize="21.333" RenderTransformOrigin="0.495,1.495" Background="#FFEE832B"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="24" Margin="146,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235"/>
+        <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="24" Margin="146,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235"/>
+        <Label x:Name="label" Content="Användarnamn:" HorizontalAlignment="Left" Margin="50,143,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.342,-0.038"/>
+        <Label x:Name="label1" Content="Lösenord:" HorizontalAlignment="Left" Margin="79,184,0,0" VerticalAlignment="Top"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="76" Margin="93,31,0,0" VerticalAlignment="Top" Width="334" Source="Assets/logo.png"/>
 
     </Grid>
+
 </Window>
