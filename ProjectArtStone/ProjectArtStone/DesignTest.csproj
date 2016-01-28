@@ -69,9 +69,12 @@
     <Compile Include="page3.xaml.cs">
       <DependentUpon>page3.xaml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="page4.xaml.cs">
       <DependentUpon>page4.xaml</DependentUpon>
     </Compile>
+=======
+>>>>>>> f967f9b0e3c0972572069e339f4d1d344cacdb0d
     <Compile Include="Page5.xaml.cs">
       <DependentUpon>Page5.xaml</DependentUpon>
     </Compile>
@@ -98,10 +101,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+<<<<<<< HEAD
     <Page Include="page4.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+=======
+>>>>>>> f967f9b0e3c0972572069e339f4d1d344cacdb0d
     <Page Include="Page5.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
