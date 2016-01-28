@@ -36,3 +36,5 @@ C:\Users\Admin\Desktop\ArtStone\ProjectArtStone\ProjectArtStone\obj\Debug\Projec
 C:\Users\Admin\Desktop\ArtStone\ProjectArtStone\ProjectArtStone\obj\Debug\ProjectArtStone.pdb
 C:\Users\Admin\Desktop\Tavlor\ProjectArtStone\ProjectArtStone\obj\Debug\Main.g.cs
 C:\Users\Admin\Desktop\Tavlor\ProjectArtStone\ProjectArtStone\obj\Debug\Main.baml
+C:\Users\Admin\Desktop\Tavlor\ProjectArtStone\ProjectArtStone\obj\Debug\Page5.g.cs
+C:\Users\Admin\Desktop\Tavlor\ProjectArtStone\ProjectArtStone\obj\Debug\Page5.baml

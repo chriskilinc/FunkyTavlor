@@ -19,10 +19,7 @@ namespace ProjectArtStone
             return list;
         }
 
-        
-        
     }
 
-
-
+    
 }
