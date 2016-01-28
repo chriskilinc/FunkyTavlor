@@ -22,8 +22,6 @@ namespace ProjectArtStone
         public Main()
         {
             InitializeComponent();
-            
-
         }
 
         List<User> Userlist = new List<User>();
@@ -31,11 +29,20 @@ namespace ProjectArtStone
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Open edit page (Page 3)");
+            MessageBox.Show("Open edit page (Page 3)");
+            MessageBox.Show("Open edit page (Page 3)");
+            MessageBox.Show("Open edit page (Page 3)");
+            MessageBox.Show("För att hedra daniil");
+            this.Hide();
+            page3 p3 = new page3();
+            p3.Show();
         }
 
         private void image_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show("Open preview page (Page 4)");
+        {            
+            this.Hide();
+            page4 p4 = new page4();
+            p4.Show();
         }
 
         
@@ -57,8 +64,10 @@ namespace ProjectArtStone
         }
 
         private void image2_MouseUp_1(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show("Open Account page (Page 5)");
+        {            
+            this.Hide();
+            Page5 p5 = new Page5();
+            p5.Show();
         }
     }
 }
