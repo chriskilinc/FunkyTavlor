@@ -13,9 +13,9 @@
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
     <Grid Background="#FF2B2B2B">
         <Button x:Name="button" Content="Logga in" HorizontalAlignment="Left" Margin="347,197,0,0" VerticalAlignment="Top" Width="71" Height="20" FontSize="9.333" RenderTransformOrigin="0.495,1.495" Background="#FFEE832B" Click="button_Click" BorderBrush="#FF2B2B2B" KeyDown="button_KeyDown" IsDefault="True"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="24" Margin="110,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" SelectionBrush="#FFEE832B" BorderBrush="#FFEE832B" Foreground="#DDFFFFFF" MouseEnter="textBox_MouseEnter"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="24" Margin="110,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" SelectionBrush="#FFEE832B" BorderBrush="White" Foreground="#DDFFFFFF" MouseEnter="textBox_MouseEnter" TextChanged="textBox_TextChanged"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="76" Margin="84,30,0,0" VerticalAlignment="Top" Width="334" Source="Assets/logo.png"/>
-        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="110,155,0,0" VerticalAlignment="Top" Width="308" RenderTransformOrigin="0.5,0.5" BorderBrush="#FFEE832B" Foreground="#DDFFFFFF" MaxLength="25" PasswordChar="*"/>
+        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="110,155,0,0" VerticalAlignment="Top" Width="308" RenderTransformOrigin="0.5,0.5" BorderBrush="White" Foreground="#DDFFFFFF" MaxLength="25" PasswordChar="*" SelectionBrush="#FFEE832B"/>
         <Image x:Name="image1" HorizontalAlignment="Left" Height="24" Margin="84,131,0,0" VerticalAlignment="Top" Width="26" Source="Assets/ic_supervisor_account_white_24dp_2x.png" RenderTransformOrigin="1.256,1.111"/>
         <Image x:Name="image2" HorizontalAlignment="Left" Height="24" Margin="84,160,0,0" VerticalAlignment="Top" Width="26" Source="Assets/ic_vpn_key_white_24dp_2x.png"/>
 

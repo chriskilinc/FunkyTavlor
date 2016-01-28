@@ -66,5 +66,18 @@ namespace ProjectArtStone
                 textBox.Text = "";
             }
         }
+
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void textBox_selectionChanged(object sender, RoutedEventArgs e)
+        {
+
+            
+
+            
+        }
     }
 }
