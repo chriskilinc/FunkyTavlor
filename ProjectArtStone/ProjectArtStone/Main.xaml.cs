@@ -22,8 +22,11 @@ namespace ProjectArtStone
         public Main()
         {
             InitializeComponent();
+            
 
         }
+
+        List<User> Userlist = new List<User>();
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {

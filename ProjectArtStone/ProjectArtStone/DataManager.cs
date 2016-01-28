@@ -12,8 +12,9 @@ namespace ProjectArtStone
         {
             var list = new List<User>()
             {
-                new User() {ID="1", Username ="admin", Password="1234" },
-                new User() {ID ="2", Username ="admin2", Password="1234"}
+                new User() {ID="1", Username ="admin", Password="1234", FirstName="Daniil", LastName ="Baykov" },
+                new User() {ID ="2", Username ="chrissy", Password="1234", FirstName="Chris", LastName="Kilinc"},
+                new User() {ID ="3", Username ="pete", Password="1234", FirstName="Peter", LastName="Heinum"}
             };
             return list;
         }
