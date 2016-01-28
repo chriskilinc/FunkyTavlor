@@ -22,6 +22,15 @@ namespace ProjectArtStone
         public page3()
         {
             InitializeComponent();
+            ArtworkDb.Artlist = ArtworkDb.GetArts();
+            foreach (var item in ArtworkDb.Artlist)
+            {
+                listBox.Items.Add(item.Titel);
+            }
+            
+            
         }
+
+
     }
 }

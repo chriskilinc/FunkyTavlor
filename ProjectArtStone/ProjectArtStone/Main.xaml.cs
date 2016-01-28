@@ -28,11 +28,6 @@ namespace ProjectArtStone
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Open edit page (Page 3)");
-            MessageBox.Show("Open edit page (Page 3)");
-            MessageBox.Show("Open edit page (Page 3)");
-            MessageBox.Show("Open edit page (Page 3)");
-            MessageBox.Show("För att hedra daniil");
             this.Hide();
             page3 p3 = new page3();
             p3.Show();

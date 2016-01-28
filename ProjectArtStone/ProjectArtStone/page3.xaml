@@ -9,7 +9,7 @@
     <Grid Background="#FF2B2B2B">
         <Image x:Name="image" HorizontalAlignment="Left" Height="669" Margin="304,10,0,0" VerticalAlignment="Top" Width="490" OpacityMask="Black"/>
         <Image x:Name="image1" HorizontalAlignment="Left" Height="250" Margin="815,10,0,0" VerticalAlignment="Top" Width="444" Source="Assets/placeholder444x250.png" Stretch="Fill"/>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="650" Margin="10,10,0,0" VerticalAlignment="Top" Width="268" Foreground="#DD000000" Background="Red"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="650" Margin="10,10,0,0" VerticalAlignment="Top" Width="268" Foreground="#DD000000" Background="White"/>
         <Button x:Name="btnändra" Content="Ändra" Height="Auto" Margin="823,616,357,29"/>
         <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="650" Margin="304,10,0,0" VerticalAlignment="Top" Width="490" OpacityMask="Black" Source="Assets/640x360 placeholder.png" Stretch="Fill"/>
         <Button x:Name="btnTabort" Content="Ta bort" Height="Auto" Margin="992,616,188,29"/>
