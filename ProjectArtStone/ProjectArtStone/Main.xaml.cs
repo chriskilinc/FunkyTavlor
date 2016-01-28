@@ -58,7 +58,11 @@ namespace ProjectArtStone
 
         private void image2_MouseUp_1(object sender, MouseButtonEventArgs e)
         {
+<<<<<<< HEAD
             MessageBox.Show("Open preview page (Page 5)");
+=======
+            MessageBox.Show("Open Account page (Page 6)");
+>>>>>>> a2a01921b79a8117478b531389d2c8b0ffd11e73
         }
     }
 }
