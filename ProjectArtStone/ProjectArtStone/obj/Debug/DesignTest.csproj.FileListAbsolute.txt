@@ -37,6 +37,10 @@ C:\Users\Admin\Desktop\ArtStone\ProjectArtStone\ProjectArtStone\obj\Debug\Projec
 C:\Users\Admin\Desktop\Tavlor\ProjectArtStone\ProjectArtStone\obj\Debug\Main.g.cs
 C:\Users\Admin\Desktop\Tavlor\ProjectArtStone\ProjectArtStone\obj\Debug\Main.baml
 C:\Users\Admin\Desktop\ProjektArtstone\ProjectArtStone\ProjectArtStone\bin\Debug\ProjectArtStone.exe.config
+C:\Users\Admin\Desktop\ProjektArtstone\ProjectArtStone\ProjectArtStone\bin\Debug\ProjectArtStone.exe
+C:\Users\Admin\Desktop\ProjektArtstone\ProjectArtStone\ProjectArtStone\bin\Debug\ProjectArtStone.pdb
+C:\Users\Admin\Desktop\ProjektArtstone\ProjectArtStone\ProjectArtStone\bin\Debug\MaterialDesignColors.dll
+C:\Users\Admin\Desktop\ProjektArtstone\ProjectArtStone\ProjectArtStone\bin\Debug\MaterialDesignThemes.Wpf.dll
 C:\Users\Admin\Desktop\ProjektArtstone\ProjectArtStone\ProjectArtStone\obj\Debug\DesignTest.csprojResolveAssemblyReference.cache
 C:\Users\Admin\Desktop\ProjektArtstone\ProjectArtStone\ProjectArtStone\obj\Debug\App.baml
 C:\Users\Admin\Desktop\ProjektArtstone\ProjectArtStone\ProjectArtStone\obj\Debug\Main.g.cs
@@ -44,10 +48,6 @@ C:\Users\Admin\Desktop\ProjektArtstone\ProjectArtStone\ProjectArtStone\obj\Debug
 C:\Users\Admin\Desktop\ProjektArtstone\ProjectArtStone\ProjectArtStone\obj\Debug\App.g.cs
 C:\Users\Admin\Desktop\ProjektArtstone\ProjectArtStone\ProjectArtStone\obj\Debug\ProjectArtStone_MarkupCompile.cache
 C:\Users\Admin\Desktop\ProjektArtstone\ProjectArtStone\ProjectArtStone\obj\Debug\ProjectArtStone_MarkupCompile.lref
-C:\Users\Admin\Desktop\ProjektArtstone\ProjectArtStone\ProjectArtStone\bin\Debug\ProjectArtStone.exe
-C:\Users\Admin\Desktop\ProjektArtstone\ProjectArtStone\ProjectArtStone\bin\Debug\ProjectArtStone.pdb
-C:\Users\Admin\Desktop\ProjektArtstone\ProjectArtStone\ProjectArtStone\bin\Debug\MaterialDesignColors.dll
-C:\Users\Admin\Desktop\ProjektArtstone\ProjectArtStone\ProjectArtStone\bin\Debug\MaterialDesignThemes.Wpf.dll
 C:\Users\Admin\Desktop\ProjektArtstone\ProjectArtStone\ProjectArtStone\obj\Debug\Main.baml
 C:\Users\Admin\Desktop\ProjektArtstone\ProjectArtStone\ProjectArtStone\obj\Debug\MainWindow.baml
 C:\Users\Admin\Desktop\ProjektArtstone\ProjectArtStone\ProjectArtStone\obj\Debug\ProjectArtStone.g.resources

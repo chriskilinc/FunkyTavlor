@@ -1,6 +1,2 @@
 c:\users\admin\documents\visual studio 2015\Projects\ProjectArtStone\ProjectArtStone\bin\Debug\ProjectArtStone.exe.config
-<<<<<<< HEAD
-C:\Users\Admin\Desktop\ProjektArtstone\ProjectArtStone\ProjectArtStone\bin\Debug\ProjectArtStone.exe.config
-=======
 C:\Users\Admin\Desktop\ArtStone\ProjectArtStone\ProjectArtStone\bin\Debug\ProjectArtStone.exe.config
->>>>>>> 443650d470a13944b9804f5287a564c86cbbbae2
