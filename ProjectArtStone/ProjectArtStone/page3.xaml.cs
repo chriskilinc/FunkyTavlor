@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace ProjectArtStone
 {
     /// <summary>
-    /// Interaction logic for page4.xaml
+    /// Interaction logic for page3.xaml
     /// </summary>
-    public partial class page4 : Window
+    public partial class page3 : Window
     {
-        public page4()
+        public page3()
         {
             InitializeComponent();
         }

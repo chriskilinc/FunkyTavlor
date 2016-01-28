@@ -66,8 +66,11 @@
     <Compile Include="Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>
-    <Compile Include="page4.xaml.cs">
-      <DependentUpon>page4.xaml</DependentUpon>
+    <Compile Include="page3.xaml.cs">
+      <DependentUpon>page3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page5.xaml.cs">
+      <DependentUpon>Page5.xaml</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
     <Page Include="Main.xaml">
@@ -88,9 +91,13 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="page4.xaml">
+    <Page Include="page3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page5.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +151,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\ic_person_white_24dp_1x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\placeholder444x250.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
