@@ -38,6 +38,8 @@ namespace ProjectArtStone
             MessageBox.Show("Open preview page (Page 4)");
         }
 
+        
+
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
           
@@ -52,6 +54,11 @@ namespace ProjectArtStone
             //main.Close();
 
             //DONT TRY THIS AT HOME
+        }
+
+        private void image2_MouseUp_1(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Open preview page (Page 4)");
         }
     }
 }

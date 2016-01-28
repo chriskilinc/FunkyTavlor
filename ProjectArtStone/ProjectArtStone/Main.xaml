@@ -35,7 +35,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Image x:Name="image2" HorizontalAlignment="Left" Height="46" Margin="1203,10,0,0" VerticalAlignment="Top" Width="69" Source="Assets/ic_account_circle_white_24dp_2x.png"/>
+        <Image x:Name="image2" HorizontalAlignment="Left" Height="46" Margin="1203,10,0,0" VerticalAlignment="Top" Width="69" Source="Assets/ic_account_circle_white_24dp_2x.png" MouseUp="image2_MouseUp_1"/>
         <Grid HorizontalAlignment="Left" Height="40" Margin="0,16,0,0" VerticalAlignment="Top" Width="1272"/>
         <Label x:Name="label" Content="Admin" HorizontalAlignment="Left" Margin="1123,16,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,0.084" Height="42" Width="75" FontSize="21.333" Foreground="#DDFFFFFF"/>
     </Grid>
