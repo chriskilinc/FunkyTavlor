@@ -55,3 +55,7 @@ C:\Users\Admin\Desktop\ProjektArtstone\ProjectArtStone\ProjectArtStone\obj\Debug
 C:\Users\Admin\Desktop\ProjektArtstone\ProjectArtStone\ProjectArtStone\obj\Debug\DesignTest.csproj.GenerateResource.Cache
 C:\Users\Admin\Desktop\ProjektArtstone\ProjectArtStone\ProjectArtStone\obj\Debug\ProjectArtStone.exe
 C:\Users\Admin\Desktop\ProjektArtstone\ProjectArtStone\ProjectArtStone\obj\Debug\ProjectArtStone.pdb
+C:\Users\Admin\Desktop\Tavlor\ProjectArtStone\ProjectArtStone\obj\Debug\page3.g.cs
+C:\Users\Admin\Desktop\Tavlor\ProjectArtStone\ProjectArtStone\obj\Debug\Page5.g.cs
+C:\Users\Admin\Desktop\Tavlor\ProjectArtStone\ProjectArtStone\obj\Debug\page3.baml
+C:\Users\Admin\Desktop\Tavlor\ProjectArtStone\ProjectArtStone\obj\Debug\Page5.baml
