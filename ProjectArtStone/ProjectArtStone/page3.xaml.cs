@@ -31,9 +31,9 @@ namespace ProjectArtStone
 
         private void btntillbaka_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-            Main m2 = new Main();
-            m2.Show();
+            this.Close();
+            Main m3 = new Main();
+            m3.Show();
         }
     }
 }

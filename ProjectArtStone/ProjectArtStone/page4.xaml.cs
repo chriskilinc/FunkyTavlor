@@ -23,5 +23,12 @@ namespace ProjectArtStone
         {
             InitializeComponent();
         }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            Main m4 = new Main();
+            m4.Show();
+        }
     }
 }
