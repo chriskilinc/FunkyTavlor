@@ -12,6 +12,7 @@ namespace ProjectArtStone
         public string Titel { get; set; }
         public string Description { get; set; }
         public double Rum { get; set; }
+        public string ImagePath { get; set; }
 
         public Artwork(int artid, string titel, string description, double rum)
         {
