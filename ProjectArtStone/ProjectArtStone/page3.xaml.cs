@@ -28,5 +28,12 @@ namespace ProjectArtStone
                 listBox.Items.Add(item.Titel + " | rum: " + item.Rum);
             }   
         }
+
+        private void btntillbaka_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            Main m2 = new Main();
+            m2.Show();
+        }
     }
 }
