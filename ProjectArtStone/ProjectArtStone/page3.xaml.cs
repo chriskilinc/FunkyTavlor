@@ -25,12 +25,8 @@ namespace ProjectArtStone
             ArtworkDb.Artlist = ArtworkDb.GetArts();
             foreach (var item in ArtworkDb.Artlist)
             {
-                listBox.Items.Add(item.Titel);
-            }
-            
-            
+                listBox.Items.Add(item.Titel + " | rum: " + item.Rum);
+            }   
         }
-
-
     }
 }
