@@ -29,7 +29,7 @@ namespace ProjectArtStone
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            page3 p3 = new page3();
+            uploadimagejam p3 = new uploadimagejam();
             p3.Show();
         }
 

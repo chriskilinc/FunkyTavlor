@@ -22,11 +22,11 @@ namespace ProjectArtStone
         public page3()
         {
             InitializeComponent();
-            ArtworkDb.Artlist = ArtworkDb.GetArts();
-            foreach (var item in ArtworkDb.Artlist)
-            {
-                listBox.Items.Add(item.Titel + " | rum: " + item.Rum);
-            }   
+            //ArtworkDb.Artlist = ArtworkDb.GetArts();
+            //foreach (var item in ArtworkDb.Artlist)
+            //{
+            //    listBox.Items.Add(item.Titel + " | rum: " + item.Rum);
+            //}   
         }
 
         private void btntillbaka_Click(object sender, RoutedEventArgs e)
