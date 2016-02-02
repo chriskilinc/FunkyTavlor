@@ -14,10 +14,16 @@
         <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="650" Margin="304,10,0,0" VerticalAlignment="Top" Width="490" OpacityMask="Black" Source="Assets/640x360 placeholder.png" Stretch="Fill"/>
         <Button x:Name="btnTabort" Content="Ta bort" Height="Auto" Margin="992,587,188,58"/>
         <Button x:Name="btnläggtill" Content="Lägg till" Height="Auto" Margin="1154,587,26,58"/>
-        <RichTextBox x:Name="richTextBox" HorizontalAlignment="Left" Height="298" Margin="815,282,0,0" VerticalAlignment="Top" Width="444" Foreground="Black" Background="Red">
+        <RichTextBox x:Name="richTextBox" HorizontalAlignment="Left" Height="298" Margin="815,282,0,0" VerticalAlignment="Top" Width="444" Foreground="#FFFFFBFB" Background="{x:Null}">
             <FlowDocument>
                 <Paragraph>
-                    <Run Text="RichTextBox"/>
+                    <Run/>
+                </Paragraph>
+                <Paragraph>
+                    <Run Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut erat sit amet arcu commodo tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed eget nisl suscipit, vestibulum orci at, mattis enim. Sed ut tempor nisi. Pellentesque sed eros felis. Nunc molestie diam in tellus consectetur, pellentesque ornare metus ullamcorper. Quisque egestas urna a augue mollis ultricies. Donec nisi nunc, rhoncus vitae elementum quis, pretium at est. Proin blandit imperdiet lectus ac iaculis. Ut placerat, mauris sit amet iaculis interdum, odio magna scelerisque leo, eu hendrerit massa eros sit amet quam. Aenean sit amet condimentum lectus, vitae posuere sem. Nunc placerat, lacus nec lacinia porta, eros massa posuere quam, sit amet viverra justo leo at est."/>
+                </Paragraph>
+                <Paragraph>
+                    <Run Text="Donec a lacus gravida augue porta venenatis. Cras vulputate, dolor ut elementum tincidunt, sem enim euismod ipsum, quis fringilla velit turpis in justo. Aenean sed"/>
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>

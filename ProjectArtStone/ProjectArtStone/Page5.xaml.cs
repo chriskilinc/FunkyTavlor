@@ -22,10 +22,6 @@ namespace ProjectArtStone
         public Page5()
         {
             InitializeComponent();
-            
         }
-
-        List<User> Userlist = new List<User>();
-
     }
 }

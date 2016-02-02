@@ -5,23 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectArtStone"
         mc:Ignorable="d"
-        Title="Mitt konto" MinHeight="300" MaxWidth="300" MaxHeight= "300" MinWidth="300" Background="#FF2B2B2B">
-    <Grid>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="134" Margin="79,43,0,0" VerticalAlignment="Top" Width="131" Source="Assets/ic_person_white_48dp_2x.png" RenderTransformOrigin="0.5,0.5">
+        Title="Page5" Height="300" Width="300">
+    <Grid Background="#FF2B2B2B">
+        <Image x:Name="image" HorizontalAlignment="Left" Height="174" Margin="64,22,0,0" VerticalAlignment="Top" Width="171" Source="Assets/ic_person_white_48dp_2x.png" RenderTransformOrigin="0.5,0.5" OpacityMask="Black">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="-0.32"/>
+                    <RotateTransform Angle="-0.159"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="image1" HorizontalAlignment="Left" Height="15" Margin="190,157,0,0" VerticalAlignment="Top" Width="18" Source="Assets/ic_add_a_photo_white_24dp_2x.png" Opacity="0.6"/>
-        <Border BorderBrush="#FFEE832B" BorderThickness="1" HorizontalAlignment="Left" Height="130" VerticalAlignment="Top" Width="128" Margin="80,46,0,0"/>
-        <Label x:Name="label2" Content="0707247642" HorizontalAlignment="Left" Margin="108,207,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
-        <Label x:Name="label1" Content="admin@huddinge.se" HorizontalAlignment="Left" Margin="85,189,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
-        <Label x:Name="label" Content="Admin" HorizontalAlignment="Left" Margin="121,176,0,0" VerticalAlignment="Top" Width="46" Foreground="#DDFFFFFF"/>
+        <Border BorderBrush="#FFFF9800" BorderThickness="1" HorizontalAlignment="Left" Height="166" Margin="64,26,0,0" VerticalAlignment="Top" Width="169"/>
+        <Label x:Name="label" Content="Admin" HorizontalAlignment="Left" Margin="118,192,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontWeight="Bold" FontSize="16"/>
+        <Label x:Name="label1" Content="admin@huddinge.se" HorizontalAlignment="Left" Margin="91,223,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#DDFFFFFF"/>
 
     </Grid>
 </Window>
