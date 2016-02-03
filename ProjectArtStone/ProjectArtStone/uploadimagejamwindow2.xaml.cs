@@ -60,33 +60,35 @@ namespace ProjectArtStone
             sqa.Fill(ds);
             sqlCon.Close();
 
-            byte[] data = (byte[])ds.Tables[0].Rows[0][0];
 
-            MemoryStream strm = new MemoryStream();
 
-            strm.Write(data, 0, data.Length);
+            //byte[] data = (byte[])ds.Tables[0].Rows[0][0];
 
-            strm.Position = 0;
+            //MemoryStream strm = new MemoryStream();
 
-            Image img = Image.fr
+            //strm.Write(data, 0, data.Length);
+
+            //strm.Position = 0;
 
             //Image img = Image.FromStream(strm);
 
-            BitmapImage bi = new BitmapImage();
+            ////Image img = Image.FromStream(strm);
 
-            bi.BeginInit();
+            //BitmapImage bi = new BitmapImage();
 
-            MemoryStream ms = new MemoryStream();
+            //bi.BeginInit();
 
-            img.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+            //MemoryStream ms = new MemoryStream();
 
-            ms.Seek(0, SeekOrigin.Begin);
+            //img.Save(ms, Image.ImageFormat.Bmp);
 
-            bi.StreamSource = ms;
+            //ms.Seek(0, SeekOrigin.Begin);
 
-            bi.EndInit();
+            //bi.StreamSource = ms;
 
-            imagebox.Source = bi;
+            //bi.EndInit();
+
+            //imagebox.Source = bi;
 
 
         }

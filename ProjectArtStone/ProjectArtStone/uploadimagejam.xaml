@@ -11,7 +11,7 @@
         <TextBox x:Name="tbname" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Margin="25,10,0,0"/>
         <Button x:Name="btnsave" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="25,162,0,0" Click="btnsave_Click"/>
         <Button x:Name="btnnext" Content="Next" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="127,162,0,0" Click="btnnext_Click"/>
-        <Button x:Name="Loadimage" Content="LoadImg" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="161,38,0,0" Click="btnsave_Click"/>
+        <Button x:Name="Loadimage" Content="LoadImg" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="161,38,0,0" Click="LoadImg_Click"/>
 
 
 
