@@ -31,17 +31,32 @@ namespace ProjectArtStone
 
         private void btnsave_Click(object sender, RoutedEventArgs e)
         {
+            
+
+            
+        }
+
+        private void btnnext_Click(object sender, RoutedEventArgs e)
+        {
+         
+            uploadimagejamwindow2 obj = new uploadimagejamwindow2();
+            obj.Show();
+            this.Close();
+        }
+
+        private void LoadImg_Click(object sender, RoutedEventArgs e)
+        {
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
             dlg.ShowDialog();
 
-            FileStream fs = new FileStream(dlg.FileName, FileMode.Open,FileAccess.Read);
+            FileStream fs = new FileStream(dlg.FileName, FileMode.Open, FileAccess.Read);
 
             byte[] data = new byte[fs.Length];
             fs.Read(data, 0, System.Convert.ToInt32(fs.Length));
 
             fs.Close();
 
-            SqlConnection  sqlCon = new SqlConnection(@"Data Source=(localdb)\mssqllocaldb;Initial Catalog=ProjektArtstoneJammingDb;Integrated Security=True");
+            SqlConnection sqlCon = new SqlConnection(@"Data Source=(localdb)\mssqllocaldb;Initial Catalog=ProjektArtstoneJammingDb;Integrated Security=True");
 
             sqlCon.Open();
             SqlCommand sc = new SqlCommand("insert into picture(pic, name) values(@p, @n)", sqlCon);
@@ -51,19 +66,12 @@ namespace ProjectArtStone
             sc.ExecuteNonQuery();
             sqlCon.Close();
 
+
             ImageSourceConverter imgs = new ImageSourceConverter();
             imagebox.SetValue(Image.SourceProperty, imgs.
             ConvertFromString(dlg.FileName.ToString()));
 
             tbname.Text = "";
-        }
-
-        private void btnnext_Click(object sender, RoutedEventArgs e)
-        {
-         
-            uploadimagejamwindow2 obj = new uploadimagejamwindow2();
-            obj.Show();
-            this.Close();
         }
     }
 }

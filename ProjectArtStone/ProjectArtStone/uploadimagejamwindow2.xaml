@@ -8,10 +8,10 @@
         Title="uploadimagejamwindow2" Height="300" Width="300">
     <Grid>
         <ListBox x:Name="lbpics" Margin="10,50,142,54" SelectionChanged="lbpics_SelectionChanged"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="34,28,0,0"><Run Text="Available Pictures"/><InlineUIContainer>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="186,37,0,0"><Run Text="Available Pictures"/><InlineUIContainer>
     			
     		</InlineUIContainer></TextBlock>
-        <Image x:Name="imagebox" Height="100" Width="100" Margin="34,150,158,19"/>
+        <Image x:Name="imagebox" Height="100" Width="100" Margin="186,70,6,99"/>
         <Button x:Name="btnexit" Content="Exit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="186,210,0,0" Click="btnexit_Click"/>
     </Grid>
 </Window>

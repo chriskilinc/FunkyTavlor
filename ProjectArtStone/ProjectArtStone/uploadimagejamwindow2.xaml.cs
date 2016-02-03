@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Drawing;
 
 namespace ProjectArtStone
 {
@@ -57,6 +59,34 @@ namespace ProjectArtStone
             SqlDataAdapter sqa = new SqlDataAdapter("Select pic from picture where name='" + lb.Content.ToString() + "'", sqlCon);
             sqa.Fill(ds);
             sqlCon.Close();
+
+            byte[] data = (byte[])ds.Tables[0].Rows[0][0];
+
+            MemoryStream strm = new MemoryStream();
+
+            strm.Write(data, 0, data.Length);
+
+            strm.Position = 0;
+
+            Image img = Image.fr
+
+            //Image img = Image.FromStream(strm);
+
+            BitmapImage bi = new BitmapImage();
+
+            bi.BeginInit();
+
+            MemoryStream ms = new MemoryStream();
+
+            img.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+
+            ms.Seek(0, SeekOrigin.Begin);
+
+            bi.StreamSource = ms;
+
+            bi.EndInit();
+
+            imagebox.Source = bi;
 
 
         }
