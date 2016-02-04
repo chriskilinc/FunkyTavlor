@@ -25,7 +25,7 @@ namespace ProjectArtStone
     /// </summary>
     public partial class uploadimagejamwindow2 : Window
     {
-
+        
         SqlConnection sqlCon = new SqlConnection(@"Data Source=(localdb)\mssqllocaldb;Initial Catalog=ProjektArtstoneJammingDb;Integrated Security=True");
 
         public uploadimagejamwindow2()
@@ -62,23 +62,15 @@ namespace ProjectArtStone
             sqa.Fill(ds);
             sqlCon.Close();
 
-
-
-
             byte[] data = (byte[])ds.Tables[0].Rows[0][0];
 
             MemoryStream strm = new MemoryStream();
-
-            System.Drawing.Image imgWinForms = System.Drawing.Image.FromStream(strm);
-
-
 
             strm.Write(data, 0, data.Length);
 
             strm.Position = 0;
 
-
-            // ImageSource ...
+            System.Drawing.Image img = System.Drawing.Image.FromStream(strm);
 
             BitmapImage bi = new BitmapImage();
 
@@ -86,96 +78,15 @@ namespace ProjectArtStone
 
             MemoryStream ms = new MemoryStream();
 
-            // Save to a memory stream...
-
-            imgWinForms.Save(ms, ImageFormat.Bmp);
-
-            // Rewind the stream...
+            img.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
 
             ms.Seek(0, SeekOrigin.Begin);
-
-            // Tell the WPF image to use this stream...
 
             bi.StreamSource = ms;
 
             bi.EndInit();
 
             imagebox.Source = bi;
-
-
-
-
-
-
-
-
-
-
-
-            //byte[] data = (byte[])ds.Tables[0].Rows[0][0];
-
-            //MemoryStream strm = new MemoryStream();
-
-            //using (MemoryStream stream = strm)
-            //{
-            //    var imageSource = new BitmapImage();
-            //    imageSource.BeginInit();
-            //    imageSource.StreamSource = stream;
-
-            //    strm.Write(data, 0, data.Length);
-
-            //    strm.Position = 0;
-            //                                                     //1
-
-            //    BitmapImage bi = new BitmapImage();
-
-            //    bi.BeginInit();
-
-            //    MemoryStream ms = new MemoryStream();
-
-            //                                                       //2 
-
-            //    ms.Seek(0, SeekOrigin.Begin);
-
-            //    bi.StreamSource = ms;
-
-            //    bi.EndInit();
-
-            //    imagebox.Source = bi;
         }
-
-             
-            //imagebox.Source = imageSource;   1
-
-            //img.Save(ms, Image.ImageFormat.Bmp);   2
-
-
-
-
-            ////System.Drawing.Image img = System.Drawing.Image.FromStream(strm);
-
-
-            //  Image img; //= Image.FromStream(strm);
-
-
-        }
-
-        private static BitmapImage LoadImage(Stream stream)
-        {
-            // assumes that the streams position is at the beginning
-            // for example if you use a memory stream you might need to point it to 0 first
-            var image = new BitmapImage();
-
-            image.BeginInit();
-            image.CacheOption = BitmapCacheOption.OnLoad;
-            image.StreamSource = stream;
-            image.EndInit();
-
-            image.Freeze();
-            return image;
-        }
-
-
-
     }
 }
