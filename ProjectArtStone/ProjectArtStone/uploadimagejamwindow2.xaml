@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="uploadimagejamwindow2" Height="300" Width="300">
     <Grid Background="#FF2B2B2B">
-        <ListBox x:Name="lbpics" Margin="10,50,142,54" SelectionChanged="lbpics_SelectionChanged"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="186,37,0,0" Foreground="White"><Run Text="Available Pictures"/><InlineUIContainer>
+        <ListBox x:Name="lbpics" Margin="10,10,142,10" SelectionChanged="lbpics_SelectionChanged" Foreground="#DDFFFFFF"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="175,38,0,0" Foreground="White" Width="100"><Run Text="Available Pictures"/><InlineUIContainer>
     			
     		</InlineUIContainer></TextBlock>
-        <Image x:Name="imagebox" Height="100" Width="100" Margin="186,70,6,99"/>
+        <Image x:Name="imagebox" Height="100" Width="100" Margin="175,70,17,99"/>
         <Button x:Name="btnexit" Content="Exit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="186,210,0,0" Click="btnexit_Click"/>
     </Grid>
 </Window>
