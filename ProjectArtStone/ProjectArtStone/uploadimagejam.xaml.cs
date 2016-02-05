@@ -61,29 +61,32 @@ namespace ProjectArtStone
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
             dlg.ShowDialog();
 
-            FileStream fs = new FileStream(dlg.FileName, FileMode.Open, FileAccess.Read);
+            if (dlg.FileName != null)
+            {
+                FileStream fs = new FileStream(dlg.FileName, FileMode.Open, FileAccess.Read);
 
-            byte[] data = new byte[fs.Length];
-            fs.Read(data, 0, System.Convert.ToInt32(fs.Length));
+                byte[] data = new byte[fs.Length];
+                fs.Read(data, 0, System.Convert.ToInt32(fs.Length));
 
-            fs.Close();
+                fs.Close();
 
-            SqlConnection sqlCon = new SqlConnection(@"Data Source=(localdb)\mssqllocaldb;Initial Catalog=ProjektArtstoneJammingDb;Integrated Security=True");
+                SqlConnection sqlCon = new SqlConnection(@"Data Source=(localdb)\mssqllocaldb;Initial Catalog=ProjektArtstoneJammingDb;Integrated Security=True");
 
-            sqlCon.Open();
-            SqlCommand sc = new SqlCommand("insert into picture(pic, name) values(@p, @n)", sqlCon);
+                sqlCon.Open();
+                SqlCommand sc = new SqlCommand("insert into picture(pic, name) values(@p, @n)", sqlCon);
 
-            sc.Parameters.AddWithValue("@p", data);
-            sc.Parameters.AddWithValue("@n", tbname.Text);
-            sc.ExecuteNonQuery();
-            sqlCon.Close();
+                sc.Parameters.AddWithValue("@p", data);
+                sc.Parameters.AddWithValue("@n", tbname.Text);
+                sc.ExecuteNonQuery();
+                sqlCon.Close();
 
 
-            ImageSourceConverter imgs = new ImageSourceConverter();
-            imagebox.SetValue(Image.SourceProperty, imgs.
-            ConvertFromString(dlg.FileName.ToString()));
+                ImageSourceConverter imgs = new ImageSourceConverter();
+                imagebox.SetValue(Image.SourceProperty, imgs.
+                ConvertFromString(dlg.FileName.ToString()));
 
-            tbname.Text = "";
+                tbname.Text = "";
+            }
         }
 
         private void tbname_MouseEnter(object sender, MouseEventArgs e)
