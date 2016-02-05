@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:ProjectArtStone"
         mc:Ignorable="d"
         Title="uploadimagejamwindow2" Height="300" Width="300">
-    <Grid>
+    <Grid Background="#FF2B2B2B">
         <ListBox x:Name="lbpics" Margin="10,50,142,54" SelectionChanged="lbpics_SelectionChanged"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="186,37,0,0"><Run Text="Available Pictures"/><InlineUIContainer>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="186,37,0,0" Foreground="White"><Run Text="Available Pictures"/><InlineUIContainer>
     			
     		</InlineUIContainer></TextBlock>
         <Image x:Name="imagebox" Height="100" Width="100" Margin="186,70,6,99"/>

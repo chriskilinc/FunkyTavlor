@@ -22,26 +22,38 @@ namespace ProjectArtStone
     /// </summary>
     public partial class uploadimagejam : Window
     {
-        
 
+        string Namn = "Namn";
+        string Konstnär = "Konstnär";
+        string År = "Utgivningsår";
+        string Rum = "Rum";
+        string Beskrivning = "Beskrivning";
+         
         public uploadimagejam()
         {
             InitializeComponent();
+            tbname.Text = Namn;
+            tbartist.Text = Konstnär;
+            tbyear.Text = År;
+            tbroom.Text = Rum;
+            tbdescription.Text = Beskrivning;
         }
 
         private void btnsave_Click(object sender, RoutedEventArgs e)
         {
-            
 
-            
+            uploadimagejamwindow2 obj = new uploadimagejamwindow2();
+            obj.Show();
+            this.Close();
+
         }
 
         private void btnnext_Click(object sender, RoutedEventArgs e)
         {
-         
-            uploadimagejamwindow2 obj = new uploadimagejamwindow2();
-            obj.Show();
             this.Close();
+            page3 p3 = new page3();
+            p3.Show();
+            
         }
 
         private void LoadImg_Click(object sender, RoutedEventArgs e)
@@ -72,6 +84,46 @@ namespace ProjectArtStone
             ConvertFromString(dlg.FileName.ToString()));
 
             tbname.Text = "";
+        }
+
+        private void tbname_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if(tbname.Text == Namn)
+            {
+                tbname.Text = "";
+            }
+        }
+
+        private void tbartist_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (tbartist.Text == Konstnär)
+            {
+                tbartist.Text = "";
+            }
+        }
+
+        private void tbyear_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if(tbyear.Text == År)
+            {
+                tbyear.Text = "";
+            }
+        }
+
+        private void tbroom_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if(tbroom.Text == Rum)
+            {
+                tbroom.Text = "";
+            }
+        }
+
+        private void tbdescription_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if(tbdescription.Text == Beskrivning)
+            {
+                tbdescription.Text = "";
+            }
         }
     }
 }
