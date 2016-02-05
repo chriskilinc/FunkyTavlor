@@ -5,22 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectArtStone"
         mc:Ignorable="d"
-        Title="uploadimagejam" Height="320.554" Width="766.804">
+        Title="uploadimagejam" Height="320.554" Width="733.59">
     <Grid Background="#FF2B2B2B" Margin="0,0,0,-2">
-        <Image x:Name="imagebox" HorizontalAlignment="Left" Height="269" VerticalAlignment="Top" Width="486" Margin="254,10,0,0"/>
-        <TextBox x:Name="tbname" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Namn" VerticalAlignment="Top" Width="120" Margin="101,37,0,0" MouseEnter="tbname_MouseEnter" Foreground="White" BorderBrush="#FFFF9800" FontSize="10.667"/>
-        <Button x:Name="btnsave" Content="Spara" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="128,200,0,0" Click="btnsave_Click" FontSize="12"/>
-        <Button x:Name="btnnext" Content="Tillbaka" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="128,247,0,0" Click="btnnext_Click" FontSize="12"/>
-        <Button x:Name="Loadimage" Content="Ladda" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="30,200,0,0" Click="LoadImg_Click" FontSize="12"/>
-        <TextBox x:Name="tbartist" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Konstnär" VerticalAlignment="Top" Width="120" Margin="101,65,0,0" MouseEnter="tbartist_MouseEnter" Foreground="White" BorderBrush="#FFFF9800" FontSize="10.667"/>
-        <TextBox x:Name="tbyear" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Utgivningsår" VerticalAlignment="Top" Width="120" Margin="101,93,0,0" MouseEnter="tbyear_MouseEnter" Foreground="White" BorderBrush="#FFFF9800" FontSize="10.667"/>
-        <TextBox x:Name="tbroom" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Rum" VerticalAlignment="Top" Width="120" Margin="101,121,0,0" MouseEnter="tbroom_MouseEnter" Foreground="White" BorderBrush="#FFFF9800" FontSize="10.667"/>
-        <TextBox x:Name="tbdescription" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Beskrivning" VerticalAlignment="Top" Width="120" Margin="101,149,0,0" MouseEnter="tbdescription_MouseEnter" Foreground="White" BorderBrush="#FFFF9800" FontSize="10.667"/>
-        <Label x:Name="label" Content="Namn:" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
-        <Label x:Name="label_Copy" Content="Konstnär:" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
-        <Label x:Name="label_Copy1" Content="Utgivningsår:" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" RenderTransformOrigin="0.507,1.446"/>
+        <Image x:Name="imagebox" HorizontalAlignment="Left" Height="270" VerticalAlignment="Top" Width="480" Margin="236,10,0,0"/>
+        <TextBox x:Name="tbname" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="101,37,0,0" MouseEnter="tbname_MouseEnter" Foreground="White" BorderBrush="White" FontSize="10.667"/>
+        <Button x:Name="btnnext" Content="Tillbaka" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="146,250,0,0" Click="btnnext_Click" FontSize="12"/>
+        <Button x:Name="Loadimage" Content="Ladda" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,250,0,0" Click="LoadImg_Click" FontSize="12"/>
+        <TextBox x:Name="tbartist" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="101,65,0,0" MouseEnter="tbartist_MouseEnter" Foreground="White" BorderBrush="White" FontSize="10.667"/>
+        <TextBox x:Name="tbyear" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="101,93,0,0" MouseEnter="tbyear_MouseEnter" Foreground="White" BorderBrush="White" FontSize="10.667"/>
+        <TextBox x:Name="tbroom" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="101,121,0,0" MouseEnter="tbroom_MouseEnter" Foreground="White" BorderBrush="White" FontSize="10.667"/>
+        <TextBox x:Name="tbdescription" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="101,149,0,0" MouseEnter="tbdescription_MouseEnter" Foreground="White" BorderBrush="White" FontSize="10.667"/>
+        <Label x:Name="label" Content="Namn:" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
+        <Label x:Name="label_Copy" Content="Konstnär:" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" RenderTransformOrigin="0.607,0.482"/>
+        <Label x:Name="label_Copy1" Content="Utgivningsår:" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" RenderTransformOrigin="0.507,1.446"/>
         <Label x:Name="label_Copy2" Content="Rum:" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
-        <Label x:Name="label_Copy3" Content="Beskrivning:" HorizontalAlignment="Left" Margin="10,147,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
+        <Label x:Name="label_Copy3" Content="Beskrivning:" HorizontalAlignment="Left" Margin="10,146,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
 
 
 
