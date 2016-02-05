@@ -54,6 +54,7 @@ namespace ProjectArtStone
 
         private void btnläggtill_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
             uploadimagejam uploadimagepage = new uploadimagejam();
             uploadimagepage.Show();
         }
