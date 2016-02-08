@@ -27,7 +27,7 @@ namespace ProjectArtStoneMain
         public MainWindow()
         {
             InitializeComponent();
-
+            listBox.ItemsSource = OGArtworkDB.Artlist;
             
             
            
@@ -45,7 +45,7 @@ namespace ProjectArtStoneMain
             foreach (var item in OGArtworkDB.Artlist)
             {
                 
-                listBox.Items.Add(item);
+                listBox.Items.Add(item.Titel);
             }
             
         }
