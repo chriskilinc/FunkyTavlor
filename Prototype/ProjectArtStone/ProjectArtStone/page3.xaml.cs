@@ -27,22 +27,9 @@ namespace ProjectArtStone
         public page3()
         {
             InitializeComponent();
-               
 
-            sqlCon.Open();
-            DataSet ds = new DataSet();
 
-            SqlDataAdapter sqa = new SqlDataAdapter("select name from picture", sqlCon);
-            sqa.Fill(ds);
-
-            sqlCon.Close();
-            foreach (DataRow dataRow in ds.Tables[0].Rows)
-            {
-                ListBoxItem lbItem = new ListBoxItem();
-                lbItem.Content = dataRow[0].ToString();
-                listBox.Items.Add(lbItem);
-
-            }
+            updatelistbox();
         }
 
         private void btntillbaka_Click(object sender, RoutedEventArgs e)
@@ -94,5 +81,51 @@ namespace ProjectArtStone
 
             imgChosen.Source = bi;
         }
+
+        private void btnTabort_Click(object sender, RoutedEventArgs e)
+        {
+            sqlCon.Open();
+
+            System.Data.SqlClient.SqlCommand cm = new SqlCommand();
+            cm.Connection = sqlCon;
+
+            cm.CommandText = "SELECT name from picture where id='" + (listBox.SelectedIndex + 6).ToString() + "'";
+
+            string s = cm.ExecuteScalar() as string;
+
+            MessageBox.Show("Du kommer ta bort tavlan " + s + " Hoppas det är okej! :)");
+
+            cm.CommandText ="Delete from picture where id='" + (listBox.SelectedIndex + 6).ToString() + "'";
+
+            cm.ExecuteNonQuery();
+
+            sqlCon.Close();
+
+            listBox.Items.Clear();
+
+           
+
+           // updatelistbox();
+
+        }
+
+        private void updatelistbox()
+        {
+            sqlCon.Open();
+            DataSet ds = new DataSet();
+
+            SqlDataAdapter sqa = new SqlDataAdapter("select name from picture", sqlCon);
+            sqa.Fill(ds);
+
+            sqlCon.Close();
+            foreach (DataRow dataRow in ds.Tables[0].Rows)
+            {
+                ListBoxItem lbItem = new ListBoxItem();
+                lbItem.Content = dataRow[0].ToString();
+                listBox.Items.Add(lbItem);
+
+            }
+        }
+
     }
 }
