@@ -5,10 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectArtStoneMain"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" Background="#FF2B2B2B">
+        Title="MainWindow" Height="350" Width="678.125" Background="#FF2B2B2B">
     <Grid>
         <Button x:Name="button" Content="Upload" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top" Width="70" Background="#FFDDDDDD" Click="button_Click"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="270" Margin="10,10,0,0" VerticalAlignment="Top" Width="480"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="299" Margin="495,10,0,0" VerticalAlignment="Top" Width="165"/>
+        <Button x:Name="Testknapp" Content="Peters Knapp" Margin="85,285,510,0" Click="Testknapp_Click"/>
 
     </Grid>
 </Window>

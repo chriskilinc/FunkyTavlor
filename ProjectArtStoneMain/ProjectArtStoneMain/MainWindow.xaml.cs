@@ -20,9 +20,18 @@ namespace ProjectArtStoneMain
     /// </summary>
     public partial class MainWindow : Window
     {
+        
+        //List<OGArtwork> Artlist = new List<OGArtwork>();
+        List<OGArtwork> Artlist = OGArtworkDB.GetArts();
+        
         public MainWindow()
         {
             InitializeComponent();
+
+            
+            
+           
+            
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -30,6 +39,14 @@ namespace ProjectArtStoneMain
             Upload u1 = new Upload();
             u1.Show();
             
+        }
+
+        private void Testknapp_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in Artlist)
+            {
+                listBox.Items.Add(item.Titel);
+            }
         }
     }
 }
