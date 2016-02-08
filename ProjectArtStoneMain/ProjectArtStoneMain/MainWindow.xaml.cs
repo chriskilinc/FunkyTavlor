@@ -24,5 +24,12 @@ namespace ProjectArtStoneMain
         {
             InitializeComponent();
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            Upload u1 = new Upload();
+            u1.Show();
+            
+        }
     }
 }
