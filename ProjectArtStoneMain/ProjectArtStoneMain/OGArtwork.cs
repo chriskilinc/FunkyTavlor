@@ -6,13 +6,21 @@ using System.Threading.Tasks;
 
 namespace ProjectArtStoneMain
 {
+    
     public class OGArtwork
     {
-        public int ArtId { get; set; }
+        
         public string Titel { get; set; }
+
+
+        public int ArtId { get; set; }
         public string Description { get; set; }
         public double Rum { get; set; }
         public string ImagePath { get; set; }
+
+        
+        
+
 
         public OGArtwork(int artid, string titel, string description, double rum)
         {
