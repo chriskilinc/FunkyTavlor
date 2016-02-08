@@ -26,10 +26,12 @@ namespace ProjectArtStone
             Image = image;
             Visable = visable;
         }
+
         List<Artwork> Inventory;
         public Artwork()
         {
             Inventory = new List<Artwork>();
+            
             //Inventory.Add(new Artwork() { ArtId = 1, Artist = "Picasso", Title = "Guernica" });
             //etc...
         }
