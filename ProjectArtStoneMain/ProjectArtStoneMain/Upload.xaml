@@ -7,11 +7,12 @@
         mc:Ignorable="d"
         Title="Upload" Height="216" Width="384" Background="#FF2B2B2B">
     <Grid>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="117" Margin="158,10,0,0" VerticalAlignment="Top" Width="208"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="117" Margin="158,14,0,0" VerticalAlignment="Top" Width="208"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="18" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" Margin="60,14,0,0"/>
         <Label x:Name="label" Content="Name:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Button x:Name="button" Content="Browse" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-        <Button x:Name="button1" Content="Save" HorizontalAlignment="Left" Margin="90,155,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="button1" Content="Save" HorizontalAlignment="Left" Margin="90,155,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
+        <Label x:Name="label1" Content="Byte: " HorizontalAlignment="Left" Margin="170,155,0,0" VerticalAlignment="Top" Foreground="White" FontSize="10.667"/>
 
     </Grid>
 </Window>
