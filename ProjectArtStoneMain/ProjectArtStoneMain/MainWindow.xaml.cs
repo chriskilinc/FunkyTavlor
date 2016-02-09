@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectArtStone;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,7 @@ namespace ProjectArtStoneMain
         public MainWindow()
         {
             InitializeComponent();
-            listBox.ItemsSource = Artlist;
+            //listBox.ItemsSource = Artlist;
             
 
         }
@@ -54,10 +55,10 @@ namespace ProjectArtStoneMain
         public void updateListbox()
         {
             
-            listBox.Items.Clear();
+            //listBox.Items.Clear();
             foreach (var item in OGArtworkDB.Artlist)
             {
-                if (item.Visable)
+               // if (item.Visable)
                 {
                     listBox.Items.Add(item.Title);
                 }
