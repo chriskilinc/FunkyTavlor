@@ -85,7 +85,7 @@ namespace ProjectArtStone
                 imagebox.SetValue(Image.SourceProperty, imgs.
                 ConvertFromString(dlg.FileName.ToString()));
 
-                tbname.Text = "";
+                tbname.Text = data.ToString();
             }
         }
 

@@ -5,14 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectArtStoneMain"
         mc:Ignorable="d"
-        Title="Upload" Height="216" Width="384" Background="#FF2B2B2B">
+        Title="Upload" Height="270" Width="480" Background="#FF2B2B2B">
     <Grid>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="117" Margin="158,14,0,0" VerticalAlignment="Top" Width="208"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="18" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" Margin="60,14,0,0"/>
-        <Label x:Name="label" Content="Name:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Button x:Name="button" Content="Browse" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-        <Button x:Name="button1" Content="Save" HorizontalAlignment="Left" Margin="90,155,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
-        <Label x:Name="label1" Content="Byte: " HorizontalAlignment="Left" Margin="170,155,0,0" VerticalAlignment="Top" Foreground="White" FontSize="10.667" Width="196"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="152" Margin="192,10,0,0" VerticalAlignment="Top" Width="270"/>
 
+
+        <Button x:Name="button" Content="Browse" HorizontalAlignment="Left" Margin="10,209,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="button1" Content="Save" HorizontalAlignment="Left" Margin="90,209,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
+
+
+        <Label x:Name="lblTitle" Content="Title:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <TextBox x:Name="tbxTitle" HorizontalAlignment="Left" Height="18" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" Margin="60,14,0,0"/>
+
+        <TextBox x:Name="tbxArtist" HorizontalAlignment="Left" Height="18" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" Margin="60,41,0,0"/>
+        <Label x:Name="lblArtist" Content="Artist:" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Foreground="White"/>
+
+        <TextBox x:Name="tbxRoom" HorizontalAlignment="Left" Height="18" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" Margin="60,68,0,0"/>
+        <Label x:Name="lblRoom" Content="Rum:" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Foreground="White"/>
+
+        <TextBox x:Name="tbxDesc" HorizontalAlignment="Left" Height="88" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155" Margin="10,116,0,0" AcceptsTab="True" AcceptsReturn="True" SpellCheck.IsEnabled="True"/>
+        <Label x:Name="lblDesc" Content="Description:" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Foreground="White"/>
+
+        <Label x:Name="label1" Content="Byte: " HorizontalAlignment="Left" Margin="170,207,0,0" VerticalAlignment="Top" Foreground="White" FontSize="10.667" Width="auto"/>
     </Grid>
 </Window>

@@ -24,7 +24,7 @@ namespace ProjectArtStoneMain
         {
             InitializeComponent();
         }
-        byte[] bytedata;
+        byte bytedata;    
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
@@ -36,26 +36,39 @@ namespace ProjectArtStoneMain
                 FileStream fs = new FileStream(dlg.FileName, FileMode.Open, FileAccess.Read);
 
                 byte[] data = new byte[fs.Length];
-                fs.Read(data, 0, System.Convert.ToInt32(fs.Length));
-                bytedata = data;
+                fs.Read(data, 0, System.Convert.ToInt32(fs.Length)); //Storlek?
+                
                 fs.Close();
 
                 //Additem
-                
+                //bytedata =       //Bytedata skall inehålla bildens bitekod, villket vi ej kan ta fram än
+                if (bytedata == null)
+                {
+                    label1.Content = $"Byte: Null";
 
+                }
+                
 
                 ImageSourceConverter imgs = new ImageSourceConverter();
                 image.SetValue(Image.SourceProperty, imgs.
                 ConvertFromString(dlg.FileName.ToString()));
-
                 
-                label1.Content = $"Byte: {bytedata}";
             }
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            OGArtworkDB.Artlist.Add(new OGArtwork() { ArtId = 1, Title = textBox.Text, Description = "Desctiprion", Rum = 0 ,Visible = true });
+            //Check Textboxes
+            if (tbxTitle.Text != null && tbxArtist.Text != null && tbxRoom.Text != null)
+            {
+                MessageBox.Show("Works!");
+                //OGArtworkDB.Artlist.Add(new OGArtwork() { ArtId = 1, Title = tbxTitle.Text, Artist = tbxArtist.Text, Description = tbxDesc.Text, Rum = 0, Visible = true });
+            }
+            else
+            {
+                MessageBox.Show("Error");
+            }
+            
         }
 
         public void CheckDB()
