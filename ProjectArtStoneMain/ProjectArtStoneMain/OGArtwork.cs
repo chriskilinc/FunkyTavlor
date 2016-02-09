@@ -15,17 +15,17 @@ namespace ProjectArtStoneMain
         public string Artist { get; set; }
         public string Description { get; set; }
         public double Rum { get; set; }
-        public byte Image { get; set; }
+        //public byte Image { get; set; }
         public bool Visible { get; set; }
 
-        public OGArtwork(int artid, string artist, string titel, string description, double rum, byte image, bool visible)
+        public OGArtwork(int artid, string artist, string titel, string description, double rum,     bool visible)  //byte image,
         {
             ArtId = artid;
             Artist = artist;
             Title = titel;
             Description = description;
             Rum = rum;
-            Image = image;
+           //Image = image;
             Visible = visible;
         }
 

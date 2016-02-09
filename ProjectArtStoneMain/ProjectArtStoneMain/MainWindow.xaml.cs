@@ -30,7 +30,7 @@ namespace ProjectArtStoneMain
         {
             InitializeComponent();
             //listBox.ItemsSource = Artlist;
-            
+            updateListbox();
             
 
         }
@@ -43,6 +43,11 @@ namespace ProjectArtStoneMain
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            //OGArtworkDB.Artlist.Add(new OGArtwork(1, "Peter", "Peters Tavla", "Holahola", 3, true));
+
+
+            updateListbox();
+            
             Upload u1 = new Upload();
             u1.Show();
         }
@@ -57,7 +62,7 @@ namespace ProjectArtStoneMain
 
         public void updateListbox()
         {
-            
+            listBox.Items.Clear();   
             foreach (var item in OGArtworkDB.Artlist)
             {
                 if(item.Visible== true)
@@ -67,9 +72,19 @@ namespace ProjectArtStoneMain
             }
         }
 
-        private void Testknapp_Click(object sender, RoutedEventArgs e)
+        private void Tabortknapp_Click(object sender, RoutedEventArgs e)
         {
-            updateListbox();
+            if (listBox.SelectedIndex > -1)
+            {
+                OGArtworkDB.Artlist.RemoveAt(listBox.SelectedIndex);
+                updateListbox();
+            }
+            else
+            {
+                MessageBox.Show("Du måste välja vilken tavla du vill ta bort");
+            }
+
+            
         }
 
 

@@ -10,7 +10,7 @@
         <Button x:Name="button" Content="Upload" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top" Width="70" Background="#FFDDDDDD" Click="button_Click"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="270" Margin="10,10,0,0" VerticalAlignment="Top" Width="480"/>
         <ListBox x:Name="listBox"    HorizontalAlignment="Left" Height="299" Margin="495,10,0,0" VerticalAlignment="Top" Width="165"/>
-        <Button x:Name="Testknapp" Content="Peters Knapp" Margin="85,289,497,0" Click="Testknapp_Click"/>
+        <Button x:Name="Testknapp" Content="Ta bort" Margin="85,289,497,0" Click="Tabortknapp_Click"/>
 
     </Grid>
 </Window>

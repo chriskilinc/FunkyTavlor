@@ -20,11 +20,14 @@ namespace ProjectArtStoneMain
     /// </summary>
     public partial class Upload : Window
     {
+        OGArtworkDB Z = new OGArtworkDB();
+
         public Upload()
         {
             InitializeComponent();
+            Refresh();
         }
-        byte bytedata;    
+        byte bytedata;
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
@@ -37,7 +40,7 @@ namespace ProjectArtStoneMain
 
                 byte[] data = new byte[fs.Length];
                 fs.Read(data, 0, System.Convert.ToInt32(fs.Length)); //Storlek?
-                
+
                 fs.Close();
 
                 //Additem
@@ -47,33 +50,39 @@ namespace ProjectArtStoneMain
                     label1.Content = $"Byte: Null";
 
                 }
-                
+
 
                 ImageSourceConverter imgs = new ImageSourceConverter();
                 image.SetValue(Image.SourceProperty, imgs.
                 ConvertFromString(dlg.FileName.ToString()));
-                
+
             }
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             //Check Textboxes
-            if (tbxTitle.Text != null && tbxArtist.Text != null && tbxRoom.Text != null)
-            {
-                MessageBox.Show("Works!");
-                //OGArtworkDB.Artlist.Add(new OGArtwork() { ArtId = 1, Title = tbxTitle.Text, Artist = tbxArtist.Text, Description = tbxDesc.Text, Rum = 0, Visible = true });
-            }
-            else
-            {
-                MessageBox.Show("Error");
-            }
-            
+
+            OGArtworkDB.Artlist.Add(new OGArtwork(1, tbxArtist.Text, tbxTitle.Text, tbxDesc.Text, 3, true));
+            MessageBox.Show("Works!");
+            //OGArtworkDB.Artlist.Add(new OGArtwork() { ArtId = 1, Title ="Ny titel", Artist ="Gunnilla Person", Description = "Fin bild", Rum=0,Visible=true});
+            //OGArtworkDB.Artlist.Add(new OGArtwork() { ArtId = 1, Title = tbxTitle.Text, Artist = tbxArtist.Text, Description = tbxDesc.Text, Rum = 0, Visible = true });
+            //this.Close();
+            //MainWindow m2 = new MainWindow();
+            //m2.Show();
+            Refresh();
+
         }
 
-        public void CheckDB()
+        public void Refresh()
         {
-            
+            foreach (var item in OGArtworkDB.Artlist)
+            {
+                if (item.Visible == true)
+                {
+                    listBox.Items.Add(item.Title);
+                }
+            }
         }
     }
 }

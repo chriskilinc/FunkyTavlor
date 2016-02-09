@@ -27,5 +27,6 @@
         <Label x:Name="lblDesc" Content="Description:" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Foreground="White"/>
 
         <Label x:Name="label1" Content="Byte: " HorizontalAlignment="Left" Margin="170,207,0,0" VerticalAlignment="Top" Foreground="White" FontSize="10.667" Width="auto"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="64" Margin="319,167,0,0" VerticalAlignment="Top" Width="143"/>
     </Grid>
 </Window>
