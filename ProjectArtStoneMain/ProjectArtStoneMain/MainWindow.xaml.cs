@@ -22,13 +22,13 @@ namespace ProjectArtStoneMain
     {
 
         List<OGArtwork> Artlist = new List<OGArtwork>();
-        //List<ProjectArtStone.Artwork> artlistinventory = new List<ProjectArtStone.Artwork>();
-        OGArtworkDB X = new OGArtworkDB();
+        //List<ProjectArtStone.Artwork> artlistinventory = new List<ProjectArtStone.Artwork>();       
         public MainWindow()
         {
             InitializeComponent();
-            //listBox.ItemsSource = OGArtworkDB.Artlist;
-            //listBox.ItemTemplate = 
+            listBox.ItemsSource = Artlist;
+            
+
         }
 
 
@@ -53,6 +53,7 @@ namespace ProjectArtStoneMain
 
         public void updateListbox()
         {
+            MessageBox.Show(x.toString());
             listBox.Items.Clear();
             foreach (var item in OGArtworkDB.Artlist)
             {
