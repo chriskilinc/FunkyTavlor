@@ -53,7 +53,7 @@ namespace ProjectArtStoneMain
 
         public void updateListbox()
         {
-            MessageBox.Show(x.toString());
+            
             listBox.Items.Clear();
             foreach (var item in OGArtworkDB.Artlist)
             {
