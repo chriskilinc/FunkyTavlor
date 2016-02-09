@@ -48,9 +48,6 @@ namespace ProjectArtStoneMain
                 image.SetValue(Image.SourceProperty, imgs.
                 ConvertFromString(dlg.FileName.ToString()));
 
-
-
-                bytedata = data;
                 
                 label1.Content = $"Byte: {bytedata}";
             }
@@ -58,7 +55,7 @@ namespace ProjectArtStoneMain
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            OGArtworkDB.Artlist.Add(new OGArtwork() { ArtId = 1, Title = textBox.Text, Description = "Desctiprion", Rum = 0, Image = bytedata.ToString() ,Visable = true });
+            OGArtworkDB.Artlist.Add(new OGArtwork() { ArtId = 1, Title = textBox.Text, Description = "Desctiprion", Rum = 0 ,Visible = true });
         }
 
         public void CheckDB()

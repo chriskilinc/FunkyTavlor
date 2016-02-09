@@ -15,10 +15,10 @@ namespace ProjectArtStoneMain
         public string Artist { get; set; }
         public string Description { get; set; }
         public double Rum { get; set; }
-        public string Image { get; set; }
-        public bool Visable { get; set; }
+        public byte Image { get; set; }
+        public bool Visible { get; set; }
 
-        public OGArtwork(int artid, string artist, string titel, string description, double rum, string image, bool visable)
+        public OGArtwork(int artid, string artist, string titel, string description, double rum, byte image, bool visible)
         {
             ArtId = artid;
             Artist = artist;
@@ -26,7 +26,7 @@ namespace ProjectArtStoneMain
             Description = description;
             Rum = rum;
             Image = image;
-            Visable = visable;
+            Visible = visible;
         }
 
 
