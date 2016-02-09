@@ -21,18 +21,21 @@ namespace ProjectArtStoneMain
     public partial class MainWindow : Window
     {
 
-        //List<OGArtwork> Artlist = new List<OGArtwork>();
-
+        List<OGArtwork> Artlist = new List<OGArtwork>();
+        //List<ProjectArtStone.Artwork> artlistinventory = new List<ProjectArtStone.Artwork>();
         OGArtworkDB X = new OGArtworkDB();
         public MainWindow()
         {
             InitializeComponent();
-            listBox.ItemsSource = OGArtworkDB.Artlist;
-            
-            
-           
-            
+            //listBox.ItemsSource = OGArtworkDB.Artlist;
+            //listBox.ItemTemplate = 
         }
+
+
+
+        //----------------Chris button :) ha så kul------------\\
+
+
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
@@ -40,14 +43,36 @@ namespace ProjectArtStoneMain
             u1.Show();
         }
 
-        private void Testknapp_Click(object sender, RoutedEventArgs e)
+        //----- end of chris avsnitt---------------\\
+
+
+  
+        //--------------------Peters del--------------------------\\
+
+
+
+        public void updateListbox()
         {
+            listBox.Items.Clear();
             foreach (var item in OGArtworkDB.Artlist)
             {
+                if (item.Visable)
+                {
+                    listBox.Items.Add(item.Title);
+                }
                 
-                listBox.Items.Add(item.Titel);
             }
-            
         }
+
+        private void Testknapp_Click(object sender, RoutedEventArgs e)
+        {
+            updateListbox();
+        }
+
+
+        //----------Slut på peters del-------------\\
+
+
+
     }
 }

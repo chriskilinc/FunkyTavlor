@@ -9,26 +9,27 @@ namespace ProjectArtStoneMain
     
     public class OGArtwork
     {
-        
-        public string Titel { get; set; }
-
 
         public int ArtId { get; set; }
+        public string Title { get; set; }
+        public string Artist { get; set; }
         public string Description { get; set; }
         public double Rum { get; set; }
-        public string ImagePath { get; set; }
+        public string Image { get; set; }
+        public bool Visable { get; set; }
 
-        
-        
-
-
-        public OGArtwork(int artid, string titel, string description, double rum)
+        public OGArtwork(int artid, string artist, string titel, string description, double rum, string image, bool visable)
         {
             ArtId = artid;
-            Titel = titel;
+            Artist = artist;
+            Title = titel;
             Description = description;
             Rum = rum;
+            Image = image;
+            Visable = visable;
         }
+
+
 
         public OGArtwork()
         {
