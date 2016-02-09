@@ -20,14 +20,17 @@ namespace ProjectArtStoneMain
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<OGArtwork> Artlista = new List<OGArtwork>();
+        OGArtworkDB x = new OGArtworkDB();
 
-        List<OGArtwork> Artlist = new List<OGArtwork>();
-       
-        //List<ProjectArtStone.Artwork> artlistinventory = new List<ProjectArtStone.Artwork>();       
+     
+        //List<OGArtworkDB> X = new List<OGArtworkDB>();
+         
         public MainWindow()
         {
             InitializeComponent();
             //listBox.ItemsSource = Artlist;
+            
             
 
         }
@@ -55,14 +58,12 @@ namespace ProjectArtStoneMain
         public void updateListbox()
         {
             
-            //listBox.Items.Clear();
             foreach (var item in OGArtworkDB.Artlist)
             {
-                if (item.Visible)
+                if(item.Visible== true)
                 {
                     listBox.Items.Add(item.Title);
                 }
-                
             }
         }
 
