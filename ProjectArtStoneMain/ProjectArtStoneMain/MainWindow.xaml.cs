@@ -22,6 +22,7 @@ namespace ProjectArtStoneMain
     {
 
         List<OGArtwork> Artlist = new List<OGArtwork>();
+       
         //List<ProjectArtStone.Artwork> artlistinventory = new List<ProjectArtStone.Artwork>();       
         public MainWindow()
         {
@@ -57,7 +58,7 @@ namespace ProjectArtStoneMain
             //listBox.Items.Clear();
             foreach (var item in OGArtworkDB.Artlist)
             {
-               // if (item.Visable)
+                if (item.Visible)
                 {
                     listBox.Items.Add(item.Title);
                 }
