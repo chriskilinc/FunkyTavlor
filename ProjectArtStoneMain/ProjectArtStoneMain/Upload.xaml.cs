@@ -24,7 +24,7 @@ namespace ProjectArtStoneMain
         {
             InitializeComponent();
         }
-        string bytedata;
+        byte[] bytedata;
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
@@ -37,7 +37,7 @@ namespace ProjectArtStoneMain
 
                 byte[] data = new byte[fs.Length];
                 fs.Read(data, 0, System.Convert.ToInt32(fs.Length));
-                
+                bytedata = data;
                 fs.Close();
 
                 //Additem
@@ -48,14 +48,17 @@ namespace ProjectArtStoneMain
                 image.SetValue(Image.SourceProperty, imgs.
                 ConvertFromString(dlg.FileName.ToString()));
 
-                bytedata = data.ToString();
-                label1.Content = "";
+
+
+                bytedata = data;
+                
+                label1.Content = $"Byte: {bytedata}";
             }
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            OGArtworkDB.Artlist.Add(new OGArtwork() { ArtId = 1, Title = textBox.Text, Description = "Desctiprion", Rum = 0, Image = bytedata ,Visable = true });
+            OGArtworkDB.Artlist.Add(new OGArtwork() { ArtId = 1, Title = textBox.Text, Description = "Desctiprion", Rum = 0, Image = bytedata.ToString() ,Visable = true });
         }
 
         public void CheckDB()

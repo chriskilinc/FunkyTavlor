@@ -12,7 +12,7 @@
         <Label x:Name="label" Content="Name:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Button x:Name="button" Content="Browse" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
         <Button x:Name="button1" Content="Save" HorizontalAlignment="Left" Margin="90,155,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
-        <Label x:Name="label1" Content="Byte: " HorizontalAlignment="Left" Margin="170,155,0,0" VerticalAlignment="Top" Foreground="White" FontSize="10.667"/>
+        <Label x:Name="label1" Content="Byte: " HorizontalAlignment="Left" Margin="170,155,0,0" VerticalAlignment="Top" Foreground="White" FontSize="10.667" Width="196"/>
 
     </Grid>
 </Window>
