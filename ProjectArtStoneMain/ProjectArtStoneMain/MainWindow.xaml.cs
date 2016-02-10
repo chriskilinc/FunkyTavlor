@@ -30,10 +30,10 @@ namespace ProjectArtStoneMain
         {
             InitializeComponent();
             //listBox.ItemsSource = Artlist;
-            foreach (OGArtwork art in OGArtworkDB.Artlist)
-            {
-                Artlista.Add(new OGArtwork(art.ArtId, art.Artist, art.Title, art.Description, art.Rum, true));
-            }
+            //foreach (OGArtwork art in OGArtworkDB.Artlist)
+            //{
+            //    Artlista.Add(new OGArtwork(art.ArtId, art.Artist, art.Title, art.Description, art.Rum, true));
+            //}
             updateListbox();
         }
 
@@ -65,7 +65,7 @@ namespace ProjectArtStoneMain
         public void updateListbox()
         {
             listBox.Items.Clear();   
-            foreach (var item in Artlista)
+            foreach (var item in OGArtworkDB.Artlist)
             {
                 if(item.Visible== true)
                 {
