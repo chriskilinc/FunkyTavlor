@@ -92,6 +92,19 @@ namespace ProjectArtStoneMain
             updateListbox();
         }
 
+        private void btnedit_Click(object sender, RoutedEventArgs e)
+        {
+            if(listBox.SelectedIndex > -1)
+            {
+                editwindow ew = new editwindow(listBox.SelectedIndex);
+                ew.Show();
+            }
+            else
+            {
+                MessageBox.Show("you need to select what to edit");
+            }
+        }
+
 
         //----------Slut på peters del-------------\\
 

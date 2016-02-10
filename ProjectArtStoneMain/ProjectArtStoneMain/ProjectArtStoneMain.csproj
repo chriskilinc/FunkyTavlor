@@ -56,11 +56,18 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Artwork.cs" />
+    <Compile Include="editwindow.xaml.cs">
+      <DependentUpon>editwindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="OGArtwork.cs" />
     <Compile Include="OGArtworkDB.cs" />
     <Compile Include="Upload.xaml.cs">
       <DependentUpon>Upload.xaml</DependentUpon>
     </Compile>
+    <Page Include="editwindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
