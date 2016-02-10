@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectArtStone;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -20,13 +21,18 @@ namespace ProjectArtStoneMain
     /// </summary>
     public partial class Upload : Window
     {
-        //OGArtworkDB Z = new OGArtworkDB();
-
+        //Inventory TheInventory = new Inventory();
         public Upload()
         {
             InitializeComponent();
             Refresh();
         }
+
+        public void Refresh()
+        {
+
+        }
+
         byte bytedata;
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -69,28 +75,9 @@ namespace ProjectArtStoneMain
             }
             else
             {
-                //OGArtworkDB.Artlist.Add(new OGArtwork(1, tbxArtist.Text, tbxTitle.Text, tbxDesc.Text, 3, true));
-                //MessageBox.Show("Works!");
+                //TheInventory.ArtworkList.Add(new Artwork { Id = 0, Title = tbxTitle.Text , Artist = tbxArtist.Text, Room = tbxRoom.Text, Description = tbxDesc.Text });
             }
-            //OGArtworkDB.Artlist.Add(new OGArtwork() { ArtId = 1, Title ="Ny titel", Artist ="Gunnilla Person", Description = "Fin bild", Rum=0,Visible=true});
-            //OGArtworkDB.Artlist.Add(new OGArtwork() { ArtId = 1, Title = tbxTitle.Text, Artist = tbxArtist.Text, Description = tbxDesc.Text, Rum = 0, Visible = true });
-            //this.Close();
-            //MainWindow m2 = new MainWindow();
-            //m2.Show();
             Refresh();
-
-        }
-
-        public void Refresh()
-        {
-            //foreach (var item in OGArtworkDB.Artlist)
-            //{
-            //    listBox.Items.Clear();
-            //    if (item.Visible == true)
-            //    {
-            //        listBox.Items.Add(item.Title);
-            //    }
-            //}
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)

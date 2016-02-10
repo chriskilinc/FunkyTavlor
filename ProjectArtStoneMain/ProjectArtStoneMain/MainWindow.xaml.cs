@@ -38,7 +38,7 @@ namespace ProjectArtStoneMain
             }
         }
 
-        private void RefreshListbox(Inventory TheInventory)
+        public void RefreshListbox(Inventory TheInventory)
         {
             listBox.Items.Clear();
             foreach (var item in TheInventory.GetArtworkList)
@@ -95,7 +95,6 @@ namespace ProjectArtStoneMain
 
         private void button_Click_1(object sender, RoutedEventArgs e)
         {
-            TheInventory.ArtworkList.Add(new Artwork { Id = 1, Title = "Novum", Artist = "Admin", Room = "0" });
             RefreshListbox(TheInventory);
         }
 
