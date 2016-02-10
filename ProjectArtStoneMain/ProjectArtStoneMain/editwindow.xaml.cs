@@ -22,7 +22,8 @@ namespace ProjectArtStoneMain
         public editwindow()
         {
             InitializeComponent();
-            
+            //tbxtitle.Text = title;
+
         }
 
         
