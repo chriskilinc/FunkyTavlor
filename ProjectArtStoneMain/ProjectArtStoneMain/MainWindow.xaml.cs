@@ -59,9 +59,9 @@ namespace ProjectArtStoneMain
         {
             if (listBox.SelectedItem != null)
             {
-                //TheInventory.RemoveFromInventory(((Artwork)listBox.SelectedItem).Id);     //Doesnt work
-                
+                //TheInventory.RemoveFromInventory(((Artwork)listBox.SelectedItem).Id);     //Doesnt work                
                 //MessageBox.Show("Removed item Total items now: " + MyInventory.GetArtworkList.Count());
+                TheInventory.RemoveFromInventory(((Artwork)listBox.SelectedItem).Id);
                 RefreshListbox(TheInventory);
             }
             else

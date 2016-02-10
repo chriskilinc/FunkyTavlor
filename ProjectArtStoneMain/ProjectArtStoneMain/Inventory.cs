@@ -12,10 +12,10 @@ namespace ProjectArtStoneMain
         //Detta är en variabel
         public List<Artwork> ArtworkList = new List<Artwork>()
         {
-            new Artwork() {Id = 1, Artist = "Kalle", Title = "Kvack" },
-            new Artwork() {Id = 2, Artist = "Pelle", Title = "Inte Olle" },
-            new Artwork() {Id = 3, Artist = "Jocke", Title = "cashhhh" },
-            new Artwork() {Id = 0, Artist = "Daniil", Title = "Poop" },
+            new Artwork() {Id = 1, Artist = "Kalle", Title = "Tavla 1" },
+            new Artwork() {Id = 2, Artist = "Pelle", Title = "Tavla 2" },
+            new Artwork() {Id = 3, Artist = "Jocke", Title = "Tavla 3" },
+            new Artwork() {Id = 4, Artist = "Daniil", Title = "Tavla 4" },
         };
 
         //Använd IEnumerable<T> som är mer ABSTRACTR än List<T>
