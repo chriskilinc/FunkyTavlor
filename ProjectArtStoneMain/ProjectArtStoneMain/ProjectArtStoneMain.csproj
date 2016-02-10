@@ -59,8 +59,7 @@
     <Compile Include="editwindow.xaml.cs">
       <DependentUpon>editwindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OGArtwork.cs" />
-    <Compile Include="OGArtworkDB.cs" />
+    <Compile Include="Inventory.cs" />
     <Compile Include="Upload.xaml.cs">
       <DependentUpon>Upload.xaml</DependentUpon>
     </Compile>

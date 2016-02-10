@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectArtStone;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,87 +21,68 @@ namespace ProjectArtStoneMain
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<OGArtwork> Artlista = new List<OGArtwork>();
-        OGArtworkDB x = new OGArtworkDB();
+        Inventory TheInventory = new Inventory();
 
-     
-        //List<OGArtworkDB> X = new List<OGArtworkDB>();
-         
         public MainWindow()
         {
             InitializeComponent();
-            //listBox.ItemsSource = Artlist;
-            //foreach (OGArtwork art in OGArtworkDB.Artlist)
-            //{
-            //    Artlista.Add(new OGArtwork(art.ArtId, art.Artist, art.Title, art.Description, art.Rum, true));
-            //}
-            updateListbox();
+            PopulateList();
+            
         }
 
+        public void PopulateList()
+        {
+            foreach (var item in TheInventory.GetArtworkList)
+            {
+                listBox.Items.Add(item.Presentation);
+            }
+        }
 
+        private void RefreshListbox(Inventory TheInventory)
+        {
+            listBox.Items.Clear();
+            foreach (var item in TheInventory.GetArtworkList)
+            {
+                listBox.Items.Add(item.Presentation);
+            }
+        }
 
-        //----------------Chris button :) ha så kul------------\\
-
-
-
+        //Upload Button
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            //OGArtworkDB.Artlist.Add(new OGArtwork(1, "Peter", "Peters Tavla", "Holahola", 3, true));
-
-
-            updateListbox();
-            
             Upload u1 = new Upload();
             u1.Show();
         }
 
-        //----- end of chris avsnitt---------------\\
-
-
-  
-        //--------------------Peters del--------------------------\\
-
-
-
-        public void updateListbox()
-        {
-            listBox.Items.Clear();   
-            foreach (var item in OGArtworkDB.Artlist)
-            {
-                if(item.Visible== true)
-                {
-                    listBox.Items.Add(item.Title);
-                }
-            }
-        }
-
+        //Remove Button
         private void Tabortknapp_Click(object sender, RoutedEventArgs e)
         {
-            if (listBox.SelectedIndex > -1)
+            if (listBox.SelectedItem != null)
             {
-                OGArtworkDB.Artlist.RemoveAt(listBox.SelectedIndex);
-                updateListbox();
+                //TheInventory.RemoveFromInventory(((Artwork)listBox.SelectedItem).Id);     //Doesnt work
+                
+                //MessageBox.Show("Removed item Total items now: " + MyInventory.GetArtworkList.Count());
+                RefreshListbox(TheInventory);
             }
             else
             {
                 MessageBox.Show("Du måste välja vilken tavla du vill ta bort");
             }
-
-            
         }
 
+        
+
+        //
+        //?? Button
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            //foreach (var item in Artlista)
-            //{
-            //    listBox.Items.Add(item.Title);
-            //}
-            updateListbox();
+
         }
 
+        //Edit Button
         private void btnedit_Click(object sender, RoutedEventArgs e)
         {
-            if(listBox.SelectedIndex > -1)
+            if (listBox.SelectedIndex > -1)
             {
                 editwindow ew = new editwindow();
                 ew.Show();
@@ -109,6 +91,12 @@ namespace ProjectArtStoneMain
             {
                 MessageBox.Show("you need to select what to edit");
             }
+        }
+
+        private void button_Click_1(object sender, RoutedEventArgs e)
+        {
+            TheInventory.ArtworkList.Add(new Artwork { Id = 1, Title = "Novum", Artist = "Admin", Room = "0" });
+            RefreshListbox(TheInventory);
         }
 
 

@@ -64,13 +64,13 @@ namespace ProjectArtStoneMain
             //Check Textboxes
             if (tbxTitle.Text == "")
             {
-                
+
                 lblTitle.Foreground = new SolidColorBrush(Colors.Red);
             }
             else
             {
-                OGArtworkDB.Artlist.Add(new OGArtwork(1, tbxArtist.Text, tbxTitle.Text, tbxDesc.Text, 3, true));
-                MessageBox.Show("Works!");
+                //OGArtworkDB.Artlist.Add(new OGArtwork(1, tbxArtist.Text, tbxTitle.Text, tbxDesc.Text, 3, true));
+                //MessageBox.Show("Works!");
             }
             //OGArtworkDB.Artlist.Add(new OGArtwork() { ArtId = 1, Title ="Ny titel", Artist ="Gunnilla Person", Description = "Fin bild", Rum=0,Visible=true});
             //OGArtworkDB.Artlist.Add(new OGArtwork() { ArtId = 1, Title = tbxTitle.Text, Artist = tbxArtist.Text, Description = tbxDesc.Text, Rum = 0, Visible = true });
@@ -83,14 +83,14 @@ namespace ProjectArtStoneMain
 
         public void Refresh()
         {
-            foreach (var item in OGArtworkDB.Artlist)
-            {
-                listBox.Items.Clear();
-                if (item.Visible == true)
-                {
-                    listBox.Items.Add(item.Title);
-                }
-            }
+            //foreach (var item in OGArtworkDB.Artlist)
+            //{
+            //    listBox.Items.Clear();
+            //    if (item.Visible == true)
+            //    {
+            //        listBox.Items.Add(item.Title);
+            //    }
+            //}
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)
