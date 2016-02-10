@@ -87,6 +87,11 @@ namespace ProjectArtStoneMain
             
         }
 
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            updateListbox();
+        }
+
 
         //----------Slut på peters del-------------\\
 

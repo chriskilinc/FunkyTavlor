@@ -20,7 +20,7 @@ namespace ProjectArtStoneMain
     /// </summary>
     public partial class Upload : Window
     {
-        OGArtworkDB Z = new OGArtworkDB();
+        //OGArtworkDB Z = new OGArtworkDB();
 
         public Upload()
         {
@@ -62,9 +62,16 @@ namespace ProjectArtStoneMain
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             //Check Textboxes
-
-            OGArtworkDB.Artlist.Add(new OGArtwork(1, tbxArtist.Text, tbxTitle.Text, tbxDesc.Text, 3, true));
-            MessageBox.Show("Works!");
+            if (tbxTitle.Text == "")
+            {
+                
+                lblTitle.Foreground = new SolidColorBrush(Colors.Red);
+            }
+            else
+            {
+                OGArtworkDB.Artlist.Add(new OGArtwork(1, tbxArtist.Text, tbxTitle.Text, tbxDesc.Text, 3, true));
+                MessageBox.Show("Works!");
+            }
             //OGArtworkDB.Artlist.Add(new OGArtwork() { ArtId = 1, Title ="Ny titel", Artist ="Gunnilla Person", Description = "Fin bild", Rum=0,Visible=true});
             //OGArtworkDB.Artlist.Add(new OGArtwork() { ArtId = 1, Title = tbxTitle.Text, Artist = tbxArtist.Text, Description = tbxDesc.Text, Rum = 0, Visible = true });
             //this.Close();
@@ -78,11 +85,17 @@ namespace ProjectArtStoneMain
         {
             foreach (var item in OGArtworkDB.Artlist)
             {
+                listBox.Items.Clear();
                 if (item.Visible == true)
                 {
                     listBox.Items.Add(item.Title);
                 }
             }
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            Refresh();
         }
     }
 }
