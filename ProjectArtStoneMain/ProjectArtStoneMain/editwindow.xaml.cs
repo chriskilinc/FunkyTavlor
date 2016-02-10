@@ -19,9 +19,10 @@ namespace ProjectArtStoneMain
     /// </summary>
     public partial class editwindow : Window
     {
-        public editwindow(int x)
+        public editwindow()
         {
             InitializeComponent();
+            
         }
 
         
