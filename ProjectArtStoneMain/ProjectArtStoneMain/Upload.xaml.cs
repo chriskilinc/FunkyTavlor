@@ -21,10 +21,11 @@ namespace ProjectArtStoneMain
     /// </summary>
     public partial class Upload : Window
     {
-        //Inventory TheInventory = new Inventory();
+        
         public Upload()
         {
             InitializeComponent();
+            Inventory TheInventory = new Inventory();
             Refresh();
         }
 
