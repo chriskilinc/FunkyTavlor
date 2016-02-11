@@ -22,91 +22,108 @@ namespace ProjectArtStoneMain
     public partial class MainWindow : Window
     {
 
-        Inventory TheInventory = new Inventory();
+        
         
         public MainWindow()
         {
             InitializeComponent();
-            PopulateList();
+            Inventory MyInventory = new Inventory();
+            RefreshListbox(MyInventory);
 
-            
-           
-
-        }
-
-        public void PopulateList()
-        {
-            foreach (var item in TheInventory.GetArtworkList)
+            btnRemove.Click += new EventHandler((x, y) =>
             {
-                listBox.Items.Add(item.Presentation);
-            }
+                if (listBox.SelectedItem != null)
+                {
+                    MyInventory.RemoveFromInventory(((Artwork)listBox.SelectedItem).Id);
+                    //MessageBox.Show("Removed item Total items now: " + MyInventory.GetArtworkList.Count());
+                    RefreshListbox(MyInventory);
+                }
+
+            });
+
         }
 
-        public void RefreshListbox(Inventory TheInventory)
+        private void RefreshListbox(Inventory MyInventory)
         {
             listBox.Items.Clear();
-            foreach (var item in TheInventory.GetArtworkList)
+            foreach (var item in MyInventory.GetArtworkList)
             {
                 listBox.Items.Add(item.Presentation);
             }
         }
 
-        //Upload Button
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            Upload u1 = new Upload();
-            u1.Show();
-        }
-
-        //Remove Button
-        private void Tabortknapp_Click(object sender, RoutedEventArgs e)
-        {
-            if (listBox.SelectedItem != null)
-            {
-                //TheInventory.RemoveFromInventory(((Artwork)listBox.SelectedItem).Id);     //Doesnt work                
-                //MessageBox.Show("Removed item Total items now: " + MyInventory.GetArtworkList.Count());
-                
-                TheInventory.RemoveFromInventory(((Artwork)listBox.SelectedItems).Id);
-                RefreshListbox(TheInventory);
-            }
-            else
-            {
-                MessageBox.Show("Du måste välja vilken tavla du vill ta bort");
-            }
-        }
-
-        
-
-        //
-        //?? Button
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        //Edit Button
-        private void btnedit_Click(object sender, RoutedEventArgs e)
-        {
-            if (listBox.SelectedIndex > -1)
-            {
-                editwindow ew = new editwindow();
-                ew.Show();
-            }
-            else
-            {
-                MessageBox.Show("you need to select what to edit");
-            }
-        }
-
-        private void button_Click_1(object sender, RoutedEventArgs e)
-        {
-            RefreshListbox(TheInventory);
-        }
 
 
-        //----------Slut på peters del-------------\\
+        //public void PopulateList()
+        //{
+        //    foreach (var item in TheInventory.GetArtworkList)
+        //    {
+        //        listBox.Items.Add(item.Presentation);
+        //    }
+        //}
+
+        //public void RefreshListbox(Inventory TheInventory)
+        //{
+        //    listBox.Items.Clear();
+        //    foreach (var item in TheInventory.GetArtworkList)
+        //    {
+        //        listBox.Items.Add(item.Presentation);
+        //    }
+        //}
+
+        ////Upload Button
+        //private void button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Upload u1 = new Upload();
+        //    u1.Show();
+        //}
+
+        ////Remove Button
+        //private void Tabortknapp_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (listBox.SelectedItem != null)
+        //    {
+        //        //TheInventory.RemoveFromInventory(((Artwork)listBox.SelectedItem).Id);     //Doesnt work                
+        //        //MessageBox.Show("Removed item Total items now: " + MyInventory.GetArtworkList.Count());
+
+        //        TheInventory.RemoveFromInventory(((Artwork)listBox.SelectedItems).Id);
+        //        RefreshListbox(TheInventory);
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Du måste välja vilken tavla du vill ta bort");
+        //    }
+        //}
 
 
 
+        ////
+        ////?? Button
+        //private void button1_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
+        ////Edit Button
+        //private void btnedit_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (listBox.SelectedIndex > -1)
+        //    {
+        //        editwindow ew = new editwindow();
+        //        ew.Show();
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("you need to select what to edit");
+        //    }
+        //}
+
+        //private void button_Click_1(object sender, RoutedEventArgs e)
+        //{
+        //    RefreshListbox(TheInventory);
+        //}
+
+
+        ////----------Slut på peters del-------------\\
     }
 }
