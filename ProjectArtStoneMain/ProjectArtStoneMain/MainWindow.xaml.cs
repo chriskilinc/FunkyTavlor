@@ -13,6 +13,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Configuration;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Auth;
+using Microsoft.WindowsAzure.Storage.Table;
+
 
 namespace ProjectArtStoneMain
 {
@@ -28,7 +33,17 @@ namespace ProjectArtStoneMain
         {
             InitializeComponent();
             PopulateList();
-            
+
+            // Retrieve the storage account from the connection string.
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+                ConfigurationManager.AppSettings["StorageConnectionString"]);
+
+            //Create the table client
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            //Create the CloudTable object that represents the "people" table
+            CloudTable table = tableClient.GetTableReference("funkytavlor");
+
         }
 
         public void PopulateList()
@@ -103,7 +118,22 @@ namespace ProjectArtStoneMain
         }
 
 
-        
+        private void addpainting()
+        {
+            //Create a new Customer Entity
+            CustomerEntity customer1 = new CustomerEntity("Tame", "Impala");
+            customer1.Email = "Walter@contoso.acom";
+            customer1.PartitionKey = "425-555-0101";
+            customer1.Funkyness = "Micke äger asså!";
+
+
+
+            //create the tableoperation object that inserts the customer entity
+            TableOperation insertOperation = TableOperation.Insert(customer1);
+
+            //execute the insert operation,
+            table.Execute(insertOperation);
+        }
 
 
         
