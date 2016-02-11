@@ -21,13 +21,17 @@ namespace ProjectArtStoneMain
     /// </summary>
     public partial class MainWindow : Window
     {
-        Inventory TheInventory = new Inventory();
 
+        Inventory TheInventory = new Inventory();
+        
         public MainWindow()
         {
             InitializeComponent();
             PopulateList();
+
             
+           
+
         }
 
         public void PopulateList()
@@ -61,7 +65,8 @@ namespace ProjectArtStoneMain
             {
                 //TheInventory.RemoveFromInventory(((Artwork)listBox.SelectedItem).Id);     //Doesnt work                
                 //MessageBox.Show("Removed item Total items now: " + MyInventory.GetArtworkList.Count());
-                TheInventory.RemoveFromInventory(((Artwork)listBox.SelectedItem).Id);
+                
+                TheInventory.RemoveFromInventory(((Artwork)listBox.SelectedItems).Id);
                 RefreshListbox(TheInventory);
             }
             else
