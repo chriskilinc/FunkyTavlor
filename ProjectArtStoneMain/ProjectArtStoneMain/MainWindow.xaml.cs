@@ -27,7 +27,10 @@ namespace ProjectArtStoneMain
     public partial class MainWindow : Window
     {
 
-        Inventory TheInventory = new Inventory();
+        //Inventory TheInventory = new Inventory();
+        CloudTable table;
+        CloudTableClient tableClient;
+
         
         public MainWindow()
         {
@@ -42,32 +45,23 @@ namespace ProjectArtStoneMain
             CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
             //Create the CloudTable object that represents the "people" table
-            CloudTable table = tableClient.GetTableReference("funkytavlor");
+             table = tableClient.GetTableReference("funkytavlor");
 
         }
 
         public void PopulateList()
         {
-            foreach (var item in TheInventory.GetArtworkList)
-            {
-                listBox.Items.Add(item);
-            }
+           
         }
 
-        public void RefreshListbox(Inventory TheInventory)
-        {
-            listBox.Items.Clear();
-            foreach (var item in TheInventory.GetArtworkList)
-            {
-                listBox.Items.Add(item);
-            }
-        }
+        
 
         //Upload Button
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            Upload u1 = new Upload();
-            u1.Show();
+            addpainting();
+            //Upload u1 = new Upload();
+            //u1.Show();
         }
 
         //Remove Button
@@ -78,10 +72,10 @@ namespace ProjectArtStoneMain
                 //TheInventory.RemoveFromInventory(((Artwork)listBox.SelectedItem).Id);     //Doesnt work                
                 //MessageBox.Show("Removed item Total items now: " + MyInventory.GetArtworkList.Count());
 
-                TheInventory.RemoveFromInventory(((Artwork)listBox.SelectedItem).Id);
+                //TheInventory.RemoveFromInventory(((Artwork)listBox.SelectedItem).Id);
                 //MessageBox.Show(listBox.SelectedIndex.ToString());
                 //TheInventory.RemoveFromInventory(listBox.SelectedIndex);
-                RefreshListbox(TheInventory);
+                //RefreshListbox(TheInventory);
             }
             else
             {
@@ -114,22 +108,22 @@ namespace ProjectArtStoneMain
 
         private void button_Click_1(object sender, RoutedEventArgs e)
         {
-            RefreshListbox(TheInventory);
+            
         }
 
 
         private void addpainting()
         {
             //Create a new Customer Entity
-            CustomerEntity customer1 = new CustomerEntity("Tame", "Impala");
-            customer1.Email = "Walter@contoso.acom";
-            customer1.PartitionKey = "425-555-0101";
-            customer1.Funkyness = "Micke äger asså!";
+            Artwork artwork1 = new Artwork("Tame Impala", 420);
+            artwork1.Artist = "Brutus Östling";
+            artwork1.Visible = true;
+            artwork1.Description = "Random text Description";
 
 
 
             //create the tableoperation object that inserts the customer entity
-            TableOperation insertOperation = TableOperation.Insert(customer1);
+            TableOperation insertOperation = TableOperation.Insert(artwork1);
 
             //execute the insert operation,
             table.Execute(insertOperation);

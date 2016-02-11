@@ -19,7 +19,7 @@ namespace ProjectArtStoneMain
     /// </summary>
     public partial class editwindow : Window
     {
-        Inventory editInv = new Inventory();
+        //Inventory editInv = new Inventory();
         public editwindow()
         {
             InitializeComponent();
