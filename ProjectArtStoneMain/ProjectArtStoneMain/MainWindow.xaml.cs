@@ -28,10 +28,7 @@ namespace ProjectArtStoneMain
         {
             InitializeComponent();
             PopulateList();
-            for (int  i = 0;  i < 10;  i++)
-            {
-                MessageBox.Show("Viss Able ???????????? ");
-            }
+            
         }
 
         public void PopulateList()
