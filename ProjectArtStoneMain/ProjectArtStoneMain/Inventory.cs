@@ -25,6 +25,11 @@ namespace ProjectArtStoneMain
             get { return ArtworkList; }
         }
 
+        public void AddArtwork(int id, string title, string artist, string room, string description)
+        {
+            ArtworkList.Add(new Artwork() { Id = id, Title = title, Artist = artist, Room = room, Description = description, Visable = true });
+        }
+
         public void RemoveFromInventory(int id)
         {
             ArtworkList.Remove(ArtworkList.Where(x => x.Id == id).FirstOrDefault());

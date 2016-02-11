@@ -21,16 +21,21 @@ namespace ProjectArtStoneMain
     /// </summary>
     public partial class Upload : Window
     {
-        //Inventory TheInventory = new Inventory();
+        Inventory invent = new Inventory();
+        
         public Upload()
         {
             InitializeComponent();
             Refresh();
+            
         }
 
         public void Refresh()
         {
-
+            foreach (var item in invent.GetArtworkList)
+            {
+                listBox.Items.Add(item);
+            }
         }
 
         byte bytedata;
@@ -75,7 +80,7 @@ namespace ProjectArtStoneMain
             }
             else
             {
-                //TheInventory.ArtworkList.Add(new Artwork { Id = 0, Title = tbxTitle.Text , Artist = tbxArtist.Text, Room = tbxRoom.Text, Description = tbxDesc.Text });
+                invent.AddArtwork(5, tbxTitle.Text, tbxArtist.Text, tbxRoom.Text, tbxDesc.Text);  // add this when the first two work, Artist = tbxArtist.Text, Room = tbxRoom.Text, Description = tbxDesc.Text
             }
             Refresh();
         }
