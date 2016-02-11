@@ -10,12 +10,12 @@ namespace ProjectArtStoneMain
     public class Inventory
     {
         //Detta är en variabel
-        public List<Artwork> ArtworkList = new List<Artwork>()
+        public static List<Artwork> ArtworkList = new List<Artwork>()
         {
-            new Artwork() {Id = 1, Artist = "Kalle", Title = "Tavla 1" },
-            new Artwork() {Id = 2, Artist = "Pelle", Title = "Tavla 2" },
-            new Artwork() {Id = 3, Artist = "Jocke", Title = "Tavla 3" },
-            new Artwork() {Id = 4, Artist = "Daniil", Title = "Tavla 4" },
+            new Artwork() {Id = 0, Artist = "Kalle", Title = "Tavla 1" },
+            new Artwork() {Id = 1, Artist = "Pelle", Title = "Tavla 2" },
+            new Artwork() {Id = 2, Artist = "Jocke", Title = "Tavla 3" },
+            new Artwork() {Id = 3, Artist = "Daniil", Title = "Tavla 4" }
         };
 
         //Använd IEnumerable<T> som är mer ABSTRACTR än List<T>

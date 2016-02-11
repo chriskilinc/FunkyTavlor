@@ -28,17 +28,13 @@ namespace ProjectArtStoneMain
         {
             InitializeComponent();
             PopulateList();
-
-            
-           
-
         }
 
         public void PopulateList()
         {
             foreach (var item in TheInventory.GetArtworkList)
             {
-                listBox.Items.Add(item.Presentation);
+                listBox.Items.Add(item);
             }
         }
 
@@ -47,7 +43,7 @@ namespace ProjectArtStoneMain
             listBox.Items.Clear();
             foreach (var item in TheInventory.GetArtworkList)
             {
-                listBox.Items.Add(item.Presentation);
+                listBox.Items.Add(item);
             }
         }
 
@@ -65,8 +61,10 @@ namespace ProjectArtStoneMain
             {
                 //TheInventory.RemoveFromInventory(((Artwork)listBox.SelectedItem).Id);     //Doesnt work                
                 //MessageBox.Show("Removed item Total items now: " + MyInventory.GetArtworkList.Count());
-                
-                TheInventory.RemoveFromInventory(((Artwork)listBox.SelectedItems).Id);
+
+                TheInventory.RemoveFromInventory(((Artwork)listBox.SelectedItem).Id);
+                //MessageBox.Show(listBox.SelectedIndex.ToString());
+                //TheInventory.RemoveFromInventory(listBox.SelectedIndex);
                 RefreshListbox(TheInventory);
             }
             else
