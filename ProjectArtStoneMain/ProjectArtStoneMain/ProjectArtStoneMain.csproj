@@ -60,6 +60,9 @@
       <DependentUpon>editwindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Inventory.cs" />
+    <Compile Include="PageEdit.xaml.cs">
+      <DependentUpon>PageEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Upload.xaml.cs">
       <DependentUpon>Upload.xaml</DependentUpon>
     </Compile>
@@ -79,6 +82,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PageEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Upload.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

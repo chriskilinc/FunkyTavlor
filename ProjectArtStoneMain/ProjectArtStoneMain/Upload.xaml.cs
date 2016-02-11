@@ -56,11 +56,11 @@ namespace ProjectArtStoneMain
 
                 //Additem
                 //bytedata =       //Bytedata skall inehålla bildens bitekod, villket vi ej kan ta fram än
-                if (bytedata == null)
-                {
-                    label1.Content = $"Byte: Null";
+                //if (bytedata == null)
+                //{
+                //    label1.Content = $"Byte: Null";
 
-                }
+                //}
 
 
                 ImageSourceConverter imgs = new ImageSourceConverter();

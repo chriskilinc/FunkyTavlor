@@ -10,25 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ProjectArtStoneMain
 {
     /// <summary>
-    /// Interaction logic for editwindow.xaml
+    /// Interaction logic for PageEdit.xaml
     /// </summary>
-    public partial class editwindow : Window
+    public partial class PageEdit : Page
     {
-        Inventory editInv = new Inventory();
-        public editwindow()
+        public PageEdit()
         {
             InitializeComponent();
-            
-            
-
         }
-
-        
-        
     }
 }
