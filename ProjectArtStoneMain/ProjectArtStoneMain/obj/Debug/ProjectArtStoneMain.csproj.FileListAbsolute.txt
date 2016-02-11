@@ -18,3 +18,6 @@ C:\Users\Admin\Desktop\GitProblem\ProjectArtStoneMain\ProjectArtStoneMain\obj\De
 C:\Users\Admin\Desktop\GitProblem\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\ProjectArtStoneMain.pdb
 C:\Users\Admin\Desktop\GitProblem\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\PageEdit.g.cs
 C:\Users\Admin\Desktop\GitProblem\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\PageEdit.baml
+C:\Users\Admin\Desktop\ArtStone\ProjectArtStoneMain\ProjectArtStoneMain\bin\Debug\ProjectArtStoneMain.exe.config
+C:\Users\Admin\Desktop\ArtStone\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\ProjectArtStoneMain.exe
+C:\Users\Admin\Desktop\ArtStone\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\ProjectArtStoneMain.pdb
