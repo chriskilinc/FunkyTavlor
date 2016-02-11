@@ -7,9 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="356.862" Width="678.125" Background="#FF2B2B2B">
     <Grid>
+        <Button x:Name="btnUpload" Content="Ladda Upp" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top" Width="72" Background="#FFDDDDDD" Click="button_Click"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="270" Margin="10,10,0,0" VerticalAlignment="Top" Width="480"/>
         <ListBox x:Name="listBox"    HorizontalAlignment="Left" Height="299" Margin="495,10,0,0" VerticalAlignment="Top" Width="165"/>
-        <Button x:Name="btnRemove" Content="Ta Bort" HorizontalAlignment="Left" Margin="10,296,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnRemove" Content="Ta bort" HorizontalAlignment="Left" Margin="87,289,0,0" VerticalAlignment="Top" Width="70" Background="#FFDDDDDD" Click="Tabortknapp_Click"/>
+        <Button x:Name="btnEdit" Content="Edit" HorizontalAlignment="Left" Margin="162,289,0,0" VerticalAlignment="Top" Width="70" Background="#FFDDDDDD" Click="btnedit_Click"/>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="415,285,0,0" VerticalAlignment="Top" Width="75" Click="button_Click_1"/>
 
     </Grid>
 </Window>
