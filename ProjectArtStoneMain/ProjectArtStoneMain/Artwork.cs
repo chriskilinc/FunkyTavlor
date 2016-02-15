@@ -29,10 +29,10 @@ namespace ProjectArtStone
             this.RowKey = id.ToString();
         }
 
-        public override string ToString()
-        {
-            return Presentation;
+        //public override string ToString()
+        //{
+        //    return P;
 
-        }
+        //}
     }
 }
