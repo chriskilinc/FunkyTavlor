@@ -27,7 +27,7 @@ namespace ProjectArtStoneMain
     public partial class MainWindow : Window
     {
 
-        //Inventory TheInventory = new Inventory();
+        
         CloudTable table;
         CloudTableClient tableClient;
 
@@ -69,20 +69,8 @@ namespace ProjectArtStoneMain
         //Remove Button
         private void Tabortknapp_Click(object sender, RoutedEventArgs e)
         {
-            if (listBox.SelectedItem != null)
-            {
-                //TheInventory.RemoveFromInventory(((Artwork)listBox.SelectedItem).Id);     //Doesnt work                
-                //MessageBox.Show("Removed item Total items now: " + MyInventory.GetArtworkList.Count());
-
-                //TheInventory.RemoveFromInventory(((Artwork)listBox.SelectedItem).Id);
-                //MessageBox.Show(listBox.SelectedIndex.ToString());
-                //TheInventory.RemoveFromInventory(listBox.SelectedIndex);
-                //RefreshListbox(TheInventory);
-            }
-            else
-            {
-                MessageBox.Show("Du måste välja vilken tavla du vill ta bort");
-            }
+            editwindow edit = new editwindow();
+            edit.Show();
         }
 
         
