@@ -1,6 +1,9 @@
-﻿using ProjectArtStone;
+﻿using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Table;
+using ProjectArtStone;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -21,24 +24,78 @@ namespace ProjectArtStoneMain
     /// </summary>
     public partial class Upload : Window
     {
-        //Inventory invent = new Inventory();
         
+        CloudTable table;
+        CloudTableClient tableClient;
+
         public Upload()
         {
             InitializeComponent();
-           
-            
+            PopulateList();
+
+            // Retrieve the storage account from the connection string.
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+                ConfigurationManager.AppSettings["StorageConnectionString"]);
+
+            //Create the table client
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            //Create the CloudTable object that represents the "people" table
+            table = tableClient.GetTableReference("funkytavlor");
+
         }
 
-        //public void Refresh()
-        //{
-        //    foreach (var item in invent.GetArtworkList)
-        //    {
-        //        listBox.Items.Add(item);
-        //    }
-        //}
+        private void PopulateList()
+        {
+            CloudStorageAccount acc = CloudStorageAccount.Parse(
+                ConfigurationManager.AppSettings["StorageConnectionString"]);
+            var tableClient = acc.CreateCloudTableClient();
+            var table = tableClient.GetTableReference("funkytavlor");
+            var entities = table.ExecuteQuery(new TableQuery()).ToList();
+            listBox.Items.Clear();
+            foreach (var item in entities)
+            {
+                listBox.Items.Add(item.PartitionKey);
+            }
+        }
 
-        byte bytedata;
+ 
+
+      
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            //Check Textboxes
+            if (tbxTitle.Text == "")
+            {
+
+                lblTitle.Foreground = new SolidColorBrush(Colors.Red);
+            }
+            else
+            {
+                //Create a new Customer Entity
+                Artwork artwork1 = new Artwork(tbxTitle.Text, 2);
+                artwork1.Artist = tbxArtist.Text;
+                artwork1.Visible = true;
+                artwork1.Description = tbxDesc.Text;
+                artwork1.Room = tbxRoom.Text;
+
+
+
+                //create the tableoperation object that inserts the customer entity
+                TableOperation insertOperation = TableOperation.Insert(artwork1);
+
+                //execute the insert operation,
+                table.Execute(insertOperation);
+            }
+         
+        }
+
+
+
+
+
+
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
@@ -68,21 +125,6 @@ namespace ProjectArtStoneMain
                 ConvertFromString(dlg.FileName.ToString()));
 
             }
-        }
-
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            //Check Textboxes
-            if (tbxTitle.Text == "")
-            {
-
-                lblTitle.Foreground = new SolidColorBrush(Colors.Red);
-            }
-            else
-            {
-                //invent.AddArtwork(5, tbxTitle.Text, tbxArtist.Text, tbxRoom.Text, tbxDesc.Text);  // add this when the first two work, Artist = tbxArtist.Text, Room = tbxRoom.Text, Description = tbxDesc.Text
-            }
-         
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)

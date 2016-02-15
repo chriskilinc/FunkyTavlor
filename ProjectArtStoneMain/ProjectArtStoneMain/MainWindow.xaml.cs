@@ -47,11 +47,13 @@ namespace ProjectArtStoneMain
             //Create the CloudTable object that represents the "people" table
              table = tableClient.GetTableReference("funkytavlor");
 
+            
+
         }
 
         public void PopulateList()
         {
-           
+            GetPaintingsData();
         }
 
         
@@ -108,29 +110,44 @@ namespace ProjectArtStoneMain
 
         private void button_Click_1(object sender, RoutedEventArgs e)
         {
-            
+            GetPaintingsData();
         }
 
 
-        private void addpainting()
+        private void addpainting()  //don't use  this shit
         {
-            //Create a new Customer Entity
-            Artwork artwork1 = new Artwork("Tame Impala", 420);
-            artwork1.Artist = "Brutus Östling";
-            artwork1.Visible = true;
-            artwork1.Description = "Random text Description";
+
+            Upload UploadWindow = new Upload();
+            UploadWindow.Show();
+            ////Create a new Customer Entity
+            //Artwork artwork1 = new Artwork("Tame Impala", 420);
+            //artwork1.Artist = "Brutus Östling";
+            //artwork1.Visible = true;
+            //artwork1.Description = "Random text Description";
 
 
 
-            //create the tableoperation object that inserts the customer entity
-            TableOperation insertOperation = TableOperation.Insert(artwork1);
+            ////create the tableoperation object that inserts the customer entity
+            //TableOperation insertOperation = TableOperation.Insert(artwork1);
 
-            //execute the insert operation,
-            table.Execute(insertOperation);
+            ////execute the insert operation,
+            //table.Execute(insertOperation);
         }
 
 
-        
+        private void GetPaintingsData()
+        {
+            CloudStorageAccount acc = CloudStorageAccount.Parse(
+                ConfigurationManager.AppSettings["StorageConnectionString"]);
+            var tableClient = acc.CreateCloudTableClient();
+            var table = tableClient.GetTableReference("funkytavlor");
+            var entities = table.ExecuteQuery(new TableQuery()).ToList();
+            listBox.Items.Clear();
+            foreach (var item in entities)
+            {
+                listBox.Items.Add(item.PartitionKey);
+            }
+        }
 
     }
 }

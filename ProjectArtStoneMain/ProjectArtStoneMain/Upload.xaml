@@ -28,6 +28,5 @@
 
         <Label x:Name="label1" Content="Byte: " HorizontalAlignment="Left" Margin="170,217,0,0" VerticalAlignment="Top" Foreground="White" FontSize="10.667" Width="auto"/>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="74" Margin="340,167,0,0" VerticalAlignment="Top" Width="143"/>
-        <Button x:Name="button2" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="254,221,0,0"/>
     </Grid>
 </Window>
