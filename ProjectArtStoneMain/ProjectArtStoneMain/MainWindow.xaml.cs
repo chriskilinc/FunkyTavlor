@@ -41,10 +41,6 @@ namespace ProjectArtStoneMain
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
                 ConfigurationManager.AppSettings["StorageConnectionString"]);
 
-            // Create the table client.
-            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();         
-
-            
 
         }
 
