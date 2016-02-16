@@ -64,9 +64,10 @@ namespace ProjectArtStoneMain
         {
 
             var taveltitel = ((dynamic)listBox.SelectedItem).PartitionKey;
-            //var tavelid = ((dynamic)listBox.SelectedItem).id;
+           // var tavelid = ((dynamic)listBox.SelectedItem).Id;                    Detta ska funka förfan
+            
 
-            MessageBox.Show(taveltitel);
+            MessageBox.Show(tavelid.ToString());
             //string taveltitel = ((Artwork)listBox.SelectedItem).Title;
             //var y = "";
 
