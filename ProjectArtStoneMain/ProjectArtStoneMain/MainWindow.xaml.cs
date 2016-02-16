@@ -65,44 +65,44 @@ namespace ProjectArtStoneMain
 
             var taveltitel = ((dynamic)listBox.SelectedItem).PartitionKey;
             //var tavelid = ((dynamic)listBox.SelectedItem).id;
-            
 
+            MessageBox.Show(taveltitel);
             //string taveltitel = ((Artwork)listBox.SelectedItem).Title;
             //var y = "";
 
 
 
-            // Retrieve the storage account from the connection string.
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-                ConfigurationManager.AppSettings["StorageConnectionString"]);
+            //// Retrieve the storage account from the connection string.
+            //CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+            //    ConfigurationManager.AppSettings["StorageConnectionString"]);
 
-            // Create the table client.
-            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+            //// Create the table client.
+            //CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-            // Create the CloudTable that represents the "people" table.
-            CloudTable table = tableClient.GetTableReference("funkytavlor");
+            //// Create the CloudTable that represents the "people" table.
+            //CloudTable table = tableClient.GetTableReference("funkytavlor");
 
-            // Create a retrieve operation that expects a customer entity.
-            TableOperation retrieveOperation = TableOperation.Retrieve<TableEntity>(taveltitel, "2");
+            //// Create a retrieve operation that expects a customer entity.
+            //TableOperation retrieveOperation = TableOperation.Retrieve<TableEntity>(taveltitel, "2");
 
-            // Execute the operation.
-            TableResult retrievedResult = table.Execute(retrieveOperation);
+            //// Execute the operation.
+            //TableResult retrievedResult = table.Execute(retrieveOperation);
 
-            // Assign the result to a CustomerEntity object.
-            TableEntity updateEntity = (TableEntity)retrievedResult.Result;
+            //// Assign the result to a CustomerEntity object.
+            //TableEntity updateEntity = (TableEntity)retrievedResult.Result;
 
-            if (updateEntity != null)
-            {
-                //Update the partitionkey to adelle
-                updateEntity.PartitionKey = "Adelle";
+            //if (updateEntity != null)
+            //{
+            //    //Update the partitionkey to adelle
+            //    updateEntity.PartitionKey = "Adelle";
 
-                // Create the InsertOrReplace TableOperation.
-                TableOperation updateOperation = TableOperation.Replace(updateEntity);
+            //    // Create the InsertOrReplace TableOperation.
+            //    TableOperation updateOperation = TableOperation.Replace(updateEntity);
 
-                // Execute the operation.
-                table.Execute(updateOperation);
+            //    // Execute the operation.
+            //    table.Execute(updateOperation);
 
-            }
+            //}
 
 
             //editwindow edit = new editwindow();
