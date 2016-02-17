@@ -1,7 +1,6 @@
 C:\Users\Admin\Desktop\GitProblem\ProjectArtStoneMain\ProjectArtStoneMain\bin\Debug\ProjectArtStoneMain.exe.config
 C:\Users\Admin\Desktop\GitProblem\ProjectArtStoneMain\ProjectArtStoneMain\bin\Debug\ProjectArtStoneMain.exe
 C:\Users\Admin\Desktop\GitProblem\ProjectArtStoneMain\ProjectArtStoneMain\bin\Debug\ProjectArtStoneMain.pdb
-C:\Users\Admin\Desktop\GitProblem\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\ProjectArtStoneMain.csprojResolveAssemblyReference.cache
 C:\Users\Admin\Desktop\GitProblem\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\editwindow.g.cs
 C:\Users\Admin\Desktop\GitProblem\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\MainWindow.g.cs
 C:\Users\Admin\Desktop\GitProblem\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\Upload.g.cs
