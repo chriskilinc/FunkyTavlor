@@ -71,3 +71,4 @@ C:\Users\Admin\Desktop\GitProblem\ProjectArtStoneMain\ProjectArtStoneMain\bin\De
 C:\Users\Admin\Desktop\GitProblem\ProjectArtStoneMain\ProjectArtStoneMain\bin\Debug\ru\System.Spatial.resources.dll
 C:\Users\Admin\Desktop\GitProblem\ProjectArtStoneMain\ProjectArtStoneMain\bin\Debug\zh-Hans\System.Spatial.resources.dll
 C:\Users\Admin\Desktop\GitProblem\ProjectArtStoneMain\ProjectArtStoneMain\bin\Debug\zh-Hant\System.Spatial.resources.dll
+C:\Users\Admin\Desktop\GitProblem\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\ProjectArtStoneMain.csprojResolveAssemblyReference.cache

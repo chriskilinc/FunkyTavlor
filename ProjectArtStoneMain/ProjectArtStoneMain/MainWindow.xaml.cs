@@ -40,8 +40,11 @@ namespace ProjectArtStoneMain
             // Retrieve the storage account from the connection string.
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
                 ConfigurationManager.AppSettings["StorageConnectionString"]);
+            //listBox.DataContext = "PartitionKey";
 
 
+
+            //listBox.ItemTemplate = Title;
         }
 
         public void PopulateList()
@@ -67,7 +70,7 @@ namespace ProjectArtStoneMain
            var tavelid = ((dynamic)listBox.SelectedItem).RowKey;                    //Detta ska funka förfan
             
 
-            MessageBox.Show(tavelid.ToString());
+            MessageBox.Show(tavelid);
             
             
 
@@ -96,13 +99,15 @@ namespace ProjectArtStoneMain
             {
                 //Update the partitionkey to adelle
                 updateEntity.PartitionKey = "Adelle";
+
+                
                 updateEntity.RowKey = tavelid;
 
                 // Create the InsertOrReplace TableOperation.
                 TableOperation updateOperation = TableOperation.Replace(updateEntity);
 
                 // Execute the operation.
-                table.Execute(updateOperation);
+                //table.Execute(updateOperation);
 
             }
 
