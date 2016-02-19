@@ -9,15 +9,19 @@
     <Grid>
         <Button x:Name="btnUpload" Content="Ladda Upp" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top" Width="72" Background="#FFDDDDDD" Click="button_Click"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="270" Margin="10,10,0,0" VerticalAlignment="Top" Width="480"/>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="299" Margin="495,10,0,0" VerticalAlignment="Top" Width="165" IsSynchronizedWithCurrentItem="False"> 
-                 <ListBox.ItemTemplate>
-            <DataTemplate>
-                <TextBlock Text="{Binding PartitionKey}"/>
-            </DataTemplate>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="299" Margin="495,10,0,0" VerticalAlignment="Top" Width="165" IsSynchronizedWithCurrentItem="False" SelectionChanged="listBox_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding PartitionKey}"/>
+                </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
         <Button x:Name="btnRemove" Content="Ta bort" HorizontalAlignment="Left" Margin="87,289,0,0" VerticalAlignment="Top" Width="70" Background="#FFDDDDDD" Click="Tabortknapp_Click"/>
-        <Button x:Name="button" Content="Refresh" HorizontalAlignment="Left" Margin="415,285,0,0" VerticalAlignment="Top" Width="75" Click="button_Click_1"/>
+        <Button x:Name="button" Content="Refresh" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top" Width="75" Click="button_Click_1"/>
+        <TextBlock x:Name="txbDescription" HorizontalAlignment="Left" Margin="345,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="112" Width="145">
+                <ContentPresenter Content="{Binding Description}"/>
+        </TextBlock>
+        <Label x:Name="lblDesc" Content="Description" Margin="345,141,254,159"/>
 
     </Grid>
 </Window>

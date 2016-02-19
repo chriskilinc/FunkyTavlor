@@ -40,16 +40,14 @@ namespace ProjectArtStoneMain
             // Retrieve the storage account from the connection string.
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
                 ConfigurationManager.AppSettings["StorageConnectionString"]);
-            //listBox.DataContext = "PartitionKey";
 
-
-
-            //listBox.ItemTemplate = Title;
+                       
+            
         }
 
         public void PopulateList()
         {
-            GetPaintingsData();
+            GetAllPaintingsData();
         }
 
         
@@ -66,7 +64,7 @@ namespace ProjectArtStoneMain
         private void Tabortknapp_Click(object sender, RoutedEventArgs e)
         {
 
-            var taveltitel = ((dynamic)listBox.SelectedItem).PartitionKey;
+           var taveltitel = ((dynamic)listBox.SelectedItem).PartitionKey;
            var tavelid = ((dynamic)listBox.SelectedItem).RowKey;                    //Detta ska funka förfan
             
 
@@ -141,7 +139,7 @@ namespace ProjectArtStoneMain
 
         private void button_Click_1(object sender, RoutedEventArgs e)
         {
-            GetPaintingsData();
+            GetAllPaintingsData();
         }
 
 
@@ -150,23 +148,10 @@ namespace ProjectArtStoneMain
 
             Upload UploadWindow = new Upload();
             UploadWindow.Show();
-            ////Create a new Customer Entity
-            //Artwork artwork1 = new Artwork("Tame Impala", 420);
-            //artwork1.Artist = "Brutus Östling";
-            //artwork1.Visible = true;
-            //artwork1.Description = "Random text Description";
-
-
-
-            ////create the tableoperation object that inserts the customer entity
-            //TableOperation insertOperation = TableOperation.Insert(artwork1);
-
-            ////execute the insert operation,
-            //table.Execute(insertOperation);
         }
 
 
-        private void GetPaintingsData()
+        private void GetAllPaintingsData()
         {
             CloudStorageAccount acc = CloudStorageAccount.Parse(
                 ConfigurationManager.AppSettings["StorageConnectionString"]);
@@ -180,5 +165,27 @@ namespace ProjectArtStoneMain
             }
         }
 
+        private void GetCurrentPaintingsData()
+        {
+
+            var taveltitel = ((dynamic)listBox.SelectedItem).PartitionKey;
+            var tavelid = ((dynamic)listBox.SelectedItem).RowKey;
+
+            CloudStorageAccount current = CloudStorageAccount.Parse(
+                ConfigurationManager.AppSettings["StorageConnectionString"]);
+            var tableClient = current.CreateCloudTableClient();
+            var table = tableClient.GetTableReference("funkytavlor");
+            TableOperation retrieveOperation = TableOperation.Retrieve<TableEntity>(taveltitel, tavelid);
+            TableResult retrievedData = table.Execute(retrieveOperation);
+            if (retrievedData != null)
+            {
+                txbDescription.Text = retrievedData.Result.ToString();
+            }
+        }
+
+        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            GetCurrentPaintingsData();
+        }
     }
 }
