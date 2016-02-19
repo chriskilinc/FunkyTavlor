@@ -157,11 +157,15 @@ namespace ProjectArtStoneMain
                 ConfigurationManager.AppSettings["StorageConnectionString"]);
             var tableClient = acc.CreateCloudTableClient();
             var table = tableClient.GetTableReference("funkytavlor");
+
+            // Define the query, and select only the Email property.
+            
+
             var entities = table.ExecuteQuery(new TableQuery()).ToList();
             listBox.Items.Clear();
             foreach (var item in entities)
             {
-                listBox.Items.Add(item);
+                listBox.Items.Add(item);                                
             }
         }
 
@@ -175,11 +179,16 @@ namespace ProjectArtStoneMain
                 ConfigurationManager.AppSettings["StorageConnectionString"]);
             var tableClient = current.CreateCloudTableClient();
             var table = tableClient.GetTableReference("funkytavlor");
+
+
             TableOperation retrieveOperation = TableOperation.Retrieve<TableEntity>(taveltitel, tavelid);
+            
             TableResult retrievedData = table.Execute(retrieveOperation);
+
             if (retrievedData != null)
             {
-                txbDescription.Text = retrievedData.Result.ToString();
+                var x = ((TableEntity)retrievedData.Result).GetHashCode();
+                txbDescription.Text = (((TableEntity)retrievedData.Result).RowKey) + x.ToString();
             }
         }
 

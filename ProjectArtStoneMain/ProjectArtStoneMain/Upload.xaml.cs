@@ -79,7 +79,7 @@ namespace ProjectArtStoneMain
                 artwork1.Visible = true;
                 artwork1.Description = tbxDesc.Text;
                 artwork1.Room = tbxRoom.Text;
-
+                
 
 
                 //create the tableoperation object that inserts the customer entity
