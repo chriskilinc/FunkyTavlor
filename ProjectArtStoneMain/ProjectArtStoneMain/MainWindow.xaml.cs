@@ -187,8 +187,7 @@ namespace ProjectArtStoneMain
 
             if (retrievedData != null)
             {
-                var x = ((TableEntity)retrievedData.Result).GetHashCode();
-                txbDescription.Text = (((TableEntity)retrievedData.Result).RowKey) + x.ToString();
+                txbDescription.Text = (((TableEntity)retrievedData.Result).PartitionKey);
             }
         }
 
