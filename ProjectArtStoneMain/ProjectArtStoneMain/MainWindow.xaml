@@ -1,17 +1,28 @@
-﻿<Window x:Class="ProjectArtStoneMain.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectArtStoneMain"
+        xmlns:Table="clr-namespace:Microsoft.WindowsAzure.Storage.Table;assembly=Microsoft.WindowsAzure.Storage" x:Class="ProjectArtStoneMain.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="356.862" Width="678.125" Background="#FF2B2B2B">
     <Grid>
         <Button x:Name="btnUpload" Content="Ladda Upp" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top" Width="72" Background="#FFDDDDDD" Click="button_Click"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="270" Margin="10,10,0,0" VerticalAlignment="Top" Width="480"/>
-        <ListBox x:Name="listBox"    HorizontalAlignment="Left" Height="299" Margin="495,10,0,0" VerticalAlignment="Top" Width="165"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="299" Margin="495,10,0,0" VerticalAlignment="Top" Width="165" IsSynchronizedWithCurrentItem="False" SelectionChanged="listBox_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding PartitionKey}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <Button x:Name="btnRemove" Content="Ta bort" HorizontalAlignment="Left" Margin="87,289,0,0" VerticalAlignment="Top" Width="70" Background="#FFDDDDDD" Click="Tabortknapp_Click"/>
-        <Button x:Name="button" Content="Refresh" HorizontalAlignment="Left" Margin="415,285,0,0" VerticalAlignment="Top" Width="75" Click="button_Click_1"/>
+        <Button x:Name="button" Content="Refresh" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top" Width="75" Click="button_Click_1"/>
+        <TextBlock x:Name="txbDescription" HorizontalAlignment="Left" Margin="345,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="112" Width="145"><InlineUIContainer>
+				<ContentPresenter Content="{Binding Description}"/>
+			</InlineUIContainer></TextBlock>
+        <Label x:Name="lblDesc" Content="Description" Margin="345,141,254,159"/>
 
     </Grid>
 </Window>

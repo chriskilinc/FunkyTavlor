@@ -41,12 +41,13 @@ namespace ProjectArtStoneMain
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
                 ConfigurationManager.AppSettings["StorageConnectionString"]);
 
-
+                       
+            
         }
 
         public void PopulateList()
         {
-            GetPaintingsData();
+            GetAllPaintingsData();
         }
 
         
@@ -63,47 +64,50 @@ namespace ProjectArtStoneMain
         private void Tabortknapp_Click(object sender, RoutedEventArgs e)
         {
 
-            var taveltitel = ((dynamic)listBox.SelectedItem).PartitionKey;
-           // var tavelid = ((dynamic)listBox.SelectedItem).Id;                    Detta ska funka förfan
+           var taveltitel = ((dynamic)listBox.SelectedItem).PartitionKey;
+           var tavelid = ((dynamic)listBox.SelectedItem).RowKey;                    //Detta ska funka förfan
             
 
-            MessageBox.Show(tavelid.ToString());
-            //string taveltitel = ((Artwork)listBox.SelectedItem).Title;
-            //var y = "";
+            MessageBox.Show(tavelid);
+            
+            
 
 
 
-            //// Retrieve the storage account from the connection string.
-            //CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-            //    ConfigurationManager.AppSettings["StorageConnectionString"]);
+            // Retrieve the storage account from the connection string.
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+                ConfigurationManager.AppSettings["StorageConnectionString"]);
 
-            //// Create the table client.
-            //CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+            // Create the table client.
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-            //// Create the CloudTable that represents the "people" table.
-            //CloudTable table = tableClient.GetTableReference("funkytavlor");
+            // Create the CloudTable that represents the "people" table.
+            CloudTable table = tableClient.GetTableReference("funkytavlor");
 
-            //// Create a retrieve operation that expects a customer entity.
-            //TableOperation retrieveOperation = TableOperation.Retrieve<TableEntity>(taveltitel, "2");
+            // Create a retrieve operation that expects a customer entity.
+            TableOperation retrieveOperation = TableOperation.Retrieve<TableEntity>(taveltitel, tavelid);
 
-            //// Execute the operation.
-            //TableResult retrievedResult = table.Execute(retrieveOperation);
+            // Execute the operation.
+            TableResult retrievedResult = table.Execute(retrieveOperation);
 
-            //// Assign the result to a CustomerEntity object.
-            //TableEntity updateEntity = (TableEntity)retrievedResult.Result;
+            // Assign the result to a ArtworkTableEntity object.
+            TableEntity updateEntity = (TableEntity)retrievedResult.Result;
 
-            //if (updateEntity != null)
-            //{
-            //    //Update the partitionkey to adelle
-            //    updateEntity.PartitionKey = "Adelle";
+            if (updateEntity != null)
+            {
+                //Update the partitionkey to adelle
+                updateEntity.PartitionKey = "Adelle";
 
-            //    // Create the InsertOrReplace TableOperation.
-            //    TableOperation updateOperation = TableOperation.Replace(updateEntity);
+                
+                updateEntity.RowKey = tavelid;
 
-            //    // Execute the operation.
-            //    table.Execute(updateOperation);
+                // Create the InsertOrReplace TableOperation.
+                TableOperation updateOperation = TableOperation.Replace(updateEntity);
 
-            //}
+                // Execute the operation.
+                //table.Execute(updateOperation);
+
+            }
 
 
             //editwindow edit = new editwindow();
@@ -135,7 +139,7 @@ namespace ProjectArtStoneMain
 
         private void button_Click_1(object sender, RoutedEventArgs e)
         {
-            GetPaintingsData();
+            GetAllPaintingsData();
         }
 
 
@@ -144,35 +148,52 @@ namespace ProjectArtStoneMain
 
             Upload UploadWindow = new Upload();
             UploadWindow.Show();
-            ////Create a new Customer Entity
-            //Artwork artwork1 = new Artwork("Tame Impala", 420);
-            //artwork1.Artist = "Brutus Östling";
-            //artwork1.Visible = true;
-            //artwork1.Description = "Random text Description";
-
-
-
-            ////create the tableoperation object that inserts the customer entity
-            //TableOperation insertOperation = TableOperation.Insert(artwork1);
-
-            ////execute the insert operation,
-            //table.Execute(insertOperation);
         }
 
 
-        private void GetPaintingsData()
+        private void GetAllPaintingsData()
         {
             CloudStorageAccount acc = CloudStorageAccount.Parse(
                 ConfigurationManager.AppSettings["StorageConnectionString"]);
             var tableClient = acc.CreateCloudTableClient();
             var table = tableClient.GetTableReference("funkytavlor");
+
+            // Define the query, and select only the Email property.
+            
+
             var entities = table.ExecuteQuery(new TableQuery()).ToList();
             listBox.Items.Clear();
             foreach (var item in entities)
             {
-                listBox.Items.Add(item);
+                listBox.Items.Add(item);                                
             }
         }
 
+        private void GetCurrentPaintingsData()
+        {
+
+            var taveltitel = ((dynamic)listBox.SelectedItem).PartitionKey;
+            var tavelid = ((dynamic)listBox.SelectedItem).RowKey;
+
+            CloudStorageAccount current = CloudStorageAccount.Parse(
+                ConfigurationManager.AppSettings["StorageConnectionString"]);
+            var tableClient = current.CreateCloudTableClient();
+            var table = tableClient.GetTableReference("funkytavlor");
+
+
+            TableOperation retrieveOperation = TableOperation.Retrieve<TableEntity>(taveltitel, tavelid);
+            
+            TableResult retrievedData = table.Execute(retrieveOperation);
+
+            if (retrievedData != null)
+            {
+                txbDescription.Text = (((TableEntity)retrievedData.Result).PartitionKey);
+            }
+        }
+
+        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            GetCurrentPaintingsData();
+        }
     }
 }

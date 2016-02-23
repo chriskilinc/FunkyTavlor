@@ -74,12 +74,12 @@ namespace ProjectArtStoneMain
             else
             {
                 //Create a new Customer Entity
-                Artwork artwork1 = new Artwork(tbxTitle.Text, 2);
+                Artwork artwork1 = new Artwork(tbxTitle.Text, 1);
                 artwork1.Artist = tbxArtist.Text;
                 artwork1.Visible = true;
                 artwork1.Description = tbxDesc.Text;
                 artwork1.Room = tbxRoom.Text;
-
+                
 
 
                 //create the tableoperation object that inserts the customer entity
