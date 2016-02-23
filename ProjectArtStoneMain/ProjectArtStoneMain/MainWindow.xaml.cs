@@ -19,6 +19,7 @@ using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Table;
 
 
+
 namespace ProjectArtStoneMain
 {
     /// <summary>
@@ -31,6 +32,7 @@ namespace ProjectArtStoneMain
         CloudTable table;
         CloudTableClient tableClient;
 
+        
         
         public MainWindow()
         {
@@ -182,19 +184,33 @@ namespace ProjectArtStoneMain
             var tableClient = current.CreateCloudTableClient();
             var table = tableClient.GetTableReference("funkytavlor");
 
-            
+            // Define the query, and select only the Email property.
+            TableQuery<DynamicTableEntity> projectionQuery = new TableQuery<DynamicTableEntity>().Select(new string[] { "Description" });
+
+            // Define an entity resolver to work with the entity after retrieval.
+            EntityResolver<string> resolver = (pk, rk, ts, props, etag) => props.ContainsKey("Description") ? props["Description"].StringValue : null;
 
 
-            TableOperation retrieveOperation = TableOperation.Retrieve<TableEntity>(taveltitel, tavelid);
-            
-            TableResult retrievedData = table.Execute(retrieveOperation);
 
 
 
-            if (retrievedData != null)
+
+            foreach (string projectedDescription in table.ExecuteQuery(projectionQuery, resolver, null, null))
             {
-                txbDescription.Text = (((TableEntity)retrievedData.Result).Timestamp.ToString());
+                MessageBox.Show(projectedDescription);
+                txbDescription.Text = projectedDescription;
             }
+
+            //TableOperation retrieveOperation = TableOperation.Retrieve<TableEntity>(taveltitel, tavelid);
+
+            //TableResult retrievedData = table.Execute(retrieveOperation);
+
+
+
+            //if (retrievedData != null)
+            //{
+            //    txbDescription.Text = (((TableEntity)retrievedData.Result).Timestamp.ToString());
+            //}
         }
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
