@@ -6,23 +6,26 @@
         xmlns:local="clr-namespace:ProjectArtStoneMain"
         xmlns:Table="clr-namespace:Microsoft.WindowsAzure.Storage.Table;assembly=Microsoft.WindowsAzure.Storage" x:Class="ProjectArtStoneMain.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="356.862" Width="678.125" Background="#FF2B2B2B">
+        Title="MainWindow" Height="368.374" Width="689.637" Background="#FF2B2B2B"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto" Foreground="#DDFFFFFF"   
+    >
     <Grid>
-        <Button x:Name="btnUpload" Content="Ladda Upp" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top" Width="72" Background="#FFDDDDDD" Click="button_Click"/>
+        <Button x:Name="btnUpload" Content="Ladda Upp" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top" Width="72" Background="#FFDDDDDD" Click="button_Click" Foreground="#FFFF9800"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="270" Margin="10,10,0,0" VerticalAlignment="Top" Width="480"/>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="299" Margin="495,10,0,0" VerticalAlignment="Top" Width="165" IsSynchronizedWithCurrentItem="False" SelectionChanged="listBox_SelectionChanged">
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="299" Margin="495,10,0,0" VerticalAlignment="Top" Width="165" IsSynchronizedWithCurrentItem="False" SelectionChanged="listBox_SelectionChanged" Foreground="#DDFFFFFF" BorderBrush="#FFFF9800">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding PartitionKey}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button x:Name="btnRemove" Content="Ta bort" HorizontalAlignment="Left" Margin="87,289,0,0" VerticalAlignment="Top" Width="70" Background="#FFDDDDDD" Click="Tabortknapp_Click"/>
-        <Button x:Name="button" Content="Refresh" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top" Width="75" Click="button_Click_1"/>
+        <Button x:Name="btnRemove" Content="Ta bort" HorizontalAlignment="Left" Margin="87,289,0,0" VerticalAlignment="Top" Width="80" Background="#FFDDDDDD" Click="Tabortknapp_Click" Foreground="#FFFF9800"/>
+        <Button x:Name="button" Content="Refresh" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top" Width="85" Click="button_Click_1"/>
         <TextBlock x:Name="txbDescription" HorizontalAlignment="Left" Margin="345,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="112" Width="145"><InlineUIContainer>
 				<ContentPresenter Content="{Binding Description}"/>
 			</InlineUIContainer></TextBlock>
-        <Label x:Name="lblDesc" Content="Description" Margin="345,141,254,159"/>
+        <Label x:Name="lblDesc" Content="Description" Margin="345,141,254,159" Foreground="#DDFFFFFF"/>
 
     </Grid>
 </Window>
