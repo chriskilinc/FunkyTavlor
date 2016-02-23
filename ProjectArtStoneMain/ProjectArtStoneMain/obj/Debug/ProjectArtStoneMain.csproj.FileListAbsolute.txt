@@ -217,3 +217,6 @@ C:\Users\Admin\Desktop\Tavlor\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\
 C:\Users\Admin\Desktop\Tavlor\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\ProjectArtStoneMain.Properties.Resources.resources
 C:\Users\Admin\Desktop\Tavlor\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\ProjectArtStoneMain.csproj.GenerateResource.Cache
 C:\Users\Admin\Desktop\Tavlor\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\ProjectArtStoneMain.exe
+C:\Users\Wobza\Desktop\GitProblem\ProjectArtStoneMain\ProjectArtStoneMain\bin\Debug\MaterialDesignColors.dll
+C:\Users\Wobza\Desktop\GitProblem\ProjectArtStoneMain\ProjectArtStoneMain\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Wobza\Desktop\GitProblem\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\App.baml

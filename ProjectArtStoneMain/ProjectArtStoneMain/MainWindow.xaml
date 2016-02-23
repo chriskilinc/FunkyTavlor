@@ -10,22 +10,22 @@
 		TextElement.Foreground="{DynamicResource MaterialDesignBody}"
 		FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto" Foreground="#DDFFFFFF"   
 	>
-	<Grid>
-		<Button x:Name="btnUpload" Content="Ladda Upp" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top" Width="72" Background="#FFDDDDDD" Click="button_Click" Foreground="#FFFF9800"/>
-		<Image x:Name="image" HorizontalAlignment="Left" Height="270" Margin="10,10,0,0" VerticalAlignment="Top" Width="480"/>
-		<ListBox x:Name="listBox" HorizontalAlignment="Left" Height="299" Margin="507,10,0,0" VerticalAlignment="Top" Width="165" IsSynchronizedWithCurrentItem="False" SelectionChanged="listBox_SelectionChanged" Foreground="#DDFFFFFF" BorderBrush="#FFFF9800">
-			<ListBox.ItemTemplate>
-				<DataTemplate>
-					<TextBlock Text="{Binding PartitionKey}"/>
-				</DataTemplate>
-			</ListBox.ItemTemplate>
-		</ListBox>
-		<Button x:Name="btnRemove" Content="Ta bort" HorizontalAlignment="Left" Margin="87,289,0,0" VerticalAlignment="Top" Width="80" Background="#FFDDDDDD" Click="Tabortknapp_Click" Foreground="#FFFF9800"/>
-		<Button x:Name="button" Content="Refresh" HorizontalAlignment="Left" Margin="172,289,0,0" VerticalAlignment="Top" Width="85" Click="button_Click_1"/>
-		<TextBlock x:Name="txbDescription" HorizontalAlignment="Left" Margin="357,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="112" Width="145"><InlineUIContainer>
+    <Grid>
+        <Button x:Name="btnUpload" Content="Ladda Upp" HorizontalAlignment="Left" Margin="436,292,0,0" VerticalAlignment="Top" Width="72" Background="#FFDDDDDD" Click="button_Click" Foreground="#FFFF9800"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="121" Margin="436,10,0,0" VerticalAlignment="Top" Width="216"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="285" VerticalAlignment="Top" Width="165" IsSynchronizedWithCurrentItem="False" SelectionChanged="listBox_SelectionChanged" Foreground="#DDFFFFFF" BorderBrush="#FFFF9800">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding PartitionKey}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button x:Name="btnRemove" Content="Ta bort" HorizontalAlignment="Left" Margin="553,292,0,0" VerticalAlignment="Top" Width="80" Background="#FFDDDDDD" Click="Tabortknapp_Click" Foreground="#FFFF9800"/>
+        <Button x:Name="button" Content="Refresh" HorizontalAlignment="Left" Margin="10,297,0,0" VerticalAlignment="Top" Width="85" Click="button_Click_1"/>
+        <TextBlock x:Name="txbDescription" HorizontalAlignment="Left" Margin="436,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="123" Width="158"><InlineUIContainer>
 				<ContentPresenter Content="{Binding Description}"/>
 			</InlineUIContainer></TextBlock>
-		<Label x:Name="label" Content="Description:" HorizontalAlignment="Left" Margin="262,294,0,0" VerticalAlignment="Top" Foreground="White" />
+        <Label x:Name="label" Content="Description:" HorizontalAlignment="Left" Margin="428,131,0,0" VerticalAlignment="Top" Foreground="White" />
 
-	</Grid>
+    </Grid>
 </Window>
