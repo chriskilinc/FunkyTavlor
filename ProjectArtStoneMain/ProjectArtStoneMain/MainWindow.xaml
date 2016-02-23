@@ -22,9 +22,7 @@
         </ListBox>
         <Button x:Name="btnRemove" Content="Ta bort" HorizontalAlignment="Left" Margin="553,292,0,0" VerticalAlignment="Top" Width="80" Background="#FFDDDDDD" Click="Tabortknapp_Click" Foreground="#FFFF9800"/>
         <Button x:Name="button" Content="Refresh" HorizontalAlignment="Left" Margin="10,297,0,0" VerticalAlignment="Top" Width="85" Click="button_Click_1"/>
-        <TextBlock x:Name="txbDescription" HorizontalAlignment="Left" Margin="436,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="123" Width="158"><InlineUIContainer>
-				<ContentPresenter Content="{Binding Description}"/>
-			</InlineUIContainer></TextBlock>
+        <TextBlock x:Name="txbDescription" HorizontalAlignment="Left" Margin="436,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="123" Width="158"/>
         <Label x:Name="label" Content="Description:" HorizontalAlignment="Left" Margin="428,131,0,0" VerticalAlignment="Top" Foreground="White" />
 
     </Grid>

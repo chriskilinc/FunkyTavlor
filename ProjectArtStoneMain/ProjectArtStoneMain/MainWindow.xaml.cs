@@ -79,10 +79,10 @@ namespace ProjectArtStoneMain
                 ConfigurationManager.AppSettings["StorageConnectionString"]);
 
             // Create the table client.
-            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+            tableClient = storageAccount.CreateCloudTableClient();
 
             // Create the CloudTable that represents the "people" table.
-            CloudTable table = tableClient.GetTableReference("funkytavlor");
+            table = tableClient.GetTableReference("funkytavlor");
 
             // Create a retrieve operation that expects a customer entity.
             TableOperation retrieveOperation = TableOperation.Retrieve<TableEntity>(taveltitel, tavelid);
@@ -175,19 +175,25 @@ namespace ProjectArtStoneMain
             var taveltitel = ((dynamic)listBox.SelectedItem).PartitionKey;
             var tavelid = ((dynamic)listBox.SelectedItem).RowKey;
 
+            
+
             CloudStorageAccount current = CloudStorageAccount.Parse(
                 ConfigurationManager.AppSettings["StorageConnectionString"]);
             var tableClient = current.CreateCloudTableClient();
             var table = tableClient.GetTableReference("funkytavlor");
+
+            
 
 
             TableOperation retrieveOperation = TableOperation.Retrieve<TableEntity>(taveltitel, tavelid);
             
             TableResult retrievedData = table.Execute(retrieveOperation);
 
+
+
             if (retrievedData != null)
             {
-                txbDescription.Text = (((TableEntity)retrievedData.Result).RowKey);
+                txbDescription.Text = (((TableEntity)retrievedData.Result).Timestamp.ToString());
             }
         }
 

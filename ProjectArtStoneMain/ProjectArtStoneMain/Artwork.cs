@@ -11,16 +11,25 @@ namespace ProjectArtStone
 {
     public class Artwork : TableEntity
     {
+        
+
+        
+
         public int Id { get; set; }
         public string Title { get; set; }
         public string Artist { get; set; }
         public string Room { get; set; }
         public string Description { get; set; }
-        public bool Visible { get; set; }  // ?????????????????????????????????? ? vis Able ? ????????? ???????????????????
+        public bool Visible { get; set; }  
         //String Format
         public string Presentation
         {
             get { return $"{Title} av {Artist} i rum {Room}"; }
+        }
+
+        public string Descript
+        {
+            get { return $"{Description}"; }
         }
 
         public Artwork(string title, int id)
@@ -29,10 +38,6 @@ namespace ProjectArtStone
             this.RowKey = id.ToString();
         }
 
-        //public override string ToString()
-        //{
-        //    return P;
 
-        //}
     }
 }
