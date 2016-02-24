@@ -11,9 +11,6 @@ namespace ProjectArtStone
 {
     public class Artwork : TableEntity
     {
-        
-
-        
 
         public int Id { get; set; }
         public string Title { get; set; }

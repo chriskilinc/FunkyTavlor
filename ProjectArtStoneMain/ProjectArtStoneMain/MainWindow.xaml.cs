@@ -70,7 +70,7 @@ namespace ProjectArtStoneMain
            var tavelid = ((dynamic)listBox.SelectedItem).RowKey;                    //Detta ska funka förfan
             
 
-            MessageBox.Show(tavelid);
+            
             
             
 
@@ -86,34 +86,23 @@ namespace ProjectArtStoneMain
             // Create the CloudTable that represents the "people" table.
             table = tableClient.GetTableReference("funkytavlor");
 
-            // Create a retrieve operation that expects a customer entity.
-            TableOperation retrieveOperation = TableOperation.Retrieve<TableEntity>(taveltitel, tavelid);
+            //// Create a retrieve operation that expects a customer entity.
+            //TableOperation retrieveOperation = TableOperation.Retrieve<TableEntity>(taveltitel, tavelid);
 
-            // Execute the operation.
-            TableResult retrievedResult = table.Execute(retrieveOperation);
+            //// Execute the operation.
+            //TableResult retrievedResult = table.Execute(retrieveOperation);
 
-            // Assign the result to a ArtworkTableEntity object.
-            TableEntity updateEntity = (TableEntity)retrievedResult.Result;
-
-            if (updateEntity != null)
-            {
-                //Update the partitionkey to adelle
-                updateEntity.PartitionKey = "Adelle";
-
-                
-                updateEntity.RowKey = tavelid;
-
-                // Create the InsertOrReplace TableOperation.
-                TableOperation updateOperation = TableOperation.Replace(updateEntity);
-
-                // Execute the operation.
-                //table.Execute(updateOperation);
-
-            }
+            //// Assign the result to a ArtworkTableEntity object.
+            //TableEntity updateEntity = (TableEntity)retrievedResult.Result;
 
 
-            //editwindow edit = new editwindow();
-            //edit.Show();
+            
+
+
+            
+
+
+
         }
 
         
@@ -160,7 +149,7 @@ namespace ProjectArtStoneMain
             var tableClient = acc.CreateCloudTableClient();
             var table = tableClient.GetTableReference("funkytavlor");
 
-            // Define the query, and select only the Email property.
+            
             
 
             var entities = table.ExecuteQuery(new TableQuery()).ToList();
@@ -183,36 +172,25 @@ namespace ProjectArtStoneMain
 
             CloudStorageAccount current = CloudStorageAccount.Parse(
             ConfigurationManager.AppSettings["StorageConnectionString"]);
-            var tableClient = current.CreateCloudTableClient();
-            var table = tableClient.GetTableReference("funkytavlor");
+            tableClient = current.CreateCloudTableClient();
+            table = tableClient.GetTableReference("funkytavlor");
+
+
 
             // Define the query, and select only the Email property.
-            TableQuery<DynamicTableEntity> projectionQuery = new TableQuery<DynamicTableEntity>().Select(new string[] { "Description" });
+            TableQuery<DynamicTableEntity> projectionQuery = new TableQuery<DynamicTableEntity>().Select(new string[] { "Description" }).Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, taveltitel));
 
             // Define an entity resolver to work with the entity after retrieval.
             EntityResolver<string> resolver = (pk, rk, ts, props, etag) => props.ContainsKey("Description") ? props["Description"].StringValue : null;
 
 
 
-
-
-
             foreach (string projectedDescription in table.ExecuteQuery(projectionQuery, resolver, null, null))
             {
-                MessageBox.Show(projectedDescription);
                 txbDescription.Text = projectedDescription;
             }
 
-            //TableOperation retrieveOperation = TableOperation.Retrieve<TableEntity>(taveltitel, tavelid);
-
-            //TableResult retrievedData = table.Execute(retrieveOperation);
-
-
-
-            //if (retrievedData != null)
-            //{
-            //    txbDescription.Text = (((TableEntity)retrievedData.Result).Timestamp.ToString());
-            //}
+           
         }
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
