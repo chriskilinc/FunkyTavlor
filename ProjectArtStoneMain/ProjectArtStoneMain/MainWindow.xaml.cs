@@ -65,47 +65,11 @@ namespace ProjectArtStoneMain
         //Remove Button
         private void Tabortknapp_Click(object sender, RoutedEventArgs e)
         {
-
-           var taveltitel = ((dynamic)listBox.SelectedItem).PartitionKey;
-           var tavelid = ((dynamic)listBox.SelectedItem).RowKey;                    //Detta ska funka förfan
             
-
-            
-            
-            
-
-
-
-            // Retrieve the storage account from the connection string.
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-                ConfigurationManager.AppSettings["StorageConnectionString"]);
-
-            // Create the table client.
-            tableClient = storageAccount.CreateCloudTableClient();
-
-            // Create the CloudTable that represents the "people" table.
-            table = tableClient.GetTableReference("funkytavlor");
-
-            //// Create a retrieve operation that expects a customer entity.
-            //TableOperation retrieveOperation = TableOperation.Retrieve<TableEntity>(taveltitel, tavelid);
-
-            //// Execute the operation.
-            //TableResult retrievedResult = table.Execute(retrieveOperation);
-
-            //// Assign the result to a ArtworkTableEntity object.
-            //TableEntity updateEntity = (TableEntity)retrievedResult.Result;
-
-
-            
-
-
-            
-
-
-
         }
 
-        
+       
+
 
         //
         //?? Button
