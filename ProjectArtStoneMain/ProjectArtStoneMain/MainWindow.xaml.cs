@@ -156,7 +156,7 @@ namespace ProjectArtStoneMain
         private void GetAllPaintingsData()
         {
             CloudStorageAccount acc = CloudStorageAccount.Parse(
-                ConfigurationManager.AppSettings["StorageConnectionString"]);
+            ConfigurationManager.AppSettings["StorageConnectionString"]);
             var tableClient = acc.CreateCloudTableClient();
             var table = tableClient.GetTableReference("funkytavlor");
 
@@ -174,13 +174,15 @@ namespace ProjectArtStoneMain
         private void GetCurrentPaintingsData()
         {
 
+            if (listBox.SelectedItem == null)
+            {
+                return;
+            }
             var taveltitel = ((dynamic)listBox.SelectedItem).PartitionKey;
             var tavelid = ((dynamic)listBox.SelectedItem).RowKey;
 
-            
-
             CloudStorageAccount current = CloudStorageAccount.Parse(
-                ConfigurationManager.AppSettings["StorageConnectionString"]);
+            ConfigurationManager.AppSettings["StorageConnectionString"]);
             var tableClient = current.CreateCloudTableClient();
             var table = tableClient.GetTableReference("funkytavlor");
 
