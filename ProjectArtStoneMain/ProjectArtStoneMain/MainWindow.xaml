@@ -12,7 +12,7 @@
 	>
     <Grid>
         <Button x:Name="btnUpload" Content="Ladda Upp" HorizontalAlignment="Left" Margin="436,292,0,0" VerticalAlignment="Top" Width="72" Background="#FFDDDDDD" Click="button_Click" Foreground="#FFFF9800"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="121" Margin="436,10,0,0" VerticalAlignment="Top" Width="216"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="121" Margin="436,10,0,0" VerticalAlignment="Top" Width="216" Source="Images/216x121.png"/>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="285" VerticalAlignment="Top" Width="165" IsSynchronizedWithCurrentItem="False" SelectionChanged="listBox_SelectionChanged" Foreground="#DDFFFFFF" BorderBrush="#FFFF9800">
             <ListBox.ItemTemplate>
                 <DataTemplate>
