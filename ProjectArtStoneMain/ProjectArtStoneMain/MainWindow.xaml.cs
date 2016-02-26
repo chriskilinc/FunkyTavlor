@@ -17,8 +17,8 @@ using System.Configuration;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Table;
-
-
+using Microsoft.WindowsAzure.Storage.Blob;
+using System.IO;
 
 namespace ProjectArtStoneMain
 {
@@ -29,6 +29,8 @@ namespace ProjectArtStoneMain
     {
 
         
+
+
         CloudTable table;
         CloudTableClient tableClient;
 
@@ -65,10 +67,61 @@ namespace ProjectArtStoneMain
         //Remove Button
         private void Tabortknapp_Click(object sender, RoutedEventArgs e)
         {
-            
+
+            // Retrieve storage account from connection string.
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+                ConfigurationManager.AppSettings["StorageConnectionString"]); 
+
+            // Create the blob client.
+            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+            // Retrieve reference to a previously created container.
+            var container = blobClient.GetContainerReference("funky").ListBlobs();
+
+            var urls = new List<string>();
+            foreach (var blob in container)
+            {
+                string url = "funky" + blob.uri.AbsoluteUri;
+                urls.Add(url);
+            }
+
+            //// Loop over items within the container and output the length and URI.
+            //foreach (IListBlobItem item in container.ListBlobs(null, false))
+            //{
+            //    if (item.GetType() == typeof(CloudBlockBlob))
+            //    {
+            //        CloudBlockBlob blob = (CloudBlockBlob)item;
+
+
+            //        txbDescription.Text = ($"Block blob of length {0}: {1}" + blob.Properties.Length + blob.Uri);
+            //        //Console.WriteLine("Block blob of length {0}: {1}", blob.Properties.Length, blob.Uri);
+
+            //    }
+            //    else if (item.GetType() == typeof(CloudPageBlob))
+            //    {
+            //        CloudPageBlob pageBlob = (CloudPageBlob)item;
+
+            //        Console.WriteLine("Page blob of length {0}: {1}", pageBlob.Properties.Length, pageBlob.Uri);
+
+            //    }
+            //    else if (item.GetType() == typeof(CloudBlobDirectory))
+            //    {
+            //        CloudBlobDirectory directory = (CloudBlobDirectory)item;
+
+            //        txbDescription.Text=($"Directory: {0}" + directory.Uri);
+
+            //        Console.WriteLine("Directory: {0}", directory.Uri);
+            //    }
+            //}
+
+
+
+
+
+
         }
 
-       
+
 
 
         //

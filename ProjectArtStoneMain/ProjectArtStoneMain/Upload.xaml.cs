@@ -1,4 +1,5 @@
 ﻿using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.WindowsAzure.Storage.Table;
 using ProjectArtStone;
 using System;
@@ -99,32 +100,34 @@ namespace ProjectArtStoneMain
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+              ConfigurationManager.AppSettings["StorageConnectionString"]);
+            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+            // Retrieve a reference to a container.
+            CloudBlobContainer container = blobClient.GetContainerReference("funky");
+
+            // Create the container if it doesn't already exist.
+            container.CreateIfNotExists();
+
+            // Retrieve reference to a blob named "myblob".
+            CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob");
+
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
             dlg.ShowDialog();
 
             if (dlg.FileName != null)
             {
                 FileStream fs = new FileStream(dlg.FileName, FileMode.Open, FileAccess.Read);
+                MessageBox.Show(fs.Name);
 
-                byte[] data = new byte[fs.Length];
-                fs.Read(data, 0, System.Convert.ToInt32(fs.Length)); //Storlek?
-
-                fs.Close();
-
-                //Additem
-                //bytedata =       //Bytedata skall inehålla bildens bitekod, villket vi ej kan ta fram än
-                //if (bytedata == null)
-                //{
-                //    label1.Content = $"Byte: Null";
-
-                //}
-
-
-                ImageSourceConverter imgs = new ImageSourceConverter();
-                image.SetValue(Image.SourceProperty, imgs.
-                ConvertFromString(dlg.FileName.ToString()));
-
+                // Create or overwrite the "myblob" blob with contents from a local file.
+                using (var fileStream = System.IO.File.OpenRead(fs.Name))
+                {
+                    blockBlob.UploadFromStream(fileStream);
+                }
             }
+
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)
