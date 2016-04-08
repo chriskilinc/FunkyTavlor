@@ -15,27 +15,41 @@ p {
 .col-lg-4 img {
     float: right;
     width: 100%;
+    background: black;
 }
 
 .imgDesc {
     position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(32, 32, 32, 0.0);
     color: #000;
     display:none;
     margin:0;
-    margin-left: 2.5%;
     text-decoration: none;
-    top: 50%; transform: translateY(-50%);
+    /*top: 50%; transform: translateY(-50%);*/
+    -moz-transition: all 2s ease-in;
+    -webkit-transition: all 2s ease-in;
+    -ms-transition: all 2s ease-in;
+    -o-transition: all 2s ease-in;
+    transition: all 2s ease-in;
+    
 }
 
 .imgDesc p {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
-    color: #000;
+    color: #fff;
     font-size: 16px;
     font-weight: bold;
     margin: 0;
-    margin-bottom: 7.5px;
+    margin-top:2.5%;
+    margin-left: 2.5%; /* Ska vara samma som button info*/
+
 }
 
 .col-lg-4 a:hover > .imgDesc{
+    
     display:block;
+    opacity: 0.5;
+
 }
