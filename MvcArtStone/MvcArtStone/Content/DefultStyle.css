@@ -1,3 +1,41 @@
-﻿p {
-    color: red;
+﻿.container {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    color: #fff;
+}
+
+.col-lg-4 {
+    margin: 0;
+    padding: 0;   
+}
+
+.col-lg-4 img {
+    float: right;
+    width: 100%;
+}
+
+.imgDesc {
+    position: absolute;
+    color: #000;
+    display:none;
+    margin:0;
+    margin-left: 2.5%;
+    text-decoration: none;
+    top: 50%; transform: translateY(-50%);
+}
+
+.imgDesc p {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 7.5px;
+}
+
+.col-lg-4 a:hover > .imgDesc{
+    display:block;
 }
