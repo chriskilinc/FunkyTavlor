@@ -57,8 +57,8 @@ p {
     width: 100%;
     /*margin-bottom: 1px;*/
     overflow: auto;
-    /*border-top: 1px solid #ebebeb;
-    border-bottom: 1px solid #ebebeb;*/
+    border-top: 1px solid #ebebeb;
+    border-bottom: 1px solid #ebebeb;
     -webkit-transition: all 100ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
     transition: all 100ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
