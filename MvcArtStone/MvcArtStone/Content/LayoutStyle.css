@@ -1,0 +1,7 @@
+﻿.navbar > .container .navbar-brand {
+    margin-left: 0;
+}
+
+.navbar-inverse {
+    background-color: #323232;
+}
