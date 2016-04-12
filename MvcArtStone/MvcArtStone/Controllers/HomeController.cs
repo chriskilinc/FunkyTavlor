@@ -26,5 +26,11 @@ namespace MvcArtStone.Controllers
 
             return View();
         }
+
+        public ActionResult Manager()
+        {
+            ViewBag.Message = "Manager Page";
+            return View();
+        }
     }
 }

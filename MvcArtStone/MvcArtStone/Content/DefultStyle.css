@@ -1,6 +1,15 @@
-﻿.container {
+﻿#wrapper {
     margin: 0;
     padding: 0;
+}
+
+#wrapper .container {
+    margin: 0;
+    padding: 0;
+}
+
+#controller .container {
+    height: 20px;
 }
 
 p {
@@ -90,4 +99,15 @@ p {
     font-size: 20px;
     font-weight: bold;
     text-transform: uppercase;
+}
+
+/*.center {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}*/
+
+
+#controlls {
+    margin-top: 2.5%;
 }

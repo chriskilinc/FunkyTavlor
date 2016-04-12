@@ -1,7 +1,41 @@
 ﻿.navbar > .container .navbar-brand {
-    margin-left: 0;
+    /*font-weight: bold;*/
+    margin-left:;
 }
 
 .navbar-inverse {
     background-color: #323232;
+    font-weight: bold;
+    border-bottom: 3px solid #F57C00
+}
+
+/* NAVBAR BRAND */
+.navbar > .container a {
+    color: #FB8C00;
+}
+
+/* NAVBAR ITEMS */
+.navbar-inverse .navbar-nav > li > a {
+    /*color: #FB8C00;*/
+    color: #FB8C00;
+    -webkit-transition: 200ms ease-in-out;
+    -moz-transition: 200ms ease-in-out;
+    -ms-transition: 200ms ease-in-out;
+    -o-transition: 200ms ease-in-out;
+    transition: 200ms ease-in-out;
+}
+
+/* NAVBAR ITEMS: Hover*/
+.navbar-inverse .navbar-nav > li > a:hover {
+    background-color: #434343;
+    /*color: #f68109;*/
+    color: #fff;
+}
+
+.navbar-collapse {
+    font-weight: bold; 
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+
 }
