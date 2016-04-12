@@ -1,5 +1,6 @@
 ﻿.navbar > .container .navbar-brand {
-    margin-left: 0;
+    font-weight: bold;
+    margin-left:;
 }
 
 .navbar-inverse {

@@ -1,4 +1,9 @@
-﻿.container {
+﻿#wrapper {
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper .container {
     margin: 0;
     padding: 0;
 }
