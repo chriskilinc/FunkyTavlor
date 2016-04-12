@@ -8,6 +8,10 @@
     padding: 0;
 }
 
+#controller .container {
+    height: 20px;
+}
+
 p {
     color: #fff;
 }
