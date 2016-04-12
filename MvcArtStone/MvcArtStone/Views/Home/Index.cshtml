@@ -4,16 +4,58 @@
 <div id="wrapper">
     <!-- TODO: Slider here -->
     <!-- TODO: Search bar and buttons -->
-    <div id="c ontroller" class="container">
+    <div id="controlls" class="container">
         <div class="row">
+            <div class="col-lg-12 col-lg-offset-1">
+                <div class="col-lg-2" style="margin: 12.5px 0 5px -14px">
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalUpload">Upload</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- UPLOAD Modal -->
+    <div class="modal fade" id="modalUpload" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Upload Image</h4>
+                </div>
+                <div class="modal-body">
+                    <input class="btn btn-info btn-lg" type="file" name="avatar" />
+                    <input class="btn btn-info btn-lg" type="submit" value="Ladda Upp" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="controller" class="container">
+        @*<div class="row">
             <div class="col-lg-12">
                 <div class="col-lg-2 pull-right">
                     <button id="btnCol3" class="btn-info btn" value="hide/show">COL3</button>
                     <button id="btnColRows" class="btn-info btn">ROWS</button>
                 </div>
             </div>
+        </div>*@
+
+        <div class="row">
+            <div class="col-lg-12 col-lg-offset-1">
+                <div class="col-lg-3" style="margin: 4px 0 10px -14px;">
+                    <button id="btnCol3" class="btn-info btn" value="hide/show">COLUMNS</button>
+                    <button id="btnColRows" class="btn-info btn">ROWS</button>
+                </div>
+            </div>
         </div>
     </div>
+
+
 
     <script>
         //HIDES ALL OTHER GALLERY TYPES WHEN THE SITE IS LOADED

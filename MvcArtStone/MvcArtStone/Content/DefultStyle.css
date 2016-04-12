@@ -100,3 +100,14 @@ p {
     font-weight: bold;
     text-transform: uppercase;
 }
+
+/*.center {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}*/
+
+
+#controlls {
+    margin-top: 2.5%;
+}
