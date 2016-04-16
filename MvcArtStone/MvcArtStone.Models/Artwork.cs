@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MvcArtStone.Models
 {
-    class Artwork
+    public class Artwork
     {
         public string Title { get; set; }
         public string Artsit { get; set; }
