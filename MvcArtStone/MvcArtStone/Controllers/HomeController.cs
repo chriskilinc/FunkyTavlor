@@ -13,6 +13,12 @@ namespace MvcArtStone.Controllers
             return View();
         }
 
+        public ActionResult Submit() //(Models.Artwork model)
+        {
+            //_artworkMaster.AddArtwork(model);
+            return Content("Sucess!");
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
