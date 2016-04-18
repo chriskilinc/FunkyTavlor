@@ -52,10 +52,6 @@
       <Project>{3e6aab7e-afa3-4c9a-8e56-4093b5382a6b}</Project>
       <Name>MvcArtStone.Repository</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MvcArtStone\MvcArtStone.csproj">
-      <Project>{79ed946e-a77a-4243-b728-2a1ce90d5c7a}</Project>
-      <Name>MvcArtStone</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

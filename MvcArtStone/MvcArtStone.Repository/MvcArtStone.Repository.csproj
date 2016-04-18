@@ -44,6 +44,12 @@
     <Compile Include="DatabaseHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MvcArtStone.Models\MvcArtStone.Models.csproj">
+      <Project>{691af299-069b-4ab8-9242-a73132d654e8}</Project>
+      <Name>MvcArtStone.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

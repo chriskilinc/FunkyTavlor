@@ -252,6 +252,16 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MvcArtStone.LogicBehind\MvcArtStone.LogicBehind.csproj">
+      <Project>{be802e69-efce-4077-8dc1-d63df8e2d901}</Project>
+      <Name>MvcArtStone.LogicBehind</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MvcArtStone.Models\MvcArtStone.Models.csproj">
+      <Project>{691af299-069b-4ab8-9242-a73132d654e8}</Project>
+      <Name>MvcArtStone.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
