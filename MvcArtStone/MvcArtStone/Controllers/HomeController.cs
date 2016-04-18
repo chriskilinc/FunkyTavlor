@@ -8,14 +8,23 @@ namespace MvcArtStone.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly LogicBehind.ArtworkLogic _LogicBehind;
+         public HomeController()
+        {
+            _LogicBehind = new LogicBehind.ArtworkLogic();
+
+        }
+
         public ActionResult Index()
         {
+            
             return View();
         }
 
-        public ActionResult Submit() //(Models.Artwork model)
+        public ActionResult Submit(Models.Artwork model) //(Models.Artwork model)
         {
             //_artworkMaster.AddArtwork(model);
+            MvcArtStone.LogicBehind
             return Content("Sucess!");
         }
 

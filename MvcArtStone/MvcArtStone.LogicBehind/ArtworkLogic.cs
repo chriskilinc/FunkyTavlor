@@ -1,13 +1,14 @@
 ﻿using System;
+using MvcArtStone.Models;
 using MvcArtStone.Repository;
 
 namespace MvcArtStone.LogicBehind
 {
-    public class CompanyBusiness
+    public class ArtworkLogic
     {
         private readonly ArtworkRepository _repository;
 
-        public CompanyBusiness()
+        public ArtworkLogic()
         {
             _repository = new ArtworkRepository();
         }
@@ -21,5 +22,9 @@ namespace MvcArtStone.LogicBehind
             //torepo
         }
 
+        public static void AddArtwork(Artwork model)
+        {
+            ArtworkRepository.AddArtwork(model);
+        }
     }
 }

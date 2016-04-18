@@ -11,6 +11,11 @@ namespace MvcArtStone.Repository
             _databaseHelper = new DatabaseHelper(); ;
         }
 
+        public static void AddArtwork(MvcArtStone.Models.Artwork model)
+        {
+            throw new NotImplementedException();
+        }
+
 
         //CRUD Artwork
         //public void AddCompany(Models.Company company)
