@@ -22,6 +22,7 @@ namespace MvcArtStone.Controllers
             return View();
         }
 
+        [HttpPost]
         public ActionResult Submit(Artwork model) //(Models.Artwork model)
         {
             //_artworkMaster.AddArtwork(model);
