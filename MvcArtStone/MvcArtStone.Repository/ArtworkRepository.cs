@@ -29,6 +29,15 @@ namespace MvcArtStone.Repository
             table = tableClient.GetTableReference("funkytavlor");
 
             Models.Artwork FiktivArtwork = new Models.Artwork("Titel", "30");
+            
+
+            //create the tableoperation object that inserts the customer entity
+            TableOperation insertOperation = TableOperation.Insert(FiktivArtwork);
+
+            //execute the insert operation,
+            table.Execute(insertOperation);
+
+
             //throw new NotImplementedException();
         }
 
