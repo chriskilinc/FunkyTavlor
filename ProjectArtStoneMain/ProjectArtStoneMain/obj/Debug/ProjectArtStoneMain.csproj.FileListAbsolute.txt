@@ -222,3 +222,12 @@ C:\Users\Admin\Desktop\GitProblem\ProjectArtStoneMain\ProjectArtStoneMain\obj\De
 C:\Users\Admin\Desktop\GitProblem\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\ProjectArtStoneMain.csproj.GenerateResource.Cache
 C:\Users\Admin\Desktop\GitProblem\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\ProjectArtStoneMain.exe
 C:\Users\Admin\Desktop\GitProblem\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\ProjectArtStoneMain.pdb
+C:\Users\Admin\Desktop\ArtStone\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\ProjectArtStoneMain.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Desktop\ArtStone\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\App.baml
+C:\Users\Admin\Desktop\ArtStone\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\editwindow.g.cs
+C:\Users\Admin\Desktop\ArtStone\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\MainWindow.g.cs
+C:\Users\Admin\Desktop\ArtStone\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\PageEdit.g.cs
+C:\Users\Admin\Desktop\ArtStone\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\Upload.g.cs
+C:\Users\Admin\Desktop\ArtStone\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\App.g.cs
+C:\Users\Admin\Desktop\ArtStone\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\ProjectArtStoneMain_MarkupCompile.cache
+C:\Users\Admin\Desktop\ArtStone\ProjectArtStoneMain\ProjectArtStoneMain\obj\Debug\ProjectArtStoneMain_MarkupCompile.lref

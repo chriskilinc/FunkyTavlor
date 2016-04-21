@@ -81,7 +81,7 @@ namespace ProjectArtStoneMain
             var urls = new List<string>();
             foreach (var blob in container)
             {
-                string url = "funky" + blob.uri.AbsoluteUri;
+                string url = "funky" + blob.Uri.AbsoluteUri;
                 urls.Add(url);
             }
 

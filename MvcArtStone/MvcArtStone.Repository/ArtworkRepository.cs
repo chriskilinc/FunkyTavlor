@@ -21,7 +21,7 @@ namespace MvcArtStone.Repository
         public static void AddArtwork(MvcArtStone.Models.Artwork model)
         {
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-                ConfigurationManager.AppSettings[_databaseHelper.ConnectionString]);
+                ConfigurationManager.AppSettings[_databaseHelper.GetConnectionString()]);
 
             //Create the table client
             CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
