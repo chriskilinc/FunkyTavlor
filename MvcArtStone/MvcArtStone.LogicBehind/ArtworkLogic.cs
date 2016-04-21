@@ -24,7 +24,11 @@ namespace MvcArtStone.LogicBehind
 
         public static void AddArtwork(Artwork model)
         {
-            ArtworkRepository.AddArtwork(model);
+            if (model != null)
+            {
+                ArtworkRepository.AddArtwork(model);
+            }
+           
         }
     }
 }

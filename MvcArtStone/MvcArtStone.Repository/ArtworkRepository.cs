@@ -1,10 +1,17 @@
 ﻿using System;
+using System.Configuration;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.WindowsAzure.Storage.Table;
 
 namespace MvcArtStone.Repository
 {
     public class ArtworkRepository
     {
-        private readonly DatabaseHelper _databaseHelper;
+        CloudTable table;
+        CloudTableClient tableClient;
+
+        private static DatabaseHelper _databaseHelper;
 
         public ArtworkRepository()
         {
@@ -13,6 +20,14 @@ namespace MvcArtStone.Repository
 
         public static void AddArtwork(MvcArtStone.Models.Artwork model)
         {
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+                ConfigurationManager.AppSettings[_databaseHelper.ConnectionString]);
+
+            //Create the table client
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            //Create the CloudTable object with your table reference
+            //table = tableClient.GetTableReference("funkytavlor"); TODO FOR CHRIS
             throw new NotImplementedException();
         }
 
