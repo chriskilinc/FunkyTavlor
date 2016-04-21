@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MvcArtStone.Models;
 
 namespace MvcArtStone.Controllers
 {
@@ -21,7 +22,7 @@ namespace MvcArtStone.Controllers
             return View();
         }
 
-        public ActionResult Submit(Models.Artwork model) //(Models.Artwork model)
+        public ActionResult Submit(Artwork model) //(Models.Artwork model)
         {
             //_artworkMaster.AddArtwork(model);
             LogicBehind.ArtworkLogic.AddArtwork(model);
