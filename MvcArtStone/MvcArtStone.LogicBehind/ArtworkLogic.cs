@@ -13,7 +13,7 @@ namespace MvcArtStone.LogicBehind
             _repository = new ArtworkRepository();
         }
 
-        public void AddCompany(MvcArtStone.Models.Artwork Artwork)
+        public void AddCompany(Artwork Artwork)
         {
             //TODO: Do validation checks
             if(Artwork.Title == null)
