@@ -8,9 +8,7 @@ namespace MvcArtStone.Repository
 {
     public class ArtworkRepository
     {
-        CloudTable table;
-        CloudTableClient tableClient;
-
+        
         private static DatabaseHelper _databaseHelper;
 
         public ArtworkRepository()
@@ -27,8 +25,11 @@ namespace MvcArtStone.Repository
             CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
             //Create the CloudTable object with your table reference
-            //table = tableClient.GetTableReference("funkytavlor"); TODO FOR CHRIS
-            throw new NotImplementedException();
+            CloudTable table;
+            table = tableClient.GetTableReference("funkytavlor");
+
+            Models.Artwork FiktivArtwork = new Models.Artwork("Titel", "30");
+            //throw new NotImplementedException();
         }
 
 
