@@ -1,18 +1,25 @@
-﻿angular.module('artstoneApp')
-.controller('artstoneController', ['$http', '$scope', function ($http, $scope) {
+﻿var app = angular.module("artstoneApp")
+.controller("artstoneController", ["$http", "$scope","$state", function ($http, $scope, $state) {
 
-    $scope.artwork = {
-        Title: '',
-        Artist: '',
-        Room: '',
-        Description: '',
-        InStorage: '',
-        CreationDate: '',
-        AddedDate: '',
-    }
+        $scope.artwork =
+        [
+            artwork.Title =
+            "A"
+            //Artist: "b",
+            //Room: "c",
+            //Description: "d",
+            //InStorage: "e",
+            //CreationDate: "f",
+            //AddedDate: "g",
+        ];
+
+        //$scope.open = function() {
+        //    $state.go("_LoginPartial.cshtml");
+        //};
 
     $scope.saveArtwork = function (artwork) {
-        $http.post('/home/submit', artwork).then(function (response) {
+        console.log("DickButt");
+        $http.post("/Home/Submit", artwork).then(function (response) {
             console.log(response);
         });
     }

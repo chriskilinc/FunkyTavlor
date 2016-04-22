@@ -31,11 +31,11 @@ namespace MvcArtStone.Repository
             CloudTable table;
             table = tableClient.GetTableReference("funkytavlor");
 
-            Models.Artwork FiktivArtwork = new Models.Artwork("Test", "22/4 - 10:03");
+            Artwork fiktivArtwork = new Artwork("Test", "22/4 - 10:03");
             
 
             //create the tableoperation object that inserts the customer entity
-            TableOperation insertOperation = TableOperation.Insert(FiktivArtwork);
+            TableOperation insertOperation = TableOperation.Insert(fiktivArtwork);
 
             //execute the insert operation,
             table.Execute(insertOperation);
