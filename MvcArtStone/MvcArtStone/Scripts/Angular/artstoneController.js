@@ -14,7 +14,6 @@
     $scope.saveArtwork = function (artwork) {
         $http.post('/home/submit', artwork).then(function (response) {
             console.log(response);
-            
         });
     }
 

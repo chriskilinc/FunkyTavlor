@@ -9,14 +9,14 @@
             <div class="col-lg-12 col-lg-offset-1">
                 <div class="col-lg-2" style="margin: 12.5px 0 5px -14px">
                     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalUpload">Upload</button>
-                    <form ng-submit="saveArtwork(artwork)"><input type="submit" value="Peters Knapp" class="btn-info btn pull-left" /></form>
+                    
                 </div>
             </div>
         </div>
     </div>
 
     <!-- UPLOAD Modal -->
-    <div class="modal fade" id="modalUpload" role="dialog">
+    <div class="modal fade" id="modalUpload" role="dialog" ng-app="artstoneApp" ng-controller="artstoneController">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
@@ -25,8 +25,12 @@
                     <h4 class="modal-title">Upload Image</h4>
                 </div>
                 <div class="modal-body">
-                    <input class="btn btn-info btn-lg" type="file" name="avatar" />
-                    <input class="btn btn-info btn-lg" type="submit" value="Ladda Upp" />
+                    <form ng-submit="saveArtwork(artwork)">
+                        <input class="btn btn-info btn-lg" type="file" name="avatar" />
+                        <input class="btn btn-info btn-lg" type="submit" value="Ladda Upp" />
+                        <input type="submit" value="Peters Knapp" class="btn-info btn pull-left" />
+                    </form>
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -53,7 +57,7 @@
                     <button id="btnColRows" class="btn-info btn">ROWS</button>
 
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -268,7 +272,7 @@
                         <!-- TODO: Add different paragraphs for each property the image have-->
                     </div>
                     <!-- DESCRIPTION OF IMAGE ENDS HERE-->
-                </div>  
+                </div>
                 <!-- IMAGE ENDS HERE-->
                 <!-- ex: IMAGE 3 -->
                 <!-- IMAGE BEGINS HERE-->

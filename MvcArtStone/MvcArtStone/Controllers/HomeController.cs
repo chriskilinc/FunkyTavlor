@@ -10,7 +10,7 @@ namespace MvcArtStone.Controllers
     public class HomeController : Controller
     {
         private readonly LogicBehind.ArtworkLogic _LogicBehind;
-         public HomeController()
+        public HomeController()
         {
             _LogicBehind = new LogicBehind.ArtworkLogic();
 
@@ -18,7 +18,7 @@ namespace MvcArtStone.Controllers
 
         public ActionResult Index()
         {
-            
+
             return View();
         }
 
@@ -26,6 +26,7 @@ namespace MvcArtStone.Controllers
         public ActionResult Submit(Artwork model) //(Models.Artwork model)
         {
             //_artworkMaster.AddArtwork(model);
+            //model = new Artwork("test","test");
             LogicBehind.ArtworkLogic.AddArtwork(model);
             return Content("Sucess!");
         }

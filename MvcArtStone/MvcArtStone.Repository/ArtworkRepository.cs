@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Configuration;
+using System.Reflection;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.WindowsAzure.Storage.Table;
+using MvcArtStone.Models;
 
 namespace MvcArtStone.Repository
 {
@@ -16,8 +18,9 @@ namespace MvcArtStone.Repository
             _databaseHelper = new DatabaseHelper(); ;
         }
 
-        public static void AddArtwork(MvcArtStone.Models.Artwork model)
+        public static void AddArtwork(Artwork model)
         {
+
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
                 ConfigurationManager.AppSettings[_databaseHelper.GetConnectionString()]);
 
@@ -28,7 +31,7 @@ namespace MvcArtStone.Repository
             CloudTable table;
             table = tableClient.GetTableReference("funkytavlor");
 
-            Models.Artwork FiktivArtwork = new Models.Artwork("PEtersknapp", "31");
+            Models.Artwork FiktivArtwork = new Models.Artwork("Test", "22/4 - 10:03");
             
 
             //create the tableoperation object that inserts the customer entity

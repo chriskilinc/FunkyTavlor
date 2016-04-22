@@ -13,22 +13,22 @@ namespace MvcArtStone.LogicBehind
             _repository = new ArtworkRepository();
         }
 
-        public void AddCompany(Artwork Artwork)
-        {
-            //TODO: Do validation checks
-            if(Artwork.Title == null)
-                throw new NullReferenceException("Artwork Title can not be null!");
+        //public void AddCompany(Artwork Artwork)
+        //{
+        //    //TODO: Do validation checks
+        //    if(Artwork.Title == null)
+        //        throw new NullReferenceException("Artwork Title can not be null!");
 
-            //torepo
-        }
+        //    //torepo
+        //}
 
         public static void AddArtwork(Artwork model)
         {
-            if (model != null)
-            {
-                ArtworkRepository.AddArtwork(model);
-            }
-           
+            ArtworkRepository.AddArtwork(model);
+            //if (model != null)
+            //{
+            //    ArtworkRepository.AddArtwork(model);
+            //}
         }
     }
 }
