@@ -23,11 +23,9 @@ namespace MvcArtStone.Controllers
         }
 
         [HttpPost]
-        public ActionResult Submit(Artwork model) //(Models.Artwork model)
+        public ActionResult Submit(MvcArtStone.Models.Artwork model)
         {
-            //_artworkMaster.AddArtwork(model);
-            //model = new Artwork("test","test");
-            LogicBehind.ArtworkLogic.AddArtwork(model);
+            MvcArtStone.LogicBehind.ArtworkLogic.AddArtwork(model);
             return Content("Sucess!");
         }
 

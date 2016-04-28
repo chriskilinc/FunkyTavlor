@@ -31,7 +31,7 @@ namespace MvcArtStone.Repository
             CloudTable table;
             table = tableClient.GetTableReference("funkytavlor");
 
-            Artwork fiktivArtwork = new Artwork("Test", "22/4 - 10:03");
+            Artwork fiktivArtwork = new Artwork(model.Title, "28/4 - 22:13");
             
 
             //create the tableoperation object that inserts the customer entity

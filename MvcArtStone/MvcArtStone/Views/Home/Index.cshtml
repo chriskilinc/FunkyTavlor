@@ -1,6 +1,14 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<div ng-app="artstoneApp" ng-controller="artstoneController" class="container">
+    @*<a href="" ng-click="test()">Click me!</a>*@
+    <form name="saveArtwork" ng-submit="insertArtwork()">
+        <input type="text" ng-model="artwork.ArtworkTitle" class="form-control" name="test" />
+        <input value="Click me" type="submit"/>
+    </form>
+</div>
+
 <div id="wrapper" ng-app="artstoneApp" ng-controller="artstoneController">
     <!-- TODO: Slider here -->
     <!-- TODO: Search bar and buttons -->
@@ -12,7 +20,7 @@
 
                 </div>
                 <div class="col-lg-2" style="margin: 12.5px 0 5px -14px">
-                    <input value="Test" type="submit" class="btn btn-info btn-lg" ng-submit="test"/>
+                    <input value="Test" type="submit" class="btn btn-info btn-lg" ng-submit="test" />
                 </div>
             </div>
         </div>
@@ -20,28 +28,28 @@
 
     <!-- UPLOAD Modal -->
     <!-- <div class="modal fade" id="modalUpload" role="dialog" ng-app="artstoneApp" ng-controller="artstoneController">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Upload Image</h4>
-                </div>
-                <div class="modal-body">
-                    <form ng-submit="saveArtwork(artwork)">
-                        <input class="btn btn-info btn-lg" type="file" name="avatar" />
-                        <input class="btn btn-info btn-lg" type="submit" value="Ladda Upp" />
-                        <input type="submit" value="Peters Knapp" class="btn-info btn pull-left" />
-                    </form>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Upload Image</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form ng-submit="saveArtwork(artwork)">
+                            <input class="btn btn-info btn-lg" type="file" name="avatar" />
+                            <input class="btn btn-info btn-lg" type="submit" value="Ladda Upp" />
+                            <input type="submit" value="Peters Knapp" class="btn-info btn pull-left" />
+                        </form>
 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                </div>
+
             </div>
-
         </div>
-    </div>
--->
+    -->
     <div id="controller" class="container">
         @*<div class="row">
                 <div class="col-lg-12">
@@ -401,9 +409,13 @@
     </div>
 </div>
 
-<script type="text/javascript" src="~/Scripts/Angular/artstoneApp.js"></script>
-<script type="text/javascript" src="~/Scripts/Angular/artstoneController.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+<script src="~/Scripts/Angular/artstoneApp.js"></script>
+<script src="~/Scripts/Angular/artstoneController.js"></script>
+
+
+
 @*<!-- use jssor.slider.debug.js instead for debug -->
     <script>
             jssor_1_slider_init = function() {

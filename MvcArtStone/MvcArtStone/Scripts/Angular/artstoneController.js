@@ -1,35 +1,34 @@
-﻿var app = angular.module("artstoneApp")
-.controller("artstoneController", ["$http", "$scope","$state", function ($http, $scope, $state) {
-
-        $scope.artwork =
-        [
-            artwork.Title =
-            "A"
-            //Artist: "b",
-            //Room: "c",
-            //Description: "d",
-            //InStorage: "e",
-            //CreationDate: "f",
-            //AddedDate: "g",
-        ];
-
-        //$scope.open = function() {
-        //    $state.go("_LoginPartial.cshtml");
-        //};
-        $scope.test = function() {
-            console.log("Dick Bum - Test");
-            $http.post("/Home/Test").then(function() {
-                console.log("posted!");
+﻿angular.module('artstoneApp')
+app.controller('artstoneController', ['$scope', '$http', function ($scope, $http) {
+    //$scope.open = function() {
+    //    $state.go("_LoginPartial.cshtml");
+    //};
+    $scope.test = function() {
+        console.log("Dick Bum - Test");
+        $http.post("/home/Submit")
+            .then(function(response) {
+                console.log(response);
             });
 
-        }
+    };
 
-    $scope.saveArtwork = function (artwork) {
-        console.log("DickButt");
-        $http.post("/Home/Submit", artwork).then(function (response) {
-            console.log(response);
-        });
+    $scope.artwork = {
+        ArtworkTitle: ''
     }
+    $scope.insertArtwork = function() {
+        console.log("Inserting Artwork");
+        $http.post('/home/Submit/')
+            .then(function() {
+                console.log(response);
+            });
+    };
+
+    //$scope.saveArtwork = function (artwork) {
+    //    console.log("DickButt");
+    //    $http.post("/Home/Submit", artwork).then(function (response) {
+    //        console.log(response);
+    //    });
+    //}
 
     //$scope.company = {
     //    CorporateIdentityNumber: '',
