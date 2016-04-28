@@ -16,6 +16,13 @@
         //$scope.open = function() {
         //    $state.go("_LoginPartial.cshtml");
         //};
+        $scope.test = function() {
+            console.log("Dick Bum - Test");
+            $http.post("/Home/Test").then(function() {
+                console.log("posted!");
+            });
+
+        }
 
     $scope.saveArtwork = function (artwork) {
         console.log("DickButt");
