@@ -78,12 +78,7 @@ namespace ProjectArtStoneMain
             // Retrieve reference to a previously created container.
             var container = blobClient.GetContainerReference("funky").ListBlobs();
 
-            var urls = new List<string>();
-            foreach (var blob in container)
-            {
-                string url = "funky" + blob.uri.AbsoluteUri;
-                urls.Add(url);
-            }
+          
 
             //// Loop over items within the container and output the length and URI.
             //foreach (IListBlobItem item in container.ListBlobs(null, false))

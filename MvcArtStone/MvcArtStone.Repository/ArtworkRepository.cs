@@ -23,8 +23,10 @@ namespace MvcArtStone.Repository
 
         public static IEnumerable<DynamicTableEntity> GetPaintingsAsList()
         {
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-                ConfigurationManager.AppSettings[_databaseHelper.GetConnectionString()]);
+            //CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+            //    ConfigurationManager.AppSettings[_databaseHelper.GetConnectionString()]);
+
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
 
             var tableClient = storageAccount.CreateCloudTableClient();
             var table = tableClient.GetTableReference("funkytavlor");
@@ -34,9 +36,10 @@ namespace MvcArtStone.Repository
 
         public static void AddArtwork(Artwork model)
         {
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
 
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-                ConfigurationManager.AppSettings[_databaseHelper.GetConnectionString()]);
+            //CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+            //    ConfigurationManager.AppSettings["StorageConnectionString"]);
 
             //Create the table client
             CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -45,17 +48,27 @@ namespace MvcArtStone.Repository
             CloudTable table;
             table = tableClient.GetTableReference("funkytavlor");
 
-            Artwork fiktivArtwork = new Artwork(model.Title, "28/4 - 22:13");
-            
+            Artwork fiktivArtwork = new Artwork()
+            {
+                Title = "MvcArtStoneFirstPainting",
+                AddedDate = DateTime.UtcNow.Date,
+                Artist = "Daniil",
+                CreationDate = DateTime.UtcNow.Date, //TODO bildens skapningstid
+                Description = "First painting from the mvc project",
+                Id = 15,
+                InStorage = 0,
+                PartitionKey = "MvcArtStoneFirstPainting",
+                RowKey = "15",
+            };
 
-            //create the tableoperation object that inserts the customer entity
-            TableOperation insertOperation = TableOperation.Insert(fiktivArtwork);
+        //create the tableoperation object that inserts the customer entity
+        TableOperation insertOperation = TableOperation.Insert(fiktivArtwork);
 
-            //execute the insert operation,
-            table.Execute(insertOperation);
+        //execute the insert operation,
+        table.Execute(insertOperation);
 
 
-            //throw new NotImplementedException();
+        //throw new NotImplementedException();
         }
 
       
