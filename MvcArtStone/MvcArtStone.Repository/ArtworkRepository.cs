@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 using System.Reflection;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
@@ -15,7 +17,19 @@ namespace MvcArtStone.Repository
 
         public ArtworkRepository()
         {
-            _databaseHelper = new DatabaseHelper(); ;
+            _databaseHelper = new DatabaseHelper(); 
+
+        }
+
+        public static IEnumerable<DynamicTableEntity> GetPaintingsAsList()
+        {
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+                ConfigurationManager.AppSettings[_databaseHelper.GetConnectionString()]);
+
+            var tableClient = storageAccount.CreateCloudTableClient();
+            var table = tableClient.GetTableReference("funkytavlor");
+            List<DynamicTableEntity> entities = table.ExecuteQuery(new TableQuery()).ToList();
+            return entities;
         }
 
         public static void AddArtwork(Artwork model)
@@ -43,6 +57,8 @@ namespace MvcArtStone.Repository
 
             //throw new NotImplementedException();
         }
+
+      
 
 
         //CRUD Artwork
