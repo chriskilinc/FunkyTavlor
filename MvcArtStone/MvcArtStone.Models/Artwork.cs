@@ -9,6 +9,11 @@ namespace MvcArtStone.Models
 {
     public class Artwork : TableEntity
     {
+        public Artwork()
+        {
+            
+        }
+
         public Artwork(string partitionKey, string rowKey) : base(partitionKey, rowKey)
         {
             this.PartitionKey = Title;
