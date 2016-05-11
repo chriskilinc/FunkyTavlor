@@ -21,7 +21,7 @@ namespace MvcArtStone.Repository
 
         }
 
-        public static IEnumerable<DynamicTableEntity> GetPaintingsAsList()
+        public static List<Artwork> GetPaintingsAsList()
         {
             //CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
             //    ConfigurationManager.AppSettings[_databaseHelper.GetConnectionString()]);
@@ -30,8 +30,8 @@ namespace MvcArtStone.Repository
 
             var tableClient = storageAccount.CreateCloudTableClient();
             var table = tableClient.GetTableReference("funkytavlor");
-            List<DynamicTableEntity> entities = table.ExecuteQuery(new TableQuery()).ToList();
-            return entities;
+            var entities = table.ExecuteQuery(new TableQuery<Artwork>()).Where(x => x.Visible);
+            return entities.ToList();
         }
 
         public static void AddArtwork(Artwork model)

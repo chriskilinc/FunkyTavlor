@@ -18,8 +18,8 @@ namespace MvcArtStone.Controllers
 
         public ActionResult Index()
         {
-
-            return View();
+            var model = _LogicBehind.GetArtowrkInFatList();
+            return View(model);
         }
 
         [HttpPost]
