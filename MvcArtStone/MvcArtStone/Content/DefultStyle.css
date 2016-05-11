@@ -111,3 +111,7 @@ p {
 #controlls {
     margin-top: 2.5%;
 }
+
+.form-upload p {
+    color: #000; font-weight: bold; margin: 0;
+}
