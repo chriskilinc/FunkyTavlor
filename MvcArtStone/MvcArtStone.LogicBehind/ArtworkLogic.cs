@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using MvcArtStone.Models;
 using MvcArtStone.Repository;
 
@@ -22,10 +23,10 @@ namespace MvcArtStone.LogicBehind
 
         //    //torepo
         //}
-        public IEnumerable<dynamic> GetArtowrkInFatList()
+        public IEnumerable<Artwork> GetArtowrkInFatList()
         {
-            var Artlist = ArtworkRepository.GetPaintingsAsList();
-            return Artlist;
+            var artlist = ArtworkRepository.GetPaintingsAsList();
+            return artlist;
         }
 
 
