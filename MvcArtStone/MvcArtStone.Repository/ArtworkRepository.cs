@@ -61,11 +61,11 @@ namespace MvcArtStone.Repository
                 RowKey = "15",
             };
 
-        //create the tableoperation object that inserts the customer entity
+  
         TableOperation insertOperation = TableOperation.Insert(fiktivArtwork);
 
-        //execute the insert operation,
-        table.Execute(insertOperation);
+      
+        //table.Execute(insertOperation);
 
 
         //throw new NotImplementedException();

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,5 +30,9 @@ namespace MvcArtStone.Models
         public DateTime CreationDate { get; set; }
         public DateTime AddedDate { get; set; }
         public byte InStorage { get; set; }
+        public string Picture { get; set; }
+        public byte[] PictureBytes { get; set; }
+        public string[] File { get; set; }
     }
+
 }
