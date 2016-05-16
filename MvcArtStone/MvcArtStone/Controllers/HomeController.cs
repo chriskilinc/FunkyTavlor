@@ -31,7 +31,7 @@ namespace MvcArtStone.Controllers
         public ActionResult GetArtworks()
         {
             var artworksList = _LogicBehind.GetArtowrkInFatList();
-            return new JsonResult();
+            return Json(artworksList, JsonRequestBehavior.AllowGet);
         }
         
         [HttpPost]

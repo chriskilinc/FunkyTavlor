@@ -31,19 +31,18 @@
             <div class="col s12 m6 l3">
                 <button id="btnUpload" class="btn-info btn" value="hide/show">UPLOAD</button>
             </div>
-
         </div>
 
         <!-- TODO: Upload-->
         <div id="uploader" ng-app="artstoneApp" ng-controller="artstoneController">
             <div class="row">
-c                <div class="col s12 m4 l8">
+                <div class="col s12 m4 l8">
                     <form class="form-upload" style="border: 2px solid #46b8da; padding-left: 5px; padding-bottom: 5px;" ng-submit="insertArtwork(artwork)">
                         <p>Title</p>
-                        <input type="text" ng-model="artwork.Title"/>
+                        <input type="text" ng-model="artwork.Title" />
                         <p>Artist</p>
-                        <input type="text" ng-model="artwork.Artist"/>
-                        <input type="file" ng-model="artwork.Picture" onchange="angular.element(this).scope().file_changed(this)"/>
+                        <input type="text" ng-model="artwork.Artist" />
+                        <input type="file" ng-model="artwork.Picture" onchange="angular.element(this).scope().file_changed(this)" />
                         <button type="submit" class="btn-info btn"> Submit </button>
                         <button id="uploadClose" class="btn-info btn" value="hide/show">Close</button>
                         @*<button id="btnUpload"  class="btn-info btn" value="hide/show">Upload</button>*@
@@ -108,60 +107,60 @@ c                <div class="col s12 m4 l8">
     </div>
 
 
-<div class="row">
-    <div class="col m4">
-        <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="../../Images/placeholder720x480.png">
-            </div>
-            <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                <p>
-                    <a href="#">This is a link</a>
-                </p>
-            </div>
-            <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
-            </div>
+    <div class="row">
+        <div class="col m4">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="../../Images/placeholder720x480.png">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                    <p>
+                        <a href="#">This is a link</a>
+                    </p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
 
-        </div>
-    </div>
-    <div class="col m4">
-        <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="../../Images/placeholder720x480.png">
-            </div>
-            <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                <p>
-                    <a href="#">This is a link</a>
-                </p>
-            </div>
-            <div class="card-reveal">
-                <span class="card-title black-text">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
             </div>
         </div>
-    </div>
-    <div class="col m4">
-        <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="../../Images/placeholder720x480.png">
+        <div class="col m4">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="../../Images/placeholder720x480.png">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                    <p>
+                        <a href="#">This is a link</a>
+                    </p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title black-text">Card Title<i class="material-icons right">close</i></span>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
             </div>
-            <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                <p>
-                    <a href="#">This is a link</a>
-                </p>
-            </div>
-            <div class="card-reveal">
-                <span class="card-title black-text">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+        </div>
+        <div class="col m4">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="../../Images/placeholder720x480.png">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                    <p>
+                        <a href="#">This is a link</a>
+                    </p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title black-text">Card Title<i class="material-icons right">close</i></span>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 </div>
 
