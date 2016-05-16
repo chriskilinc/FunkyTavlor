@@ -23,11 +23,12 @@ namespace MvcArtStone.Controllers
             return View();
         }
 
+        [HttpPost]
         public ActionResult EditArtwork(Artwork model)
         {
-            var singleArtwork = new Artwork();
-            singleArtwork = _LogicBehind.GetSingleArtworkById(model);
-            return View(singleArtwork);
+            //var singleArtwork = new Artwork();
+            //singleArtwork = _LogicBehind.GetSingleArtworkById(model);
+            return View(model);
         }
 
         public ActionResult GetArtworks()

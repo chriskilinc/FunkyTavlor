@@ -22,20 +22,20 @@ app.controller('artstoneController', ['$scope', '$http', function ($scope, $http
     }
 
     $scope.artworkdata = {
-        artworks:null,
+        artworks: null,
         availableArtworks: []
     }
 
     function getArtworks() {
         console.log("fetching artworks..");
         $http.get('/home/GetArtworks')
-            .then(function(response) {
+            .then(function (response) {
                 $scope.artworkdata.availableArtworks = response.data;
                 console.log(response);
             });
     }
     getArtworks();
-    
+
     $scope.file_changed = function (element) {
 
         $scope.$apply(function (scope) {
@@ -43,9 +43,9 @@ app.controller('artstoneController', ['$scope', '$http', function ($scope, $http
             var reader = new FileReader();
             reader.onload = function (e) {
                 // handle onload
-               
+
                 $scope.artwork.File.push(photofile);
-                
+
 
                 ////Sets the Old Image to new New Image
                 //$('#photo-id').attr('src', e.target.result);
@@ -74,15 +74,21 @@ app.controller('artstoneController', ['$scope', '$http', function ($scope, $http
         console.log("Inserting Artwork");
         var x = artwork.File;
         console.log(x);
-       
-        $http.post('/home/InsertArtwork', artwork).then(function(response) {
+
+        $http.post('/home/InsertArtwork', artwork).then(function (response) {
             console.log("SUCCESS");
             console.log(response);
-        }, function(response) {
+        }, function (response) {
             console.log("Failed");
         });
     };
 
+    $scope.fetchArtworkId = function (artwork) {
+        $http.post('/home/editartwork', artwork)
+            .then(function (response) {
+                console.log("Artwork ip in the air!");
+            });
+    }
     //$scope.saveArtwork = function (artwork) {
     //    console.log("DickButt");
     //    $http.post("/Home/Submit", artwork).then(function (response) {
