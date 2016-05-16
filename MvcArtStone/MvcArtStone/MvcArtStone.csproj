@@ -209,9 +209,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\DefultStyle.css" />
     <Content Include="Content\LayoutStyle.css" />
+    <Content Include="Content\materialize.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="fonts\Material-Design-Icons.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\Chris.JPG" />
@@ -222,30 +221,6 @@
     <Content Include="Scripts\Angular\artstoneController.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="fonts\Roboto-Bold.eot" />
-    <Content Include="fonts\Roboto-Bold.ttf" />
-    <Content Include="fonts\Roboto-Bold.woff" />
-    <Content Include="fonts\Roboto-Bold.woff2" />
-    <Content Include="fonts\Roboto-Light.eot" />
-    <Content Include="fonts\Roboto-Light.ttf" />
-    <Content Include="fonts\Roboto-Light.woff" />
-    <Content Include="fonts\Roboto-Light.woff2" />
-    <Content Include="fonts\Roboto-Medium.eot" />
-    <Content Include="fonts\Roboto-Medium.ttf" />
-    <Content Include="fonts\Roboto-Medium.woff" />
-    <Content Include="fonts\Roboto-Medium.woff2" />
-    <Content Include="fonts\Roboto-Regular.eot" />
-    <Content Include="fonts\Roboto-Regular.ttf" />
-    <Content Include="fonts\Roboto-Regular.woff" />
-    <Content Include="fonts\Roboto-Regular.woff2" />
-    <Content Include="fonts\Roboto-Thin.eot" />
-    <Content Include="fonts\Roboto-Thin.ttf" />
-    <Content Include="fonts\Roboto-Thin.woff" />
-    <Content Include="fonts\Roboto-Thin.woff2" />
-    <Content Include="fonts\Material-Design-Icons.eot" />
-    <Content Include="fonts\Material-Design-Icons.ttf" />
-    <Content Include="fonts\Material-Design-Icons.woff" />
-    <Content Include="fonts\Material-Design-Icons.woff2" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\init.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -300,11 +275,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="fonts\roboto\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
