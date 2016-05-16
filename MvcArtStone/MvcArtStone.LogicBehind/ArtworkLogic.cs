@@ -30,6 +30,11 @@ namespace MvcArtStone.LogicBehind
             return artlist;
         }
 
+        public static Artwork GetSingleArtworkById(string id)
+        {
+            var singleArtwork = GetSingleArtworkById(id);
+            return singleArtwork;
+        }
 
         public static void AddArtwork(Artwork model)
         {
