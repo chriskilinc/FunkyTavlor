@@ -50,15 +50,26 @@ namespace MvcArtStone.Repository
 
             Artwork fiktivArtwork = new Artwork()
             {
-                Title = "MvcArtStoneFirstPainting",
+                Title = model.Title,
                 AddedDate = DateTime.UtcNow.Date,
-                Artist = "Daniil",
-                CreationDate = DateTime.UtcNow.Date, //TODO bildens skapningstid
-                Description = "First painting from the mvc project",
-                Id = 15,
-                InStorage = 0,
-                PartitionKey = "MvcArtStoneFirstPainting",
-                RowKey = "15",
+                Artist = model.Artist,
+                CreationDate = DateTime.UtcNow.Date,
+                Description = model.Description,
+                Id = 16,
+                InStorage = model.InStorage,
+                PartitionKey = model.Title,
+                RowKey = model.Id.ToString(),
+
+
+                //Title = "MvcArtStoneFirstPainting",
+                //AddedDate = DateTime.UtcNow.Date,
+                //Artist = "Daniil",
+                //CreationDate = DateTime.UtcNow.Date, //TODO bildens skapningstid
+                //Description = "First painting from the mvc project",
+                //Id = 15,
+                //InStorage = 0,
+                //PartitionKey = "MvcArtStoneFirstPainting",
+                //RowKey = "15",
             };
 
   
