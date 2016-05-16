@@ -23,6 +23,11 @@ namespace MvcArtStone.Controllers
             return View();
         }
 
+        public ActionResult EditArtwork()
+        {
+            return View();
+        }
+
         public ActionResult GetArtworks()
         {
             var artworksList = _LogicBehind.GetArtowrkInFatList();
