@@ -40,3 +40,17 @@
 
 }
 
+nav {
+    background-color: black;
+    border-bottom: 5px solid #FB8C00;
+}
+
+.btn-info {
+    margin-top: 10px;
+    background-color: #FB8C00;
+}
+
+ .input-field input[type=text]:focus {
+     border-bottom: 1px solid #FB8C00 !important;
+     box-shadow: 0 1px 0 0 #000;
+   }

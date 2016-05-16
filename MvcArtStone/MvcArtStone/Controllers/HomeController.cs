@@ -23,9 +23,9 @@ namespace MvcArtStone.Controllers
             return View();
         }
 
-        public ActionResult EditArtwork()
+        public ActionResult EditArtwork(string id)
         {
-            return View();
+            return View(id);
         }
 
         public ActionResult GetArtworks()
