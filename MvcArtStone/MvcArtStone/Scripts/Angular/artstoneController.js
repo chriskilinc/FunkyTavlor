@@ -15,6 +15,9 @@ app.controller('artstoneController', ['$scope', '$http', function ($scope, $http
     $scope.artwork = {
         Title: '',
         Artist: '',
+        Room: '',
+        Description: '',
+        InStorage: true,
         File: []
     }
     
