@@ -20,11 +20,12 @@ namespace MvcArtStone
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/materialize.js",
+                      "~/Scripts/respond.js",
+                      "~/Scripts/init.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/materialize.css",
                       "~/Content/site.css",
                       "~/Content/DefultStyle.css",
                       "~/Content/LayoutStyle.css"));

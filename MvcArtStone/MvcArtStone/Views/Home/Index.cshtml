@@ -13,7 +13,7 @@
 <div id="wrapper" ng-app="artstoneApp" ng-controller="artstoneController">
     <!-- TODO: Slider here -->
     <!-- TODO: Search bar and buttons -->
-    <div id="controller" class="container" style="margin: 4px 0 10px -14px;">
+    <div id="controller">
         @*<div class="row">
                 <div class="col-lg-12">
                     <div class="col-lg-2 pull-right">
@@ -24,368 +24,147 @@
             </div>*@
         <!-- Controllers -->
         <div class="row">
-            <div class="col-lg-12 col-lg-offset-1">
-                <div class="col-lg-3">
-                    <button id="btnCol3" class="btn-info btn" value="hide/show">COLUMNS</button>
-                    <button id="btnColRows" class="btn-info btn">ROWS</button>
-
-                </div>
-                <div class="col-lg-3">
-                    <button id="btnUpload" class="btn-info btn" value="hide/show">UPLOAD</button>
-                </div>
+            <div class="col s12 m6 l3">
+                <button id="btnCol3" class="btn-info btn" value="hide/show">COLUMNS</button>
+                <button id="btnColRows" class="btn-info btn">ROWS</button>
+            </div>
+            <div class="col s12 m6 l3">
+                <button id="btnUpload" class="btn-info btn" value="hide/show">UPLOAD</button>
             </div>
 
         </div>
-    </div>
-    <!-- TODO: Upload-->
-    <div id="uploader" class="container" style="margin: 4px 0 10px -14px;">
-        <div id="" ng-app="artstoneApp" ng-controller="artstoneController">
+
+        <!-- TODO: Upload-->
+        <div id="uploader" ng-app="artstoneApp" ng-controller="artstoneController">
             <div class="row">
-                <div class="col-lg-12 col-lg-offset-1">
-                    <div class="col-lg-3">
-                        <form class="form-upload" style="border: 2px solid #46b8da; padding-left: 5px; padding-bottom: 5px;" ng-submit="insertArtwork(artwork)">
-                            <p>Title</p>
-                            <input type="text" ng-model="artwork.Title" />
-                            <p>Artist</p>
-                            <input type="text" ng-model="artwork.Artist" />
-                            <p>Room</p>
-                            <input type="text" ng-model="artwork.Room" />
-                            <p>Description</p>
-                            @*<input type="" ng-model="artwork.Description"/>*@
-                            <textarea ng-model="artwork.Description" rows="3" cols="22"></textarea>
-                            <p>In Storage</p>
-                            <input type="checkbox" ng-model="artwork.InStorage" />
+c                <div class="col s12 m4 l8">
+                    <form class="form-upload" style="border: 2px solid #46b8da; padding-left: 5px; padding-bottom: 5px;" ng-submit="insertArtwork(artwork)">
+                        <p>Title</p>
+                        <input type="text" ng-model="artwork.Title"/>
+                        <p>Artist</p>
+                        <input type="text" ng-model="artwork.Artist"/>
+                        <input type="file" ng-model="artwork.Picture" onchange="angular.element(this).scope().file_changed(this)"/>
+                        <button type="submit" class="btn-info btn"> Submit </button>
+                        <button id="uploadClose" class="btn-info btn" value="hide/show">Close</button>
+                        @*<button id="btnUpload"  class="btn-info btn" value="hide/show">Upload</button>*@
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col m4">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="../../Images/placeholder720x480.png">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                    <p>
+                        <a href="#">This is a link</a>
+                    </p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
 
-
-                            <input type="file" ng-model="artwork.Picture" onchange="angular.element(this).scope().file_changed(this)" />
-                            <button type="submit" class="btn-info btn"> Submit </button>
-                            <button id="uploadClose" class="btn-info btn" value="hide/show">Close</button>
-                            @*<button id="btnUpload"  class="btn-info btn" value="hide/show">Upload</button>*@
-                        </form>
-                    </div>
+            </div>
+        </div>
+        <div class="col m4">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="../../Images/placeholder720x480.png">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                    <p>
+                        <a href="#">This is a link</a>
+                    </p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title black-text">Card Title<i class="material-icons right">close</i></span>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col m4">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="../../Images/placeholder720x480.png">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                    <p>
+                        <a href="#">This is a link</a>
+                    </p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title black-text">Card Title<i class="material-icons right">close</i></span>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
                 </div>
             </div>
         </div>
     </div>
 
 
-
-    <!-- TODO: Galleries -->
-    <!-- col3 IMAGE GALLERY BEGINS HERE -->
-    <div id="col3Gallery" class="container">
-        <!-- A ROW OF 3 IMAGES BEGINS HERE-->
-        <div class="row">
-            <!-- A WRAPPER COL OF 3 IMAGES-->
-            <div class="col-lg-12 col-lg-offset-1">
-                <!-- IMAGE BEGINS HERE-->
-                <div class="col-lg-4">
-                    <a href="#">
-                        <img src="~/Images/placeholder720x480.png" />
-                        <!-- DESCRIPTION ON THE IMAGE BEGINS HERE-->
-                        <div class="imgDesc">
-                            <div class="imgDescContainer">
-                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                <button class="btn-info btn">Redigera</button> <!-- EACH IMAGE HAS AN EDIT BUTTON-->
-                            </div>
-                        </div>
-                        <!-- DESCRIPTION ENDS HERE -->
-                    </a>
-                </div>
-                <!-- IMAGE ENDS HERE-->
-                <!-- IMAGE BEGINS HERE-->
-                <div class="col-lg-4">
-                    <a href="#">
-                        <img src="~/Images/placeholder720x480.png" />
-                        <!-- DESCRIPTION ON THE IMAGE BEGINS HERE-->
-                        <div class="imgDesc">
-                            <div class="imgDescContainer">
-                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                <button class="btn-info btn">Redigera</button> <!-- EACH IMAGE HAS AN EDIT BUTTON-->
-                            </div>
-                        </div>
-                        <!-- DESCRIPTION ENDS HERE -->
-                    </a>
-                </div>
-                <!-- IMAGE ENDS HERE-->
-                <!-- IMAGE BEGINS HERE-->
-                <div class="col-lg-4">
-                    <a href="#">
-                        <img src="~/Images/placeholder720x480.png" />
-                        <!-- DESCRIPTION ON THE IMAGE BEGINS HERE-->
-                        <div class="imgDesc">
-                            <div class="imgDescContainer">
-                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                <button class="btn-info btn">Redigera</button> <!-- EACH IMAGE HAS AN EDIT BUTTON-->
-                            </div>
-                        </div>
-                        <!-- DESCRIPTION ENDS HERE -->
-                    </a>
-                </div>
-                <!-- IMAGE ENDS HERE-->
-                <!-- IMAGE BEGINS HERE-->
-                <div class="col-lg-4">
-                    <a href="#">
-                        <img src="~/Images/placeholder720x480.png" />
-                        <!-- DESCRIPTION ON THE IMAGE BEGINS HERE-->
-                        <div class="imgDesc">
-                            <div class="imgDescContainer">
-                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                <button class="btn-info btn">Redigera</button> <!-- EACH IMAGE HAS AN EDIT BUTTON-->
-                            </div>
-                        </div>
-                        <!-- DESCRIPTION ENDS HERE -->
-                    </a>
-                </div>
-                <!-- IMAGE ENDS HERE-->
-                <!-- IMAGE BEGINS HERE-->
-                <div class="col-lg-4">
-                    <a href="#">
-                        <img src="~/Images/placeholder720x480.png" />
-                        <!-- DESCRIPTION ON THE IMAGE BEGINS HERE-->
-                        <div class="imgDesc">
-                            <div class="imgDescContainer">
-                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                <button class="btn-info btn">Redigera</button> <!-- EACH IMAGE HAS AN EDIT BUTTON-->
-                            </div>
-                        </div>
-                        <!-- DESCRIPTION ENDS HERE -->
-                    </a>
-                </div>
-                <!-- IMAGE ENDS HERE-->
-                <!-- IMAGE BEGINS HERE-->
-                <div class="col-lg-4">
-                    <a href="#">
-                        <img src="~/Images/placeholder720x480.png" />
-                        <!-- DESCRIPTION ON THE IMAGE BEGINS HERE-->
-                        <div class="imgDesc">
-                            <div class="imgDescContainer">
-                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                <button class="btn-info btn">Redigera</button> <!-- EACH IMAGE HAS AN EDIT BUTTON-->
-                            </div>
-                        </div>
-                        <!-- DESCRIPTION ENDS HERE -->
-                    </a>
-                </div>
-                <!-- IMAGE ENDS HERE-->
-                <!-- Note: You can add more images under eachother without fucking up the positions, which is kinda nice -->
-                <!-- IMAGE BEGINS HERE-->
-                <div class="col-lg-4">
-                    <a href="#">
-                        <img src="~/Images/placeholder720x480.png" />
-                        <!-- DESCRIPTION ON THE IMAGE BEGINS HERE-->
-                        <div class="imgDesc">
-                            <div class="imgDescContainer">
-                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                <button class="btn-info btn">Redigera</button> <!-- EACH IMAGE HAS AN EDIT BUTTON-->
-                            </div>
-                        </div>
-                        <!-- DESCRIPTION ENDS HERE -->
-                    </a>
-                </div>
-                <!-- IMAGE ENDS HERE-->
-                <!-- IMAGE BEGINS HERE-->
-                <div class="col-lg-4">
-                    <a href="#">
-                        <img src="~/Images/placeholder720x480.png" />
-                        <!-- DESCRIPTION ON THE IMAGE BEGINS HERE-->
-                        <div class="imgDesc">
-                            <div class="imgDescContainer">
-                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                <button class="btn-info btn">Redigera</button> <!-- EACH IMAGE HAS AN EDIT BUTTON-->
-                            </div>
-                        </div>
-                        <!-- DESCRIPTION ENDS HERE -->
-                    </a>
-                </div>
-                <!-- IMAGE ENDS HERE-->
-                <!-- IMAGE BEGINS HERE-->
-                <div class="col-lg-4">
-                    <a href="#">
-                        <img src="~/Images/placeholder720x480.png" />
-                        <!-- DESCRIPTION ON THE IMAGE BEGINS HERE-->
-                        <div class="imgDesc">
-                            <div class="imgDescContainer">
-                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                <button class="btn-info btn">Redigera</button> <!-- EACH IMAGE HAS AN EDIT BUTTON-->
-                            </div>
-                        </div>
-                        <!-- DESCRIPTION ENDS HERE -->
-                    </a>
-                </div>
+<div class="row">
+    <div class="col m4">
+        <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="../../Images/placeholder720x480.png">
             </div>
-            <!-- WRAPPER ENDS HERE -->
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                <p>
+                    <a href="#">This is a link</a>
+                </p>
+            </div>
+            <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+            </div>
+
         </div>
-        <!-- ROW ENDS HERE -->
     </div>
-    <!-- col3 IMAGE GALLERY ENDS HERE-->
-    <!-- colRow IMAGE GALLERY BEGINS HERE-->
-    <div id="colRowGallery" class="container">
-        <div class="row">
-            <!-- THE ROW WRAPPER - ADD IMAGES IN THIS-->
-            <div class="col-lg-12 col-lg-offset-1">
-                <!-- IMAGE BEGINS HERE-->
-                <div class="colRow">
-                    <div class="colRowImg">
-                        <img src="~/Images/placeholder720x480.png" width="384" height="216" />
-                    </div>
-                    <!-- DESCRIPTION OF IMAGE BEGINS HERE-->
-                    <div class="colRowDesc">
-                        <!-- DESCRIPTION: TITLE-->
-                        <p class="colRowTitle">Hello i'm a title</p>
-                        <!-- DESCRITION: BREADTEXT-->
-                        <p>Artist: Lorem Ipsum</p>
-                        <p>Date: 01-01-2016</p>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                        <button class="btn-info btn">Redigera</button>
-                        <!-- TODO: Add different paragraphs for each property the image have-->
-                    </div>
-                    <!-- DESCRIPTION OF IMAGE ENDS HERE-->
-                </div>
-                <!-- IMAGE ENDS HERE-->
-                <!-- ex: IMAGE 2 -->
-                <!-- IMAGE BEGINS HERE-->
-                <div class="colRow">
-                    <div class="colRowImg">
-                        <img src="~/Images/placeholder720x480.png" width="384" height="216" />
-                    </div>
-                    <!-- DESCRIPTION OF IMAGE BEGINS HERE-->
-                    <div class="colRowDesc">
-                        <!-- DESCRIPTION: TITLE-->
-                        <p class="colRowTitle">Hello i'm a title</p>
-                        <!-- DESCRITION: BREADTEXT-->
-                        <p>Artist: Lorem Ipsum</p>
-                        <p>Date: 01-01-2016</p>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                        <button class="btn-info btn">Redigera</button>
-                        <!-- TODO: Add different paragraphs for each property the image have-->
-                    </div>
-                    <!-- DESCRIPTION OF IMAGE ENDS HERE-->
-                </div>
-                <!-- IMAGE ENDS HERE-->
-                <!-- ex: IMAGE 3 -->
-                <!-- IMAGE BEGINS HERE-->
-                <div class="colRow">
-                    <div class="colRowImg">
-                        <img src="~/Images/placeholder720x480.png" width="384" height="216" />
-                    </div>
-                    <!-- DESCRIPTION OF IMAGE BEGINS HERE-->
-                    <div class="colRowDesc">
-                        <!-- DESCRIPTION: TITLE-->
-                        <p class="colRowTitle">Hello i'm a title</p>
-                        <!-- DESCRITION: BREADTEXT-->
-                        <p>Artist: Lorem Ipsum</p>
-                        <p>Date: 01-01-2016</p>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                        <button class="btn-info btn">Redigera</button>
-                        <!-- TODO: Add different paragraphs for each property the image have-->
-                    </div>
-                    <!-- DESCRIPTION OF IMAGE ENDS HERE-->
-                </div>
-                <!-- IMAGE ENDS HERE-->
-                <!-- ex: IMAGE 4 -->
-                <!-- IMAGE BEGINS HERE-->
-                <div class="colRow">
-                    <div class="colRowImg">
-                        <img src="~/Images/placeholder720x480.png" width="384" height="216" />
-                    </div>
-                    <!-- DESCRIPTION OF IMAGE BEGINS HERE-->
-                    <div class="colRowDesc">
-                        <!-- DESCRIPTION: TITLE-->
-                        <p class="colRowTitle">Hello i'm a title</p>
-                        <!-- DESCRITION: BREADTEXT-->
-                        <p>Artist: Lorem Ipsum</p>
-                        <p>Date: 01-01-2016</p>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                        <button class="btn-info btn">Redigera</button>
-                        <!-- TODO: Add different paragraphs for each property the image have-->
-                    </div>
-                    <!-- DESCRIPTION OF IMAGE ENDS HERE-->
-                </div>
-                <!-- IMAGE ENDS HERE-->
-                <!-- ex: IMAGE 5 -->
-                <!-- IMAGE BEGINS HERE-->
-                <div class="colRow">
-                    <div class="colRowImg">
-                        <img src="~/Images/placeholder720x480.png" width="384" height="216" />
-                    </div>
-                    <!-- DESCRIPTION OF IMAGE BEGINS HERE-->
-                    <div class="colRowDesc">
-                        <!-- DESCRIPTION: TITLE-->
-                        <p class="colRowTitle">Hello i'm a title</p>
-                        <!-- DESCRITION: BREADTEXT-->
-                        <p>Artist: Lorem Ipsum</p>
-                        <p>Date: 01-01-2016</p>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                        <button class="btn-info btn">Redigera</button>
-                        <!-- TODO: Add different paragraphs for each property the image have-->
-                    </div>
-                    <!-- DESCRIPTION OF IMAGE ENDS HERE-->
-                </div>
-                <!-- IMAGE ENDS HERE-->
-                <!-- ex: IMAGE 6 -->
-                <!-- IMAGE BEGINS HERE-->
-                <div class="colRow">
-                    <div class="colRowImg">
-                        <img src="~/Images/placeholder720x480.png" width="384" height="216" />
-                    </div>
-                    <!-- DESCRIPTION OF IMAGE BEGINS HERE-->
-                    <div class="colRowDesc">
-                        <!-- DESCRIPTION: TITLE-->
-                        <p class="colRowTitle">Hello i'm a title</p>
-                        <!-- DESCRITION: BREADTEXT-->
-                        <p>Artist: Lorem Ipsum</p>
-                        <p>Date: 01-01-2016</p>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                        <button class="btn-info btn">Redigera</button>
-                        <!-- TODO: Add different paragraphs for each property the image have-->
-                    </div>
-                    <!-- DESCRIPTION OF IMAGE ENDS HERE-->
-                </div>
-                <!-- IMAGE ENDS HERE-->
-                <!-- ex: IMAGE 7 -->
-                <!-- IMAGE BEGINS HERE-->
-                <div class="colRow">
-                    <div class="colRowImg">
-                        <img src="~/Images/placeholder720x480.png" width="384" height="216" />
-                    </div>
-                    <!-- DESCRIPTION OF IMAGE BEGINS HERE-->
-                    <div class="colRowDesc">
-                        <!-- DESCRIPTION: TITLE-->
-                        <p class="colRowTitle">Hello i'm a title</p>
-                        <!-- DESCRITION: BREADTEXT-->
-                        <p>Artist: Lorem Ipsum</p>
-                        <p>Date: 01-01-2016</p>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                        <button class="btn-info btn">Redigera</button>
-                        <!-- TODO: Add different paragraphs for each property the image have-->
-                    </div>
-                    <!-- DESCRIPTION OF IMAGE ENDS HERE-->
-                </div>
-                <!-- IMAGE ENDS HERE-->
-                <!-- ex: IMAGE 8 -->
-                <!-- IMAGE BEGINS HERE-->
-                <div class="colRow">
-                    <div class="colRowImg">
-                        <img src="~/Images/placeholder720x480.png" width="384" height="216" />
-                    </div>
-                    <!-- DESCRIPTION OF IMAGE BEGINS HERE-->
-                    <div class="colRowDesc">
-                        <!-- DESCRIPTION: TITLE-->
-                        <p class="colRowTitle">Hello i'm a title</p>
-                        <!-- DESCRITION: BREADTEXT-->
-                        <p>Artist: Lorem Ipsum</p>
-                        <p>Date: 01-01-2016</p>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                        <button class="btn-info btn">Redigera</button>
-                        <!-- TODO: Add different paragraphs for each property the image have-->
-                    </div>
-                    <!-- DESCRIPTION OF IMAGE ENDS HERE-->
-                </div>
-                <!-- IMAGE ENDS HERE-->
+    <div class="col m4">
+        <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="../../Images/placeholder720x480.png">
+            </div>
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                <p>
+                    <a href="#">This is a link</a>
+                </p>
+            </div>
+            <div class="card-reveal">
+                <span class="card-title black-text">Card Title<i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col m4">
+        <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="../../Images/placeholder720x480.png">
+            </div>
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                <p>
+                    <a href="#">This is a link</a>
+                </p>
+            </div>
+            <div class="card-reveal">
+                <span class="card-title black-text">Card Title<i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
             </div>
         </div>
     </div>
 </div>
+
+</div>
+
 <script>
     //HIDES ALL OTHER GALLERY TYPES WHEN THE SITE IS LOADED and UPLOADER
     jQuery(document).ready(function () {
