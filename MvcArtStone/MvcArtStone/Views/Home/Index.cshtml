@@ -26,18 +26,18 @@
         <div class="row">
             <div class="col s12 m6 l3">
                 <button id="btnCol3" class="btn-info btn" value="hide/show">COLUMNS</button>
-                <button id="btnColRows" class="btn-info btn">ROWS</button>
+                <button id="btnColRows" class="btn-info btn" value="hide/show">ROWS</button>
             </div>
         </div>
-        <div class="row">
+        @*<div class="row">
             <div class="col s12 m6 l3">
                 <button id="btnUpload" class="btn-info btn" value="hide/show">UPLOAD</button>
             </div>
 
-        </div>
+        </div>*@
 
         <!-- TODO: Upload-->
-        <div id="uploader" ng-app="artstoneApp" ng-controller="artstoneController">
+        @*<div id="uploader" ng-app="artstoneApp" ng-controller="artstoneController">
             <div class="row">
                 <div class="col s12 m4">
                     <form class="form-upload" style="border: 2px solid #FB8C00; padding-left: 5px; padding-bottom: 5px;" ng-submit="insertArtwork(artwork)">
@@ -48,7 +48,7 @@
                         <p>Room</p>
                         <input type="text" ng-model="artwork.Room" />
                         <p>Description</p>
-                        @*<input type="" ng-model="artwork.Description"/>*@
+                        <input type="" ng-model="artwork.Description"/>
                         <textarea ng-model="artwork.Description" rows="3" cols="22"></textarea>
                         <p>In Storage</p>
                         <input type="checkbox" ng-model="artwork.InStorage" />
@@ -69,14 +69,16 @@
                             </div>
                         </div>
                         <input type="file" ng-model="artwork.Picture" onchange="angular.element(this).scope().file_changed(this)" />
-                        @*<input value="Click me" type="submit" />*@
+                        <input value="Click me" type="submit" />
                         <button type="submit" class="btn-info btn"> Upload </button>
                         <button id="uploadClose" type="button" class="btn-info btn" value="hide/show">Close</button>
                     </form>
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
+
+    <!--CARDS IN GALLERY FORMAT-->
     <div class="row" id="col3Gallery">
        <div class="col m4">
                 <div class="card">
@@ -84,29 +86,59 @@
                         <img class="activator" src="../../Images/logo_homepage_20150714083101.png">
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Ladda Upp Konstverk <i class="material-icons right">add</i></span>
+                        <span class="card-title activator grey-text text-darken-4">Ladda Upp Konstverk <a class="btn-floating btn-large orange darken-4 right"><i class="material-icons">add</i></a></span>
                     </div>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">Ladda Upp Konstverk<i class="material-icons right">close</i></span>
                         <form class="form-upload" ng-submit="insertArtwork(artwork)">
-                            <div class="input-field">
-                                <i class="material-icons prefix">title</i>
-                                <input id="title" type="text" class="validate" ng-model="artwork.Title">
-                                <label for="title">Title</label>
+                            <div class="row">
+                                <div class="s12">
+                                    <div class="input-field">
+                                        <i class="material-icons prefix">title</i>
+                                        <input id="title" type="text" class="validate" ng-model="artwork.Title">
+                                        <label for="title">Title</label>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="input-field">
-                                <i class="material-icons prefix">account_circle</i>
-                                <input id="artist" type="text" class="validate" ng-model="artwork.Artist">
-                                <label for="artist">Artist</label>
+                            <div class="row">
+                                <div class="s12">
+                                    <div class="input-field">
+                                        <i class="material-icons prefix">account_circle</i>
+                                        <input id="artist" type="text" class="validate" ng-model="artwork.Artist">
+                                        <label for="artist">Artist</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="s12">
+                                    <div class="input-field">
+                                        <i class="material-icons prefix">room</i>
+                                        <input id="room" type="text" class="validate" ng-model="artwork.Room">
+                                        <label for="room">Room</label>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="file-field input-field">
-                                <div class="btn">
-                                    <span>Välj fil</span>
-                                    <input type="file" ng-model="artwork.Picture">
+                            <div class="row">
+                                <div class="s12">
+                                    <div class="input-field">
+                                        <i class="material-icons prefix">description</i>
+                                        <textarea id="textarea1" class="materialize-textarea" ng-model="artwork.Description"></textarea>
+                                        <label for="description">Description</label>
+                                    </div>
                                 </div>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text">
+                            </div>
+                            <div class="row">
+                                <div class="s12">
+                                    <div class="file-field input-field">
+                                        <div class="btn">
+                                            <span>Välj fil</span>
+                                            <input type="file" ng-model="artwork.Picture">
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" type="text">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             @*<input value="Click me" type="submit" />*@
@@ -121,12 +153,25 @@
         <div class="col m4" ng-repeat="artwork in artworkdata.availableArtworks">
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="~/Images/Peter.JPG">
+                    <a href="~/Images/Peter.JPG" data-lightbox="Gallery"><img src="~/Images/Peter.JPG"></a>
+                    <div class="fixed-action-btn horizontal click-to-toggle">
+                       
+                        <ul>
+                            <li><a class="btn-floating btn-small blue"><i class="fa fa-facebook"></i></a></li>
+                            <li><a class="btn-floating btn-small light-blue"><i class="fa fa-twitter"></i></a></li>
+                            <li><a class="btn-floating btn-small red"><i class="fa fa-google-plus"></i></a></li>
+                        </ul>
+                    </div>
+
                 </div>
                 <div class="card-content">
                     <span class="card-title activator grey-text text-darken-4">{{artwork.PartitionKey}}<i class="material-icons right">more_vert</i></span>
                     <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}"> <i class="material-icons right">edit</i>
                     </a>
+                    <a class="button" id="heart"><i class="material-icons right">favorite_border</i></a>
+                    <div class="fixed-action-btn">
+                    <a class="btn-floating"> <i class="material-icons right">share</i></a>
+                    </div>
                 </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4">{{artwork}}<i class="material-icons right">close</i></span>
@@ -143,77 +188,69 @@
     </div>
 
 
-
+    <!--CARDS IN ROWS-->
     <div class="row" id="colRowGallery">
-        <div class="col m6">
+        <div class="col m3" ng-repeat="artwork in artworkdata.availableArtworks">
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="../../Images/placeholder720x480.png">
                 </div>
                 <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                    <a class="button" href="/home/editartwork/{{artwork.ID}}">
-                       Redigera
+                    <span class="card-title activator grey-text text-darken-4">{{artwork.PartitionKey}}<i class="material-icons right">more_vert</i></span>
+                    <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
+                        <i class="material-icons right">edit</i>
                     </a>
-
                 </div>
                 <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                    <span class="card-title grey-text text-darken-4">{{artwork}}<i class="material-icons right">close</i></span>
+                    <p>{{artwork.Description}}</p>
+                    <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
+                        <i class="material-icons">edit</i>
+                        Redigera
+                    </a>
                 </div>
 
             </div>
         </div>
-
-        <div class="col m6">
-            <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="../../Images/placeholder720x480.png">
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                    <p>
-                        <a href="#">This is a link</a>
-                    </p>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title black-text">Card Title<i class="material-icons right">close</i></span>
-                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                </div>
-            </div>
-        </div>
-
     </div>
 </div>
 
 
-
+</div>
 
 <script>
-    //HIDES ALL OTHER GALLERY TYPES WHEN THE SITE IS LOADED and UPLOADER
+
+    ////HIDES ALL OTHER GALLERY TYPES WHEN THE SITE IS LOADED and UPLOADER
     jQuery(document).ready(function () {
         jQuery('#colRowGallery').hide('hide');
-        jQuery('#uploader').hide('hide');
     });
-    //COl3 BUTTON - Show ONLY col3 grid
+    ////ROWS BUTTON - Show ONLY rows grid
+    jQuery(document).ready(function () {
+        jQuery('#btnColRows').on('click', function (event) {
+            jQuery('#colRowGallery').show('show');
+            jQuery('#col3Gallery').hide('hide');
+    });
+    });
+
+    //COL 3 BUTTON - Show ONLY col3 grid
     jQuery(document).ready(function () {
         jQuery('#btnCol3').on('click', function (event) {
-            jQuery('#colRowGallery').hide('hide');
             jQuery('#col3Gallery').show('show');
+            jQuery('#colRowGallery').hide('hide');
         });
     });
-    //shows the uploader container
-    jQuery(document).ready(function () {
-        jQuery('#btnUpload').on('click', function (event) {
-            jQuery('#uploader').show('show');
-        });
-    });
-    //Hides the uploader container
-    jQuery(document).ready(function () {
-        jQuery('#uploadClose').on('click', function (event) {
-            jQuery('#uploader').hide('hide');
-        });
-    });
+
+    ////shows the uploader container
+    //jQuery(document).ready(function () {
+    //   jQuery('#btnUpload').on('click', function (event) {
+    //        jQuery('#uploader').show('show');
+    //    });
+    //});
+    ////Hides the uploader container
+    //jQuery(document).ready(function () {
+    //    jQuery('#uploadClose').on('click', function (event) {
+    //        jQuery('#uploader').hide('hide');
+    //   });
+    //});
 
 
 </script>

@@ -29,3 +29,12 @@ nav ul a:hover {
 .button {
     font-weight: bolder;
 }
+
+.card-reveal{
+    overflow-x:hidden!important;
+}
+
+#heart {
+    color:red;
+}
+
