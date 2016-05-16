@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -32,7 +33,7 @@ namespace MvcArtStone.Models
         public byte InStorage { get; set; }
         public string Picture { get; set; }
         public byte[] PictureBytes { get; set; }
-        public string[] File { get; set; }
+        public HttpPostedFileBase File { get; set; }
     }
 
 }
