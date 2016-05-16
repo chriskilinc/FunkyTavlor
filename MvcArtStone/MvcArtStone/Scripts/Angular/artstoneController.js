@@ -15,7 +15,7 @@ app.controller('artstoneController', ['$scope', '$http', function ($scope, $http
     $scope.artwork = {
         Title: '',
         Artist: '',
-        File: file
+        File: []
     }
     
     $scope.file_changed = function (element) {

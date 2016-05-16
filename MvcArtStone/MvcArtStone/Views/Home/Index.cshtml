@@ -48,7 +48,7 @@
                         <input type="text" ng-model="artwork.Title"/>
                         <p>Artist</p>
                         <input type="text" ng-model="artwork.Artist"/>
-                        <input type="file" ng-model="photo" onchange="angular.element(this).scope().file_changed(this)"/>
+                        <input type="file" ng-model="artwork.Picture" onchange="angular.element(this).scope().file_changed(this)"/>
                         <button type="submit" class="btn-info btn"> Submit </button>
                         <button id="uploadClose" class="btn-info btn" value="hide/show">Close</button>
                         @*<button id="btnUpload"  class="btn-info btn" value="hide/show">Upload</button>*@
