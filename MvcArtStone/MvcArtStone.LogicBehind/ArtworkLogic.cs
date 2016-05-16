@@ -24,15 +24,15 @@ namespace MvcArtStone.LogicBehind
 
         //    //torepo
         //}
-        public IEnumerable<Artwork> GetArtowrkInFatList()
+        public IEnumerable<Artwork> GetArtworkskInFatList()
         {
             var artlist = ArtworkRepository.GetPaintingsAsList();
             return artlist;
         }
 
-        public static Artwork GetSingleArtworkById(string id)
+        public Artwork GetSingleArtworkById(Artwork model)
         {
-            var singleArtwork = GetSingleArtworkById(id);
+            Artwork singleArtwork = GetSingleArtworkById(model);
             return singleArtwork;
         }
 

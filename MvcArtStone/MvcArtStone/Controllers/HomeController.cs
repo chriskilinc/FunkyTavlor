@@ -23,14 +23,16 @@ namespace MvcArtStone.Controllers
             return View();
         }
 
-        public ActionResult EditArtwork(string id)
+        public ActionResult EditArtwork(Artwork model)
         {
-            return View(id);
+            var singleArtwork = new Artwork();
+            singleArtwork = _LogicBehind.GetSingleArtworkById(model);
+            return View(singleArtwork);
         }
 
         public ActionResult GetArtworks()
         {
-            var artworksList = _LogicBehind.GetArtowrkInFatList();
+            var artworksList = _LogicBehind.GetArtworkskInFatList();
             return Json(artworksList, JsonRequestBehavior.AllowGet);
         }
         
