@@ -47,17 +47,17 @@ app.controller('artstoneController', ['$scope', '$http', function ($scope, $http
                 ////And set the view model to the new value
                 //$scope.data.photo = base64Image.replace(/data:image\/jpeg;base64,/g, '');
             };
-            console.log(photofile);
+            //console.log(photofile);
             reader.readAsDataURL(photofile);
         });
     };
 
     $scope.insertArtwork = function (artwork) {
         console.log("Inserting Artwork");
-        var x = $scope.artwork.File;
+        var x = artwork.File;
         console.log(x);
        
-        $http.post('/home/InsertArtwork', $scope.artwork, function(response) {
+        $http.post('/home/InsertArtwork', artwork).then(function(response) {
             console.log("SUCCESS");
             console.log(response);
         }, function(response) {
