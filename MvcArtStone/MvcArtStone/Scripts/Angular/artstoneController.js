@@ -20,6 +20,21 @@ app.controller('artstoneController', ['$scope', '$http', function ($scope, $http
         InStorage: true,
         File: []
     }
+
+    $scope.atrworkdata = {
+        artworks:null,
+        availableArtworks: []
+    }
+
+    function getArtworks() {
+        console.log("fetching artworks..");
+        $http.get('/home/GetArtworks')
+            .then(function(response) {
+                $scope.atrworkdata.availableArtworks = response.data;
+                console.log(response);
+            });
+    }
+    getArtworks();
     
     $scope.file_changed = function (element) {
 
