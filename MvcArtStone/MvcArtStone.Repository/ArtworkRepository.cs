@@ -59,6 +59,7 @@ namespace MvcArtStone.Repository
                 InStorage = model.InStorage,
                 PartitionKey = model.Title,
                 RowKey = model.Id.ToString(),
+                Room = model.Room,
 
 
                 //Title = "MvcArtStoneFirstPainting",
@@ -76,7 +77,7 @@ namespace MvcArtStone.Repository
         TableOperation insertOperation = TableOperation.Insert(fiktivArtwork);
 
       
-        //table.Execute(insertOperation);
+        table.Execute(insertOperation);
 
 
         //throw new NotImplementedException();
