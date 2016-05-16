@@ -43,6 +43,13 @@
                         <input type="text" ng-model="artwork.Title" />
                         <p>Artist</p>
                         <input type="text" ng-model="artwork.Artist" />
+                        <p>Room</p>
+                        <input type="text" ng-model="artwork.Room" />
+                        <p>Description</p>
+                        @*<input type="" ng-model="artwork.Description"/>*@
+                        <textarea ng-model="artwork.Description" rows="3" cols="22"></textarea>
+                        <p>In Storage</p>
+                        <input type="checkbox" ng-model="artwork.InStorage" />
                         <input type="file" ng-model="artwork.Picture" onchange="angular.element(this).scope().file_changed(this)" />
                         @*<input value="Click me" type="submit" />*@
                         <button type="submit" class="btn-info btn"> Upload </button>
