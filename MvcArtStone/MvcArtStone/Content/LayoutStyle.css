@@ -1,48 +1,11 @@
-﻿.navbar > .container .navbar-brand {
-    /*font-weight: bold;*/
-    margin-left:;
-}
-
-.navbar-inverse {
-    background-color: #323232;
-    font-weight: bold;
-    border-bottom: 3px solid #F57C00
-}
-
-/* NAVBAR BRAND */
-.navbar > .container a {
-    color: #FB8C00;
-}
-
-/* NAVBAR ITEMS */
-.navbar-inverse .navbar-nav > li > a {
-    /*color: #FB8C00;*/
-    color: #FB8C00;
-    -webkit-transition: 200ms ease-in-out;
-    -moz-transition: 200ms ease-in-out;
-    -ms-transition: 200ms ease-in-out;
-    -o-transition: 200ms ease-in-out;
-    transition: 200ms ease-in-out;
-}
-
-/* NAVBAR ITEMS: Hover*/
-.navbar-inverse .navbar-nav > li > a:hover {
-    background-color: #434343;
-    /*color: #f68109;*/
-    color: #fff;
-}
-
-.navbar-collapse {
-    font-weight: bold; 
-    font-size: 16px;
-    margin: 0;
-    padding: 0;
-
-}
-
+﻿
 nav {
     background-color: black;
     border-bottom: 5px solid #FB8C00;
+}
+
+nav ul a:hover {
+    background-color: #FB8C00;
 }
 
 .btn-info {
@@ -50,7 +13,19 @@ nav {
     background-color: #FB8C00;
 }
 
- .input-field input[type=text]:focus {
-     border-bottom: 1px solid #FB8C00 !important;
-     box-shadow: 0 1px 0 0 #000;
-   }
+ .btn {
+     background-color: #FB8C00;
+ }
+
+.btn:hover {
+     background-color: rgb(205, 70, 20);
+ }
+
+.btn:focus {
+    background-color: rgb(205, 70, 20);
+}
+
+
+.button {
+    font-weight: bolder;
+}
