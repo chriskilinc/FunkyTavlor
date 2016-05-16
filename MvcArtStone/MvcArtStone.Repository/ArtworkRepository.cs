@@ -72,7 +72,67 @@ namespace MvcArtStone.Repository
         }
 
       
+        public Artwork GetSingleArtwork(Artwork model)
+        {
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
 
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            CloudTable table;
+            table = tableClient.GetTableReference("funkytavlor");
+
+            Artwork SingleArtworkEntity = null;
+
+            // Create a retrieve operation that takes a customer entity.
+            if (model.PartitionKey != null && model.RowKey != null)
+            {
+                TableOperation retrieveOperation = TableOperation.Retrieve<Artwork>(model.PartitionKey, model.RowKey);
+
+                // Execute the operation.
+                TableResult retrievedResult = table.Execute(retrieveOperation);
+
+                // Assign the result to a CustomerEntity object.
+                SingleArtworkEntity = (Artwork)retrievedResult.Result;
+            }
+
+            if (SingleArtworkEntity != null)
+            {
+                return SingleArtworkEntity;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public static void EditSingleArtwork(Artwork model)
+        {
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
+
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            CloudTable table;
+            table = tableClient.GetTableReference("funkytavlor");
+
+            Artwork SingleArtworkEntity = null;
+
+            // Create a retrieve operation that takes a customer entity.
+            if (model.PartitionKey != null && model.RowKey != null)
+            {
+                TableOperation retrieveOperation = TableOperation.Retrieve<Artwork>(model.PartitionKey, model.RowKey);
+
+                // Execute the operation.
+                TableResult retrievedResult = table.Execute(retrieveOperation);
+
+                // Assign the result to a CustomerEntity object.
+                SingleArtworkEntity = (Artwork)retrievedResult.Result;
+            }
+
+            if (SingleArtworkEntity != null)
+            {
+                //TODO add parameters that should be changed
+            }
+        }
 
         //CRUD Artwork
         //public void AddCompany(Models.Company company)
