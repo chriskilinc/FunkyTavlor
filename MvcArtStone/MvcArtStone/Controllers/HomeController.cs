@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using MvcArtStone.Models;
+using Newtonsoft.Json;
 
 namespace MvcArtStone.Controllers
 {
@@ -18,10 +20,15 @@ namespace MvcArtStone.Controllers
 
         public ActionResult Index()
         {
-            var model = _LogicBehind.GetArtowrkInFatList();
-            return View(model);
+            return View();
         }
 
+        public ActionResult GetArtworks()
+        {
+            var artworksList = _LogicBehind.GetArtowrkInFatList();
+            return new JsonResult();
+        }
+        
         [HttpPost]
         public ActionResult InsertArtwork(MvcArtStone.Models.Artwork model)
         {
