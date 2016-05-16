@@ -37,22 +37,64 @@
         <!-- TODO: Upload-->
         <div id="uploader" ng-app="artstoneApp" ng-controller="artstoneController">
             <div class="row">
-c                <div class="col s12 m4 l8">
+                <div class="col s12 m4 l8">
                     <form class="form-upload" style="border: 2px solid #46b8da; padding-left: 5px; padding-bottom: 5px;" ng-submit="insertArtwork(artwork)">
                         <p>Title</p>
                         <input type="text" ng-model="artwork.Title" />
-                        <input type="text" ng-model="artwork.Title"/>
                         <p>Artist</p>
-                        <input type="text" ng-model="artwork.Artist"/>
-                        <input type="file" ng-model="artwork.Picture" onchange="angular.element(this).scope().file_changed(this)"/>
-                        <button type="submit" class="btn-info btn"> Submit </button>
-                        <button id="uploadClose" class="btn-info btn" value="hide/show">Close</button>
-                        @*<button id="btnUpload"  class="btn-info btn" value="hide/show">Upload</button>*@
+                        <input type="text" ng-model="artwork.Artist" />
+                        <input type="file" ng-model="artwork.Picture" onchange="angular.element(this).scope().file_changed(this)" />
+                        @*<input value="Click me" type="submit" />*@
+                        <button type="submit" class="btn-info btn"> Upload </button>
+                        <button id="uploadClose" type="button" class="btn-info btn" value="hide/show">Close</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <div class="row" id="col3Gallery">
+        @*<div class="col m4">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="../../Images/placeholder720x480.png">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Original card<i class="material-icons right">more_vert</i></span>
+                    <p>
+                        <a href="#">This is a link</a>
+                    </p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+
+            </div>
+        </div>*@
+        <!-- repeater-->
+        <div class="col m4" ng-repeat="artwork in artworkdata.availableArtworks">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="~/Images/Peter.JPG">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">{{artwork.PartitionKey}}<i class="material-icons right">more_vert</i></span>
+                    <p>
+                        <a href="#">This is a link</a>
+                    </p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">{{artwork.PartitionKey}}<i class="material-icons right">close</i></span>
+                    <p>{{artwork.Description}}</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
     <div class="row" id="colRowGallery">
         <div class="col m4">
             <div class="card">
@@ -108,92 +150,36 @@ c                <div class="col s12 m4 l8">
         </div>
     </div>
 
-
-<div class="row" id="col3Gallery">
-    <div class="col m4">
-        <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="../../Images/placeholder720x480.png">
-            </div>
-            <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                <p>
-                    <a href="#">This is a link</a>
-                </p>
-            </div>
-            <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
-            </div>
-
-        </div>
-    </div>
-    <div class="col m4">
-        <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="../../Images/placeholder720x480.png">
-            </div>
-            <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                <p>
-                    <a href="#">This is a link</a>
-                </p>
-            </div>
-            <div class="card-reveal">
-                <span class="card-title black-text">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
-            </div>
-        </div>
-    </div>
-    <div class="col m4">
-        <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="../../Images/placeholder720x480.png">
-            </div>
-            <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                <p>
-                    <a href="#">This is a link</a>
-                </p>
-            </div>
-            <div class="card-reveal">
-                <span class="card-title black-text">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
 </div>
 
 <script>
-    //HIDES ALL OTHER GALLERY TYPES WHEN THE SITE IS LOADED and UPLOADER
-    jQuery(document).ready(function () {
-        jQuery('#colRowGallery').hide('hide');
-        jQuery('#uploader').hide('hide');
-    });
-    //COl3 BUTTON - Show ONLY col3 grid
-    jQuery(document).ready(function () {
-        jQuery('#btnCol3').on('click', function (event) {
+        //HIDES ALL OTHER GALLERY TYPES WHEN THE SITE IS LOADED and UPLOADER
+        jQuery(document).ready(function () {
             jQuery('#colRowGallery').hide('hide');
-            jQuery('#col3Gallery').show('show');
-        });
-    });
-    //shows the uploader container
-    jQuery(document).ready(function () {
-        jQuery('#btnUpload').on('click', function (event) {
-            jQuery('#uploader').show('show');
-        });
-    });
-    //Hides the uploader container
-    jQuery(document).ready(function () {
-        jQuery('#uploadClose').on('click', function (event) {
             jQuery('#uploader').hide('hide');
         });
-    });
+        //COl3 BUTTON - Show ONLY col3 grid
+        jQuery(document).ready(function () {
+            jQuery('#btnCol3').on('click', function (event) {
+                jQuery('#colRowGallery').hide('hide');
+                jQuery('#col3Gallery').show('show');
+            });
+        });
+        //shows the uploader container
+        jQuery(document).ready(function () {
+            jQuery('#btnUpload').on('click', function (event) {
+                jQuery('#uploader').show('show');
+            });
+        });
+        //Hides the uploader container
+        jQuery(document).ready(function () {
+            jQuery('#uploadClose').on('click', function (event) {
+                jQuery('#uploader').hide('hide');
+            });
+        });
 
 
-</script>
+    </script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
 <script src="~/Scripts/Angular/artstoneApp.js"></script>

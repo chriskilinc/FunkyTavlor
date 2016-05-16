@@ -77,7 +77,7 @@ namespace MvcArtStone.Repository
         TableOperation insertOperation = TableOperation.Insert(fiktivArtwork);
 
       
-        table.Execute(insertOperation);
+        //table.Execute(insertOperation);
 
 
         //throw new NotImplementedException();

@@ -21,7 +21,7 @@ app.controller('artstoneController', ['$scope', '$http', function ($scope, $http
         File: []
     }
 
-    $scope.atrworkdata = {
+    $scope.artworkdata = {
         artworks:null,
         availableArtworks: []
     }
@@ -30,7 +30,7 @@ app.controller('artstoneController', ['$scope', '$http', function ($scope, $http
         console.log("fetching artworks..");
         $http.get('/home/GetArtworks')
             .then(function(response) {
-                $scope.atrworkdata.availableArtworks = response.data;
+                $scope.artworkdata.availableArtworks = response.data;
                 console.log(response);
             });
     }
