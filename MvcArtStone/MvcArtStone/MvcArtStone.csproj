@@ -215,6 +215,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\Chris.JPG" />
     <Content Include="Images\Daniil.JPG" />
+    <Content Include="Images\logo_homepage_20150714083101.png" />
     <Content Include="Images\Peter.JPG" />
     <Content Include="Images\placeholder720x480.png" />
     <Content Include="Scripts\Angular\artstoneApp.js" />
