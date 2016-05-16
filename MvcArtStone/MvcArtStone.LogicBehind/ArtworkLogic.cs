@@ -30,9 +30,12 @@ namespace MvcArtStone.LogicBehind
             return artlist;
         }
 
-        public Artwork GetSingleArtworkById(Artwork model)
+        public Artwork GetSingleArtworkById(string id)
         {
-            Artwork singleArtwork = GetSingleArtworkById(model);
+            string PartitionKey = id.Split('_')[0];
+            string RowKey = id.Split('_')[1];
+
+            Artwork singleArtwork = _repository.GetSingleArtwork(PartitionKey, RowKey);
             return singleArtwork;
         }
 

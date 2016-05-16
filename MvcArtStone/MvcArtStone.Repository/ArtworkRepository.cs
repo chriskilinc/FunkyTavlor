@@ -84,7 +84,7 @@ namespace MvcArtStone.Repository
         }
 
       
-        public Artwork GetSingleArtwork(Artwork model)
+        public Artwork GetSingleArtwork(string partitionKey, string rowKey)
         {
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
 
@@ -96,9 +96,9 @@ namespace MvcArtStone.Repository
             Artwork SingleArtworkEntity = null;
 
             // Create a retrieve operation that takes a customer entity.
-            if (model.PartitionKey != null && model.RowKey != null)
+            if (partitionKey != null && rowKey != null)
             {
-                TableOperation retrieveOperation = TableOperation.Retrieve<Artwork>(model.PartitionKey, model.RowKey);
+                TableOperation retrieveOperation = TableOperation.Retrieve<Artwork>(partitionKey, rowKey);
 
                 // Execute the operation.
                 TableResult retrievedResult = table.Execute(retrieveOperation);
