@@ -31,7 +31,7 @@ namespace MvcArtStone.Models
         public DateTime CreationDate { get; set; }
         public DateTime AddedDate { get; set; }
         public bool InStorage { get; set; }
-        public string FileName { get; set; }
+        public string ImgUrl { get; set; }
     }
 
     public class ArtworkInsertModel : TableEntity
@@ -44,7 +44,7 @@ namespace MvcArtStone.Models
         public bool Visible { get; set; }
         public DateTime AddedDate { get; set; }
         public HttpPostedFileBase File { get; set; }
-        public string FileName { get; set; }
+        public string ImgUrl { get; set; }
     }
 
 }
