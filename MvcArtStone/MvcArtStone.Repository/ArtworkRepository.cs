@@ -13,6 +13,8 @@ namespace MvcArtStone.Repository
     public class ArtworkRepository
     {
         
+
+
         private static DatabaseHelper _databaseHelper;
 
         public ArtworkRepository()
@@ -34,18 +36,37 @@ namespace MvcArtStone.Repository
             return entities.ToList();
         }
 
-        public static void AddArtwork(Artwork model)
+        public static void AddArtwork(ArtworkInsertModel model, string name)
         {
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
 
             //CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
             //    ConfigurationManager.AppSettings["StorageConnectionString"]);
 
-            //Create the table client
-            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
-            //Create the CloudTable object with your table reference
+            CloudBlobContainer container;
+            //create the blob client
             CloudTable table;
+            //Create the table client
+
+            CloudBlobClient blobClient;
+            blobClient = storageAccount.CreateCloudBlobClient();
+
+            container = blobClient.GetContainerReference("funky");
+
+            container.CreateIfNotExists();
+
+            BlobContainerPermissions permissions = container.GetPermissions();
+            permissions.PublicAccess = BlobContainerPublicAccessType.Container;
+            container.SetPermissions(permissions);
+
+
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+            //Create the CloudTable object with your table reference
+
+            var blob = container.GetBlobReference(name);
+
+
+
             table = tableClient.GetTableReference("funkytavlor");
 
             Artwork fiktivArtwork = new Artwork()
@@ -60,25 +81,14 @@ namespace MvcArtStone.Repository
                 PartitionKey = model.Title,
                 RowKey = model.Id.ToString(),
                 Room = model.Room,
-
-
-                //Title = "MvcArtStoneFirstPainting",
-                //AddedDate = DateTime.UtcNow.Date,
-                //Artist = "Daniil",
-                //CreationDate = DateTime.UtcNow.Date, //TODO bildens skapningstid
-                //Description = "First painting from the mvc project",
-                //Id = 15,
-                //InStorage = 0,
-                //PartitionKey = "MvcArtStoneFirstPainting",
-                //RowKey = "15",
             };
+
+
 
   
         TableOperation insertOperation = TableOperation.Insert(fiktivArtwork);
 
-      
         //table.Execute(insertOperation);
-
 
         //throw new NotImplementedException();
         }

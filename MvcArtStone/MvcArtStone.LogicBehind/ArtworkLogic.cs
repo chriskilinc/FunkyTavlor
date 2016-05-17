@@ -39,13 +39,20 @@ namespace MvcArtStone.LogicBehind
             return singleArtwork;
         }
 
-        public static void AddArtwork(Artwork model)
+        public static void AddArtwork(ArtworkInsertModel model)
         {
-            ArtworkRepository.AddArtwork(model);
-            //if (model != null)
-            //{
-            //    ArtworkRepository.AddArtwork(model);
-            //}
+            string name = string.Empty;
+            if (model.ImgUrl != null)
+            {
+                var fileEnding = model.ImgUrl.Split('.').Last();
+
+                name = Guid.NewGuid() + "." + fileEnding;
+            }
+            
+            if (model.Title != null)
+            {
+                ArtworkRepository.AddArtwork(model, name);
+            }
         }
     }
 }
