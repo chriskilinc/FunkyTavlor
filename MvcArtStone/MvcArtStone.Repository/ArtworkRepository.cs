@@ -4,9 +4,13 @@ using System.Configuration;
 using System.Linq;
 using System.Reflection;
 using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.WindowsAzure.Storage.Table;
+using System.Threading.Tasks;
 using MvcArtStone.Models;
+
+
 
 namespace MvcArtStone.Repository
 {
@@ -36,21 +40,21 @@ namespace MvcArtStone.Repository
             return entities.ToList();
         }
 
-        public static void AddArtwork(ArtworkInsertModel model, string name)
+        public static async void AddArtwork(ArtworkInsertModel model, string name)
         {
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
 
             //CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
             //    ConfigurationManager.AppSettings["StorageConnectionString"]);
 
-            CloudBlobContainer container;
+           
             //create the blob client
             CloudTable table;
             //Create the table client
 
             CloudBlobClient blobClient;
             blobClient = storageAccount.CreateCloudBlobClient();
-
+            CloudBlobContainer container;
             container = blobClient.GetContainerReference("funky");
 
             container.CreateIfNotExists();
@@ -63,9 +67,12 @@ namespace MvcArtStone.Repository
             CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
             //Create the CloudTable object with your table reference
 
-            var blob = container.GetBlobReference(name);
+            if (name != string.Empty)
+            {
+                var blob = container.GetBlobReference(name);
 
-
+                //await blob.UploadFromStreamAsync(model.File.InputStream); //TODO fix this shit
+            }
 
             table = tableClient.GetTableReference("funkytavlor");
 
