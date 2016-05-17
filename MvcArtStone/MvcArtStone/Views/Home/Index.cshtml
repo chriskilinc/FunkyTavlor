@@ -152,7 +152,7 @@
                                             <input type="file" accept="image/*;capture=camera">
                                         </div>
                                         <div class="file-path-wrapper">
-                                            <input class="file-path validate" type="text"> 
+                                            <input class="file-path validate" type="text" id="camera" placeholder="Funktionen Ta bild stöds bara av mobilenheter">
                                         </div>
                                     </div>
                                     </div>
@@ -214,19 +214,18 @@
                         </a>
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">{{artwork}}<i class="material-icons right">close</i></span>
+                        <span class="card-title grey-text text-darken-4">{{artwork.Title}}<i class="material-icons right">close</i></span>
                         <p>{{artwork.Description}}</p>
                         <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
                             <i class="material-icons">edit</i>
                             Redigera
                         </a>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-
+</div>
     
 
     <script>
