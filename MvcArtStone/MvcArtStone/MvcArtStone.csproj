@@ -215,11 +215,13 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\ArtStone.png" />
     <Content Include="Images\asanoha-400px.png" />
     <Content Include="Images\Chris.JPG" />
     <Content Include="Images\close.png" />
     <Content Include="Images\Daniil.JPG" />
     <Content Include="Images\loading.gif" />
+    <Content Include="Images\Logo.png" />
     <Content Include="Images\logo_homepage_20150714083101.png" />
     <Content Include="Images\next.png" />
     <Content Include="Images\Peter.JPG" />
