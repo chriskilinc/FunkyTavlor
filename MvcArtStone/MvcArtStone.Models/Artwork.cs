@@ -22,7 +22,7 @@ namespace MvcArtStone.Models
             this.RowKey = Id.ToString();
         }
 
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Title { get; set; }
         public string Artist { get; set; }
         public string Room { get; set; }
@@ -30,10 +30,21 @@ namespace MvcArtStone.Models
         public bool Visible { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime AddedDate { get; set; }
-        public byte InStorage { get; set; }
-        public string Picture { get; set; }
-        public byte[] PictureBytes { get; set; }
+        public bool InStorage { get; set; }
+        public string FileName { get; set; }
+    }
+
+    public class ArtworkInsertModel : TableEntity
+    {
+        public Guid Id { get; set; }
+        public string Title { get; set; }
+        public string Artist { get; set; }
+        public string Room { get; set; }
+        public string Description { get; set; }
+        public bool Visible { get; set; }
+        public DateTime AddedDate { get; set; }
         public HttpPostedFileBase File { get; set; }
+        public string FileName { get; set; }
     }
 
 }
