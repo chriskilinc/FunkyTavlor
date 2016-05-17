@@ -38,3 +38,13 @@ nav ul a:hover {
     color:red;
 }
 
+body{
+    background-image:url('../Images/asanoha-400px.png')
+}
+
+
+#accounttitle {
+    font-weight:bolder;
+    font-size:30px;
+
+}

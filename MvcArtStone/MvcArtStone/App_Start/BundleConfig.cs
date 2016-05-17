@@ -22,13 +22,15 @@ namespace MvcArtStone
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/materialize.js",
                       "~/Scripts/respond.js",
-                      "~/Scripts/init.js"));
+                      "~/Scripts/init.js",
+                      "~/Scripts/main.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/materialize.css",
                       "~/Content/site.css",
                       "~/Content/DefultStyle.css",
-                      "~/Content/LayoutStyle.css"));
+                      "~/Content/LayoutStyle.css",
+                      "~/Content/main.css"));
         }
     }
 }
