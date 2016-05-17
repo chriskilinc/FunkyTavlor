@@ -55,7 +55,7 @@ namespace MvcArtStone.Repository
                 Artist = model.Artist,
                 CreationDate = DateTime.UtcNow.Date,
                 Description = model.Description,
-                Id = 16,
+                Id = null,
                 InStorage = model.InStorage,
                 PartitionKey = model.Title,
                 RowKey = model.Id.ToString(),

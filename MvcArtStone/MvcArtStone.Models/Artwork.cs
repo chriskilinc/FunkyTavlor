@@ -22,7 +22,7 @@ namespace MvcArtStone.Models
             this.RowKey = Id.ToString();
         }
 
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
         public string Title { get; set; }
         public string Artist { get; set; }
         public string Room { get; set; }
@@ -36,7 +36,7 @@ namespace MvcArtStone.Models
 
     public class ArtworkInsertModel : TableEntity
     {
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
         public string Title { get; set; }
         public string Artist { get; set; }
         public string Room { get; set; }
