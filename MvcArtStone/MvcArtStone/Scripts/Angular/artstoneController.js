@@ -18,6 +18,7 @@ app.controller('artstoneController', ['$scope', '$http', function ($scope, $http
         Room: '',
         Description: '',
         InStorage: true,
+        ImgUrl:'',
         File: []
     }
 
