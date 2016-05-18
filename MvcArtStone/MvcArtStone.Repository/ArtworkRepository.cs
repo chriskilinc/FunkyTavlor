@@ -69,9 +69,9 @@ namespace MvcArtStone.Repository
 
             if (name != string.Empty)
             {
-                var blob = container.GetBlobReference(name);
-
-                //await blob.UploadFromStreamAsync(model.File.InputStream); //TODO fix this shit
+                var blob = container.GetBlockBlobReference(name);
+                
+                await blob.UploadFromStreamAsync(model.File.InputStream); //TODO fix this shit
             }
 
             table = tableClient.GetTableReference("funkytavlor");
