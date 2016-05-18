@@ -1,14 +1,6 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-@*<div ng-app="artstoneApp" ng-controller="artstoneController" class="container">
-        @*<a href="" ng-click="test()">Click me!</a>
-        <form name="saveArtwork" ng-submit="insertArtwork(artwork)">
-            <input type="text" ng-model="artwork.ArtworkTitle" class="form-control" name="test"/>
-            <input type="text" ng-model="artwork.Title" class="form-control" name="test" />
-            <input value="Click me" type="submit"/>
-        </form>
-    </div>*@
 
 <div id="wrapper" ng-app="artstoneApp" ng-controller="artstoneController">
     <!-- TODO: Slider here -->
@@ -97,37 +89,40 @@
                         </div>
                     </div>
                     @*<div class="row">
-                        <div class="s12">
-                            <div class="file-field input-field">
-                                <div class="btn">
-                                    <span>Välj bild</span>
-                                    <input type="file" ng-model="artwork.Picture">
-                                </div>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text">
+                            <div class="s12">
+                                <div class="file-field input-field">
+                                    <div class="btn">
+                                        <span>Välj bild</span>
+                                        <input type="file" ng-model="artwork.Picture">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>*@
+                        </div>*@
                     <div class="row">
                         <div class="s12">
                             <div class="file-field input-field">
                                 <div class="btn">
                                     <span><i class="material-icons">camera_alt</i></span>
-                                    <input type="file" accept="image/*;capture=camera" ng-model="artwork.File">
+                                    <input type="file" accept="image/*;capture=camera">
                                 </div>
                                 <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text" id="camera" ng-model="artwork.ImgUrl">
+                                    <input class="file-path validate" type="text" id="camera">
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <script>
+
+                    
+                    </script>
 
                     @*<button type="submit" class="btn-info btn"> Upload </button>*@
                     <div class="modal-footer">
                         <a href="#modalUpload" class="modal-action modal-close waves-effect waves-red btn-flat" type="button">Close</a>
                         <a href="#modalUpload" class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" ng-click="insertArtwork(artwork)">Upload</a>
-                        @*<input type="submit" value="Upload">*@
                     </div>
                 </form>
             </div>

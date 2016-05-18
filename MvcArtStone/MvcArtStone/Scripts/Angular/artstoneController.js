@@ -1,41 +1,29 @@
 ﻿angular.module('artstoneApp')
 app.controller('artstoneController', ['$scope', '$http', function ($scope, $http) {
-    //$scope.open = function() {
-    //    $state.go("_LoginPartial.cshtml");
-    //};
-    $scope.test = function () {
-        console.log("Dick Bum - Test");
-        $http.post("/home/Submit")
-            .then(function (response) {
-                console.log(response);
-            });
+        $scope.artwork = {
+            Title: '',
+            Artist: '',
+            Room: '',
+            Description: '',
+            InStorage: true,
+            ImgUrl: '',
+            Files: []
+        };
 
-    }
+        $scope.artworkdata = {
+            artworks: null,
+            availableArtworks: []
+        }
 
-    $scope.artwork = {
-        Title: '',
-        Artist: '',
-        Room: '',
-        Description: '',
-        InStorage: true,
-        ImgUrl:'',
-        File: []
-    }
-
-    $scope.artworkdata = {
-        artworks: null,
-        availableArtworks: []
-    }
-
-    function getArtworks() {
-        console.log("Fetching all available visable artworks artworks..");
-        $http.get('/home/GetArtworks')
-            .then(function (response) {
-                $scope.artworkdata.availableArtworks = response.data;
-                console.log(response);
-            });
-    }
-    getArtworks();
+        function getArtworks() {
+            console.log("Fetching all available visable artworks artworks..");
+            $http.get('/home/GetArtworks')
+                .then(function (response) {
+                    $scope.artworkdata.availableArtworks = response.data;
+                    console.log(response);
+                });
+        }
+        getArtworks();
 
     function fetchArtworks() {
         console.log("Fetching all available visable artworks artworks..");
@@ -46,83 +34,27 @@ app.controller('artstoneController', ['$scope', '$http', function ($scope, $http
             });
     }
 
-    $scope.file_changed = function (element) {
-
-        $scope.$apply(function (scope) {
-            var photofile = element.files[0];
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                // handle onload
-
-                $scope.artwork.File.push(photofile);
+        $scope.insertArtwork = function (artwork) {
+            console.log("Inserting Artwork");
 
 
-                ////Sets the Old Image to new New Image
-                //$('#photo-id').attr('src', e.target.result);
+            $http.post('/home/InsertArtwork', artwork)
+                .then(function (response) {
+                    console.log("SUCCESS");
+                    console.log(response);
+                },
+                    function (response) {
+                        console.log("Failed");
+                    });
+        };
 
-                ////Create a canvas and draw image on Client Side to get the byte[] equivalent
-                //var canvas = document.createElement("canvas");
-                //var imageElement = document.createElement("img");
-
-                //imageElement.setAttribute('src', e.target.result);
-                //canvas.width = imageElement.width;
-                //canvas.height = imageElement.height;
-                //var context = canvas.getContext("2d");
-                //context.drawImage(imageElement, 0, 0);
-                //var base64Image = canvas.toDataURL("image/jpeg");
-
-                ////Removes the Data Type Prefix 
-                ////And set the view model to the new value
-                //$scope.data.photo = base64Image.replace(/data:image\/jpeg;base64,/g, '');
-            };
-            //console.log(photofile);
-            reader.readAsDataURL(photofile);
-        });
-    };
-
-    $scope.insertArtwork = function (artwork) {
-        console.log("Inserting Artwork");
-        var x = artwork.File;
-        console.log(x);
-
-        $http.post('/home/InsertArtwork', artwork).then(function (response) {
-            console.log("SUCCESS");
-            console.log(response);
-        }, function (response) {
-            console.log("Failed");
-        });
-    };
-
-    $scope.fetchArtworkId = function (artwork) {
-        $http.post('/home/editartwork', artwork)
-            .then(function (response) {
-                console.log("Artwork ip in the air!");
-            });
+        $scope.fetchArtworkId = function (artwork) {
+            $http.post('/home/editartwork', artwork)
+                .then(function (response) {
+                    console.log("Artwork ip in the air!");
+                });
+        }
     }
-    //$scope.saveArtwork = function (artwork) {
-    //    console.log("DickButt");
-    //    $http.post("/Home/Submit", artwork).then(function (response) {
-    //        console.log(response);
-    //    });
-    //}
 
-    //$scope.company = {
-    //    CorporateIdentityNumber: '',
-    //    ContactPersonName: '',
-    //    CurrencyCode: '',
-    //    InvoiceAddress1: '',
-    //    InvoiceCity: '',
-    //    InvoiceCountryCode: '',
-    //    InvoicePostalCode: '',
-    //    Name: '',
-    //    TermsOfPaymentId: '',
-    //}
+]);
 
-    //$scope.saveCompany = function (company) {
-
-    //    $http.post('/home/submit', company).then(function (response) {
-    //        console.log(response)
-    //    });
-    //}
-
-}]);
