@@ -25,14 +25,7 @@ app.controller('artstoneController', ['$scope', '$http', function ($scope, $http
         }
         getArtworks();
 
-    function fetchArtworks() {
-        console.log("Fetching all available visable artworks artworks..");
-        $http.get('/home/GetSingleArtworkByKeys', keys)
-            .then(function (response) {
-                $scope.artwork = response.data;
-                console.log(response);
-            });
-    }
+ 
 
         $scope.insertArtwork = function (artwork) {
             console.log("Inserting Artwork");

@@ -1,8 +1,22 @@
-﻿@model string
+﻿@model Guid
 @{
     ViewBag.Title = "EditArtwork";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    //Guid idiotid = Guid.Parse(Request.Url.OriginalString.Split('/').Last());
+    string key = Request.Url.OriginalString.Split('/').Last();
+    //Guid id = Guid.Parse(idiotid.Split('/').Last());
+    //Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div ng-app="editApp" ng-controller="editController" ng-bind-html="@key" ng-init="fetchArtwork(@key)">
+
+    <p>@key</p>
+
+    <!-- TODO: EDIT FUNCTION-->
+</div>
+
+
 <h2></h2>
-<div ng-app="artstoneApp" ng-controller="artstoneController" ng-init="fetchArtwork(model)"> </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+<script src="~/Scripts/angular/editApp.js"></script>
+<script src="~/Scripts/angular/editController.js"></script>

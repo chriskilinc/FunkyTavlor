@@ -36,7 +36,7 @@ namespace MvcArtStone.Repository
 
             var tableClient = storageAccount.CreateCloudTableClient();
             var table = tableClient.GetTableReference("funkytavlor");
-            var entities = table.ExecuteQuery(new TableQuery<Artwork>()).Where(x => x.Visible);
+            var entities = table.ExecuteQuery(new TableQuery<Artwork>());//.Where(x => x.Visible);
             return entities.ToList();
         }
 
@@ -71,7 +71,7 @@ namespace MvcArtStone.Repository
             {
                 var blob = container.GetBlockBlobReference(name);
                 
-                await blob.UploadFromStreamAsync(model.Files.InputStream); //TODO fix this shit
+                //await blob.UploadFromStreamAsync(model.Files.InputStream); //TODO fix this shit
             }
 
             table = tableClient.GetTableReference("funkytavlor");
@@ -83,13 +83,13 @@ namespace MvcArtStone.Repository
                 Artist = model.Artist,
                 CreationDate = DateTime.UtcNow.Date,
                 Description = model.Description,
-                Id = null,
+                Id = Guid.NewGuid(),
                 InStorage = model.InStorage,
-                PartitionKey = model.Title,
+                PartitionKey = "ostra",
                 RowKey = model.Id.ToString(),
                 Room = model.Room,
                 ImgUrl = name,
-                
+                Visible = true,
             };
 
 
@@ -104,7 +104,7 @@ namespace MvcArtStone.Repository
         }
 
       
-        public Artwork GetSingleArtwork(string partitionKey, string rowKey)
+        public Artwork GetSingleArtworkById(string id)
         {
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
 
@@ -116,9 +116,9 @@ namespace MvcArtStone.Repository
             Artwork SingleArtworkEntity = null;
 
             // Create a retrieve operation that takes a customer entity.
-            if (partitionKey != null && rowKey != null)
+            if (id != string.Empty)
             {
-                TableOperation retrieveOperation = TableOperation.Retrieve<Artwork>(partitionKey, rowKey);
+                TableOperation retrieveOperation = TableOperation.Retrieve<Artwork>("ostra", id);
 
                 // Execute the operation.
                 TableResult retrievedResult = table.Execute(retrieveOperation);

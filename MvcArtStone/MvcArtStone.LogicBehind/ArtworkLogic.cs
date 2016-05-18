@@ -33,10 +33,7 @@ namespace MvcArtStone.LogicBehind
 
         public Artwork GetSingleArtworkById(string id)
         {
-            string PartitionKey = id.Split('_')[0];
-            string RowKey = id.Split('_')[1];
-
-            Artwork singleArtwork = _repository.GetSingleArtwork(PartitionKey, RowKey);
+            Artwork singleArtwork = _repository.GetSingleArtworkById(id);
             return singleArtwork;
         }
 
