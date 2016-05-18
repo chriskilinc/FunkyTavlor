@@ -19,22 +19,53 @@
             <ul class="right hide-on-med-and-down">
                 <li>@Html.ActionLink("Home", "Index", "Home", new {area = ""}, new {@class = "navbar-brand"})</li>
                 <li>@Html.ActionLink("Register", "Register", "Account")</li>
-                <li>@Html.ActionLink("Log in", "Login","Account")</li>
+                <li><a href="#modalLogin" class="modal-trigger">Login </a></li>
             </ul>
             <ul id="nav-mobile" class="side-nav">
                 <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
                 <li>@Html.ActionLink("Register", "Register", "Account")</li>
-                <li>@Html.ActionLink("Log in", "Login", "Account")</li>
+                <li><a href="#modalLogin" class="modal-trigger">Login</a></li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
     </nav>
-    <div id="loader-wrapper">
-        <div id="loader"></div>
+<div id="loader-wrapper">
+    <div id="loader"></div>
 
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
 
+</div>
+
+
+    <div id="modalLogin" class="modal">
+        <div class="modal-content">
+            <form class="form-login" ng-submit="insertArtwork(artwork)" name="formlogin">
+                <div class="row">
+                    <div class="s12">
+                        <div class="input-field">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input id="email" type="email" class="form-control" ng-model="artwork.Title" name="artworkEmail">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="s12">
+                        <div class="input-field">
+                            <i class="material-icons prefix">vpn_key</i>
+                            <input id="password" type="password" class="validate" ng-model="artwork.Artist">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="modal-footer">
+                    <a href="#modalLogin" class="modal-action modal-close waves-effect waves-red btn-flat" type="button">Close</a>
+                    <a href="#modalLogin" class="modal-action modal-close waves-effect waves-green btn-flat" type="submit">Log In</a>
+                </div>
+            </form>
+        </div>
     </div>
 
 @RenderBody()
