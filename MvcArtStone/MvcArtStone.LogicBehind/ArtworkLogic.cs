@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using Microsoft.WindowsAzure.Storage.Table;
 using MvcArtStone.Models;
 using MvcArtStone.Repository;
@@ -48,11 +49,12 @@ namespace MvcArtStone.LogicBehind
 
                 name = Guid.NewGuid() + "." + fileEnding;
             }
-            
-            if (model.Title != null)
+
+            if (model.File.InputStream != null)
             {
                 ArtworkRepository.AddArtwork(model, name);
             }
+
         }
     }
 }
