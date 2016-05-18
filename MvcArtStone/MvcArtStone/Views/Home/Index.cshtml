@@ -92,10 +92,10 @@
                             <div class="file-field input-field">
                                 <div class="btn">
                                     <span><i class="material-icons">camera_alt</i></span>
-                                    <input type="file" accept="image/*;capture=camera" fileread="artwork.File">
+                                    <input type="file" accept="image/*;capture=camera">
                                 </div>
                                 <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text" id="camera" ng-model="artwork.File">
+                                    <input class="file-path validate" type="text" id="camera">
                                 </div>
                             </div>
                         </div>
@@ -115,7 +115,7 @@
         </div>
         <!--CARDS IN GALLERY FORMAT-->
         <div class="row" id="col3Gallery">
-
+            
             <!-- repeater-->
             <div class="col m4" ng-repeat="artwork in artworkdata.availableArtworks">
                 <div class="card">

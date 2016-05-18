@@ -71,7 +71,7 @@ namespace MvcArtStone.Repository
             {
                 var blob = container.GetBlockBlobReference(name);
                 
-                await blob.UploadFromStreamAsync(model.File.InputStream); //TODO fix this shit
+                await blob.UploadFromStreamAsync(model.Files.InputStream); //TODO fix this shit
             }
 
             table = tableClient.GetTableReference("funkytavlor");
