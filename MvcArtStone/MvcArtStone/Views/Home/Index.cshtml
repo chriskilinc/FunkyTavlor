@@ -37,7 +37,7 @@
 
         </div>
         <div class="fixed-action-btn" style="bottom: 14px; right: 14px;">
-            <a href="#modalUpload" class="btn-floating btn-large orange darken-4 right modal-trigger"><i class="material-icons">add</i></a>
+            <a href="#modalUpload" class="btn-floating btn-large orange darken-4 right modal-trigger"><i class="material-icons">file_upload</i></a>
         </div>
         <!-- TODO: Upload-->
         <!-- Uploader Modal Structure -->
@@ -77,7 +77,7 @@
                         <div class="s12">
                             <div class="input-field">
                                 <i class="material-icons prefix">description</i>
-                                <textarea id="textarea1" class="materialize-textarea" ng-model="artwork.Description"></textarea>
+                                <textarea id="description" class="materialize-textarea" ng-model="artwork.Description"></textarea>
                                 <label for="description">Description</label>
                             </div>
                         </div>
@@ -103,7 +103,7 @@
                                     <input type="file" accept="image/*;capture=camera" ng-model="artwork.File">
                                 </div>
                                 <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text" id="camera" placeholder="Funktionen Ta bild stöds bara av mobilenheter">
+                                    <input class="file-path validate" type="text" id="camera" ng-model="artwork.ImgUrl">
                                 </div>
                             </div>
                         </div>
@@ -125,7 +125,7 @@
             <div class="col m4" ng-repeat="artwork in artworkdata.availableArtworks">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <a href="~/Images/Peter.JPG" data-lightbox="Gallery"><img ng-src="{{post.imageURI}}"></a>
+                        <a href="~/Images/Peter.JPG" data-lightbox="Gallery"><img ng-src="{{artwork.ImgUrl}}"></a>
                         <div class="fixed-action-btn horizontal click-to-toggle">
 
                             <ul>
