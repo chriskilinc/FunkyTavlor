@@ -6201,8 +6201,8 @@ form p:last-child {
   top: 0;
   width: 20px;
   height: 20px;
-  border: 2px solid #26a69a;
-  background-color: #26a69a;
+  border: 2px solid #fb8c00;
+  background-color: #fb8c00;
   z-index: 0;
 }
 
@@ -6214,8 +6214,8 @@ form p:last-child {
 
 [type="checkbox"].filled-in.tabbed:checked:focus + label:after {
   border-radius: 2px;
-  background-color: #26a69a;
-  border-color: #26a69a;
+  background-color: #fb8c00;
+  border-color: #fb8c00;
 }
 
 [type="checkbox"].filled-in:disabled:not(:checked) + label:before {

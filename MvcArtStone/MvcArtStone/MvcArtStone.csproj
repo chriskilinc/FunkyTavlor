@@ -227,6 +227,7 @@
     <Content Include="Images\Peter.JPG" />
     <Content Include="Images\placeholder720x480.png" />
     <Content Include="Images\prev.png" />
+    <Content Include="Images\sayagata-400px.png" />
     <Content Include="Images\upload.png" />
     <Content Include="Scripts\Angular\artstoneApp.js" />
     <Content Include="Scripts\Angular\artstoneController.js" />

@@ -26,7 +26,7 @@
         <div class="row">
             <div class="col s12 m6 l3">
                 <button id="btnCol3" class="btn-info btn" value="hide/show">COLUMNS</button>
-                <button id="btnColRows" class="btn-info btn" value="hide/show">ROWS</button>
+                <button id="btnColRows" class="btn-info btn" value="hide/show">SLIDES</button>
             </div>
         </div>
         <div class="row">
@@ -114,7 +114,7 @@
                             <div class="file-field input-field">
                                 <div class="btn">
                                     <span><i class="material-icons">camera_alt</i></span>
-                                    <input type="file" accept="image/*;capture=camera" ng-model="artwork.File">
+                                    <input type="file" accept="image/*;capture=camera">
                                 </div>
                                 <div class="file-path-wrapper">
                                     <input class="file-path validate" type="text" id="camera" ng-model="artwork.ImgUrl">
@@ -126,139 +126,15 @@
                     @*<button type="submit" class="btn-info btn"> Upload </button>*@
                     <div class="modal-footer">
                         <a href="#modalUpload" class="modal-action modal-close waves-effect waves-red btn-flat" type="button">Close</a>
-                        <a href="#modalUpload" class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" ng-click="insertArtwork(artwork)">Upload</a>
-                        @*<input type="submit" value="Upload">*@
+                        <a href="#modalUpload" class="modal-action modal-close waves-effect waves-green btn-flat" type="submit">Upload</a>
                     </div>
                 </form>
             </div>
+
         </div>
         <!--CARDS IN GALLERY FORMAT-->
         <div class="row" id="col3Gallery">
-            
-            <!-- repeater-->
-            <div class="col m4" ng-repeat="artwork in artworkdata.availableArtworks">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <a href="~/Images/Peter.JPG" data-lightbox="Gallery"><img ng-src="{{artwork.ImgUrl}}"></a>
-                        <div class="fixed-action-btn horizontal click-to-toggle">
-
-                            <ul>
-                                <li><a class="btn-floating btn-small blue"><i class="fa fa-facebook"></i></a></li>
-                                <li><a class="btn-floating btn-small light-blue"><i class="fa fa-twitter"></i></a></li>
-                                <li><a class="btn-floating btn-small red"><i class="fa fa-google-plus"></i></a></li>
-                            </ul>
-                        </div>
-
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">{{artwork.PartitionKey}}<i class="material-icons right">more_vert</i></span>
-                        <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
-                            <i class="material-icons right">edit</i>
-                        </a>
-                        <a class="button" id="heart"><i class="material-icons right">favorite_border</i></a>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">{{artwork}}<i class="material-icons right">close</i></span>
-                        <p>{{artwork.Description}}</p>
-                        <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
-                            <i class="material-icons">edit</i>
-                            Redigera
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-
-
-        <!--CARDS IN ROWS-->
-        <div class="row" id="colRowGallery">
-            <div class="col m3" ng-repeat="artwork in artworkdata.availableArtworks">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">{{artwork.PartitionKey}}<i class="material-icons right">more_vert</i></span>
-                        <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
-                            <i class="material-icons right">edit</i>
-                        </a>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">{{artwork.Title}}<i class="material-icons right">close</i></span>
-                        <p>{{artwork.Description}}</p>
-                        <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
-                            <i class="material-icons">edit</i>
-                            Redigera
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- HIDE AND SHOW GALLERY SCRIPT-->
-<script>
-
-    ////HIDES ALL OTHER GALLERY TYPES WHEN THE SITE IS LOADED and UPLOADER
-    jQuery(document)
-        .ready(function () {
-            jQuery('#colRowGallery').hide('hide');
-        });
-    ////ROWS BUTTON - Show ONLY rows grid
-    jQuery(document)
-        .ready(function () {
-            jQuery('#btnColRows')
-                .on('click',
-                    function (event) {
-                        jQuery('#colRowGallery').show('show');
-                        jQuery('#col3Gallery').hide('hide');
-                    });
-        });
-
-    //COL 3 BUTTON - Show ONLY col3 grid
-    jQuery(document)
-        .ready(function () {
-            jQuery('#btnCol3')
-                .on('click',
-                    function (event) {
-                        jQuery('#col3Gallery').show('show');
-                        jQuery('#colRowGallery').hide('hide');
-                    });
-        });
-
-    ////shows the uploader container
-    //jQuery(document).ready(function () {
-    //   jQuery('#btnUpload').on('click', function (event) {
-    //        jQuery('#uploader').show('show');
-    //    });
-    //});
-    ////Hides the uploader container
-    //jQuery(document).ready(function () {
-    //    jQuery('#uploadClose').on('click', function (event) {
-    //        jQuery('#uploader').hide('hide');
-    //   });
-    //});
-
-
-</script>
-
-<!-- MODAL POP UP SCRIPT-->
-<script>
-
-    $(document).ready(function () {
-        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-        $('.modal-trigger').leanModal();
-    });
-
-</script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
-<script src="~/Scripts/Angular/artstoneApp.js"></script>
-<script src="~/Scripts/Angular/artstoneController.js"></script>
-
-<!-- <div class="col m4">
+            <div class="col m4">
                 @*<div id="uploader" ng-app="artstoneApp" ng-controller="artstoneController">
                             <div class="row">
                                 <div class="col s12 m4">
@@ -380,4 +256,155 @@
                         </div>*@
 
                 </div>
-            </div>-->
+            </div>
+            <!-- repeater-->
+            <div class="col m4" ng-repeat="artwork in artworkdata.availableArtworks">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <a href="#" data-lightbox="Gallery"><img src="{{artwork.ImgUrl}}"></a>
+                        <div class="fixed-action-btn horizontal click-to-toggle">
+
+                            <ul>
+                                <li><a class="btn-floating btn-small blue"><i class="fa fa-facebook"></i></a></li>
+                                <li><a class="btn-floating btn-small light-blue"><i class="fa fa-twitter"></i></a></li>
+                                <li><a class="btn-floating btn-small red"><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">{{artwork.PartitionKey}}<i class="material-icons right">more_vert</i></span>
+                        <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
+                            <i class="material-icons right">edit</i>
+                        </a>
+                        <a class="button" id="heart"><i class="material-icons right">favorite_border</i></a>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{artwork}}<i class="material-icons right">close</i></span>
+                        <p>{{artwork.Description}}</p>
+                        <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
+                            <i class="material-icons">edit</i>
+                            Redigera
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <!--CARDS IN ROWS-->
+        <div class="row" id="colRowGallery">
+            @*<div class="col m3" ng-repeat="artwork in artworkdata.availableArtworks">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">{{artwork.PartitionKey}}<i class="material-icons right">more_vert</i></span>
+                        <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
+                            <i class="material-icons right">edit</i>
+                        </a>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{artwork.Title}}<i class="material-icons right">close</i></span>
+                        <p>{{artwork.Description}}</p>
+                        <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
+                            <i class="material-icons">edit</i>
+                            Redigera
+                        </a>
+                    </div>
+                </div>
+            </div>*@
+            <div class="slider fullscreen">
+                    <ul class="slides">
+                        <li>
+                            <img src="../../Images/Peter.JPG"> <!-- random image -->
+                            <div class="caption center-align">
+                                <h3>This is our big Tagline!</h3>
+                                <a href="#" id="close">E S C</a>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="../../Images/Chris.JPG"> <!-- random image -->
+                            <div class="caption left-align">
+                                <h3>Left Aligned Caption</h3>
+                                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="../../Images/Daniil.JPG"> <!-- random image -->
+                            <div class="caption right-align">
+                                <h3>Right Aligned Caption</h3>
+                                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+    </div>
+</div>
+
+<!-- HIDE AND SHOW GALLERY SCRIPT-->
+<script>
+
+    ////HIDES ALL OTHER GALLERY TYPES WHEN THE SITE IS LOADED and UPLOADER
+    jQuery(document)
+        .ready(function () {
+            jQuery('#colRowGallery').hide('hide');
+        });
+    ////ROWS BUTTON - Show ONLY rows grid
+    jQuery(document)
+        .ready(function () {
+            jQuery('#btnColRows')
+                .on('click',
+                    function (event) {
+                        jQuery('#colRowGallery').show('show');
+                        jQuery('#col3Gallery').hide('hide');
+                    });
+        });
+
+    //COL 3 BUTTON - Show ONLY col3 grid
+    jQuery(document)
+        .ready(function () {
+            jQuery('#close')
+                .on('click',
+                    function (event) {
+                        jQuery('#col3Gallery').show('show');
+                        jQuery('#colRowGallery').hide('hide');
+                    });
+        });
+
+    ////shows the uploader container
+    //jQuery(document).ready(function () {
+    //   jQuery('#btnUpload').on('click', function (event) {
+    //        jQuery('#uploader').show('show');
+    //    });
+    //});
+    ////Hides the uploader container
+    //jQuery(document).ready(function () {
+    //    jQuery('#uploadClose').on('click', function (event) {
+    //        jQuery('#uploader').hide('hide');
+    //   });
+    //});
+
+
+</script>
+
+<!-- MODAL POP UP SCRIPT-->
+<script>
+
+    $(document).ready(function () {
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal-trigger').leanModal();
+    });
+
+    //Slider width
+    $(document).ready(function () {
+        $('.slider').slider({ full_width: true });
+    });
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+<script src="~/Scripts/Angular/artstoneApp.js"></script>
+<script src="~/Scripts/Angular/artstoneController.js"></script>
