@@ -69,9 +69,9 @@ namespace MvcArtStone.Repository
 
             if (name != string.Empty)
             {
-                var blob = container.GetBlobReference(name);
-
-                //await blob.UploadFromStreamAsync(model.File.InputStream); //TODO fix this shit
+                var blob = container.GetBlockBlobReference(name);
+                
+                await blob.UploadFromStreamAsync(model.File.InputStream); //TODO fix this shit
             }
 
             table = tableClient.GetTableReference("funkytavlor");
@@ -88,6 +88,8 @@ namespace MvcArtStone.Repository
                 PartitionKey = model.Title,
                 RowKey = model.Id.ToString(),
                 Room = model.Room,
+                ImgUrl = name,
+                
             };
 
 
@@ -162,6 +164,7 @@ namespace MvcArtStone.Repository
                 //TODO add parameters that should be changed
             }
         }
+
 
         //CRUD Artwork
         //public void AddCompany(Models.Company company)

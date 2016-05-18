@@ -28,7 +28,7 @@ app.controller('artstoneController', ['$scope', '$http', function ($scope, $http
     }
 
     function getArtworks() {
-        console.log("fetching artworks..");
+        console.log("Fetching all available visable artworks artworks..");
         $http.get('/home/GetArtworks')
             .then(function (response) {
                 $scope.artworkdata.availableArtworks = response.data;

@@ -26,9 +26,7 @@ namespace MvcArtStone.Controllers
         [HttpPost]
         public ActionResult EditArtwork(string id)
         {
-            var singleArtwork = new Artwork();
-            singleArtwork = _LogicBehind.GetSingleArtworkById(id);
-            return View(singleArtwork);
+            return View(id);
         }
 
         public ActionResult GetArtworks()

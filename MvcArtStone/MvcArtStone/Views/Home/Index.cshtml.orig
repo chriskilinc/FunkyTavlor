@@ -26,211 +26,351 @@
         <div class="row">
             <div class="col s12 m6 l3">
                 <button id="btnCol3" class="btn-info btn" value="hide/show">COLUMNS</button>
-                <button id="btnColRows" class="btn-info btn">ROWS</button>
+                <button id="btnColRows" class="btn-info btn" value="hide/show">ROWS</button>
             </div>
         </div>
         <div class="row">
             <div class="col s12 m6 l3">
-                <button id="btnUpload" class="btn-info btn" value="hide/show">UPLOAD</button>
+                <!-- Modal Trigger -->
+                <a class="waves-effect waves-light btn modal-trigger" href="#modalUpload">Upload</a>
             </div>
 
         </div>
-
+        <div class="fixed-action-btn" style="bottom: 14px; right: 14px;">
+            <a href="#modalUpload" class="btn-floating btn-large orange darken-4 right modal-trigger"><i class="material-icons">file_upload</i></a>
+        </div>
         <!-- TODO: Upload-->
-        <div id="uploader" ng-app="artstoneApp" ng-controller="artstoneController">
-            <div class="row">
-                <div class="col s12 m4">
-                    <form class="form-upload" style="border: 2px solid #FB8C00; padding-left: 5px; padding-bottom: 5px;" ng-submit="insertArtwork(artwork)">
-<<<<<<< HEAD
-                        <p>Title</p>
-                        <input type="text" ng-model="artwork.Title" />
-                        <p>Artist</p>
-                        <input type="text" ng-model="artwork.Artist" />
-                        <p>Room</p>
-                        <input type="text" ng-model="artwork.Room" />
-                        <p>Description</p>
-                        @*<input type="" ng-model="artwork.Description"/>*@
-                        <textarea ng-model="artwork.Description" rows="3" cols="22"></textarea>
-                        <p>In Storage</p>
-                        <input type="checkbox" ng-model="artwork.InStorage" />
-                        <input type="file" ng-model="artwork.Picture" onchange="angular.element(this).scope().file_changed(this)" />
-=======
-                        <div class="input-field">
-                            <i class="material-icons prefix">title</i>
-                            <input id="title" type="text" class="validate" ng-model="artwork.Title">
-                            <label for="title">Title</label>
-                        </div>
-                        <div class="input-field">
-                            <i class="material-icons prefix">account_circle</i>
-                            <input id="artist" type="text" class="validate" ng-model="artwork.Artist">
-                            <label for="artist">Artist</label>
-                        </div>
-
-                        <div class="file-field input-field">
-                            <div class="btn">
-                                <span>Välj fil</span>
-                                <input type="file" ng-model="artwork.Picture">
-                            </div>
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text">
-                            </div>
-                        </div>
->>>>>>> newDesign
-                        @*<input value="Click me" type="submit" />*@
-                        <button type="submit" class="btn-info btn"> Upload </button>
-                        <button id="uploadClose" type="button" class="btn-info btn" value="hide/show">Close</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row" id="col3Gallery">
-       <div class="col m4">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="../../Images/logo_homepage_20150714083101.png">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Ladda Upp Konstverk <i class="material-icons right">add</i></span>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Ladda Upp Konstverk<i class="material-icons right">close</i></span>
-                        <form class="form-upload" ng-submit="insertArtwork(artwork)">
+        <!-- Uploader Modal Structure -->
+        <div id="modalUpload" class="modal">
+            <div class="modal-content">
+                <form class="form-upload" ng-submit="insertArtwork(artwork)">
+                    <div class="row">
+                        <div class="s12">
                             <div class="input-field">
                                 <i class="material-icons prefix">title</i>
                                 <input id="title" type="text" class="validate" ng-model="artwork.Title">
                                 <label for="title">Title</label>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="s12">
                             <div class="input-field">
                                 <i class="material-icons prefix">account_circle</i>
                                 <input id="artist" type="text" class="validate" ng-model="artwork.Artist">
                                 <label for="artist">Artist</label>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="s12">
+                            <div class="input-field">
+                                <i class="material-icons prefix">room</i>
+                                <!-- TODO: ROOM SELECTION -->
+                                <input id="room" type="text" class="validate" ng-model="artwork.Room">
+                                <label for="room">Room</label>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="row">
+                        <div class="s12">
+                            <div class="input-field">
+                                <i class="material-icons prefix">description</i>
+                                <textarea id="description" class="materialize-textarea" ng-model="artwork.Description"></textarea>
+                                <label for="description">Description</label>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="row">
+                        <div class="s12">
                             <div class="file-field input-field">
                                 <div class="btn">
-                                    <span>Välj fil</span>
+                                    <span>Välj bild</span>
                                     <input type="file" ng-model="artwork.Picture">
                                 </div>
                                 <div class="file-path-wrapper">
                                     <input class="file-path validate" type="text">
                                 </div>
                             </div>
-                            @*<input value="Click me" type="submit" />*@
-                            <button type="submit" class="btn-info btn"> Upload </button>
-                            <button id="uploadClose" type="button" class="btn-info btn" value="hide/show">Close</button>
-                        </form>
+                        </div>
+                    </div>*@
+                    <div class="row">
+                        <div class="s12">
+                            <div class="file-field input-field">
+                                <div class="btn">
+                                    <span><i class="material-icons">camera_alt</i></span>
+<<<<<<< HEAD
+                                    <input type="file" accept="image/*;capture=camera" ng-model="artwork.File">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text" id="camera" placeholder="Funktionen Ta bild stöds bara av mobilenheter">
+=======
+                                    <input type="file" accept="image/*;capture=camera">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text" id="camera" ng-model="artwork.ImgUrl">
+>>>>>>> origin/LogoDesign
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @*<button type="submit" class="btn-info btn"> Upload </button>*@
+                    <div class="modal-footer">
+                        <a href="#modalUpload" class="modal-action modal-close waves-effect waves-red btn-flat" type="button">Close</a>
+                        <a href="#modalUpload" class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" ng-click="insertArtwork(artwork)">Upload</a>
+                        @*<input type="submit" value="Upload">*@
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--CARDS IN GALLERY FORMAT-->
+        <div class="row" id="col3Gallery">
+            
+            <!-- repeater-->
+            <div class="col m4" ng-repeat="artwork in artworkdata.availableArtworks">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <a href="~/Images/Peter.JPG" data-lightbox="Gallery"><img ng-src="{{post.imageURI}}"></a>
+                        <div class="fixed-action-btn horizontal click-to-toggle">
+
+                            <ul>
+                                <li><a class="btn-floating btn-small blue"><i class="fa fa-facebook"></i></a></li>
+                                <li><a class="btn-floating btn-small light-blue"><i class="fa fa-twitter"></i></a></li>
+                                <li><a class="btn-floating btn-small red"><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">{{artwork.PartitionKey}}<i class="material-icons right">more_vert</i></span>
+                        <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
+                            <i class="material-icons right">edit</i>
+                        </a>
+                        <a class="button" id="heart"><i class="material-icons right">favorite_border</i></a>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{artwork}}<i class="material-icons right">close</i></span>
+                        <p>{{artwork.Description}}</p>
+                        <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
+                            <i class="material-icons">edit</i>
+                            Redigera
+                        </a>
                     </div>
 
                 </div>
             </div>
-        <!-- repeater-->
-        <div class="col m4" ng-repeat="artwork in artworkdata.availableArtworks">
-            <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="~/Images/Peter.JPG">
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">{{artwork.PartitionKey}}<i class="material-icons right">more_vert</i></span>
-<<<<<<< HEAD
-                    <br/>
-                    <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}_{{artwork.rowkey}}">
-                        Redigera
-=======
-                    <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}"> <i class="material-icons right">edit</i>
->>>>>>> newDesign
-                    </a>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">{{artwork}}<i class="material-icons right">close</i></span>
-                    <p>{{artwork.Description}}</p>
-                    <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
-                        <i class="material-icons">edit</i>
-                        Redigera
-                    </a>
-                </div>
 
-            </div>
         </div>
 
-    </div>
 
-
-
-    <div class="row" id="colRowGallery">
-        <div class="col m6">
-            <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="../../Images/placeholder720x480.png">
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                    <a class="button" href="/home/editartwork/{{artwork.ID}}">
-                       Redigera
-                    </a>
-
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="col m6">
-            <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="../../Images/placeholder720x480.png">
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                    <p>
-                        <a href="#">This is a link</a>
-                    </p>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title black-text">Card Title<i class="material-icons right">close</i></span>
-                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+        <!--CARDS IN ROWS-->
+        <div class="row" id="colRowGallery">
+            <div class="col m3" ng-repeat="artwork in artworkdata.availableArtworks">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">{{artwork.PartitionKey}}<i class="material-icons right">more_vert</i></span>
+                        <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
+                            <i class="material-icons right">edit</i>
+                        </a>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{artwork.Title}}<i class="material-icons right">close</i></span>
+                        <p>{{artwork.Description}}</p>
+                        <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
+                            <i class="material-icons">edit</i>
+                            Redigera
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
-
-
-
+<!-- HIDE AND SHOW GALLERY SCRIPT-->
 <script>
-    //HIDES ALL OTHER GALLERY TYPES WHEN THE SITE IS LOADED and UPLOADER
-    jQuery(document).ready(function () {
-        jQuery('#colRowGallery').hide('hide');
-        jQuery('#uploader').hide('hide');
-    });
-    //COl3 BUTTON - Show ONLY col3 grid
-    jQuery(document).ready(function () {
-        jQuery('#btnCol3').on('click', function (event) {
-            jQuery('#colRowGallery').hide('hide');
-            jQuery('#col3Gallery').show('show');
-        });
-    });
-    //shows the uploader container
-    jQuery(document).ready(function () {
-        jQuery('#btnUpload').on('click', function (event) {
-            jQuery('#uploader').show('show');
-        });
-    });
-    //Hides the uploader container
-    jQuery(document).ready(function () {
-        jQuery('#uploadClose').on('click', function (event) {
-            jQuery('#uploader').hide('hide');
-        });
-    });
 
+    ////HIDES ALL OTHER GALLERY TYPES WHEN THE SITE IS LOADED and UPLOADER
+    jQuery(document)
+        .ready(function () {
+            jQuery('#colRowGallery').hide('hide');
+        });
+    ////ROWS BUTTON - Show ONLY rows grid
+    jQuery(document)
+        .ready(function () {
+            jQuery('#btnColRows')
+                .on('click',
+                    function (event) {
+                        jQuery('#colRowGallery').show('show');
+                        jQuery('#col3Gallery').hide('hide');
+                    });
+        });
+
+    //COL 3 BUTTON - Show ONLY col3 grid
+    jQuery(document)
+        .ready(function () {
+            jQuery('#btnCol3')
+                .on('click',
+                    function (event) {
+                        jQuery('#col3Gallery').show('show');
+                        jQuery('#colRowGallery').hide('hide');
+                    });
+        });
+
+    ////shows the uploader container
+    //jQuery(document).ready(function () {
+    //   jQuery('#btnUpload').on('click', function (event) {
+    //        jQuery('#uploader').show('show');
+    //    });
+    //});
+    ////Hides the uploader container
+    //jQuery(document).ready(function () {
+    //    jQuery('#uploadClose').on('click', function (event) {
+    //        jQuery('#uploader').hide('hide');
+    //   });
+    //});
+
+
+</script>
+
+<!-- MODAL POP UP SCRIPT-->
+<script>
+
+    $(document).ready(function () {
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal-trigger').leanModal();
+    });
 
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
 <script src="~/Scripts/Angular/artstoneApp.js"></script>
 <script src="~/Scripts/Angular/artstoneController.js"></script>
+
+<!-- <div class="col m4">
+                @*<div id="uploader" ng-app="artstoneApp" ng-controller="artstoneController">
+                            <div class="row">
+                                <div class="col s12 m4">
+                                    <form class="form-upload" style="border: 2px solid #FB8C00; padding-left: 5px; padding-bottom: 5px;" ng-submit="insertArtwork(artwork)">
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">title</i>
+                                            <input id="title" type="text" class="validate" ng-model="artwork.Title">
+                                            <label for="title">Title</label>
+                                        <p>Room</p>
+                                        <input type="text" ng-model="artwork.Room" />
+                                        <p>Description</p>
+                                        <input type="" ng-model="artwork.Description"/>
+                                        <textarea ng-model="artwork.Description" rows="3" cols="22"></textarea>
+                                        <p>In Storage</p>
+                                        <input type="checkbox" ng-model="artwork.InStorage" />
+                                        </div>
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">account_circle</i>
+                                            <input id="artist" type="text" class="validate" ng-model="artwork.Artist">
+                                            <label for="artist">Artist</label>
+                                        </div>
+
+                                        <div class="file-field input-field">
+                                            <div class="btn">
+                                                <span>Välj fil</span>
+                                                <input type="file" ng-model="artwork.Picture">
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input class="file-path validate" type="text">
+                                            </div>
+                                        </div>
+                                        <input type="file" ng-model="artwork.Picture" onchange="angular.element(this).scope().file_changed(this)" />
+                                        <input value="Click me" type="submit" />
+                                        <button type="submit" class="btn-info btn"> Upload </button>
+                                        <button id="uploadClose" type="button" class="btn-info btn" value="hide/show">Close</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+                <div class="card">
+
+                    @*<div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="../../Images/upload.png">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Ladda Upp Konstverk <a class="btn-floating btn-large orange darken-4 right"><i class="material-icons">add</i></a></span>
+
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Ladda Upp Konstverk<i class="material-icons right">close</i></span>
+                            <form class="form-upload" ng-submit="insertArtwork(artwork)">
+                                <div class="row">
+                                    <div class="s12">
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">title</i>
+                                            <input id="title" type="text" class="validate" ng-model="artwork.Title">
+                                            <label for="title">Title</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="s12">
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">account_circle</i>
+                                            <input id="artist" type="text" class="validate" ng-model="artwork.Artist">
+                                            <label for="artist">Artist</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="s12">
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">room</i>
+                                            <input id="room" type="text" class="validate" ng-model="artwork.Room">
+                                            <label for="room">Room</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="s12">
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">description</i>
+                                            <textarea id="textarea1" class="materialize-textarea" ng-model="artwork.Description"></textarea>
+                                            <label for="description">Description</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                @*<div class="row">
+                                    <div class="s12">
+                                        <div class="file-field input-field">
+                                            <div class="btn">
+                                                <span>Välj bild</span>
+                                                <input type="file" ng-model="artwork.Picture">
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input class="file-path validate" type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="s12">
+                                        <div class="file-field input-field">
+                                            <div class="btn">
+                                                <span><i class="material-icons">camera_alt</i></span>
+                                                <input type="file" accept="image/*;capture=camera">
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input class="file-path validate" type="text" id="camera" placeholder="Funktionen Ta bild stöds bara av mobilenheter">
+                                            </div>
+                                        </div>
+                                        </div>
+                                </div>
+
+                                <button type="submit" class="btn-info btn"> Upload </button>
+                            </form>
+                        </div>*@
+
+                </div>
+            </div>-->
