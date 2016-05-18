@@ -40,7 +40,7 @@ namespace MvcArtStone.Repository
             return entities.ToList();
         }
 
-        public static async void AddArtwork(ArtworkInsertModel model, string name)
+        public static void AddArtwork(ArtworkInsertModel model, string name)
         {
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
 
@@ -71,7 +71,7 @@ namespace MvcArtStone.Repository
             {
                 var blob = container.GetBlockBlobReference(name);
                 
-                await blob.UploadFromStreamAsync(model.File.InputStream); //TODO fix this shit
+                //await blob.UploadFromStreamAsync(model.File.InputStream); //TODO fix this shit
             }
 
             table = tableClient.GetTableReference("funkytavlor");
@@ -97,7 +97,7 @@ namespace MvcArtStone.Repository
   
         TableOperation insertOperation = TableOperation.Insert(fiktivArtwork);
 
-        //table.Execute(insertOperation);
+        table.Execute(insertOperation);
 
         //throw new NotImplementedException();
         }

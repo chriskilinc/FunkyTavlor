@@ -29,6 +29,13 @@ namespace MvcArtStone.Controllers
             return View(id);
         }
 
+        [HttpGet]
+        public ActionResult GetSingleArtworkByKeys(string keys)
+        {
+            Artwork artwork = _LogicBehind.GetSingleArtworkById(keys);
+            return Json(artwork);
+        }
+
         public ActionResult GetArtworks()
         {
             var artworksList = _LogicBehind.GetArtworkskInFatList();

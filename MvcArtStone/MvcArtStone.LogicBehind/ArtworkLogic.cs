@@ -50,10 +50,10 @@ namespace MvcArtStone.LogicBehind
                 name = Guid.NewGuid() + "." + fileEnding;
             }
 
-            if (model.File.InputStream != null)
-            {
+            //if (model.File.InputStream != null)
+            //{
                 ArtworkRepository.AddArtwork(model, name);
-            }
+            //}
 
         }
     }
