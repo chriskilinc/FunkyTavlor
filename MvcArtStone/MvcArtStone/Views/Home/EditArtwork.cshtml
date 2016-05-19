@@ -11,7 +11,28 @@
 <div ng-app="artstoneApp" ng-controller="editController">
     <p ng-model="artwork.Title">@Model.Title</p>
 
-  
+
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-content">
+                <h1>{{artwork.Title}}</h1>
+                <input value="{{artwork.Title}}" id="edittitle" type="text" class="validate"/>
+                <label class="active" for="edittitle">Title</label> <br/>
+
+                <input value="{{artwork.Artist}}" id="editartist" type="text" class="validate"/>
+                <label class="active" for="editartist">Artist</label> <br/>
+
+                <input value="{{artwork.Room}}" id="editroom" type="text" class="validate"/>
+                <label class="active" for="editroom">Room</label> <br/>
+
+
+            </div>
+        </div>
+    </div>
 </div>
 
 
