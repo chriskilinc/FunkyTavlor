@@ -7,16 +7,15 @@
     //Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div ng-app="editApp" ng-controller="editController" ng-bind-html="@key" ng-init="fetchArtwork(@key)">
-
-    <p>@key</p>
-
-    <!-- TODO: EDIT FUNCTION-->
+<h1>@key</h1>
+<div ng-app="artstoneApp" ng-controller="editController">
+    <p ng-model="key">@key</p>
+    
+    <button ng-click="send('@key')">click</button>
+    <p>{{artwork.Title}}</p>
 </div>
 
 
-<h2></h2>
-
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-<script src="~/Scripts/angular/editApp.js"></script>
+<script src="~/Scripts/angular/artstoneApp.js"></script>
 <script src="~/Scripts/angular/editController.js"></script>
