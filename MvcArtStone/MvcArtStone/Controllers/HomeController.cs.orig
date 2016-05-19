@@ -33,6 +33,12 @@ namespace MvcArtStone.Controllers
             return View(TheArtwork);
         }
 
+        [HttpPost]
+        public ActionResult EditArtworkByModel(Artwork model)
+        {
+            _LogicBehind.EditArtworkByModel(model);
+            return Content("SUCCESS");
+        }
         //[HttpPost]
         //public ActionResult GetSingleArtworkByKey(string key)
         //{
@@ -65,18 +71,28 @@ namespace MvcArtStone.Controllers
         {
             MvcArtStone.LogicBehind.ArtworkLogic.AddArtwork(model);
             return Content("Success!");
-<<<<<<< HEAD
-        }
+        }       
 
+       [HttpPost]
+       public ActionResult DeleteArtworkById(ArtworkInsertModel model)
+       {
+            if(model.Id != Guid.Empty)
+            {
+                LogicBehind.ArtworkLogic.DeleteArtworkwithId(model.Id);
+            }
+            
+            return Content("Fatality");
+       }
+
+<<<<<<< HEAD
+=======
         [HttpPost]
         public ActionResult InsertImageWithArtwork(HttpPostedFileBase file)
         {
             LogicBehind.ArtworkLogic.AddImage(file);
             return Content("Image was uploaded");
         }
-=======
-        }       
->>>>>>> origin/nguploadfromgit
+>>>>>>> origin/EditDelete
 
         public ActionResult About()
         {
