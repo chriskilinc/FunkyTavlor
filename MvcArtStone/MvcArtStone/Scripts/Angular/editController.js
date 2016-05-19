@@ -36,25 +36,8 @@ app.controller('editController', ['$scope', '$http', function ($scope, $http) {
                 },
                     function (response) {
                         console.log("Failed");
-                    });
-                });
-    };
-
-
-
-    ////$scope.key = $sce.trustAsHtml(key);
-
-    //$scope.fetchArtworkId = function(key) {
-    //    //$scope.key = $sce.trustAsHtml(key);
-
-    //    console.log(key);
-    //    $http.get('/home/GetSingleArtworkByKey', key)
-    //        .then(function (response) {
-    //            //$scope.artwork = response.data;
-    //            console.log(response);
-    //        });
-    //}
-
-}
-]);
+                    })}
+                
+    
+}]);
 
