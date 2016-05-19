@@ -76,17 +76,20 @@ namespace MvcArtStone.Repository
 
             table = tableClient.GetTableReference("funkytavlor");
 
+            var Identification = Guid.NewGuid();
+
             Artwork fiktivArtwork = new Artwork()
             {
+                
                 Title = model.Title,
                 AddedDate = DateTime.UtcNow.Date,
                 Artist = model.Artist,
                 CreationDate = DateTime.UtcNow.Date,
                 Description = model.Description,
-                Id = Guid.NewGuid(),
+                Id = Identification,
                 InStorage = model.InStorage,
                 PartitionKey = "ostra",
-                RowKey = model.Id.ToString(),
+                RowKey = Identification.ToString(),
                 Room = model.Room,
                 ImgUrl = name,
                 Visible = true,

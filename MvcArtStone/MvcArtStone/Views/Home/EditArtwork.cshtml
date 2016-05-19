@@ -1,18 +1,17 @@
-﻿@model Guid
+﻿@model MvcArtStone.Models.Artwork
 @{
-    ViewBag.Title = "EditArtwork";
-    //Guid idiotid = Guid.Parse(Request.Url.OriginalString.Split('/').Last());
     string key = Request.Url.OriginalString.Split('/').Last();
+    ViewBag.Title = key;
+    //Guid idiotid = Guid.Parse(Request.Url.OriginalString.Split('/').Last());
+
     //Guid id = Guid.Parse(idiotid.Split('/').Last());
     //Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>@key</h1>
 <div ng-app="artstoneApp" ng-controller="editController">
-    <p ng-model="key">@key</p>
-    
-    <button ng-click="send('@key')">click</button>
-    <p>{{artwork.Title}}</p>
+    <p ng-model="artwork.Title">@Model.Title</p>
+
+  
 </div>
 
 

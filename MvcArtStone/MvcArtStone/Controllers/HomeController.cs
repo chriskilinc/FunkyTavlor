@@ -23,26 +23,35 @@ namespace MvcArtStone.Controllers
             return View();
         }
 
-        [HttpGet]
+        //Exikveras när EditArtwork sidan laddas, och hämtar konstverkets ID(Guid) från URL
         public ActionResult EditArtwork(Guid id)
         {
-            return View(id);
+            //Kallar på GetArtworkByKey metoden och skickar in ett id som parameter
+            MvcArtStone.Models.Artwork TheArtwork = GetArtworkByKey(id.ToString());
+            //GetArtworkByKey kommer nu innehålla ett konstverk
+            //Skicka TheArtwork till EditArtwork vyn5
+            return View(TheArtwork);
         }
 
         //[HttpPost]
         //public ActionResult GetSingleArtworkByKey(string key)
         //{
-            
+
         //    Artwork artwork = _LogicBehind.GetSingleArtworkById(key);
         //    return Json(artwork);
         //}
 
-        [HttpPost]
-        public ActionResult GetArtworkByKey(string key)
+        public ActionResult GetArtworkByKey()
         {
-            //key = "07402d61-d605-4353-8720-7c6d13cdc05c";
+            return View("EditArtwork");
+        }
+
+        public Artwork GetArtworkByKey(string key)
+        {
+            //Tar emot ett ID från EditArtwork och går sedan in i databasen och hämtar konstverket med det ID't
             var artwork = _LogicBehind.GetSingleArtworkById(key);
-            return Json(artwork, JsonRequestBehavior.AllowGet);
+            //Skickar tillbaks ett Json objekt med konstverket
+            return artwork;
         }
 
         public ActionResult GetArtworks()
