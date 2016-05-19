@@ -1,41 +1,27 @@
 ﻿angular.module('artstoneApp')
-<<<<<<< HEAD
-app.controller('artstoneController', ['$scope', '$http', function ($scope, $http) {
-        $scope.artwork = {
-            Title: '',
-            Artist: '',
-            Room: '',
-            Description: '',
-            InStorage: true,
-            ImgUrl: '',
-            Files: {}
-        };
-
-        
-
-
-        $scope.artworkdata = {
-            artworks: null,
-            availableArtworks: []
-        }
-
-        function getArtworks() {
-            console.log("Fetching all available visable artworks artworks..");
-            $http.get('/home/GetArtworks')
-                .then(function (response) {
-                    $scope.artworkdata.availableArtworks = response.data;
-                    console.log(response);
-=======
 app.controller('artstoneController', ['$scope', '$timeout', '$http', function ($scope, $timeout, $http) {
+    
+    
+    
+    $scope.uploadme = {};
+    $scope.uploadme.src = "";
+    
     $scope.artwork = {
         Title: '',
         Artist: '',
         Room: '',
         Description: '',
         InStorage: true,
-        ImgUrl: '',
-        Files: []
+        ImgUrl: $scope.uploadme.src,
+        Files: $scope.uploadme,
     };
+
+<<<<<<< HEAD
+
+=======
+    
+>>>>>>> origin/nguploadfromgit
+
 
     $scope.artworkdata = {
         artworks: null,
@@ -65,7 +51,6 @@ app.controller('artstoneController', ['$scope', '$timeout', '$http', function ($
             },
                 function (response) {
                     console.log("Failed");
->>>>>>> EditArtworkByKey
                 });
     };
 
@@ -83,7 +68,7 @@ app.controller('artstoneController', ['$scope', '$timeout', '$http', function ($
         function (val) {
             //Kollar om värdet är tomt eller under 3 bokstäver och i sådannafall görs ingen databas-sökning
             if (val == null || val.length < 3) {
-                $scope.artwork = null;
+                $scope.artworks = null;
                 return;
             }
 
@@ -95,19 +80,36 @@ app.controller('artstoneController', ['$scope', '$timeout', '$http', function ($
                 //Går till SearchArtworks 
                 $http.post("/home/SearchArtworks", { id: val })
                     .then(function (response) {
-                        $scope.artwork = response.data;
+                        $scope.artworks = response.data;
                         console.log(response);
                     })
                     .then(function (response) {
                         console.log(response);
                     });
 
-            },
-                250); //Wait 250 ms
+            },250); //Wait 250 ms
 
         });
 
 }
 
-]);
+]).directive("fileread", [function () {
+    return {
+        scope: {
+            fileread: "="
+        },
+        link: function (scope, element, attributes) {
+            element.bind("change", function (changeEvent) {
+                var reader = new FileReader();
+                reader.onload = function (loadEvent) {
+                    scope.$apply(function () {
+                        scope.fileread = loadEvent.target.result;
+                        console.log(scope.fileread = loadEvent.target.result);
+                    });
+                }
+                reader.readAsDataURL(changeEvent.target.files[0]);
+            });
+        }
+    }
+}]);
 
