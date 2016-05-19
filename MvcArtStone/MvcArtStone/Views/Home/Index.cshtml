@@ -67,12 +67,12 @@
         <!-- Uploader Modal Structure -->
         <div id="modalUpload" class="modal">
             <div class="modal-content">
-                <form class="form-upload" ng-submit="insertArtwork(artwork)" name="formupload">
+                <form class="form-upload" ng-submit="insertArtwork(artwork)" name="formupload" novalidate>
                     <div class="row">
                         <div class="s12">
                             <div class="input-field">
                                 <i class="material-icons prefix">title</i>
-                                <input id="title" type="text" class="form-control" ng-model="artwork.Title" name="artworkTitle" required ng-maxlength="25" ng-minlength="1" length="25">
+                                <input id="title" type="text" class="form-control" ng-model="artwork.Title" name="artworkTitle" required ng-maxlength="25" ng-minlength="3" length="25">
                                 <label for="title">Title</label>
                                 <div class="alert-danger" ng-show="formupload.artworkTitle.$invalid">
                                     <p ng-show="formupload.artworkTitle.$error.maxlength">För många tecken</p>
@@ -86,7 +86,7 @@
                         <div class="s12">
                             <div class="input-field">
                                 <i class="material-icons prefix">account_circle</i>
-                                <input id="artist" type="text" class="validate" ng-model="artwork.Artist" name="artworkArtist" required ng-maxlength="100" ng-minlength="1" length="100">
+                                <input id="artist" type="text" class="validate" ng-model="artwork.Artist" name="artworkArtist" required ng-maxlength="100" ng-minlength="3" length="100">
                                 <label for="artist">Artist</label>
                                 <div class="alert-danger" ng-show="formupload.artworkArtist.$invalid">
                                     <p ng-show="formupload.artworkArtist.$error.maxlength">För många tecken</p>
@@ -101,7 +101,7 @@
                             <div class="input-field">
                                 <i class="material-icons prefix">room</i>
                                 <!-- TODO: ROOM SELECTION -->
-                                <input id="room" type="text" class="validate" ng-model="artwork.Room">
+                                <input id="room" type="text" ng-model="artwork.Room">
                                 <label for="room">Room</label>
                             </div>
                         </div>
@@ -115,7 +115,6 @@
                                 <label for="description">Description</label>
                                 <div class="alert-danger" ng-show="formupload.artworkDescription.$invalid">
                                     <p ng-show="formupload.artworkDescription.$error.maxlength">För många tecken</p>
-                                    <p ng-show="formupload.artworkDescription.$error.minlength">För få tecken</p>
                                 </div>
                             </div>
                         </div>
@@ -150,7 +149,8 @@
                     @*<button type="submit" class="btn-info btn"> Upload </button>*@
                     <div class="modal-footer">
                         <a href="#modalUpload" class="modal-action modal-close waves-effect waves-red btn-flat" type="button">Close</a>
-                        <a href="#modalUpload" class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" ng-click="insertArtwork(artwork)">Upload</a>
+                        @*<a href="#modalUpload" class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" ng-disabled="formupload.$invalid" ng-click="insertArtwork(artwork)">Upload</a>*@
+                        <button href="#modalUpload" class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" ng-disabled="formupload.$invalid" ng-click="insertArtwork(artwork)">Upload</button>
                     </div>
                 </form>
             </div>
