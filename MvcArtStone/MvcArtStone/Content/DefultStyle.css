@@ -47,3 +47,7 @@
     max-height: 100%;
         padding-right: 3%;
 }
+
+.alert-danger p{
+    color: red !important;
+}
