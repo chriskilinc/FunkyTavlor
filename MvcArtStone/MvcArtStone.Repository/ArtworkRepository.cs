@@ -78,6 +78,7 @@ namespace MvcArtStone.Repository
                 Room = model.Room,
                 ImgUrl = "https://t4boys2016.blob.core.windows.net/funky/" + Identity,
                 Visible = true,
+                Signed = model.Signed
             };
 
             TableOperation insertOperation = TableOperation.Insert(fiktivArtwork);
@@ -123,9 +124,11 @@ namespace MvcArtStone.Repository
             {
                 TableOperation retrieveOperation = TableOperation.Retrieve<Artwork>("ostra", id.ToString());
 
+            TableResult retrievedResult = table.Execute(retrieveOperation);
                 // Execute the operation.
                 TableResult retrievedResult = table.Execute(retrieveOperation);
 
+            Artwork editArtwork = (Artwork)retrievedResult.Result; 
                 // Assign the result to a CustomerEntity object.
                 SingleArtworkEntity = (Artwork)retrievedResult.Result;
 
@@ -136,6 +139,35 @@ namespace MvcArtStone.Repository
 
                 //FAAATTAAALIITYYYYYYYY
             }
+                editArtwork.ImgUrl = "";
+                editArtwork.Description = model.Description;
+                editArtwork.InStorage = model.InStorage;
+
+                TableOperation editOperation = TableOperation.Replace(editArtwork);
+
+                table.Execute(editOperation);
+
+                Console.WriteLine("Entity updated.");
+
+            }
+
+            else
+            {
+                Console.WriteLine("Entity could not be retrieved.");
+            }
+
+            //// Create a retrieve operation that takes a customer entity.
+            //if (model.Id != Guid.Empty)
+            //{
+            //    TableOperation retrieveOperation = TableOperation.Retrieve<Artwork>("ostra", model.Id.ToString());
+
+            //    // Execute the operation.
+            //    TableResult retrievedResult = table.Execute(retrieveOperation);
+
+            //    // Assign the result to a CustomerEntity object.
+            //    SingleArtworkEntity = (Artwork)retrievedResult.Result;
+
+            //    //change the properties to new properties
         }
 
         

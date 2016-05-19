@@ -12,15 +12,17 @@ app.controller('artstoneController', ['$scope', '$timeout', '$http', function ($
         Room: '',
         Description: '',
         InStorage: true,
+<<<<<<< HEAD
         ImgUrl: $scope.uploadme.src,
         Files: $scope.uploadme,
+=======
+        ImgUrl: '',
+        Files: [],
+        Signed: false
+>>>>>>> origin/EditDelete
     };
 
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> origin/nguploadfromgit
 
 
     $scope.artworkdata = {

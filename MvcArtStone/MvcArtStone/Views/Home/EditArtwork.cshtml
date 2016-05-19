@@ -15,40 +15,54 @@
 </div>*@
 
 
-<div class="container">
+<div class="container" >
     <div class="row">
         <div class="card">
-            <div class="card-content">
-                <form id="editArtwork">
+            <div class="card-content" ng-app="artstoneApp" ng-controller="editController" ng-submit="EditArtwork(newArtwork)">
+                <form novalidate id="editArtwork">
                     <h1>@Model.Title</h1>
 
-                    <label class="active" for="editTitle">Title</label>
-                    <input ng-model="artwork.Title" value="@Model.Title" id="editTitle" type="text" class="validate" />
+                    <label class="active" for="editTitle">Title: @Model.Title</label>
+                    <input  ng-model="newArtwork.Title" id="editTitle" type="text" /> <br />
 
-                    <label class="active" for="editArtist">Artist</label>
-                    <input ng-model="artwork.Artist" value="@Model.Artist" id="editArtist" type="text" class="validate" />
+                    <label class="active" for="editArtist">Artist: @Model.Artist</label>
+                    <input ng-model="newArtwork.Artist" id="editArtist" type="text" /> <br />
 
-                    <label class="active" for="editRoom">Room</label>
-                    <input ng-model="artwork.Room" value="@Model.Room" id="editRoom" type="text" class="validate" />
+                    <label class="active" for="editRoom">Room: @Model.Room</label>
+                    <input ng-model="newArtwork.Room" id="editRoom" type="text" /> <br />
 
-                    <label class="active" for="editDescription">Description</label> <br />
-                    <input ng-model="artwork.Description" value="@Model.Description" id="editDescription" type="text" class="validate" />
+                    <label class="active" for="editDescription">Description: @Model.Description</label>
+                    <input ng-model="newArtwork.Description" id="editDescription" type="text"  /> <br />
 
                     <label for="DateAdded" class="active">Added</label>
                     <p id="DateAdded">@Model.AddedDate</p> <br />
 
+                    <label for="LastChanged" class="active">Last Changed</label>
+                    <p id="LastChanged">@Model.Timestamp</p> <br />
+
+                    <input type="checkbox" class="filled-in" id="signed" ng-model="newArtwork.Signed"/>
+                    <label class="active" for="signed"> Signed </label> <br/>
+
+                    <input type="checkbox" class="filled-in" id="inStorage" ng-model="newArtwork.InStorage"/>
+                    <label class="active" for="inStorage"> In Storage</label> <br/><br/>
 
 
-                    <button class="btn waves-effect waves-light" type="submit" name="action">
-                        Submit
+
+
+                    <button class="btn waves-effect waves-light" type="submit">
+                        Submit Changes
                         <i class="material-icons right">send</i>
                     </button>
 
-                    <button class="btn waves-effect waves-light" type="submit" name="action">
+                    <button class="btn waves-effect waves-light" name="action">
                         Delete Artwork
                         <i class="material-icons right">delete</i>
                     </button>
 
+                    <a class="btn waves-effect waves-light" style="float:right; background-color:transparent; color:#FB8C00" href="/home/">
+                        Cancel
+                        <i class="material-icons right">close</i>
+                    </a>
 
                 </form>
             </div>
