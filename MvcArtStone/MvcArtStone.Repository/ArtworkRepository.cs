@@ -45,7 +45,7 @@ namespace MvcArtStone.Repository
             container = blobClient.GetContainerReference("funky");
             container.CreateIfNotExists();
 
-            
+
 
             return entities.ToList();
         }
@@ -105,7 +105,7 @@ namespace MvcArtStone.Repository
 
             blob.UploadFromStream(stream);           //TODO fix this shit
 
-            table.Execute(insertOperation);            
+            table.Execute(insertOperation);
         }
 
         public static void DeleteSingleArtworkWithId(Guid? id)
@@ -124,11 +124,11 @@ namespace MvcArtStone.Repository
             {
                 TableOperation retrieveOperation = TableOperation.Retrieve<Artwork>("ostra", id.ToString());
 
-            TableResult retrievedResult = table.Execute(retrieveOperation);
-                // Execute the operation.
                 TableResult retrievedResult = table.Execute(retrieveOperation);
+                // Execute the operation.
 
-            Artwork editArtwork = (Artwork)retrievedResult.Result; 
+
+                Artwork editArtwork = (Artwork)retrievedResult.Result;
                 // Assign the result to a CustomerEntity object.
                 SingleArtworkEntity = (Artwork)retrievedResult.Result;
 
@@ -139,38 +139,9 @@ namespace MvcArtStone.Repository
 
                 //FAAATTAAALIITYYYYYYYY
             }
-                editArtwork.ImgUrl = "";
-                editArtwork.Description = model.Description;
-                editArtwork.InStorage = model.InStorage;
 
-                TableOperation editOperation = TableOperation.Replace(editArtwork);
-
-                table.Execute(editOperation);
-
-                Console.WriteLine("Entity updated.");
-
-            }
-
-            else
-            {
-                Console.WriteLine("Entity could not be retrieved.");
-            }
-
-            //// Create a retrieve operation that takes a customer entity.
-            //if (model.Id != Guid.Empty)
-            //{
-            //    TableOperation retrieveOperation = TableOperation.Retrieve<Artwork>("ostra", model.Id.ToString());
-
-            //    // Execute the operation.
-            //    TableResult retrievedResult = table.Execute(retrieveOperation);
-
-            //    // Assign the result to a CustomerEntity object.
-            //    SingleArtworkEntity = (Artwork)retrievedResult.Result;
-
-            //    //change the properties to new properties
         }
 
-        
 
 
         public static void EditArtworkByModel(Artwork model)
@@ -256,7 +227,7 @@ namespace MvcArtStone.Repository
         {
             //CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
             //    ConfigurationManager.AppSettings[_databaseHelper.GetConnectionString()]);
-            
+
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
             var tableClient = storageAccount.CreateCloudTableClient();
             var table = tableClient.GetTableReference("funkytavlor");
@@ -271,7 +242,7 @@ namespace MvcArtStone.Repository
                     queriedEntity = entities.Where(x => x.Title.ToLower().Contains(searchStringToLower) || x.Artist.ToLower().Contains(searchStringToLower));
                 }
                 //Checks if Title, Artist and Room is not null and then returns a valid query
-                else if(artwork.Title != null && artwork.Artist != null && artwork.Room != null)
+                else if (artwork.Title != null && artwork.Artist != null && artwork.Room != null)
                 {
                     queriedEntity = entities.Where(x => x.Title.ToLower().Contains(searchStringToLower) || x.Artist.ToLower().Contains(searchStringToLower) || x.Room.ToLower().Contains(searchStringToLower)); //TOLOWER
                 }

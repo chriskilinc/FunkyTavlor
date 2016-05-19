@@ -32,7 +32,7 @@ namespace MvcArtStone.LogicBehind
             return artlist;
         }
 
-        public void EditArtworkByModel(Artwork model)
+        public static void EditArtworkByModel(Artwork model)
         {
             ArtworkRepository.EditArtworkByModel(model);
         }
@@ -52,7 +52,7 @@ namespace MvcArtStone.LogicBehind
             }                       
         }
 
-        public void EditArtworkByModel(Artwork model)
+        public void EditArtworkUsingModel(Artwork model)
         {
             ArtworkRepository.EditArtworkByModel(model);
         }

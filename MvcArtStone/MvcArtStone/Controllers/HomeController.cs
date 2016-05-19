@@ -36,7 +36,7 @@ namespace MvcArtStone.Controllers
         [HttpPost]
         public ActionResult EditArtworkByModel(Artwork model)
         {
-            _LogicBehind.EditArtworkByModel(model);
+            _LogicBehind.EditArtworkUsingModel(model);
             return Content("SUCCESS");
         }
         //[HttpPost]
@@ -82,14 +82,7 @@ namespace MvcArtStone.Controllers
             }
             
             return Content("Fatality");
-       }
-
-        [HttpPost]
-        public ActionResult EditArtworkByModel(Artwork model)
-        {
-            _LogicBehind.EditArtworkByModel(model);
-            return Content("SUCCESS");
-        }
+       }     
 
 
         public ActionResult About()
