@@ -9,21 +9,17 @@ using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.WindowsAzure.Storage.Table;
 using System.Threading.Tasks;
 using MvcArtStone.Models;
-
-
+using System.Web;
 
 namespace MvcArtStone.Repository
 {
     public class ArtworkRepository
     {
-        
-
-
         private static DatabaseHelper _databaseHelper;
 
         public ArtworkRepository()
         {
-            _databaseHelper = new DatabaseHelper(); 
+            _databaseHelper = new DatabaseHelper();
 
         }
 
@@ -40,41 +36,45 @@ namespace MvcArtStone.Repository
             return entities.ToList();
         }
 
-        public static void AddArtwork(ArtworkInsertModel model, string name)
+        public static async void AddImage(HttpPostedFile image)
         {
+
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
-
-            //CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-            //    ConfigurationManager.AppSettings["StorageConnectionString"]);
-
-           
-            //create the blob client
-            CloudTable table;
-            //Create the table client
-
             CloudBlobClient blobClient;
+
             blobClient = storageAccount.CreateCloudBlobClient();
             CloudBlobContainer container;
-            container = blobClient.GetContainerReference("funky");
 
+            container = blobClient.GetContainerReference("funky");
             container.CreateIfNotExists();
 
             BlobContainerPermissions permissions = container.GetPermissions();
             permissions.PublicAccess = BlobContainerPublicAccessType.Container;
             container.SetPermissions(permissions);
 
-
             CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
             //Create the CloudTable object with your table reference
 
-            if (name != string.Empty)
-            {
-                var blob = container.GetBlockBlobReference(name);
-                
-                //await blob.UploadFromStreamAsync(model.Files.InputStream); //TODO fix this shit
-            }
+
+            var blob = container.GetBlockBlobReference(image.FileName);
+
+            await blob.UploadFromStreamAsync(image.InputStream); //TODO fix this shit
+
+
+        }
+
+
+        public static void AddArtwork(ArtworkInsertModel model)
+        {
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
+
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            CloudTable table;
 
             table = tableClient.GetTableReference("funkytavlor");
+
+            Guid Identity = Guid.NewGuid(); 
 
             Artwork fiktivArtwork = new Artwork()
             {
@@ -83,27 +83,25 @@ namespace MvcArtStone.Repository
                 Artist = model.Artist,
                 CreationDate = DateTime.UtcNow.Date,
                 Description = model.Description,
-                Id = Guid.NewGuid(),
+                Id = Identity,
                 InStorage = model.InStorage,
                 PartitionKey = "ostra",
-                RowKey = model.Id.ToString(),
+                RowKey = Identity.ToString(),
                 Room = model.Room,
-                ImgUrl = name,
+                ImgUrl = "",
                 Visible = true,
             };
 
+            TableOperation insertOperation = TableOperation.Insert(fiktivArtwork);
 
-
-  
-        TableOperation insertOperation = TableOperation.Insert(fiktivArtwork);
-
-        table.Execute(insertOperation);
-        //table.Execute(insertOperation);
-
-        //throw new NotImplementedException();
+            //table.Execute(insertOperation);
+            //table.Execute(insertOperation);
         }
 
-      
+
+
+
+
         public Artwork GetSingleArtworkById(string id)
         {
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
@@ -165,65 +163,8 @@ namespace MvcArtStone.Repository
                 //TODO add parameters that should be changed
             }
         }
-
-
-        //CRUD Artwork
-        //public void AddCompany(Models.Company company)
-        //{
-        //    using (var context = new GatewayContextDataContext(_databaseHelper.GetConnectionString()))
-        //    {
-        //        var newCompany = new Company
-        //        {
-        //            VATRegistrationNumber = company.CorporateIdentityNumber,
-        //            CompanyName = company.Name,
-        //            CompanyNameAlternative = company.Name,
-        //            WebAddress = "www.example.com",
-        //            Deleted = false,
-        //            RegistrationDate = DateTime.Now,
-        //            Comment = "Test Company",
-        //            Address = new Address
-        //            {
-        //                Street = company.InvoiceAddress1,
-        //                City = company.InvoiceCity,
-        //                ZipCode = company.InvoicePostalCode,
-        //                AddressType = new AddressType
-        //                {
-        //                    AddressTypeId = 1,  //Fakturaadress
-        //                },
-        //                Country = new Country
-        //                {
-        //                    CountryCode = company.InvoiceCountryCode,
-        //                    IsEU = true, //check if country is in EU
-        //                    EnglishName = "EnglishName",
-        //                    NativeName = "NativeName",
-        //                    CultureCode = "CultureCode",
-        //                    CallingCode = "CallingCode",
-        //                }
-        //            },
-        //            ContactPerson = new ContactPerson
-        //            {
-        //                FirstName = company.ContactPersonName
-
-        //            },
-        //            CompanyInvoiceSetting = new CompanyInvoiceSetting
-        //            {
-        //                Currency = new Currency
-        //                {
-        //                    CurrencyCode = company.CurrencyCode,
-        //                    CurrencyIsoCode = "s",
-        //                },
-        //                DueDays = 1,
-        //            },
-
-
-        //            //Add more fields
-        //        };
-
-        //        context.Companies.InsertOnSubmit(newCompany);
-        //        //context.Addresses.InsertOnSubmit(newCompany.Address);
-        //        //context.Companies..InsertOnSubmit(newCompany.VATRegistrationNumber);
-        //        context.SubmitChanges();
-        //    }
-        //}
     }
 }
+
+
+

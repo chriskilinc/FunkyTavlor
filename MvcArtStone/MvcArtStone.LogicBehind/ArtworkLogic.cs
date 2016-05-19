@@ -6,6 +6,7 @@ using Microsoft.WindowsAzure.Storage.Table;
 using MvcArtStone.Models;
 using MvcArtStone.Repository;
 
+
 namespace MvcArtStone.LogicBehind
 {
     public class ArtworkLogic
@@ -37,21 +38,14 @@ namespace MvcArtStone.LogicBehind
             return singleArtwork;
         }
 
+        public static void AddImage(HttpPostedFile image)
+        {
+            ArtworkRepository.AddImage(image);
+        }
+
         public static void AddArtwork(ArtworkInsertModel model)
         {
-            string name = string.Empty;
-            if (model.ImgUrl != null)
-            {
-                var fileEnding = model.ImgUrl.Split('.').Last();
-
-                name = Guid.NewGuid() + "." + fileEnding;
-            }
-
-            //if (model.File.InputStream != null)
-            //{
-                ArtworkRepository.AddArtwork(model, name);
-            //}
-
+            ArtworkRepository.AddArtwork(model);
         }
     }
 }

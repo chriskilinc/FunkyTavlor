@@ -7,8 +7,11 @@ app.controller('artstoneController', ['$scope', '$http', function ($scope, $http
             Description: '',
             InStorage: true,
             ImgUrl: '',
-            Files: []
+            Files: {}
         };
+
+        
+
 
         $scope.artworkdata = {
             artworks: null,
