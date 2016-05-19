@@ -32,6 +32,12 @@ namespace MvcArtStone.LogicBehind
             return artlist;
         }
 
+        public void EditArtworkByModel(Artwork model)
+        {
+            ArtworkRepository.EditArtworkByModel(model);
+        }
+
+
         public Artwork GetSingleArtworkById(string id)
         {
             Artwork singleArtwork = _repository.GetSingleArtworkById(id);

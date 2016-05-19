@@ -7,7 +7,8 @@ app.controller('artstoneController', ['$scope', '$timeout', '$http', function ($
         Description: '',
         InStorage: true,
         ImgUrl: '',
-        Files: []
+        Files: [],
+        Signed: false
     };
 
         

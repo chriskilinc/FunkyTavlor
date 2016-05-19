@@ -9,20 +9,35 @@ app.controller('editController', ['$scope', '$http', function ($scope, $http) {
     //            });
     //    };
 
-        $scope.artwork = {
-            Title: val,
-            Artist: val,
-            Room: val,
-            Description: val,
-            ImgUrl: val,
+    $scope.newArtwork = {
+        Title: '',
+        Artist: '',
+        Room: '',
+        Description:'',
+        ImgurUrl: '',
+        InStorage: false,
+        Signed: false,
+        Id: '' 
+        };
+    
+        $scope.EditArtwork = function (newArtwork) {
+            console.log("Editing Artwork");
+            
+            var fullUrl = window.location.href;
+            var split = fullUrl.slice(-36)
+
+            $scope.newArtwork.Id = split;
+            $http.post('/home/EditArtworkByModel', newArtwork)
+                .then(function (response) {
+                    window.location.replace("/home/")
+                    console.log("SUCCESS");
+                    console.log(response);
+                },
+                    function (response) {
+                        console.log("Failed");
+                    });
         };
 
-    
-
-    $scope.update = function(artwork) {
-        $scope.artwork = angular.copy(artwork);
-        console.log(artwork);
-    }
 
 
         ////$scope.key = $sce.trustAsHtml(key);

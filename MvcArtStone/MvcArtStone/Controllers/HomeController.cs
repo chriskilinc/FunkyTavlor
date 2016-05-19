@@ -33,6 +33,12 @@ namespace MvcArtStone.Controllers
             return View(TheArtwork);
         }
 
+        [HttpPost]
+        public ActionResult EditArtworkByModel(Artwork model)
+        {
+            _LogicBehind.EditArtworkByModel(model);
+            return Content("SUCCESS");
+        }
         //[HttpPost]
         //public ActionResult GetSingleArtworkByKey(string key)
         //{
