@@ -29,12 +29,20 @@ namespace MvcArtStone.Controllers
             return View(id);
         }
 
-        [HttpPost]
-        public ActionResult GetSingleArtworkByKey(string key)
-        {
+        //[HttpPost]
+        //public ActionResult GetSingleArtworkByKey(string key)
+        //{
             
-            Artwork artwork = _LogicBehind.GetSingleArtworkById(key);
-            return Json(artwork);
+        //    Artwork artwork = _LogicBehind.GetSingleArtworkById(key);
+        //    return Json(artwork);
+        //}
+
+        [HttpPost]
+        public ActionResult GetArtworkByKey(string key)
+        {
+            //key = "07402d61-d605-4353-8720-7c6d13cdc05c";
+            var artwork = _LogicBehind.GetSingleArtworkById(key);
+            return Json(artwork, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult GetArtworks()

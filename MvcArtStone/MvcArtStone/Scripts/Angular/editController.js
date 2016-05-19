@@ -3,7 +3,7 @@ app.controller('editController', ['$scope', '$http', function ($scope, $http) {
 
     $scope.send = function (key) {
         console.log("ID: " + key);
-        $http.post('../GetSingleArtworkByKey', key)
+        $http.post('../GetArtworkByKey/', key)
                 .then(function(response) {
                     $scope.artwork = response.data;
                     console.log(response);
