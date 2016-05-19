@@ -8,28 +8,43 @@
     //Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div ng-app="artstoneApp" ng-controller="editController">
+@*<div ng-app="artstoneApp" ng-controller="editController">
     <p ng-model="artwork.Title">@Model.Title</p>
 
 
-</div>
+</div>*@
 
 
 <div class="container">
     <div class="row">
         <div class="card">
             <div class="card-content">
-                <h1>{{artwork.Title}}</h1>
-                <input value="{{artwork.Title}}" id="edittitle" type="text" class="validate"/>
-                <label class="active" for="edittitle">Title</label> <br/>
+                <form id="editArtwork">
+                    <h1>@Model.Title</h1>
 
-                <input value="{{artwork.Artist}}" id="editartist" type="text" class="validate"/>
-                <label class="active" for="editartist">Artist</label> <br/>
+                    <label class="active" for="editTitle">Title</label>
+                    <input ng-model="artwork.Title" value="@Model.Title" id="editTitle" type="text" class="validate" />
 
-                <input value="{{artwork.Room}}" id="editroom" type="text" class="validate"/>
-                <label class="active" for="editroom">Room</label> <br/>
+                    <label class="active" for="editArtist">Artist</label>
+                    <input ng-model="artwork.Artist" value="@Model.Artist" id="editArtist" type="text" class="validate" />
+
+                    <label class="active" for="editRoom">Room</label>
+                    <input ng-model="artwork.Room" value="@Model.Room" id="editRoom" type="text" class="validate" />
+
+                    <label class="active" for="editDescription">Description</label> <br />
+                    <input ng-model="artwork.Description" value="@Model.Description" id="editDescription" type="text" class="validate" />
+
+                    <label for="DateAdded" class="active">Added</label>
+                    <p id="DateAdded">@Model.AddedDate</p> <br />
 
 
+
+                    <button class="btn waves-effect waves-light" type="submit" name="action">
+                        Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+
+                </form>
             </div>
         </div>
     </div>
