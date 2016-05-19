@@ -1,21 +1,28 @@
 ﻿angular.module('artstoneApp');
 app.controller('editController', ['$scope', '$http', function ($scope, $http) {
 
-    $scope.send = function () {
-        $http.post('../EditArtwork/' )
-                .then(function(response) {
-                    $scope.artwork = response.data;
-                    console.log(response);
-                });
-        };
+    //$scope.send = function () {
+    //    $http.post('../EditArtwork/' )
+    //            .then(function(response) {
+    //                $scope.artwork = response.data;
+    //                console.log(response);
+    //            });
+    //    };
 
         $scope.artwork = {
-            Title: '',
-            Artist: '',
-            Room: '',
-            Description: '',
-            ImgUrl: '',
+            Title: val,
+            Artist: val,
+            Room: val,
+            Description: val,
+            ImgUrl: val,
         };
+
+    
+
+    $scope.update = function(artwork) {
+        $scope.artwork = angular.copy(artwork);
+        console.log(artwork);
+    }
 
 
         ////$scope.key = $sce.trustAsHtml(key);

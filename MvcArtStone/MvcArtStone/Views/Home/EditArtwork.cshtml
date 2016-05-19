@@ -15,10 +15,10 @@
 </div>*@
 
 
-<div class="container">
+<div class="container" >
     <div class="row">
         <div class="card">
-            <div class="card-content">
+            <div class="card-content" ng-app="artstoneApp" ng-controller="editController">
                 <form id="editArtwork">
                     <h1>@Model.Title</h1>
 
@@ -37,7 +37,15 @@
                     <label for="DateAdded" class="active">Added</label>
                     <p id="DateAdded">@Model.AddedDate</p> <br />
 
+                    <input type="checkbox" class="filled-in" id="signed"/>
+                    <label class="active" for="signed"> Signed </label> <br/>
 
+                    <input type="checkbox" class="filled-in" id="inStorage"/>
+                    <label class="active" for="inStorage"> In Storage</label> <br/><br/>
+
+
+
+                    <input type="submit" ng-click="update(artwork)" value="Save" />
 
                     <button class="btn waves-effect waves-light" type="submit" name="action">
                         Submit
