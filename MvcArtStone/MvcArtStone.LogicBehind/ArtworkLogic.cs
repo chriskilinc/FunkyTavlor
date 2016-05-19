@@ -46,6 +46,10 @@ namespace MvcArtStone.LogicBehind
             }                       
         }
 
+        public void EditArtworkByModel(Artwork model)
+        {
+            ArtworkRepository.EditArtworkByModel(model);
+        }
 
 
         public static void AddArtwork(ArtworkInsertModel model)

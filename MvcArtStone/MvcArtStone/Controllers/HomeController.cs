@@ -78,6 +78,13 @@ namespace MvcArtStone.Controllers
             return Content("Fatality");
        }
 
+        [HttpPost]
+        public ActionResult EditArtworkByModel(Artwork model)
+        {
+            _LogicBehind.EditArtworkByModel(model);
+            return Content("SUCCESS");
+        }
+
 
         public ActionResult About()
         {
