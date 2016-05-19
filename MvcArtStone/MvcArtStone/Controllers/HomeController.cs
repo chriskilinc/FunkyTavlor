@@ -67,12 +67,7 @@ namespace MvcArtStone.Controllers
             return Content("Success!");
         }       
 
-        public ActionResult InsertImageWithArtwork(HttpPostedFileBase file)
-        {
-            LogicBehind.ArtworkLogic.AddImage(file);
-            return Content("Image was uploaded");
-        }
-
+      
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

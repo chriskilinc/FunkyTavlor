@@ -45,6 +45,8 @@ namespace MvcArtStone.Repository
             container = blobClient.GetContainerReference("funky");
             container.CreateIfNotExists();
 
+            
+
             return entities.ToList();
         }
 
@@ -64,7 +66,6 @@ namespace MvcArtStone.Repository
 
             Artwork fiktivArtwork = new Artwork()
             {
-
                 Title = model.Title,
                 AddedDate = DateTime.UtcNow,
                 Artist = model.Artist,
@@ -75,7 +76,7 @@ namespace MvcArtStone.Repository
                 PartitionKey = "ostra",
                 RowKey = Identity.ToString(),
                 Room = model.Room,
-                ImgUrl = "",
+                ImgUrl = "https://t4boys2016.blob.core.windows.net/funky/" + Identity,
                 Visible = true,
             };
 
@@ -161,6 +162,36 @@ namespace MvcArtStone.Repository
 
 
 
+        public void DeleteSingleArtworkWithId(Guid id)
+        {
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
+
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            CloudTable table;
+            table = tableClient.GetTableReference("funkytavlor");
+
+            Artwork SingleArtworkEntity = null;
+
+            // Create a retrieve operation that takes a customer entity.
+            if (id != Guid.Empty)
+            {
+                TableOperation retrieveOperation = TableOperation.Retrieve<Artwork>("ostra", id.ToString());
+
+                // Execute the operation.
+                TableResult retrievedResult = table.Execute(retrieveOperation);
+
+                // Assign the result to a CustomerEntity object.
+                SingleArtworkEntity = (Artwork)retrievedResult.Result;
+
+                TableOperation deleteOperation = TableOperation.Delete(SingleArtworkEntity);
+
+                //FINISH HIM
+                table.Execute(deleteOperation);
+
+                //FAAATTAAALIITYYYYYYYY
+            }
+        }
 
 
         public Artwork GetSingleArtworkById(string id)
