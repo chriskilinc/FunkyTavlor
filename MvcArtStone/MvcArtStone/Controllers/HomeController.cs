@@ -65,9 +65,8 @@ namespace MvcArtStone.Controllers
         {
             MvcArtStone.LogicBehind.ArtworkLogic.AddArtwork(model);
             return Content("Success!");
-        }
+        }       
 
-        [HttpPost]
         public ActionResult InsertImageWithArtwork(HttpPostedFileBase file)
         {
             LogicBehind.ArtworkLogic.AddImage(file);

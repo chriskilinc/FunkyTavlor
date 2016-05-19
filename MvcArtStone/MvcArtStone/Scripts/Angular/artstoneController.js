@@ -1,13 +1,19 @@
 ﻿angular.module('artstoneApp')
 app.controller('artstoneController', ['$scope', '$timeout', '$http', function ($scope, $timeout, $http) {
+    
+    
+    
+    $scope.uploadme = {};
+    $scope.uploadme.src = "";
+    
     $scope.artwork = {
         Title: '',
         Artist: '',
         Room: '',
         Description: '',
         InStorage: true,
-        ImgUrl: '',
-        Files: []
+        ImgUrl: $scope.uploadme.src,
+        Files: $scope.uploadme,
     };
 
 
@@ -83,5 +89,23 @@ app.controller('artstoneController', ['$scope', '$timeout', '$http', function ($
 
 }
 
-]);
+]).directive("fileread", [function () {
+    return {
+        scope: {
+            fileread: "="
+        },
+        link: function (scope, element, attributes) {
+            element.bind("change", function (changeEvent) {
+                var reader = new FileReader();
+                reader.onload = function (loadEvent) {
+                    scope.$apply(function () {
+                        scope.fileread = loadEvent.target.result;
+                        console.log(scope.fileread = loadEvent.target.result);
+                    });
+                }
+                reader.readAsDataURL(changeEvent.target.files[0]);
+            });
+        }
+    }
+}]);
 

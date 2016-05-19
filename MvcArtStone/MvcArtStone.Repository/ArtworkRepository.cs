@@ -10,6 +10,8 @@ using Microsoft.WindowsAzure.Storage.Table;
 using System.Threading.Tasks;
 using MvcArtStone.Models;
 using System.Web;
+using System.Text;
+using System.IO;
 
 namespace MvcArtStone.Repository
 {
@@ -46,32 +48,6 @@ namespace MvcArtStone.Repository
             return entities.ToList();
         }
 
-        public static void AddImage(HttpPostedFileBase image)
-        {
-
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
-            CloudBlobClient blobClient;
-
-            blobClient = storageAccount.CreateCloudBlobClient();
-            CloudBlobContainer container;
-
-            container = blobClient.GetContainerReference("funky");
-            container.CreateIfNotExists();
-
-            BlobContainerPermissions permissions = container.GetPermissions();
-            permissions.PublicAccess = BlobContainerPublicAccessType.Container;
-            container.SetPermissions(permissions);
-
-            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-            //Create the CloudTable object with your table reference
-
-
-            var blob = container.GetBlockBlobReference("7f6d2c7c-690a-4440-b4b4-af25440f8e1e");
-
-            blob.UploadFromStreamAsync(image.InputStream); //TODO fix this shit
-
-
-        }
 
 
         public static void AddArtwork(ArtworkInsertModel model)
@@ -84,11 +60,11 @@ namespace MvcArtStone.Repository
 
             table = tableClient.GetTableReference("funkytavlor");
 
-            Guid Identity = Guid.NewGuid(); 
+            Guid Identity = Guid.NewGuid();
 
             Artwork fiktivArtwork = new Artwork()
             {
-                
+
                 Title = model.Title,
                 AddedDate = DateTime.UtcNow,
                 Artist = model.Artist,
@@ -104,6 +80,28 @@ namespace MvcArtStone.Repository
             };
 
             TableOperation insertOperation = TableOperation.Insert(fiktivArtwork);
+
+            CloudBlobClient blobClient;
+
+            blobClient = storageAccount.CreateCloudBlobClient();
+            CloudBlobContainer container;
+
+            container = blobClient.GetContainerReference("funky");
+            container.CreateIfNotExists();
+
+            BlobContainerPermissions permissions = container.GetPermissions();
+            permissions.PublicAccess = BlobContainerPublicAccessType.Container;
+            container.SetPermissions(permissions);
+
+            var blob = container.GetBlockBlobReference(Identity.ToString());
+
+            string base64String = model.Files.Split(',').LastOrDefault();
+
+            byte[] byteArray = Convert.FromBase64String(base64String);
+            //byte[] byteArray = Encoding.ASCII.GetBytes(contents);
+            MemoryStream stream = new MemoryStream(byteArray);
+
+            blob.UploadFromStream(stream);           //TODO fix this shit
 
             table.Execute(insertOperation);
             //table.Execute(insertOperation);

@@ -38,11 +38,6 @@ namespace MvcArtStone.LogicBehind
             return singleArtwork;
         }
 
-        public static void AddImage(HttpPostedFileBase image)
-        {
-            ArtworkRepository.AddImage(image);
-        }
-
         public static void AddArtwork(ArtworkInsertModel model)
         {
             ArtworkRepository.AddArtwork(model);

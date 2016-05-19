@@ -129,10 +129,12 @@
                             <div class="file-field input-field">
                                 <div class="btn">
                                     <span><i class="material-icons">camera_alt</i></span>
-                                    <input type="file" accept="image/*;capture=camera" ng-model="artwork.File">
+                                    <input type="file" accept="image/*;capture=camera" fileread="vm.uploadme" />
                                 </div>
                                 <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text" id="camera" ng-model="artwork.ImgUrl">
+                                    @*<input class="file-path validate" type="text" id="camera" ng-model="artwork.ImgUrl">*@
+                                    <input type="file" fileread="artwork.Files" />
+                                    <input type="text" ng-model="artwork.Files" />
                                 </div>
                             </div>
                         </div>
@@ -325,6 +327,7 @@
         $('.slider').slider({ full_width: true });
     });
 </script>
+@*<script src="~/Scripts/Angular/FileReader.js"></script>*@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
 <script src="~/Scripts/Angular/artstoneApp.js"></script>
