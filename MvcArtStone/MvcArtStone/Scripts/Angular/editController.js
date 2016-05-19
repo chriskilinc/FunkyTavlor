@@ -1,9 +1,8 @@
-﻿angular.module('artstoneApp')
+﻿angular.module('artstoneApp');
 app.controller('editController', ['$scope', '$http', function ($scope, $http) {
 
-    $scope.send = function (key) {
-        console.log("ID: " + key);
-        $http.post('../GetSingleArtworkByKey', key)
+    $scope.send = function () {
+        $http.post('../EditArtwork/' )
                 .then(function(response) {
                     $scope.artwork = response.data;
                     console.log(response);

@@ -78,6 +78,7 @@ namespace MvcArtStone.Repository
 
             Artwork fiktivArtwork = new Artwork()
             {
+                
                 Title = model.Title,
                 AddedDate = DateTime.UtcNow.Date,
                 Artist = model.Artist,

@@ -22,9 +22,12 @@
                 <li><a href="#modalLogin" class="modal-trigger">Login </a></li>
             </ul>
             <ul id="nav-mobile" class="side-nav">
-                <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                <li>@Html.ActionLink("Home", "Index", "Home", new {area = ""}, new {@class = "navbar-brand"})</li>
+                <li class="divider"></li>
                 <li>@Html.ActionLink("Register", "Register", "Account")</li>
+                <li class="divider"></li>
                 <li><a href="#modalLogin" class="modal-trigger">Login</a></li>
+                <li class="divider"></li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
@@ -38,13 +41,14 @@
 </div>
 
 
-    <div id="modalLogin" class="modal">
+
+<div id="modalLogin" class="modal">
         <div class="modal-content">
             <form class="form-login" ng-submit="insertArtwork(artwork)" name="formlogin">
                 <div class="row">
                     <div class="s12">
                         <div class="input-field">
-                            <i class="material-icons prefix">account_circle</i>
+                            <i class="material-icons prefix">email</i>
                             <input id="email" type="email" class="form-control" ng-model="artwork.Title" name="artworkEmail">
                             <label for="email">Email</label>
                         </div>

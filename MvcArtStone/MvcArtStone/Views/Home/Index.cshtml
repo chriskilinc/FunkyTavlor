@@ -24,11 +24,28 @@
             </div>
         </div>
         <div class="row">
-            <div class="col s12 m6 l3">
                 <!-- Modal Trigger -->
-                <a class="waves-effect waves-light btn modal-trigger" href="#modalUpload">Upload</a>
-            </div>
+            @*<a class="waves-effect waves-light btn modal-trigger" href="#modalUpload">Upload</a>*@
+            <div class="col s12">
+                <div class="input-field">
+                    <i class="material-icons prefix">search</i>
+                    <input ng-model="search.artwork" id="search" type="text" required placeholder="Sök på Titel, Artistnamn eller Rum">
+                </div>
+                @*<div class="col s12" id="searchArtwork">
+                    <ul>
+                        <li @*ng-repeat="artwork in artworks">
+                            <!-- artworks = list of searched artworks-->
+                            <div class="s12" style="background-color: red;">
+                            <a href="../editartwork/{{artwork.Id}}" style="display: inline-block;"></a>
+                            <img src="../../Images/Daniil.JPG" height="100px"/>
+                            <p style="float: left"> HEJSAN</p>
+                            </div>
+                            <!-- Some text like title, room and artist -->
+                        </li>
+                    </ul>
 
+                </div>*@
+            </div>
         </div>
         <div class="fixed-action-btn" style="bottom: 14px; right: 14px;">
             <a href="#modalUpload" class="btn-floating btn-large orange darken-4 right modal-trigger"><i class="material-icons">file_upload</i></a>
@@ -135,15 +152,6 @@
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
                         <a href="~/Images/Peter.JPG" data-lightbox="Gallery"><img ng-src="{{artwork.ImgUrl}}"></a>
-                        <div class="fixed-action-btn horizontal click-to-toggle">
-
-                            <ul>
-                                <li><a class="btn-floating btn-small blue"><i class="fa fa-facebook"></i></a></li>
-                                <li><a class="btn-floating btn-small light-blue"><i class="fa fa-twitter"></i></a></li>
-                                <li><a class="btn-floating btn-small red"><i class="fa fa-google-plus"></i></a></li>
-                            </ul>
-                        </div>
-
                     </div>
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4">{{artwork.Title}}<i class="material-icons right">more_vert</i></span>
@@ -253,7 +261,6 @@
                 </div>
         </div>
     </div>
-</div>
 
 <!-- HIDE AND SHOW GALLERY SCRIPT-->
 <script>

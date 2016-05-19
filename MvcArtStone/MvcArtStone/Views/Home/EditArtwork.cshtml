@@ -1,18 +1,59 @@
-﻿@model Guid
+﻿@model MvcArtStone.Models.Artwork
 @{
-    ViewBag.Title = "EditArtwork";
-    //Guid idiotid = Guid.Parse(Request.Url.OriginalString.Split('/').Last());
     string key = Request.Url.OriginalString.Split('/').Last();
+    ViewBag.Title = key;
+    //Guid idiotid = Guid.Parse(Request.Url.OriginalString.Split('/').Last());
+
     //Guid id = Guid.Parse(idiotid.Split('/').Last());
     //Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>@key</h1>
-<div ng-app="artstoneApp" ng-controller="editController">
-    <p ng-model="key">@key</p>
-    
-    <button ng-click="send('@key')">click</button>
-    <p>{{artwork.Title}}</p>
+@*<div ng-app="artstoneApp" ng-controller="editController">
+    <p ng-model="artwork.Title">@Model.Title</p>
+
+
+</div>*@
+
+
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-content">
+                <form id="editArtwork">
+                    <h1>@Model.Title</h1>
+
+                    <label class="active" for="editTitle">Title</label>
+                    <input ng-model="artwork.Title" value="@Model.Title" id="editTitle" type="text" class="validate" />
+
+                    <label class="active" for="editArtist">Artist</label>
+                    <input ng-model="artwork.Artist" value="@Model.Artist" id="editArtist" type="text" class="validate" />
+
+                    <label class="active" for="editRoom">Room</label>
+                    <input ng-model="artwork.Room" value="@Model.Room" id="editRoom" type="text" class="validate" />
+
+                    <label class="active" for="editDescription">Description</label> <br />
+                    <input ng-model="artwork.Description" value="@Model.Description" id="editDescription" type="text" class="validate" />
+
+                    <label for="DateAdded" class="active">Added</label>
+                    <p id="DateAdded">@Model.AddedDate</p> <br />
+
+
+
+                    <button class="btn waves-effect waves-light" type="submit" name="action">
+                        Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+
+                    <button class="btn waves-effect waves-light" type="submit" name="action">
+                        Delete Artwork
+                        <i class="material-icons right">delete</i>
+                    </button>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 
