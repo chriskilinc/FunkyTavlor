@@ -31,20 +31,32 @@
                     <i class="material-icons prefix">search</i>
                     <input ng-model="search.artwork" id="search" type="text" required placeholder="Sök på Titel, Artistnamn eller Rum">
                 </div>
-                @*<div class="col s12" id="searchArtwork">
+                <div class="col s12" id="searchArtwork">
                     <ul>
-                        <li @*ng-repeat="artwork in artworks">
+                        <li @*ng-repeat="artwork in artworks"*@ style="background-color: white; margin-bottom: -6px;">
                             <!-- artworks = list of searched artworks-->
-                            <div class="s12" style="background-color: red;">
-                            <a href="../editartwork/{{artwork.Id}}" style="display: inline-block;"></a>
-                            <img src="../../Images/Daniil.JPG" height="100px"/>
-                            <p style="float: left"> HEJSAN</p>
-                            </div>
-                            <!-- Some text like title, room and artist -->
+                            <a href="../editartwork/{{artwork.Id}}" style="display: inline-block; width: 100%">
+                                <div class="s12">
+
+                                    <img src="../../Images/Daniil.JPG" height="100px" style="float: left"/>
+                                    <p style="float: left"> HEJSAN <br/> Artist <br/> Rum</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li @*ng-repeat="artwork in artworks"*@ style="background-color: white; margin-bottom: -6px;">
+                            <!-- artworks = list of searched artworks-->
+                            <a href="../editartwork/{{artwork.Id}}" style="display: inline-block; width:100%" >
+                                <div class="s12">
+
+                                    <img src="../../Images/Daniil.JPG" height="100px" style="float:left" />
+                                    <p style="float:left"> HEJSAN <br /> Artist <br /> Rum</p>
+                                </div>
+                            </a>
                         </li>
                     </ul>
 
-                </div>*@
+                </div>
             </div>
         </div>
         <div class="fixed-action-btn" style="bottom: 14px; right: 14px;">
