@@ -86,5 +86,14 @@ namespace MvcArtStone.Controllers
             ViewBag.Message = "Manager Page";
             return View();
         }
+
+        [HttpPost]
+        public ActionResult SearchArtworks(string id)
+        {
+            //var artworks = _LogicBehind.SearchArtworks(id);
+            //var companies = _companyBusiness.SearchCompanyHead(id);
+            //return Json(artworks, JsonRequestBehavior.AllowGet);
+            return null;
+        }
     }
 }
