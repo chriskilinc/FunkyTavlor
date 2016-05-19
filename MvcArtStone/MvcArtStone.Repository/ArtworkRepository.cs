@@ -104,8 +104,38 @@ namespace MvcArtStone.Repository
 
             blob.UploadFromStream(stream);           //TODO fix this shit
 
-            table.Execute(insertOperation);
-            //table.Execute(insertOperation);
+            table.Execute(insertOperation);            
+        }
+
+        public static void DeleteSingleArtworkWithId(Guid? id)
+        {
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
+
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            CloudTable table;
+            table = tableClient.GetTableReference("funkytavlor");
+
+            Artwork SingleArtworkEntity = null;
+
+            // Create a retrieve operation that takes a customer entity.
+            if (id != Guid.Empty && id != null)
+            {
+                TableOperation retrieveOperation = TableOperation.Retrieve<Artwork>("ostra", id.ToString());
+
+                // Execute the operation.
+                TableResult retrievedResult = table.Execute(retrieveOperation);
+
+                // Assign the result to a CustomerEntity object.
+                SingleArtworkEntity = (Artwork)retrievedResult.Result;
+
+                TableOperation deleteOperation = TableOperation.Delete(SingleArtworkEntity);
+
+                //FINISH HIM
+                table.Execute(deleteOperation);
+
+                //FAAATTAAALIITYYYYYYYY
+            }
         }
 
         public static Artwork EditArtworkByModel(Artwork model)
@@ -162,36 +192,7 @@ namespace MvcArtStone.Repository
 
 
 
-        public void DeleteSingleArtworkWithId(Guid id)
-        {
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
-
-            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
-            CloudTable table;
-            table = tableClient.GetTableReference("funkytavlor");
-
-            Artwork SingleArtworkEntity = null;
-
-            // Create a retrieve operation that takes a customer entity.
-            if (id != Guid.Empty)
-            {
-                TableOperation retrieveOperation = TableOperation.Retrieve<Artwork>("ostra", id.ToString());
-
-                // Execute the operation.
-                TableResult retrievedResult = table.Execute(retrieveOperation);
-
-                // Assign the result to a CustomerEntity object.
-                SingleArtworkEntity = (Artwork)retrievedResult.Result;
-
-                TableOperation deleteOperation = TableOperation.Delete(SingleArtworkEntity);
-
-                //FINISH HIM
-                table.Execute(deleteOperation);
-
-                //FAAATTAAALIITYYYYYYYY
-            }
-        }
+        
 
 
         public Artwork GetSingleArtworkById(string id)

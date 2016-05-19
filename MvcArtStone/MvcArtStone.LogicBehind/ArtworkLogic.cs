@@ -38,6 +38,16 @@ namespace MvcArtStone.LogicBehind
             return singleArtwork;
         }
 
+        public static void DeleteArtworkwithId(Guid? id)
+        {
+            if (id != Guid.Empty)
+            {
+                ArtworkRepository.DeleteSingleArtworkWithId(id);
+            }                       
+        }
+
+
+
         public static void AddArtwork(ArtworkInsertModel model)
         {
             ArtworkRepository.AddArtwork(model);

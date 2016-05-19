@@ -67,7 +67,18 @@ namespace MvcArtStone.Controllers
             return Content("Success!");
         }       
 
-      
+       [HttpPost]
+       public ActionResult DeleteArtworkById(ArtworkInsertModel model)
+       {
+            if(model.Id != Guid.Empty)
+            {
+                LogicBehind.ArtworkLogic.DeleteArtworkwithId(model.Id);
+            }
+            
+            return Content("Fatality");
+       }
+
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
