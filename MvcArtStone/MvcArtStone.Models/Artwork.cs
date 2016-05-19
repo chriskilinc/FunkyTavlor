@@ -32,6 +32,7 @@ namespace MvcArtStone.Models
         public DateTime AddedDate { get; set; }
         public bool InStorage { get; set; }
         public string ImgUrl { get; set; }
+        public bool Signed { get; set; }
     }
 
     public class ArtworkInsertModel : TableEntity
@@ -47,6 +48,7 @@ namespace MvcArtStone.Models
         public bool InStorage { get; set; }
         public string Files { get; set; }
         public string ImgUrl { get; set; }
+        public bool Signed { get; set; }
     }
 
 }

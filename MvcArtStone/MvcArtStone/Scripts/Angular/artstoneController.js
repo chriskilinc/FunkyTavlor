@@ -14,6 +14,7 @@ app.controller('artstoneController', ['$scope', '$timeout', '$http', function ($
         InStorage: true,
         ImgUrl: $scope.uploadme.src,
         Files: $scope.uploadme,
+        Signed: false
     };
 
 
