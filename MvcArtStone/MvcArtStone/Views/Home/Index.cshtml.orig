@@ -1,14 +1,6 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-@*<div ng-app="artstoneApp" ng-controller="artstoneController" class="container">
-        @*<a href="" ng-click="test()">Click me!</a>
-        <form name="saveArtwork" ng-submit="insertArtwork(artwork)">
-            <input type="text" ng-model="artwork.ArtworkTitle" class="form-control" name="test"/>
-            <input type="text" ng-model="artwork.Title" class="form-control" name="test" />
-            <input value="Click me" type="submit"/>
-        </form>
-    </div>*@
 
 <div id="wrapper" ng-app="artstoneApp" ng-controller="artstoneController">
     <!-- TODO: Slider here -->
@@ -26,7 +18,7 @@
         <div class="row">
             <div class="col s12 m6 l3">
                 <button id="btnCol3" class="btn-info btn" value="hide/show">COLUMNS</button>
-                <button id="btnColRows" class="btn-info btn" value="hide/show">ROWS</button>
+                <button id="btnColRows" class="btn-info btn" value="hide/show">SLIDES</button>
             </div>
         </div>
         <div class="row">
@@ -43,13 +35,18 @@
         <!-- Uploader Modal Structure -->
         <div id="modalUpload" class="modal">
             <div class="modal-content">
-                <form class="form-upload" ng-submit="insertArtwork(artwork)">
+                <form class="form-upload" ng-submit="insertArtwork(artwork)" name="formupload">
                     <div class="row">
                         <div class="s12">
                             <div class="input-field">
                                 <i class="material-icons prefix">title</i>
-                                <input id="title" type="text" class="validate" ng-model="artwork.Title">
+                                <input id="title" type="text" class="form-control" ng-model="artwork.Title" name="artworkTitle" required ng-maxlength="25" ng-minlength="1" length="25">
                                 <label for="title">Title</label>
+                                <div class="alert-danger" ng-show="formupload.artworkTitle.$invalid">
+                                    <p ng-show="formupload.artworkTitle.$error.maxlength">För många tecken</p>
+                                    <p ng-show="formupload.artworkTitle.$error.minlength">För få tecken</p>
+                                    <p ng-show="formupload.artworkTitle.$error.required">Fältet måste vara ifyllt</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -57,8 +54,13 @@
                         <div class="s12">
                             <div class="input-field">
                                 <i class="material-icons prefix">account_circle</i>
-                                <input id="artist" type="text" class="validate" ng-model="artwork.Artist">
+                                <input id="artist" type="text" class="validate" ng-model="artwork.Artist" name="artworkArtist" required ng-maxlength="100" ng-minlength="1" length="100">
                                 <label for="artist">Artist</label>
+                                <div class="alert-danger" ng-show="formupload.artworkArtist.$invalid">
+                                    <p ng-show="formupload.artworkArtist.$error.maxlength">För många tecken</p>
+                                    <p ng-show="formupload.artworkArtist.$error.minlength">För få tecken</p>
+                                    <p ng-show="formupload.artworkArtist.$error.required">Fältet måste vara ifyllt</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -77,181 +79,65 @@
                         <div class="s12">
                             <div class="input-field">
                                 <i class="material-icons prefix">description</i>
-                                <textarea id="description" class="materialize-textarea" ng-model="artwork.Description"></textarea>
+                                <textarea id="description" class="materialize-textarea" ng-model="artwork.Description" name="artworkDescription" ng-maxlength="200" length="200"></textarea>
                                 <label for="description">Description</label>
+                                <div class="alert-danger" ng-show="formupload.artworkDescription.$invalid">
+                                    <p ng-show="formupload.artworkDescription.$error.maxlength">För många tecken</p>
+                                    <p ng-show="formupload.artworkDescription.$error.minlength">För få tecken</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                     @*<div class="row">
-                        <div class="s12">
-                            <div class="file-field input-field">
-                                <div class="btn">
-                                    <span>Välj bild</span>
-                                    <input type="file" ng-model="artwork.Picture">
-                                </div>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text">
+                            <div class="s12">
+                                <div class="file-field input-field">
+                                    <div class="btn">
+                                        <span>Välj bild</span>
+                                        <input type="file" ng-model="artwork.Picture">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>*@
+                        </div>*@
                     <div class="row">
                         <div class="s12">
                             <div class="file-field input-field">
                                 <div class="btn">
                                     <span><i class="material-icons">camera_alt</i></span>
-<<<<<<< HEAD
-                                    <input type="file" accept="image/*;capture=camera" ng-model="artwork.File">
-                                </div>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text" id="camera" placeholder="Funktionen Ta bild stöds bara av mobilenheter">
-=======
                                     <input type="file" accept="image/*;capture=camera">
                                 </div>
                                 <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text" id="camera" ng-model="artwork.ImgUrl">
->>>>>>> origin/LogoDesign
+                                    <input class="file-path validate" type="text" id="camera">
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <script>
+
+
+                    </script>
 
                     @*<button type="submit" class="btn-info btn"> Upload </button>*@
                     <div class="modal-footer">
                         <a href="#modalUpload" class="modal-action modal-close waves-effect waves-red btn-flat" type="button">Close</a>
+<<<<<<< HEAD
                         <a href="#modalUpload" class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" ng-click="insertArtwork(artwork)">Upload</a>
-                        @*<input type="submit" value="Upload">*@
+=======
+                        <a href="#modalUpload" class="modal-action modal-close waves-effect waves-green btn-flat" type="submit">Upload</a>
+>>>>>>> origin/ModalChanges
                     </div>
                 </form>
             </div>
+
         </div>
         <!--CARDS IN GALLERY FORMAT-->
         <div class="row" id="col3Gallery">
-            
-            <!-- repeater-->
-            <div class="col m4" ng-repeat="artwork in artworkdata.availableArtworks">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <a href="~/Images/Peter.JPG" data-lightbox="Gallery"><img ng-src="{{post.imageURI}}"></a>
-                        <div class="fixed-action-btn horizontal click-to-toggle">
+<<<<<<< HEAD
 
-                            <ul>
-                                <li><a class="btn-floating btn-small blue"><i class="fa fa-facebook"></i></a></li>
-                                <li><a class="btn-floating btn-small light-blue"><i class="fa fa-twitter"></i></a></li>
-                                <li><a class="btn-floating btn-small red"><i class="fa fa-google-plus"></i></a></li>
-                            </ul>
-                        </div>
-
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">{{artwork.PartitionKey}}<i class="material-icons right">more_vert</i></span>
-                        <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
-                            <i class="material-icons right">edit</i>
-                        </a>
-                        <a class="button" id="heart"><i class="material-icons right">favorite_border</i></a>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">{{artwork}}<i class="material-icons right">close</i></span>
-                        <p>{{artwork.Description}}</p>
-                        <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
-                            <i class="material-icons">edit</i>
-                            Redigera
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-
-
-        <!--CARDS IN ROWS-->
-        <div class="row" id="colRowGallery">
-            <div class="col m3" ng-repeat="artwork in artworkdata.availableArtworks">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">{{artwork.PartitionKey}}<i class="material-icons right">more_vert</i></span>
-                        <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
-                            <i class="material-icons right">edit</i>
-                        </a>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">{{artwork.Title}}<i class="material-icons right">close</i></span>
-                        <p>{{artwork.Description}}</p>
-                        <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
-                            <i class="material-icons">edit</i>
-                            Redigera
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- HIDE AND SHOW GALLERY SCRIPT-->
-<script>
-
-    ////HIDES ALL OTHER GALLERY TYPES WHEN THE SITE IS LOADED and UPLOADER
-    jQuery(document)
-        .ready(function () {
-            jQuery('#colRowGallery').hide('hide');
-        });
-    ////ROWS BUTTON - Show ONLY rows grid
-    jQuery(document)
-        .ready(function () {
-            jQuery('#btnColRows')
-                .on('click',
-                    function (event) {
-                        jQuery('#colRowGallery').show('show');
-                        jQuery('#col3Gallery').hide('hide');
-                    });
-        });
-
-    //COL 3 BUTTON - Show ONLY col3 grid
-    jQuery(document)
-        .ready(function () {
-            jQuery('#btnCol3')
-                .on('click',
-                    function (event) {
-                        jQuery('#col3Gallery').show('show');
-                        jQuery('#colRowGallery').hide('hide');
-                    });
-        });
-
-    ////shows the uploader container
-    //jQuery(document).ready(function () {
-    //   jQuery('#btnUpload').on('click', function (event) {
-    //        jQuery('#uploader').show('show');
-    //    });
-    //});
-    ////Hides the uploader container
-    //jQuery(document).ready(function () {
-    //    jQuery('#uploadClose').on('click', function (event) {
-    //        jQuery('#uploader').hide('hide');
-    //   });
-    //});
-
-
-</script>
-
-<!-- MODAL POP UP SCRIPT-->
-<script>
-
-    $(document).ready(function () {
-        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-        $('.modal-trigger').leanModal();
-    });
-
-</script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
-<script src="~/Scripts/Angular/artstoneApp.js"></script>
-<script src="~/Scripts/Angular/artstoneController.js"></script>
-
-<!-- <div class="col m4">
+=======
+            <div class="col m4">
                 @*<div id="uploader" ng-app="artstoneApp" ng-controller="artstoneController">
                             <div class="row">
                                 <div class="col s12 m4">
@@ -373,4 +259,202 @@
                         </div>*@
 
                 </div>
-            </div>-->
+            </div>
+>>>>>>> origin/ModalChanges
+            <!-- repeater-->
+            <div class="col m4" ng-repeat="artwork in artworkdata.availableArtworks">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+<<<<<<< HEAD
+                        <a href="~/Images/Peter.JPG" data-lightbox="Gallery"><img ng-src="{{artwork.ImgUrl}}"></a>
+=======
+                        <a href="#" data-lightbox="Gallery"><img src="{{artwork.ImgUrl}}"></a>
+>>>>>>> origin/ModalChanges
+                        <div class="fixed-action-btn horizontal click-to-toggle">
+
+                            <ul>
+                                <li><a class="btn-floating btn-small blue"><i class="fa fa-facebook"></i></a></li>
+                                <li><a class="btn-floating btn-small light-blue"><i class="fa fa-twitter"></i></a></li>
+                                <li><a class="btn-floating btn-small red"><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="card-content">
+<<<<<<< HEAD
+                        <span class="card-title activator grey-text text-darken-4">{{artwork.Title}}<i class="material-icons right">more_vert</i></span>
+                        <a class="button" href="/home/editartwork/{{artwork.Id}}">
+=======
+                        <span class="card-title activator grey-text text-darken-4">{{artwork.PartitionKey}}<i class="material-icons right">more_vert</i></span>
+                        <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
+>>>>>>> origin/ModalChanges
+                            <i class="material-icons right">edit</i>
+                        </a>
+                        <a class="button" id="heart"><i class="material-icons right">favorite_border</i></a>
+                    </div>
+                    <div class="card-reveal">
+<<<<<<< HEAD
+                        <span class="card-title grey-text text-darken-4">{{artwork.Title}}<i class="material-icons right">close</i></span>
+                        <p>{{artwork.Artist}}</p>
+                        <p>{{artwork.Room}}</p>
+                        <p>{{artwork.visible}}</p>
+                        <p>{{artwork.Description}}</p>
+                        <a class="button" href="/home/editartwork/{{artwork.RowKey}}">
+=======
+                        <span class="card-title grey-text text-darken-4">{{artwork}}<i class="material-icons right">close</i></span>
+                        <p>{{artwork.Description}}</p>
+                        <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
+>>>>>>> origin/ModalChanges
+                            <i class="material-icons">edit</i>
+                            Redigera
+                        </a>
+                    </div>
+<<<<<<< HEAD
+                </div>
+
+            </div>
+=======
+
+                </div>
+            </div>
+
+>>>>>>> origin/ModalChanges
+        </div>
+
+
+        <!--CARDS IN ROWS-->
+        <div class="row" id="colRowGallery">
+<<<<<<< HEAD
+            <div class="col m3" ng-repeat="artwork in artworkdata.availableArtworks">
+=======
+            @*<div class="col m3" ng-repeat="artwork in artworkdata.availableArtworks">
+>>>>>>> origin/ModalChanges
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">{{artwork.PartitionKey}}<i class="material-icons right">more_vert</i></span>
+<<<<<<< HEAD
+                        <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}{{artwork.RowKey}}">
+=======
+                        <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
+>>>>>>> origin/ModalChanges
+                            <i class="material-icons right">edit</i>
+                        </a>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{artwork.Title}}<i class="material-icons right">close</i></span>
+                        <p>{{artwork.Description}}</p>
+                        <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
+                            <i class="material-icons">edit</i>
+                            Redigera
+                        </a>
+                    </div>
+                </div>
+<<<<<<< HEAD
+            </div>
+=======
+            </div>*@
+            <div class="slider fullscreen">
+                    <ul class="slides">
+                        <li>
+                            <img src="../../Images/Peter.JPG"> <!-- random image -->
+                            <div class="caption center-align">
+                                <h3>This is our big Tagline!</h3>
+                                <a href="#" id="close">E S C</a>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="../../Images/Chris.JPG"> <!-- random image -->
+                            <div class="caption left-align">
+                                <h3>Left Aligned Caption</h3>
+                                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="../../Images/Daniil.JPG"> <!-- random image -->
+                            <div class="caption right-align">
+                                <h3>Right Aligned Caption</h3>
+                                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+>>>>>>> origin/ModalChanges
+        </div>
+    </div>
+</div>
+
+<!-- HIDE AND SHOW GALLERY SCRIPT-->
+<script>
+
+    ////HIDES ALL OTHER GALLERY TYPES WHEN THE SITE IS LOADED and UPLOADER
+    jQuery(document)
+        .ready(function () {
+            jQuery('#colRowGallery').hide('hide');
+        });
+    ////ROWS BUTTON - Show ONLY rows grid
+    jQuery(document)
+        .ready(function () {
+            jQuery('#btnColRows')
+                .on('click',
+                    function (event) {
+                        jQuery('#colRowGallery').show('show');
+                        jQuery('#col3Gallery').hide('hide');
+                    });
+        });
+
+    //COL 3 BUTTON - Show ONLY col3 grid
+    jQuery(document)
+        .ready(function () {
+<<<<<<< HEAD
+            jQuery('#btnCol3')
+=======
+            jQuery('#close')
+>>>>>>> origin/ModalChanges
+                .on('click',
+                    function (event) {
+                        jQuery('#col3Gallery').show('show');
+                        jQuery('#colRowGallery').hide('hide');
+                    });
+        });
+
+    ////shows the uploader container
+    //jQuery(document).ready(function () {
+    //   jQuery('#btnUpload').on('click', function (event) {
+    //        jQuery('#uploader').show('show');
+    //    });
+    //});
+    ////Hides the uploader container
+    //jQuery(document).ready(function () {
+    //    jQuery('#uploadClose').on('click', function (event) {
+    //        jQuery('#uploader').hide('hide');
+    //   });
+    //});
+
+
+</script>
+
+<!-- MODAL POP UP SCRIPT-->
+<script>
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/ModalChanges
+    $(document).ready(function () {
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal-trigger').leanModal();
+    });
+
+<<<<<<< HEAD
+=======
+    //Slider width
+    $(document).ready(function () {
+        $('.slider').slider({ full_width: true });
+    });
+>>>>>>> origin/ModalChanges
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+<script src="~/Scripts/Angular/artstoneApp.js"></script>
+<script src="~/Scripts/Angular/artstoneController.js"></script>
