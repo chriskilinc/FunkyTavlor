@@ -29,33 +29,24 @@
             <div class="col s12">
                 <div class="input-field">
                     <i class="material-icons prefix">search</i>
-                    <input ng-model="search.artwork" id="search" type="text" required placeholder="Sök på Titel, Artistnamn eller Rum">
+                    <input ng-model="search.artworks" id="searchArtworks" type="text" autocomplete="off" placeholder="Sök på konstverkets Titel..">
                 </div>
+                <!-- Search List -->
                 <div class="col s12" id="searchArtwork">
                     <ul>
-                        <li @*ng-repeat="artwork in artworks"*@ style="background-color: white; margin-bottom: -6px;">
+                        <li ng-repeat="artwork in artworks" style="background-color: white; margin-bottom: -6px; ">
                             <!-- artworks = list of searched artworks-->
-                            <a href="../editartwork/{{artwork.Id}}" style="display: inline-block; width: 100%">
+                            <a href="../editartwork/{{artwork.Id}}" style="display: inline-block; width: 100%; border-bottom: 1px #d4d4d4 solid">
                                 <div class="s12">
-
-                                    <img src="../../Images/Daniil.JPG" height="100px" style="float: left"/>
-                                    <p style="float: left"> HEJSAN <br/> Artist <br/> Rum</p>
+                                    <img src="../../Images/Daniil.JPG" height="100px" style="float: left" />
+                                    <p style="float: left">
+                                        {{artwork.Title}} <br /> {{artwork.Artist}} <br /> {{artwork.Room}}
+                                    </p>
                                 </div>
                             </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li @*ng-repeat="artwork in artworks"*@ style="background-color: white; margin-bottom: -6px;">
-                            <!-- artworks = list of searched artworks-->
-                            <a href="../editartwork/{{artwork.Id}}" style="display: inline-block; width:100%" >
-                                <div class="s12">
 
-                                    <img src="../../Images/Daniil.JPG" height="100px" style="float:left" />
-                                    <p style="float:left"> HEJSAN <br /> Artist <br /> Rum</p>
-                                </div>
-                            </a>
                         </li>
                     </ul>
-
                 </div>
             </div>
         </div>
@@ -150,7 +141,7 @@
                     <div class="modal-footer">
                         <a href="#modalUpload" class="modal-action modal-close waves-effect waves-red btn-flat" type="button">Close</a>
                         @*<a href="#modalUpload" class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" ng-disabled="formupload.$invalid" ng-click="insertArtwork(artwork)">Upload</a>*@
-                        <button href="#modalUpload" class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" ng-disabled="formupload.$invalid" ng-click="insertArtwork(artwork)">Upload</button>
+                        <button href="#modalUpload" class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" ng-disabled="formupload.$invalid">Upload</button>
                     </div>
                 </form>
             </div>

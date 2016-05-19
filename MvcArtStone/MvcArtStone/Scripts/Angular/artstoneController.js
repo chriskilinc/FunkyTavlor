@@ -58,7 +58,7 @@ app.controller('artstoneController', ['$scope', '$timeout', '$http', function ($
         function (val) {
             //Kollar om värdet är tomt eller under 3 bokstäver och i sådannafall görs ingen databas-sökning
             if (val == null || val.length < 3) {
-                $scope.artwork = null;
+                $scope.artworks = null;
                 return;
             }
 
@@ -70,7 +70,7 @@ app.controller('artstoneController', ['$scope', '$timeout', '$http', function ($
                 //Går till SearchArtworks 
                 $http.post("/home/SearchArtworks", { id: val })
                     .then(function (response) {
-                        $scope.artwork = response.data;
+                        $scope.artworks = response.data;
                         console.log(response);
                     })
                     .then(function (response) {

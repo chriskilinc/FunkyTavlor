@@ -47,5 +47,10 @@ namespace MvcArtStone.LogicBehind
         {
             ArtworkRepository.AddArtwork(model);
         }
+
+        public IEnumerable<Artwork> SearchArtworks(string searchString)
+        {
+            return ArtworkRepository.SearchArtworks(searchString);
+        }
     }
 }

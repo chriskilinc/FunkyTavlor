@@ -68,7 +68,7 @@ namespace MvcArtStone.Controllers
         }
 
         [HttpPost]
-        public ActionResult InsertImageWithArtwork(HttpPostedFile file)
+        public ActionResult InsertImageWithArtwork(HttpPostedFileBase file)
         {
             LogicBehind.ArtworkLogic.AddImage(file);
             return Content("Image was uploaded");
@@ -97,10 +97,10 @@ namespace MvcArtStone.Controllers
         [HttpPost]
         public ActionResult SearchArtworks(string id)
         {
-            //var artworks = _LogicBehind.SearchArtworks(id);
+            var artworks = _LogicBehind.SearchArtworks(id);
             //var companies = _companyBusiness.SearchCompanyHead(id);
             //return Json(artworks, JsonRequestBehavior.AllowGet);
-            return null;
+            return Json(artworks, JsonRequestBehavior.AllowGet);
         }
     }
 }

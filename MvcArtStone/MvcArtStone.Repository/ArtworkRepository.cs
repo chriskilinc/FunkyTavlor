@@ -196,7 +196,29 @@ namespace MvcArtStone.Repository
             {
                 return null;
             }
-        }       
+        }
+
+        public static List<Artwork> SearchArtworks(string searchString)
+        {
+            //CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+            //    ConfigurationManager.AppSettings[_databaseHelper.GetConnectionString()]);
+
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
+            var tableClient = storageAccount.CreateCloudTableClient();
+            var table = tableClient.GetTableReference("funkytavlor");
+            var entities = table.ExecuteQuery(new TableQuery<Artwork>());
+            var entities2 = entities.Where(x => x.Title.Contains(searchString) || x.Artist.Contains(searchString) || x.Room.Contains(searchString)); //TOLOWER
+
+            CloudBlobClient blobClient;
+
+            blobClient = storageAccount.CreateCloudBlobClient();
+            CloudBlobContainer container;
+
+            container = blobClient.GetContainerReference("funky");
+            container.CreateIfNotExists();
+
+            return entities2.ToList();
+        }
     }
 }
 
