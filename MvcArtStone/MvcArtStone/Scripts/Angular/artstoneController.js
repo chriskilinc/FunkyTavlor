@@ -10,7 +10,7 @@ app.controller('artstoneController', ['$scope', '$timeout', '$http', function ($
         Files: []
     };
 
-        
+
 
 
     $scope.artworkdata = {
@@ -77,8 +77,7 @@ app.controller('artstoneController', ['$scope', '$timeout', '$http', function ($
                         console.log(response);
                     });
 
-            },
-                250); //Wait 250 ms
+            },250); //Wait 250 ms
 
         });
 

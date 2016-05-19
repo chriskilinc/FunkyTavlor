@@ -202,13 +202,30 @@ namespace MvcArtStone.Repository
         {
             //CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
             //    ConfigurationManager.AppSettings[_databaseHelper.GetConnectionString()]);
-
+            
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
             var tableClient = storageAccount.CreateCloudTableClient();
             var table = tableClient.GetTableReference("funkytavlor");
             var entities = table.ExecuteQuery(new TableQuery<Artwork>());
-            var entities2 = entities.Where(x => x.Title.Contains(searchString) || x.Artist.Contains(searchString) || x.Room.Contains(searchString)); //TOLOWER
-
+            var searchStringToLower = searchString.ToLower();
+            var queriedEntity = entities.Where(x => x.Title.ToLower().Contains(searchStringToLower));
+            foreach (var artwork in entities)
+            {
+                //Checks if the REQUIERED Title and Artist are NOT null and then returns a valid query
+                if (artwork.Title != null && artwork.Artist != null)
+                {
+                    queriedEntity = entities.Where(x => x.Title.ToLower().Contains(searchStringToLower) || x.Artist.ToLower().Contains(searchStringToLower));
+                }
+                //Checks if Title, Artist and Room is not null and then returns a valid query
+                else if(artwork.Title != null && artwork.Artist != null && artwork.Room != null)
+                {
+                    queriedEntity = entities.Where(x => x.Title.ToLower().Contains(searchStringToLower) || x.Artist.ToLower().Contains(searchStringToLower) || x.Room.ToLower().Contains(searchStringToLower)); //TOLOWER
+                }
+                else
+                {
+                    queriedEntity = entities.Where(x => x.Title.ToLower().Contains(searchStringToLower));
+                }
+            }
             CloudBlobClient blobClient;
 
             blobClient = storageAccount.CreateCloudBlobClient();
@@ -217,7 +234,7 @@ namespace MvcArtStone.Repository
             container = blobClient.GetContainerReference("funky");
             container.CreateIfNotExists();
 
-            return entities2.ToList();
+            return queriedEntity.ToList();
         }
     }
 }

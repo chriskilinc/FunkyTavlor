@@ -29,14 +29,15 @@
             <div class="col s12">
                 <div class="input-field">
                     <i class="material-icons prefix">search</i>
-                    <input ng-model="search.artworks" id="searchArtworks" type="text" autocomplete="off" placeholder="Sök på konstverkets Titel..">
+                    <!-- Searchbar wich triggers after 250ms when changed and over 3char -->
+                    <input ng-model="search.artworks" id="searchArtworks" type="text" autocomplete="off" placeholder="Sök på konstverkets Titel, Konstnär eller nuvarande rum! (minst 3 täcken)">
                 </div>
                 <!-- Search List -->
                 <div class="col s12" id="searchArtwork">
-                    <ul>
+                    <ul style="margin: 0; margin-bottom: -15px;">
                         <li ng-repeat="artwork in artworks" style="background-color: white; margin-bottom: -6px; ">
                             <!-- artworks = list of searched artworks-->
-                            <a href="../editartwork/{{artwork.Id}}" style="display: inline-block; width: 100%; border-bottom: 1px #d4d4d4 solid">
+                            <a href="/home/editartwork/{{artwork.Id}}" style="display: inline-block; width: 100%; border-bottom: 1px #d4d4d4 solid">
                                 <div class="s12">
                                     <img src="../../Images/Daniil.JPG" height="100px" style="float: left" />
                                     <p style="float: left">
@@ -169,7 +170,7 @@
                         <p>{{artwork.Room}}</p>
                         <p>{{artwork.visible}}</p>
                         <p>{{artwork.Description}}</p>
-                        <a class="button" href="/home/editartwork/{{artwork.RowKey}}">
+                        <a class="button" href="/home/editartwork/{{artwork.Id}}">
                             <i class="material-icons">edit</i>
                             Redigera
                         </a>
