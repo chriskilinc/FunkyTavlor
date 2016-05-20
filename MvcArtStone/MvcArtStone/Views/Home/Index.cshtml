@@ -17,12 +17,12 @@
                 </div>
             </div>*@
         
-        <div class="row">
+        @*<div class="row">
             <div class="col s12 m6 l3">
                 <button id="btnCol3" class="btn-info btn" value="hide/show">COLUMNS</button>
                 <button id="btnColRows" class="btn-info btn" value="hide/show">SLIDES</button>
             </div>
-        </div>
+        </div>*@
         <div class="row">
                 <!-- Modal Trigger -->
             @*<a class="waves-effect waves-light btn modal-trigger" href="#modalUpload">Upload</a>*@
@@ -30,7 +30,7 @@
                 <div class="input-field">
                     <i class="material-icons prefix">search</i>
                     <!-- Searchbar wich triggers after 250ms when changed and over 3char -->
-                    <input ng-model="search.artworks" id="searchArtworks" type="text" autocomplete="off" placeholder="Sök på konstverkets Titel, Konstnär eller nuvarande rum! (minst 3 täcken)">
+                    <input ng-model="search.artworks" id="searchArtworks" type="text" autocomplete="off" placeholder="Sök på konstverkets Titel, Konstnär eller nuvarande rum! (minst 3 tecken)">
                 </div>
                 <!-- Search List -->
                 <div class="col s12" id="searchArtwork">
@@ -39,7 +39,7 @@
                             <!-- artworks = list of searched artworks-->
                             <a href="/home/editartwork/{{artwork.Id}}" style="display: inline-block; width: 100%; border-bottom: 1px #d4d4d4 solid">
                                 <div class="s12">
-                                    <img src="../../Images/Daniil.JPG" height="100px" style="float: left" />
+                                    <img src="{{artwork.ImgUrl}}" height="100px" style="float: left" />
                                     <p style="float: left">
                                         {{artwork.Title}} <br /> {{artwork.Artist}} <br /> {{artwork.Room}}
                                     </p>
@@ -111,6 +111,9 @@
                             </div>
                         </div>
                     </div>
+
+
+
                     @*<div class="row">
                         <div class="s12">
                             <div class="file-field input-field">
@@ -157,14 +160,10 @@
             <div class="col m4" ng-repeat="artwork in artworkdata.availableArtworks">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <a href="~/Images/Peter.JPG" data-lightbox="Gallery"><img ng-src="{{artwork.ImgUrl}}"></a>
-                    </div>
+                        <a href="{{artwork.ImgUrl}}" data-lightbox="Gallery" data-title="{{artwork.Title}}"><img ng-src="{{artwork.ImgUrl}}"></a>
+                    </div> 
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4">{{artwork.Title}}<i class="material-icons right">more_vert</i></span>
-                        <a class="button" href="/home/editartwork/{{artwork.Id}}">
-                            <i class="material-icons right">edit</i>
-                        </a>
-                        <a class="button" id="heart"><i class="material-icons right">favorite_border</i></a>
                     </div>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">{{artwork.Title}}<i class="material-icons right">close</i></span>
@@ -172,10 +171,24 @@
                         <p>{{artwork.Room}}</p>
                         <p>{{artwork.visible}}</p>
                         <p>{{artwork.Description}}</p>
+                        <p ng-if="artwork.Signed==false">
+                            Osignerad
+                        </p>
+                        <p ng-if="artwork.Signed==true">
+                            Signerad
+                        </p>
+                        <p ng-if="artwork.InStorage==false">
+                            Tavlan finns inte i skolan/förrådet
+                        </p>
+                        <p ng-if="artwork.InStorage==true">
+                            Tavlan finns tillgänglig
+                        </p>
                         <a class="button" href="/home/editartwork/{{artwork.Id}}">
                             <i class="material-icons">edit</i>
                             Redigera
                         </a>
+                        <br />
+                        <a class="button" id="heart"><i class="material-icons">favorite_border</i>Favorisera</a>
                     </div>
                 </div>
 
@@ -219,31 +232,31 @@
 
 
         <!--CARDS IN ROWS-->
-        <div class="row" id="colRowGallery">
-            @*<div class="col m3" ng-repeat="artwork in artworkdata.availableArtworks">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">{{artwork.PartitionKey}}<i class="material-icons right">more_vert</i></span>
-                        <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
-                            <i class="material-icons right">edit</i>
-                        </a>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">{{artwork.Title}}<i class="material-icons right">close</i></span>
-                        <p>{{artwork.Description}}</p>
-                        <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
-                            <i class="material-icons">edit</i>
-                            Redigera
-                        </a>
-                    </div>
-                </div>
-            </div>*@
-            <div class="slider fullscreen">
+        @*<div class="row" id="colRowGallery">
+    <div class="col m3" ng-repeat="artwork in artworkdata.availableArtworks">
+        <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+            </div>
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">{{artwork.PartitionKey}}<i class="material-icons right">more_vert</i></span>
+                <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
+                    <i class="material-icons right">edit</i>
+                </a>
+            </div>
+            <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">{{artwork.Title}}<i class="material-icons right">close</i></span>
+                <p>{{artwork.Description}}</p>
+                <a class="button" href="/home/editartwork/{{artwork.PartitionKey}}">
+                    <i class="material-icons">edit</i>
+                    Redigera
+                </a>
+            </div>
+        </div>
+    </div>
+            <div class="slider fullscreen" >
                     <ul class="slides">
-                        <li>
-                            <img src="../../Images/Peter.JPG"> <!-- random image -->
+                        <li ng-repeat="artwork in artworkdata.availableArtworks">
+                            <img src="{{artwork.ImgUrl}}"> <!-- random image -->
                             <div class="caption center-align">
                                 <h3>This is our big Tagline!</h3>
                                 <a href="#" id="close">E S C</a>
@@ -266,7 +279,7 @@
                     </ul>
                 </div>
         </div>
-    </div>
+    </div>*@
 
 <!-- HIDE AND SHOW GALLERY SCRIPT-->
 <script>

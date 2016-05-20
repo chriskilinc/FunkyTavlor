@@ -17,8 +17,7 @@
         <div class="nav-wrapper container">
             <a id="logo-container" href="@Url.Action("Index", "Home")" class="brand-logo"><img src="~/Images/Logo.png"></a>
             <ul class="right hide-on-med-and-down">
-                <li>@Html.ActionLink("Home", "Index", "Home", new {area = ""}, new {@class = "navbar-brand"})</li>
-                <li>@Html.ActionLink("Register", "Register", "Account")</li>
+                <li>@Html.ActionLink("About", "About", "Home", new {area = ""}, new {@class = "navbar-brand"})</li>
                 <li><a href="#modalLogin" class="modal-trigger">Login </a></li>
             </ul>
             <ul id="nav-mobile" class="side-nav">

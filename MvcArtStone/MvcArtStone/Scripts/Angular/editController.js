@@ -15,7 +15,7 @@ app.controller('editController', ['$scope', '$http', function ($scope, $http) {
         Artist: '',
         Room: '',
         Description:'',
-        ImgurUrl: '',
+        //ImgUrl: '',
         InStorage: false,
         Signed: false,
         Id: '' 

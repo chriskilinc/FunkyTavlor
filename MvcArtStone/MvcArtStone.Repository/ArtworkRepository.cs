@@ -165,7 +165,7 @@ namespace MvcArtStone.Repository
                 editArtwork.Room = model.Room;
                 editArtwork.Signed = model.Signed;
                 editArtwork.Visible = model.Visible;
-                editArtwork.ImgUrl = "";
+                //editArtwork.ImgUrl = "";
                 editArtwork.Description = model.Description;
                 editArtwork.InStorage = model.InStorage;
 
