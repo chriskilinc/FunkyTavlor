@@ -1,9 +1,6 @@
 ﻿angular.module('artstoneApp');
 app.controller('editController', ['$scope', '$http', function ($scope, $http) {
 
-<<<<<<< HEAD
-   
-=======
     //$scope.send = function () {
     //    $http.post('../EditArtwork/' )
     //            .then(function(response) {
@@ -11,20 +8,36 @@ app.controller('editController', ['$scope', '$http', function ($scope, $http) {
     //                console.log(response);
     //            });
     //    };
->>>>>>> master
+
 
     $scope.newArtwork = {
         Title: '',
         Artist: '',
         Room: '',
 <<<<<<< HEAD
+        Description:'',
+        //ImgUrl: '',
+=======
         Description: '',
         ImgurUrl: '',
+>>>>>>> origin/nguploadfromgit
         InStorage: false,
         Signed: false,
         Id: ''
     };
 
+    $scope.deleteArtwork = function (newArtwork) {
+        var fullUrl = window.location.href;
+        var id = fullUrl.slice(-36)
+        console.log(id);
+        $scope.newArtwork.Id = id;
+        $http.post("/home/DeleteArtworkById", newArtwork)
+            .then(function (response) {
+                window.location.replace("/home/")
+                console.log("SUCCESS");
+                console.log(response);
+            })
+    }
 
     $scope.EditArtwork = function (newArtwork) {
         console.log("Editing Artwork");
@@ -41,49 +54,9 @@ app.controller('editController', ['$scope', '$http', function ($scope, $http) {
             },
                 function (response) {
                     console.log("Failed");
-                });
-    };
-=======
-        Description:'',
-        ImgurUrl: '',
-        InStorage: false,
-        Signed: false,
-        Id: '' 
-        };
-    
-        $scope.EditArtwork = function (newArtwork) {
-            console.log("Editing Artwork");
-            
-            var fullUrl = window.location.href;
-            var split = fullUrl.slice(-36)
-
-            $scope.newArtwork.Id = split;
-            $http.post('/home/EditArtworkByModel', newArtwork)
-                .then(function (response) {
-                    window.location.replace("/home/")
-                    console.log("SUCCESS");
-                    console.log(response);
-                },
-                    function (response) {
-                        console.log("Failed");
-                    });
-        };
->>>>>>> master
+                })
+    }
 
 
-    ////$scope.key = $sce.trustAsHtml(key);
-
-    //$scope.fetchArtworkId = function(key) {
-    //    //$scope.key = $sce.trustAsHtml(key);
-
-    //    console.log(key);
-    //    $http.get('/home/GetSingleArtworkByKey', key)
-    //        .then(function (response) {
-    //            //$scope.artwork = response.data;
-    //            console.log(response);
-    //        });
-    //}
-
-}
-]);
+}]);
 

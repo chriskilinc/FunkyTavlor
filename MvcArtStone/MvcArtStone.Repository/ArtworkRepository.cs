@@ -108,7 +108,7 @@ namespace MvcArtStone.Repository
             table.Execute(insertOperation);
         }
 
-        public static void DeleteSingleArtworkWithId(Guid? id)
+        public static void DeleteSingleArtworkWithId(string id)
         {
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
 
@@ -120,24 +120,27 @@ namespace MvcArtStone.Repository
             Artwork SingleArtworkEntity = null;
 
             // Create a retrieve operation that takes a customer entity.
-            if (id != Guid.Empty && id != null)
+            if (id != string.Empty)
             {
                 TableOperation retrieveOperation = TableOperation.Retrieve<Artwork>("ostra", id.ToString());
 
                 TableResult retrievedResult = table.Execute(retrieveOperation);
                 // Execute the operation.
 
+                if(retrievedResult != null)
+                {
+                    Artwork editArtwork = (Artwork)retrievedResult.Result;
+                    // Assign the result to a CustomerEntity object.
+                    SingleArtworkEntity = (Artwork)retrievedResult.Result;
 
-                Artwork editArtwork = (Artwork)retrievedResult.Result;
-                // Assign the result to a CustomerEntity object.
-                SingleArtworkEntity = (Artwork)retrievedResult.Result;
+                    TableOperation deleteOperation = TableOperation.Delete(SingleArtworkEntity);
 
-                TableOperation deleteOperation = TableOperation.Delete(SingleArtworkEntity);
+                    //FINISH HIM
+                    table.Execute(deleteOperation);
 
-                //FINISH HIM
-                table.Execute(deleteOperation);
+                    //FAAATTAAALIITYYYYYYYY
+                }
 
-                //FAAATTAAALIITYYYYYYYY
             }
 
         }

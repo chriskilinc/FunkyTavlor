@@ -8,7 +8,7 @@ app.controller('editController', ['$scope', '$http', function ($scope, $http) {
     //                console.log(response);
     //            });
     //    };
-   
+
 
     $scope.newArtwork = {
         Title: '',
@@ -18,26 +18,40 @@ app.controller('editController', ['$scope', '$http', function ($scope, $http) {
         //ImgUrl: '',
         InStorage: false,
         Signed: false,
-        Id: '' 
-        };
-    
-        $scope.EditArtwork = function (newArtwork) {
-            console.log("Editing Artwork");
-            
-            var fullUrl = window.location.href;
-            var split = fullUrl.slice(-36)
+        Id: ''
+    };
 
-            $scope.newArtwork.Id = split;
-            $http.post('/home/EditArtworkByModel', newArtwork)
-                .then(function (response) {
-                    window.location.replace("/home/")
-                    console.log("SUCCESS");
-                    console.log(response);
-                },
-                    function (response) {
-                        console.log("Failed");
-                    })}
-                
-    
+    $scope.deleteArtwork = function (newArtwork) {
+        var fullUrl = window.location.href;
+        var id = fullUrl.slice(-36)
+        console.log(id);
+        $scope.newArtwork.Id = id;
+        $http.post("/home/DeleteArtworkById", newArtwork)
+            .then(function (response) {
+                window.location.replace("/home/")
+                console.log("SUCCESS");
+                console.log(response);
+            })
+    }
+
+    $scope.EditArtwork = function (newArtwork) {
+        console.log("Editing Artwork");
+
+        var fullUrl = window.location.href;
+        var split = fullUrl.slice(-36)
+
+        $scope.newArtwork.Id = split;
+        $http.post('/home/EditArtworkByModel', newArtwork)
+            .then(function (response) {
+                window.location.replace("/home/")
+                console.log("SUCCESS");
+                console.log(response);
+            },
+                function (response) {
+                    console.log("Failed");
+                })
+    }
+
+
 }]);
 

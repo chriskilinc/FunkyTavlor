@@ -74,11 +74,11 @@ namespace MvcArtStone.Controllers
         }       
 
        [HttpPost]
-       public ActionResult DeleteArtworkById(ArtworkInsertModel model)
+       public ActionResult DeleteArtworkById(ArtworkInsertModel id)
        {
-            if(model.Id != Guid.Empty)
+            if(id != null)
             {
-                LogicBehind.ArtworkLogic.DeleteArtworkwithId(model.Id);
+                LogicBehind.ArtworkLogic.DeleteArtworkwithId(id.Id.ToString());
             }
             
             return Content("Fatality");
