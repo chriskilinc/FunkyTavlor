@@ -15,7 +15,6 @@ app.controller('editController', ['$scope', '$http', function ($scope, $http) {
         Artist: '',
         Room: '',
         Description:'',
-        //ImgUrl: '',
         InStorage: false,
         Signed: false,
         Id: ''
@@ -26,7 +25,7 @@ app.controller('editController', ['$scope', '$http', function ($scope, $http) {
         var id = fullUrl.slice(-36)
         console.log(id);
         $scope.newArtwork.Id = id;
-        $http.post("/home/DeleteArtworkById", newArtwork)
+        $http.post('/home/DeleteArtworkById', newArtwork)
             .then(function (response) {
                 window.location.replace("/home/")
                 console.log("SUCCESS");

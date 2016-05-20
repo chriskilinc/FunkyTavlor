@@ -19,20 +19,33 @@
     <div class="row">
         <div class="card">
             <div class="card-content" ng-app="artstoneApp" ng-controller="editController" ng-submit="EditArtwork(newArtwork)">
-                <form novalidate id="editArtwork">
+                <form novalidate id="editArtwork" name="formedit">
                     <h1>@Model.Title</h1>
 
                     <label class="active" for="editTitle">Title: @Model.Title</label>
-                    <input  ng-model="newArtwork.Title" id="editTitle" type="text" /> <br />
+                    <input id="title" type="text" class="form-control" ng-model="newArtwork.Title" name="EditedTitle" required ng-maxlength="25" ng-minlength="3">
+                    <div class="alert-danger" ng-show="formedit.EditedTitle.$invalid">
+                        <p ng-show="formedit.EditedTitle.$error.maxlength">För många tecken</p>
+                        <p ng-show="formedit.EditedTitle.$error.minlength">För få tecken</p>
+                        <p ng-show="formedit.EditedTitle.$error.required">Fältet måste vara ifyllt</p>
+                    </div>
 
-                    <label class="active" for="editArtist">Artist: @Model.Artist</label>
-                    <input ng-model="newArtwork.Artist" id="editArtist" type="text" /> <br />
+                    <label class="active" for="artist">Artist: @Model.Artist</label>
+                    <input id="artist" type="text" class="validate" ng-model="newArtwork.Artist" name="editArtist" required ng-maxlength="100" ng-minlength="3">
+                    <div class="alert-danger" ng-show="formedit.editArtist.$invalid">
+                        <p ng-show="formedit.editArtist.$error.maxlength">För många tecken</p>
+                        <p ng-show="formedit.editArtist.$error.minlength">För få tecken</p>
+                        <p ng-show="formedit.editArtist.$error.required">Fältet måste vara ifyllt</p>
+                    </div>
 
                     <label class="active" for="editRoom">Room: @Model.Room</label>
                     <input ng-model="newArtwork.Room" id="editRoom" type="text" /> <br />
 
                     <label class="active" for="editDescription">Description: @Model.Description</label>
-                    <input ng-model="newArtwork.Description" id="editDescription" type="text"  /> <br />
+                    <input ng-model="newArtwork.Description" id="editDescription" type="text" name="editDescription"  /> <br />
+                    <div class="alert-danger" ng-show="formedit.editDescription.$invalid">
+                        <p ng-show="formedit.editDescription.$error.maxlength">För många tecken</p>
+                    </div>
 
 
                     <label for="DateAdded" class="active">Added</label>
@@ -50,7 +63,7 @@
 
 
 
-                    <button class="btn waves-effect waves-light" type="submit">
+                    <button class="btn waves-effect waves-light" type="submit" ng-disabled="formedit.$invalid">
                         Submit Changes
                         <i class="material-icons right">send</i>
                     </button>

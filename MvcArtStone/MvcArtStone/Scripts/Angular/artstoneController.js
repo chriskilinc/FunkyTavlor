@@ -44,6 +44,7 @@ app.controller('artstoneController', ['$scope', '$timeout', '$http', function ($
         $http.post('/home/InsertArtwork', artwork)
             .then(function (response) {
                 console.log("SUCCESS");
+                window.location.reload();
                 console.log(response);
             },
                 function (response) {
