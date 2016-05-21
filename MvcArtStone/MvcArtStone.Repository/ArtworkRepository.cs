@@ -34,7 +34,7 @@ namespace MvcArtStone.Repository
 
             var tableClient = storageAccount.CreateCloudTableClient();
             var table = tableClient.GetTableReference("funkytavlor");
-            var entities = table.ExecuteQuery(new TableQuery<Artwork>());//.Where(x => x.Visible);
+            var entities = table.ExecuteQuery(new TableQuery<Artwork>()).OrderBy(x => x.Room);//.Where(x => x.Visible);
 
 
             CloudBlobClient blobClient;
