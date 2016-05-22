@@ -10,22 +10,28 @@ app.controller('editController', ['$scope', '$http', function ($scope, $http) {
     //    };
 
 
-    $scope.newArtwork = {
+    $scope.uploadme = {};
+    $scope.uploadme.src = "";
+
+    $scope.artwork = {
         Title: '',
         Artist: '',
         Room: '',
         Description:'',
-        InStorage: false,
+        InStorage: false,        
+        Id: '',
+        ImgUrl: $scope.uploadme.src,
+        Files: $scope.uploadme,
         Signed: false,
-        Id: ''
     };
 
-    $scope.deleteArtwork = function (newArtwork) {
+    $scope.deleteArtwork = function (artwork) {
         var fullUrl = window.location.href;
         var id = fullUrl.slice(-36)
         console.log(id);
-        $scope.newArtwork.Id = id;
-        $http.post('/home/DeleteArtworkById', newArtwork)
+        $scope.artwork.Id = id;
+
+        $http.post('/home/DeleteArtworkById', artwork)
             .then(function (response) {
                 window.location.replace("/home/")
                 console.log("SUCCESS");
@@ -33,14 +39,14 @@ app.controller('editController', ['$scope', '$http', function ($scope, $http) {
             })
     }
 
-    $scope.EditArtwork = function (newArtwork) {
+    $scope.EditArtwork = function (artwork) {
         console.log("Editing Artwork");
 
         var fullUrl = window.location.href;
         var split = fullUrl.slice(-36)
 
-        $scope.newArtwork.Id = split;
-        $http.post('/home/EditArtworkByModel', newArtwork)
+        $scope.artwork.Id = split;
+        $http.post('/home/EditArtworkByModel', artwork)
             .then(function (response) {
                 window.location.replace("/home/")
                 console.log("SUCCESS");
@@ -52,5 +58,26 @@ app.controller('editController', ['$scope', '$http', function ($scope, $http) {
     }
 
 
+}
+
+]).directive("fileread", [function () {
+    return {
+        scope: {
+            fileread: "="
+        },
+        link: function (scope, element, attributes) {
+            console.log("im kinda doing it");
+            element.bind("change", function (changeEvent) {
+                var reader = new FileReader();
+                reader.onload = function (loadEvent) {
+                    scope.$apply(function () {
+                        scope.fileread = loadEvent.target.result;
+                        console.log(scope.fileread = loadEvent.target.result);
+                    });
+                }
+                reader.readAsDataURL(changeEvent.target.files[0]);
+            });
+        }
+    }
 }]);
 

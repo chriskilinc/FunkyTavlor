@@ -9,22 +9,37 @@
 }
 
 @*<div ng-app="artstoneApp" ng-controller="editController">
-    <p ng-model="artwork.Title">@Model.Title</p>
+        <p ng-model="artwork.Title">@Model.Title</p>
 
 
-</div>*@
+    </div>*@
 
 
-<div class="container" >
+<div class="container">
     <div class="row">
         <div class="card">
-            <div class="card-content" ng-app="artstoneApp" ng-controller="editController" ng-submit="EditArtwork(newArtwork)">
+            <div class="card-content" ng-app="artstoneApp" ng-controller="editController">
+                @*ng-submit="EditArtwork(artwork)">*@
                 <div class="card-image waves-effect waves-block waves-light"><img ng-src=@Model.ImgUrl></div>
+
                 <form novalidate id="editArtwork" name="formedit">
+                    <span>
+                        <i class="material-icons">camera_alt</i>
+
+                        <input type="file" fileread="artwork.Files" />
+                    </span>
+
+                    <div class="file-path-wrapper">
+                        <input type="text" ng-model="artwork.Files" />
+                    </div>
+
+
+
+
                     <h1>@Model.Title</h1>
 
                     <label class="active" for="editTitle">Title: @Model.Title</label>
-                    <input id="title" type="text" class="form-control" ng-model="newArtwork.Title" name="EditedTitle" required ng-maxlength="25" ng-minlength="3">
+                    <input id="title" type="text" class="form-control" ng-model="artwork.Title" name="EditedTitle" required ng-maxlength="25" ng-minlength="3">
                     <div class="alert-danger" ng-show="formedit.EditedTitle.$invalid">
                         <p ng-show="formedit.EditedTitle.$error.maxlength">För många tecken</p>
                         <p ng-show="formedit.EditedTitle.$error.minlength">För få tecken</p>
@@ -32,7 +47,7 @@
                     </div>
 
                     <label class="active" for="artist">Artist: @Model.Artist</label>
-                    <input id="artist" type="text" class="validate" ng-model="newArtwork.Artist" name="editArtist" required ng-maxlength="100" ng-minlength="3">
+                    <input id="artist" type="text" class="validate" ng-model="artwork.Artist" name="editArtist" required ng-maxlength="100" ng-minlength="3">
                     <div class="alert-danger" ng-show="formedit.editArtist.$invalid">
                         <p ng-show="formedit.editArtist.$error.maxlength">För många tecken</p>
                         <p ng-show="formedit.editArtist.$error.minlength">För få tecken</p>
@@ -40,10 +55,10 @@
                     </div>
 
                     <label class="active" for="editRoom">Room: @Model.Room</label>
-                    <input ng-model="newArtwork.Room" id="editRoom" type="text" /> <br />
+                    <input ng-model="artwork.Room" id="editRoom" type="text" /> <br />
 
                     <label class="active" for="editDescription">Description: @Model.Description</label>
-                    <input ng-model="newArtwork.Description" id="editDescription" type="text" name="editDescription"  /> <br />
+                    <input ng-model="artwork.Description" id="editDescription" type="text" name="editDescription" /> <br />
                     <div class="alert-danger" ng-show="formedit.editDescription.$invalid">
                         <p ng-show="formedit.editDescription.$error.maxlength">För många tecken</p>
                     </div>
@@ -55,21 +70,21 @@
                     <label for="LastChanged" class="active">Last Changed</label>
                     <p id="LastChanged">@Model.Timestamp</p> <br />
 
-                    <input type="checkbox" class="filled-in" id="signed" ng-model="newArtwork.Signed"/>
-                    <label class="active" for="signed"> Signed </label> <br/>
+                    <input type="checkbox" class="filled-in" id="signed" ng-model="artwork.Signed" />
+                    <label class="active" for="signed"> Signed </label> <br />
 
-                    <input type="checkbox" class="filled-in" id="inStorage" ng-model="newArtwork.InStorage"/>
-                    <label class="active" for="inStorage"> In Storage</label> <br/><br/>
-
-
+                    <input type="checkbox" class="filled-in" id="inStorage" ng-model="artwork.InStorage" />
+                    <label class="active" for="inStorage"> In Storage</label> <br /><br />
 
 
-                    <button class="btn waves-effect waves-light" type="submit" ng-disabled="formedit.$invalid">
+
+
+                    <button class="btn waves-effect waves-light" type="submit" ng-disabled="formedit.$invalid" ng-click="EditArtwork(artwork)">
                         Submit Changes
                         <i class="material-icons right">send</i>
                     </button>
 
-                    <a class="btn waves-effect waves-light" name="action" ng-click="deleteArtwork(newArtwork)">
+                    <a class="btn waves-effect waves-light" name="action" ng-click="deleteArtwork(artwork)">
                         Delete Artwork
                         <i class="material-icons right">delete</i>
                     </a>
@@ -87,5 +102,6 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
 <script src="~/Scripts/angular/artstoneApp.js"></script>
 <script src="~/Scripts/angular/editController.js"></script>

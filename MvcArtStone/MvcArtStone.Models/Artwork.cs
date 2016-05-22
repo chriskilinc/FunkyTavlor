@@ -31,6 +31,7 @@ namespace MvcArtStone.Models
         public DateTime CreationDate { get; set; }
         public DateTime AddedDate { get; set; }
         public bool InStorage { get; set; }
+        public string Files { get; set; }
         public string ImgUrl { get; set; }
         public bool Signed { get; set; }
     }
