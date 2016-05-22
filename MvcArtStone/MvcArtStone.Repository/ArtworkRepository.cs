@@ -239,16 +239,16 @@ namespace MvcArtStone.Repository
             var queriedEntity = entities.Where(x => x.Title.ToLower().Contains(searchStringToLower));
             foreach (var artwork in entities)
             {
-                //Checks if the REQUIERED Title and Artist are NOT null and then returns a valid query
-                if (artwork.Title != null && artwork.Artist != null)
-                {
-                    queriedEntity = entities.Where(x => x.Title.ToLower().Contains(searchStringToLower) || x.Artist.ToLower().Contains(searchStringToLower) || x.Room.ToLower().Contains(searchStringToLower));
-                }
                 //Checks if Title, Artist and Room is not null and then returns a valid query
-                else if (artwork.Title != null && artwork.Artist != null && artwork.Room != null)
+                if (artwork.Title != null && artwork.Artist != null && artwork.Room != null)
                 {
                     queriedEntity = entities.Where(x => x.Title.ToLower().Contains(searchStringToLower) || x.Artist.ToLower().Contains(searchStringToLower) || x.Room.ToLower().Contains(searchStringToLower)); //TOLOWER
                 }
+                //Checks if the REQUIERED Title and Artist are NOT null and then returns a valid query
+                else if (artwork.Title != null && artwork.Artist != null)
+                {
+                    queriedEntity = entities.Where(x => x.Title.ToLower().Contains(searchStringToLower) || x.Artist.ToLower().Contains(searchStringToLower));
+                }               
                 else
                 {
                     queriedEntity = entities.Where(x => x.Title.ToLower().Contains(searchStringToLower));
