@@ -3,10 +3,10 @@
     padding: 0;
 }
 
-#wrapper .container {
-    margin: 0;
-    padding: 0;
-}
+    #wrapper .container {
+        margin: 0;
+        padding: 0;
+    }
 
 #controller .container {
     height: 20px;
@@ -30,7 +30,9 @@
 }
 
 .form-upload p {
-    color: #000; font-weight: bold; margin: 0;
+    color: #000;
+    font-weight: bold;
+    margin: 0;
 }
 
 
@@ -42,12 +44,27 @@
     margin: 0;
     padding: 0;
 }
+
 .modal {
-    overflow-y:auto;
+    overflow-y: auto;
     max-height: 100%;
-        padding-right: 3%;
+    padding-right: 3%;
 }
 
-.alert-danger p{
+.alert-danger p {
     color: red !important;
+}
+
+.card-room {
+    z-index: 100;
+    padding: 0 5px;
+    position: absolute;
+    margin-left: 0;
+    margin-top: 0;
+    color: black;
+    background-color: #f57c00; /* FALLBACK */
+    background-color: rgba(245, 141, 0, 0.75);
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom-right-radius: 2px;
 }
