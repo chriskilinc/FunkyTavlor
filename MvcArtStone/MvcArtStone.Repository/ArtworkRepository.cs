@@ -34,7 +34,7 @@ namespace MvcArtStone.Repository
 
             var tableClient = storageAccount.CreateCloudTableClient();
             var table = tableClient.GetTableReference("funkytavlor");
-            var entities = table.ExecuteQuery(new TableQuery<Artwork>()).OrderBy(x => x.Room); //.Where(x => x.Visible);
+            var entities = table.ExecuteQuery(new TableQuery<Artwork>()).Where(x => x.Visible).OrderBy(x => x.Room);
 
 
             CloudBlobClient blobClient;
@@ -172,14 +172,26 @@ namespace MvcArtStone.Repository
 
             if (editArtwork != null)
             {
-                editArtwork.Title = model.Title;
-                editArtwork.Artist = model.Artist;
-                editArtwork.Room = model.Room;
-                editArtwork.Signed = model.Signed;
-                editArtwork.Visible = model.Visible;
+                if (model.Title != editArtwork.Title)                
+                    editArtwork.Title = model.Title;
+                
+                if(model.Artist != editArtwork.Artist)
+                    editArtwork.Artist = model.Artist;
+
+                if(model.Room != editArtwork.Room)
+                    editArtwork.Room = model.Room;
+
+                if(model.Signed != editArtwork.Signed)
+                    editArtwork.Signed = model.Signed;
+
+                editArtwork.Visible = true;
                 editArtwork.ImgUrl = "https://t4boys2016.blob.core.windows.net/funky/" + model.Id;
-                editArtwork.Description = model.Description;
-                editArtwork.InStorage = model.InStorage;
+                
+                if(model.Description != editArtwork.Description)
+                    editArtwork.Description = model.Description;
+
+                if(model.InStorage != editArtwork.InStorage)
+                    editArtwork.InStorage = model.InStorage;
 
                 TableOperation editOperation = TableOperation.Replace(editArtwork);
 

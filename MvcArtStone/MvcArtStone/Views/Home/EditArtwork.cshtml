@@ -22,61 +22,66 @@
                 @*ng-submit="EditArtwork(artwork)">*@
                 <div class="card-image waves-effect waves-block waves-light"><img ng-src=@Model.ImgUrl></div>
 
-                <form novalidate id="editArtwork" name="formedit">
-                    <span>
-                        <i class="material-icons">camera_alt</i>
 
-                        <input type="file" fileread="artwork.Files" />
+
+
+
+
+
+
+                <h1>@Model.Title</h1>
+
+                <label class="active" for="editTitle">Title: @Model.Title</label>
+                <input id="title" type="text" class="form-control" ng-model="artwork.Title" name="EditedTitle" required ng-maxlength="25" ng-minlength="3">
+                <div class="alert-danger" ng-show="formedit.EditedTitle.$invalid">
+                    <p ng-show="formedit.EditedTitle.$error.maxlength">För många tecken</p>
+                    <p ng-show="formedit.EditedTitle.$error.minlength">För få tecken</p>
+                </div>
+
+                <label class="active" for="artist">Artist: @Model.Artist</label>
+                <input id="artist" type="text" class="validate" ng-model="artwork.Artist" name="editArtist" required ng-maxlength="100" ng-minlength="3">
+                <div class="alert-danger" ng-show="formedit.editArtist.$invalid">
+                    <p ng-show="formedit.editArtist.$error.maxlength">För många tecken</p>
+                    <p ng-show="formedit.editArtist.$error.minlength">För få tecken</p>
+                </div>
+
+                <label class="active" for="editRoom">Room: @Model.Room</label>
+                <input ng-model="artwork.Room" id="editRoom" type="text" /> <br />
+
+                <label class="active" for="editDescription">Description: @Model.Description</label>
+                <input ng-model="artwork.Description" id="editDescription" type="text" name="editDescription" /> <br />
+                <div class="alert-danger" ng-show="formedit.editDescription.$invalid">
+                    <p ng-show="formedit.editDescription.$error.maxlength">För många tecken</p>
+                </div>
+
+
+                <label for="DateAdded" class="active">Added</label>
+                <p id="DateAdded">@Model.AddedDate</p> <br />
+
+                <label for="LastChanged" class="active">Last Changed</label>
+                <p id="LastChanged">@Model.Timestamp</p> <br />
+
+                <input type="checkbox" class="filled-in" id="signed" ng-model="artwork.Signed" />
+                <label class="active" for="signed"> Signed </label> <br />
+
+                <input type="checkbox" class="filled-in" id="inStorage" ng-model="artwork.InStorage" />
+                <label class="active" for="inStorage"> In Storage</label> <br /><br />
+
+                <form novalidate id="editArtwork" name="formedit">
+                    <label for="ChangePicture" class="active">Byt bild</label><br />
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span><i class="material-icons">camera_alt</i></span>
+                            <input type="file" accept="image/*;capture=camera" fileread="artwork.Files" /> @*fileread="vm.uploadme" />*@
+                        </div>
                         <div class="file-path-wrapper">
                             <input type="hidden" ng-model="artwork.Files" />
                         </div>
-                    </span>
-
-                    
-
-
-
-
-                    <h1>@Model.Title</h1>
-
-                    <label class="active" for="editTitle">Title: @Model.Title</label>
-                    <input id="title" type="text" class="form-control" ng-model="artwork.Title" name="EditedTitle" required ng-maxlength="25" ng-minlength="3">
-                    <div class="alert-danger" ng-show="formedit.EditedTitle.$invalid">
-                        <p ng-show="formedit.EditedTitle.$error.maxlength">För många tecken</p>
-                        <p ng-show="formedit.EditedTitle.$error.minlength">För få tecken</p>
-                        <p ng-show="formedit.EditedTitle.$error.required">Fältet måste vara ifyllt</p>
                     </div>
-
-                    <label class="active" for="artist">Artist: @Model.Artist</label>
-                    <input id="artist" type="text" class="validate" ng-model="artwork.Artist" name="editArtist" required ng-maxlength="100" ng-minlength="3">
-                    <div class="alert-danger" ng-show="formedit.editArtist.$invalid">
-                        <p ng-show="formedit.editArtist.$error.maxlength">För många tecken</p>
-                        <p ng-show="formedit.editArtist.$error.minlength">För få tecken</p>
-                        <p ng-show="formedit.editArtist.$error.required">Fältet måste vara ifyllt</p>
-                    </div>
-
-                    <label class="active" for="editRoom">Room: @Model.Room</label>
-                    <input ng-model="artwork.Room" id="editRoom" type="text" /> <br />
-
-                    <label class="active" for="editDescription">Description: @Model.Description</label>
-                    <input ng-model="artwork.Description" id="editDescription" type="text" name="editDescription" /> <br />
-                    <div class="alert-danger" ng-show="formedit.editDescription.$invalid">
-                        <p ng-show="formedit.editDescription.$error.maxlength">För många tecken</p>
-                    </div>
-
-
-                    <label for="DateAdded" class="active">Added</label>
-                    <p id="DateAdded">@Model.AddedDate</p> <br />
-
-                    <label for="LastChanged" class="active">Last Changed</label>
-                    <p id="LastChanged">@Model.Timestamp</p> <br />
-
-                    <input type="checkbox" class="filled-in" id="signed" ng-model="artwork.Signed" />
-                    <label class="active" for="signed"> Signed </label> <br />
-
-                    <input type="checkbox" class="filled-in" id="inStorage" ng-model="artwork.InStorage" />
-                    <label class="active" for="inStorage"> In Storage</label> <br /><br />
-
+                
+                    <br />
+                    <br />
+                    <br />
 
 
 
