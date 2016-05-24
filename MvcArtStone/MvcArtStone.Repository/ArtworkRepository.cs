@@ -172,13 +172,13 @@ namespace MvcArtStone.Repository
 
             if (editArtwork != null)
             {
-                if (model.Title != editArtwork.Title)                
+                if (model.Title != editArtwork.Title && model.Title != null)                
                     editArtwork.Title = model.Title;
                 
-                if(model.Artist != editArtwork.Artist)
+                if(model.Artist != editArtwork.Artist && model.Artist != null)
                     editArtwork.Artist = model.Artist;
 
-                if(model.Room != editArtwork.Room)
+                if(model.Room != editArtwork.Room && model.Room != null)
                     editArtwork.Room = model.Room;
 
                 if(model.Signed != editArtwork.Signed)
@@ -187,7 +187,7 @@ namespace MvcArtStone.Repository
                 editArtwork.Visible = true;
                 editArtwork.ImgUrl = "https://t4boys2016.blob.core.windows.net/funky/" + model.Id;
                 
-                if(model.Description != editArtwork.Description)
+                if(model.Description != editArtwork.Description && model.Description != null)
                     editArtwork.Description = model.Description;
 
                 if(model.InStorage != editArtwork.InStorage)
@@ -197,7 +197,7 @@ namespace MvcArtStone.Repository
 
                 table.Execute(editOperation);
 
-                if (editArtwork.Files != string.Empty)
+                if (editArtwork.Files != string.Empty && editArtwork.Files != null)
                 {
                     CloudBlobClient blobClient;
 
