@@ -193,11 +193,9 @@ namespace MvcArtStone.Repository
                 if(model.InStorage != editArtwork.InStorage)
                     editArtwork.InStorage = model.InStorage;
 
-                TableOperation editOperation = TableOperation.Replace(editArtwork);
+                                
 
-                table.Execute(editOperation);
-
-                if (editArtwork.Files != string.Empty && editArtwork.Files != null)
+                if (model.Files != string.Empty && model.Files != null)
                 {
                     CloudBlobClient blobClient;
 
@@ -221,6 +219,10 @@ namespace MvcArtStone.Repository
 
                     blob.UploadFromStream(stream);
                 }
+
+                TableOperation editOperation = TableOperation.Replace(editArtwork);
+
+                table.Execute(editOperation);
             }                        
         }        
 

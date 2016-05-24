@@ -102,10 +102,10 @@ app.controller('artstoneController', ['$scope', '$timeout', '$http', function ($
                 reader.onload = function (loadEvent) {
                     scope.$apply(function () {
                         scope.fileread = loadEvent.target.result;
-                        console.log(scope.fileread = loadEvent.target.result);
+                        //console.log(scope.fileread = loadEvent.target.result);
                     });
                 }
-                reader.readAsDataURL(changeEvent.target.files[0]);
+                reader.readAsDataURL(changeEvent.target.files[0]);                
             });
         }
     }
