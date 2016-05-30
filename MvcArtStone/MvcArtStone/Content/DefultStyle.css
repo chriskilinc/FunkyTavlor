@@ -68,3 +68,11 @@
     font-weight: bold;
     border-bottom-right-radius: 2px;
 }
+
+.no-shadow {
+    box-shadow: none;
+}
+
+    .no-shadow:hover {
+        box-shadow: none;
+    }

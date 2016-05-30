@@ -1,11 +1,11 @@
 ﻿angular.module('artstoneApp')
 app.controller('artstoneController', ['$scope', '$timeout', '$http', function ($scope, $timeout, $http) {
-    
-    
-    
+
+
+
     $scope.uploadme = {};
     $scope.uploadme.src = "";
-    
+
     $scope.artwork = {
         Title: '',
         Artist: '',
@@ -52,6 +52,18 @@ app.controller('artstoneController', ['$scope', '$timeout', '$http', function ($
                 });
     };
 
+    $scope.deleteArtwork = function (artwork) {
+        //id = artwork.id;
+        
+        $http.post('/home/DeleteArtworkById', artwork)
+            .then(function (response) {
+                //window.location.replace("/home/")
+                console.log("SUCCESS");
+                window.location.reload(); //TODO: Work around a 'reload()' to a real-time update instead of going to the server first
+                console.log(response);
+            })
+    }
+
     $scope.fetchArtworkId = function (artwork) {
         $http.post('/home/editartwork', artwork)
             .then(function (response) {
@@ -85,7 +97,7 @@ app.controller('artstoneController', ['$scope', '$timeout', '$http', function ($
                         console.log(response);
                     });
 
-            },250); //Wait 250 ms
+            }, 250); //Wait 250 ms
 
         });
 
@@ -105,7 +117,7 @@ app.controller('artstoneController', ['$scope', '$timeout', '$http', function ($
                         //console.log(scope.fileread = loadEvent.target.result);
                     });
                 }
-                reader.readAsDataURL(changeEvent.target.files[0]);                
+                reader.readAsDataURL(changeEvent.target.files[0]);
             });
         }
     }

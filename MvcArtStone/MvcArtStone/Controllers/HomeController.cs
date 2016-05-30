@@ -65,25 +65,24 @@ namespace MvcArtStone.Controllers
             var artworksList = _LogicBehind.GetArtworkskInFatList();
             return Json(artworksList, JsonRequestBehavior.AllowGet);
         }
-        
+
         [HttpPost]
         public ActionResult InsertArtwork(ArtworkInsertModel model)
         {
             MvcArtStone.LogicBehind.ArtworkLogic.AddArtwork(model);
             return Content("Success!");
-        }       
+        }
 
-       [HttpPost]
-       public ActionResult DeleteArtworkById(Artwork model)
-       {
-            if(model != null)
+        [HttpPost]
+        public ActionResult DeleteArtworkById(Artwork model)
+        {
+            if (model != null)
             {
                 LogicBehind.ArtworkLogic.DeleteArtworkwithId(model.Id.ToString());
             }
-            
-            return Content("Fatality");
-       }     
 
+            return Content("Fatality");
+        }
 
         public ActionResult About()
         {
