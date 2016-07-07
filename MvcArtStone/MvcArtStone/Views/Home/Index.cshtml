@@ -111,6 +111,23 @@
                         </div>
                     </div>
 
+                    <div class="row">
+                        <!-- IS SIGNED -->
+                        <div class="s12">
+                            <div class="input-field">
+                                <input type="checkbox" class="filled-in" id="Signed" ng-model="artwork.Signed" />
+                                <label class="active" for="Signed"> Signed </label> <br />
+                            </div>
+                        </div>
+                        <!-- INSTORAGE -->
+                        <div class="s12">
+                            <div class="input-field">
+                                <input type="checkbox" class="filled-in" id="InStorage" ng-model="artwork.InStorage" />
+                                <label class="active" for="InStorage"> In-Storage </label> <br />
+                            </div>
+                        </div>
+                    </div>
+
 
 
                     @*<div class="row">
@@ -155,9 +172,9 @@
         <!--CARDS IN GALLERY FORMAT-->
         <div class="row" id="col3Gallery">
             <!-- repeater for Card(col3) -->
-            <div class="col m4" ng-repeat="artwork in artworkdata.availableArtworks">                
+            <div class="col m4" ng-repeat="artwork in artworkdata.availableArtworks">
                 <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">   
+                    <div class="card-image waves-effect waves-block waves-light">
                         <p class="card-room">{{artwork.Room}}</p>
                         <a href="{{artwork.ImgUrl}}" data-lightbox="Gallery" data-title="{{artwork.Title}}"><img ng-src="{{artwork.ImgUrl}}" style="width:100%; height:360px;"></a>
                     </div>
