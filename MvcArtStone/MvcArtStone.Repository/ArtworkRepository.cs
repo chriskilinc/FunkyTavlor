@@ -12,6 +12,8 @@ using MvcArtStone.Models;
 using System.Web;
 using System.Text;
 using System.IO;
+using System.Net.NetworkInformation;
+using System.Net;
 
 namespace MvcArtStone.Repository
 {
@@ -50,8 +52,6 @@ namespace MvcArtStone.Repository
             return entities.ToList();
         }
 
-
-
         public static void AddArtwork(ArtworkInsertModel model)
         {
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
@@ -78,10 +78,18 @@ namespace MvcArtStone.Repository
                 Room = model.Room,
                 ImgUrl = "https://t4boys2016.blob.core.windows.net/funky/" + Identity,
                 Visible = true,
-                Signed = model.Signed
+                Signed = model.Signed, 
+                
             };
 
-            TableOperation insertOperation = TableOperation.Insert(fiktivArtwork);
+
+            //TODO: Make this work
+            //Artwork metaData = new ArtworkData()
+            //{
+            //    UploaderIpAddress = Dns.GetHostEntry(Dns.GetHostName()).ToString(),
+            //};
+
+            //TableOperation insertOperation = TableOperation.Insert(fiktivArtwork);
 
             CloudBlobClient blobClient;
 

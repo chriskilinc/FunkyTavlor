@@ -52,4 +52,9 @@ namespace MvcArtStone.Models
         public bool Signed { get; set; }
     }
 
+    public class ArtworkData : Artwork
+    {
+        public string UploaderIpAddress { get; set; }
+    }
+
 }
