@@ -66,6 +66,12 @@ namespace MvcArtStone.Controllers
             return Json(artworksList, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult GetAllArtworks()
+        {
+            var fullArtworkList = _LogicBehind.GetFullArtworkList();
+            return Json(fullArtworkList, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
         public ActionResult InsertArtwork(ArtworkInsertModel model)
         {
@@ -101,6 +107,12 @@ namespace MvcArtStone.Controllers
         public ActionResult Manager()
         {
             ViewBag.Message = "Manager Page";
+            return View();
+        }
+
+        public ActionResult Admin()
+        {
+            ViewBag.Message = "Administrative Page";
             return View();
         }
 

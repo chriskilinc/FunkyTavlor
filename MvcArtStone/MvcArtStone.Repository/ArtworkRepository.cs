@@ -52,6 +52,22 @@ namespace MvcArtStone.Repository
             return entities.ToList();
         }
 
+        //Returns a List of ALL artworks back to View Controller
+        public static List<Artwork> GetAllArtworksAsList()
+        {
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
+
+            var tableClient = storageAccount.CreateCloudTableClient();
+            var table = tableClient.GetTableReference("funkytavlor");
+            var entities = table.ExecuteQuery(new TableQuery<Artwork>()).OrderBy(x => x.Timestamp);
+            CloudBlobClient blobClient;
+            blobClient = storageAccount.CreateCloudBlobClient();
+            CloudBlobContainer container;
+            container = blobClient.GetContainerReference("funky");
+            container.CreateIfNotExists();
+            return entities.ToList();
+        }
+
         public static void AddArtwork(ArtworkInsertModel model)
         {
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
@@ -89,7 +105,7 @@ namespace MvcArtStone.Repository
             //    UploaderIpAddress = Dns.GetHostEntry(Dns.GetHostName()).ToString(),
             //};
 
-            //TableOperation insertOperation = TableOperation.Insert(fiktivArtwork);
+            TableOperation insertOperation = TableOperation.Insert(fiktivArtwork);
 
             CloudBlobClient blobClient;
 
@@ -115,6 +131,7 @@ namespace MvcArtStone.Repository
 
             table.Execute(insertOperation);
         }
+        
 
         public static void DeleteSingleArtworkWithId(string id)
         {

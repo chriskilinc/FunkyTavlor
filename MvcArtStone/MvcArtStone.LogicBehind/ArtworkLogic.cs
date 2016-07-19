@@ -67,5 +67,11 @@ namespace MvcArtStone.LogicBehind
         {
             return ArtworkRepository.SearchArtworks(searchString);
         }
+
+        public IEnumerable<Artwork> GetFullArtworkList()
+        {
+            var fullArtworkList = ArtworkRepository.GetAllArtworksAsList();
+            return fullArtworkList;
+        }
     }
 }

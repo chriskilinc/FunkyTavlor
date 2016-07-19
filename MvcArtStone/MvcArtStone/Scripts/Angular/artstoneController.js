@@ -34,7 +34,15 @@ app.controller('artstoneController', ['$scope', '$timeout', '$http', function ($
             });
     }
     getArtworks();
-
+    
+    function getAllArtworks() {
+        console.log("Fetching all artworks from database..");
+        $http.get('/home/GetAllArtworks').then(function(response){
+            $scope.artworkdata.allAvailableArtworks = response.data;
+            console.log(response);
+        });
+    }
+    getAllArtworks();
 
 
     $scope.insertArtwork = function (artwork) {
