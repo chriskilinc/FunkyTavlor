@@ -179,6 +179,91 @@ namespace MvcArtStone.Repository
 
         }
 
+        public static void DeleteArtworkFromDBWithID(string id)
+        {
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
+
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            CloudTable table;
+            table = tableClient.GetTableReference("funkytavlor");
+
+            Artwork SingleArtworkEntity = null;
+
+            // Create a retrieve operation that takes a customer entity.
+            if (id != string.Empty)
+            {
+                TableOperation retrieveOperation = TableOperation.Retrieve<Artwork>("ostra", id.ToString());
+
+                TableResult retrievedResult = table.Execute(retrieveOperation);
+                // Execute the operation.
+
+                if (retrievedResult != null)
+                {
+
+                    // Assign the result to a CustomerEntity object.
+                    SingleArtworkEntity = (Artwork)retrievedResult.Result;
+
+                    //if (SingleArtworkEntity != null)
+                    //{
+                    //    SingleArtworkEntity.Visible = false;
+                    //}
+
+                    //TableOperation editOperation = TableOperation.Replace(SingleArtworkEntity);
+
+                    //table.Execute(editOperation);
+
+
+                    TableOperation deleteOperation = TableOperation.Delete(SingleArtworkEntity);
+                    //FINISH HIM
+                    table.Execute(deleteOperation);
+
+                    //FAAATTAAALIITYYYYYYYY
+                }
+
+            }
+
+        }
+
+        public static void ShowDeletedSingleArtworkWithID(string id)
+        {
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
+
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            CloudTable table;
+            table = tableClient.GetTableReference("funkytavlor");
+
+            Artwork SingleArtworkEntity = null;
+
+            // Create a retrieve operation that takes a customer entity.
+            if (id != string.Empty)
+            {
+                TableOperation retrieveOperation = TableOperation.Retrieve<Artwork>("ostra", id.ToString());
+
+                TableResult retrievedResult = table.Execute(retrieveOperation);
+                // Execute the operation.
+
+                if (retrievedResult != null)
+                {
+
+                    // Assign the result to a CustomerEntity object.
+                    SingleArtworkEntity = (Artwork)retrievedResult.Result;
+
+                    if (SingleArtworkEntity != null)
+                    {
+                        SingleArtworkEntity.Visible = true;
+                    }
+
+                    TableOperation editOperation = TableOperation.Replace(SingleArtworkEntity);
+
+                    table.Execute(editOperation);
+                }
+
+            }
+
+        }
+
 
 
         public static void EditArtworkByModel(Artwork model)
@@ -284,7 +369,47 @@ namespace MvcArtStone.Repository
             }
         }
 
-        public static List<Artwork> SearchArtworks(string searchString)
+        public static List<Artwork> SearchAllArtworks(string searchString)
+        {
+            //CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+            //    ConfigurationManager.AppSettings[_databaseHelper.GetConnectionString()]);
+
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
+            var tableClient = storageAccount.CreateCloudTableClient();
+            var table = tableClient.GetTableReference("funkytavlor");
+            var entities = table.ExecuteQuery(new TableQuery<Artwork>());
+            var searchStringToLower = searchString.ToLower();
+            var queriedEntity = entities.Where(x => x.Title.ToLower().Contains(searchStringToLower));
+            foreach (var artwork in entities)
+            {
+                //Checks if Title, Artist and Room are not null and then returns a valid query
+                if (artwork.Title != null && artwork.Artist != null && artwork.Room != null)
+                {
+                    queriedEntity = entities.Where(x => x.Title.ToLower().Contains(searchStringToLower) || x.Artist.ToLower().Contains(searchStringToLower) || x.Room.ToLower().Contains(searchStringToLower)); //TOLOWER
+                }
+                //Checks if the REQUIERED Title and Artist are NOT null and then returns a valid query
+                else if (artwork.Title != null && artwork.Artist != null)
+                {
+                    queriedEntity = entities.Where(x => x.Title.ToLower().Contains(searchStringToLower) || x.Artist.ToLower().Contains(searchStringToLower));
+                }
+                else
+                {
+                    queriedEntity = entities.Where(x => x.Title.ToLower().Contains(searchStringToLower));
+                }
+            }
+            //CloudBlobClient blobClient;
+
+            //blobClient = storageAccount.CreateCloudBlobClient();
+            //CloudBlobContainer container;
+
+            //container = blobClient.GetContainerReference("funky");  //????????? wtf
+            //container.CreateIfNotExists();
+
+            return queriedEntity.ToList();
+        }
+    }
+
+    public static List<Artwork> SearchArtworks(string searchString)
         {
             //CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
             //    ConfigurationManager.AppSettings[_databaseHelper.GetConnectionString()]);
