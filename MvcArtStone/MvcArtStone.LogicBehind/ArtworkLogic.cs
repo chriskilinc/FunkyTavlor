@@ -73,5 +73,13 @@ namespace MvcArtStone.LogicBehind
             var fullArtworkList = ArtworkRepository.GetAllArtworksAsList();
             return fullArtworkList;
         }
+
+        public static void DestroyArtworkById(string id)
+        {
+            if (id != string.Empty)
+            {
+                ArtworkRepository.DestroyArtworkById(id);
+            }
+        }
     }
 }

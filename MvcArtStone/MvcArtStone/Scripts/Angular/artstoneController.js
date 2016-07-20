@@ -72,6 +72,18 @@ app.controller('artstoneController', ['$scope', '$timeout', '$http', function ($
             })
     }
 
+    $scope.destroyArtwork = function (artwork) {
+        //id = artwork.id;
+
+        $http.post('/home/DestroyArtworkById', artwork)
+            .then(function (response) {
+                //window.location.replace("/home/")
+                console.log("SUCCESS");
+                window.location.reload(); //TODO: Work around a 'reload()' to a real-time update instead of going to the server first
+                console.log(response);
+            })
+    }
+
     $scope.fetchArtworkId = function (artwork) {
         $http.post('/home/editartwork', artwork)
             .then(function (response) {

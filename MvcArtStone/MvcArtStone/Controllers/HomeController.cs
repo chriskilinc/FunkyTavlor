@@ -90,6 +90,16 @@ namespace MvcArtStone.Controllers
             return Content("Fatality");
         }
 
+        [HttpPost]
+        public ActionResult DestroyArtworkById(Artwork model)
+        {
+            if (model != null)
+            {
+                LogicBehind.ArtworkLogic.DestroyArtworkById(model.Id.ToString());
+            }
+            return Content("Artwork removed from database");
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

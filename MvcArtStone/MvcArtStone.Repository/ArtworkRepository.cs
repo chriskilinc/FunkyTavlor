@@ -67,6 +67,35 @@ namespace MvcArtStone.Repository
             container.CreateIfNotExists();
             return entities.ToList();
         }
+        //Permanently removes the artwork from the DB
+        public static void DestroyArtworkById(string id)
+        {
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
+
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            CloudTable table;
+            table = tableClient.GetTableReference("funkytavlor");
+
+            Artwork SingleArtworkEntity = null;
+
+            // Create a retrieve operation that takes a customer entity.
+            if (id != string.Empty)
+            {
+                // Get entity
+                TableOperation retrieveOperation = TableOperation.Retrieve<Artwork>("ostra", id.ToString());
+                TableResult retrievedResult = table.Execute(retrieveOperation);
+                // Execute the operation.
+                if (retrievedResult != null)
+                {
+                    // Assign the result to a CustomerEntity object.
+                    SingleArtworkEntity = (Artwork)retrievedResult.Result;
+                    TableOperation destroyOperation = TableOperation.Delete(SingleArtworkEntity);
+                    table.Execute(destroyOperation);
+                }
+
+            }
+        }
 
         public static void AddArtwork(ArtworkInsertModel model)
         {
@@ -94,8 +123,8 @@ namespace MvcArtStone.Repository
                 Room = model.Room,
                 ImgUrl = "https://t4boys2016.blob.core.windows.net/funky/" + Identity,
                 Visible = true,
-                Signed = model.Signed, 
-                
+                Signed = model.Signed,
+
             };
 
 
@@ -131,7 +160,7 @@ namespace MvcArtStone.Repository
 
             table.Execute(insertOperation);
         }
-        
+
 
         public static void DeleteSingleArtworkWithId(string id)
         {
@@ -152,13 +181,13 @@ namespace MvcArtStone.Repository
                 TableResult retrievedResult = table.Execute(retrieveOperation);
                 // Execute the operation.
 
-                if(retrievedResult != null)
+                if (retrievedResult != null)
                 {
-                    
+
                     // Assign the result to a CustomerEntity object.
                     SingleArtworkEntity = (Artwork)retrievedResult.Result;
 
-                    if(SingleArtworkEntity != null)
+                    if (SingleArtworkEntity != null)
                     {
                         SingleArtworkEntity.Visible = false;
                     }
@@ -282,28 +311,28 @@ namespace MvcArtStone.Repository
 
             if (editArtwork != null)
             {
-                if (model.Title != editArtwork.Title && model.Title != null)                
+                if (model.Title != editArtwork.Title && model.Title != null)
                     editArtwork.Title = model.Title;
-                
-                if(model.Artist != editArtwork.Artist && model.Artist != null)
+
+                if (model.Artist != editArtwork.Artist && model.Artist != null)
                     editArtwork.Artist = model.Artist;
 
-                if(model.Room != editArtwork.Room && model.Room != null)
+                if (model.Room != editArtwork.Room && model.Room != null)
                     editArtwork.Room = model.Room;
 
-                if(model.Signed != editArtwork.Signed)
+                if (model.Signed != editArtwork.Signed)
                     editArtwork.Signed = model.Signed;
 
                 editArtwork.Visible = true;
                 editArtwork.ImgUrl = "https://t4boys2016.blob.core.windows.net/funky/" + model.Id;
-                
-                if(model.Description != editArtwork.Description && model.Description != null)
+
+                if (model.Description != editArtwork.Description && model.Description != null)
                     editArtwork.Description = model.Description;
 
-                if(model.InStorage != editArtwork.InStorage)
+                if (model.InStorage != editArtwork.InStorage)
                     editArtwork.InStorage = model.InStorage;
 
-                                
+
 
                 if (model.Files != string.Empty && model.Files != null)
                 {
@@ -333,8 +362,8 @@ namespace MvcArtStone.Repository
                 TableOperation editOperation = TableOperation.Replace(editArtwork);
 
                 table.Execute(editOperation);
-            }                        
-        }        
+            }
+        }
 
         public Artwork GetSingleArtworkById(string id)
         {
@@ -407,9 +436,8 @@ namespace MvcArtStone.Repository
 
             return queriedEntity.ToList();
         }
-    }
 
-    public static List<Artwork> SearchArtworks(string searchString)
+        public static List<Artwork> SearchArtworks(string searchString)
         {
             //CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
             //    ConfigurationManager.AppSettings[_databaseHelper.GetConnectionString()]);
@@ -417,7 +445,7 @@ namespace MvcArtStone.Repository
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_databaseHelper.GetConnectionString());
             var tableClient = storageAccount.CreateCloudTableClient();
             var table = tableClient.GetTableReference("funkytavlor");
-            var entities = table.ExecuteQuery(new TableQuery<Artwork>()).Where(x => x.Visible);   
+            var entities = table.ExecuteQuery(new TableQuery<Artwork>()).Where(x => x.Visible);
             var searchStringToLower = searchString.ToLower();
             var queriedEntity = entities.Where(x => x.Title.ToLower().Contains(searchStringToLower));
             foreach (var artwork in entities)
@@ -431,7 +459,7 @@ namespace MvcArtStone.Repository
                 else if (artwork.Title != null && artwork.Artist != null)
                 {
                     queriedEntity = entities.Where(x => x.Title.ToLower().Contains(searchStringToLower) || x.Artist.ToLower().Contains(searchStringToLower));
-                }               
+                }
                 else
                 {
                     queriedEntity = entities.Where(x => x.Title.ToLower().Contains(searchStringToLower));
