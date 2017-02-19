@@ -324,7 +324,7 @@ namespace MvcArtStone.Repository
                     editArtwork.Signed = model.Signed;
 
                 editArtwork.Visible = true;
-                editArtwork.ImgUrl = "https://t4boys2016.blob.core.windows.net/funky/" + model.Id;
+                editArtwork.ImgUrl = "https://t4boys2016.blob.core.windows.net/funky/" + model.Id; //TODO: WHAT IS THIS UGLY CODE
 
                 if (model.Description != editArtwork.Description && model.Description != null)
                     editArtwork.Description = model.Description;

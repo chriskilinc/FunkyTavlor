@@ -10,7 +10,7 @@
                 return _connectionString;
 
             _connectionString =
-                "DefaultEndpointsProtocol=https;AccountName=t4boys2016;AccountKey=fo02pXwYf4RxEvWA/cElvgz/OYdvqoniVuzAJ/7odeXLcVtoh+MFTmpzz3JT3uUrTxyF/gkbKdtv6c8ILMJ2hg==";
+                "DefaultEndpointsProtocol=https;AccountName=artstone;AccountKey=Tb+NOz2SZ9VWexTIVJsXvHrpk3FWW2VF9QOUjU6eM9OaxkAaXF08jdSJ2n4JKHtpFmQ93omO1tL6q/VmkjASpw==";
             return _connectionString;
         }
     }
